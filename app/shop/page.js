@@ -134,7 +134,9 @@ export default function ShopPage() {
 
           {/* VELVET CIRCLE MEMBERSHIP */}
           <article className="product-card">
-            <div className="product-media" />
+            <div className="product-media product-media--contain">
+              <img src="/assets/velvet-circle-membership.png" alt="The Velvet Circle — for readers of Beyond the Velvet Ropes" />
+            </div>
             <div className="product-body">
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
