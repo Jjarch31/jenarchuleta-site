@@ -4,7 +4,34 @@
 > where every file lives, how to change things, and how it deploys. A new
 > session should be able to act on this without any prior context.
 
-_Last updated: 2026-06-29 (launch day)._
+_Last updated: 2026-07-24 (commerce build + legal pages added)._
+
+---
+
+## 0. Related context — read these too if the task touches brand, book, or commerce
+
+This file covers the **site's code and infrastructure**. It does NOT duplicate the book/brand
+canon or the live commerce state — those live in their own maintained sources, and duplicating
+them here would just create a second copy that goes stale (it already has, once). Check these
+when relevant:
+
+- **Book & brand canon (voice, positioning, launch status):** Google Drive **"JEN ARCHULETA —
+  BRAND HQ"** → `STUDIO_LOG.md` at the root is the canonical, continuously-updated log. Also
+  `~/Documents/Jennifer/00_PROJECT_INDEX.md` (local working index, read first for anything
+  book/content/launch-related).
+- **Live commerce + legal + automation state (Stripe products, prices, Payment Links, the
+  Make.com automation, Kit tags, Google Sheet tracker):** `~/Documents/Jennifer/07_Legal/
+  VELVET-CIRCLE-COMMERCE-STATUS.md` — this is the current source of truth for everything
+  money-related on the site. **Update it, don't just this file, whenever you change a price,
+  a Payment Link, or the site's commerce config** — the Cowork/Make session reads that file too.
+- **Legal pages content (Privacy/Terms/Shipping & Returns full text, what an attorney needs to
+  know):** `~/Documents/Jennifer/07_Legal/Legal-Pages-Handoff-2026-07-23.md`.
+
+If you (Claude Code) change anything commerce-related — a price, a product, a Stripe link,
+the shop page — **update `VELVET-CIRCLE-COMMERCE-STATUS.md` before finishing**, the same way
+you'd update this file for a code change. That file is shared with a separate Cowork/Make.com
+session that builds the Stripe→Kit→Google Sheets automation; if it goes stale, that session
+will act on wrong prices/links.
 
 ---
 
@@ -19,8 +46,13 @@ It is a **Next.js 14 (App Router, plain JavaScript — no TypeScript)** app:
 - A **Podcast** page (native Buzzsprout player).
 - A **Journal** blog powered by **Sanity CMS** (Jen self-publishes at `/studio`, no code).
 - Email capture via **Kit** (ConvertKit) inline form.
+- A **Shop** page selling a signed book copy, and (soon) a paid membership, a
+  one-time "Founding Box," and a keepsake bookmark — see §5a.
+- **Legal pages**: Privacy Policy, Terms of Service, Shipping & Returns — see §5b.
 
-**Local project folder:** `~/Downloads/Jennifer/Website`
+**Local project folder:** `~/Documents/Jennifer/Website` (moved here from
+`~/Downloads/Jennifer/Website` on 2026-07-24 — update any old notes/scripts that
+still reference the Downloads path).
 
 ---
 
@@ -34,18 +66,21 @@ It is a **Next.js 14 (App Router, plain JavaScript — no TypeScript)** app:
 | **Vercel** | project `jenarchuleta-site`, team "spartanarch31's projects" (Hobby). Git-integrated → push to `main` = production deploy. |
 | **Sanity (CMS)** | project ID **`ac1ruwaz`**, dataset **`production`** (PUBLIC). Studio embedded at `/studio`. Manage: sanity.io/manage/project/ac1ruwaz |
 | **Buzzsprout (podcast)** | show id **`2467154`**, feed `unfilteredwithjenarchuleta.buzzsprout.com` |
-| **Kit (email)** | inline form uid **`ab5cfa4752`** (form 9625768); free-chapter landing slug `ea44cdb33a` |
+| **Kit (email)** | inline form uid **`ab5cfa4752`** (form 9625768); free-chapter landing slug `ea44cdb33a`. Kit also holds Commerce *product records* (cover art, tags) for all 4 shop products, but **Kit's own checkout is NOT used for real purchases** — see §5a. |
+| **Stripe** | processes all real commerce checkout (Payment Links) — see §5a for current links. Merchant-of-record display name: "Archuleta Entertainment." |
 | **Domain registrar / DNS** | **Network Solutions** (nameservers `ns85/ns86.worldnic.com`) |
 
 No secrets live in this repo. Sanity projectId, Buzzsprout id, and Kit uid are all
-public by design (they ship in the client bundle).
+public by design (they ship in the client bundle). Stripe Payment Link URLs are also
+public by design (that's what a Payment Link is) — never commit a Stripe *secret* or
+*restricted API key* here.
 
 ---
 
 ## 3. Repository map — where everything is
 
 ```
-~/Downloads/Jennifer/Website/
+~/Documents/Jennifer/Website/
 ├── CLAUDE.md                      ← this guide
 ├── package.json                   ← Next.js + Sanity deps
 ├── next.config.js                 ← REDIRECTS (old /blog/* + /book.html etc.)
@@ -60,7 +95,7 @@ public by design (they ship in the client bundle).
 │   ├── tokens/                    ← the design system (colors, fonts, typography, spacing, effects, base)
 │   ├── page.js                    ← HOMEPAGE
 │   ├── book/
-│   │   ├── page.js                ← BOOK page (dark register)
+│   │   ├── page.js                ← BOOK page (dark register, own footer)
 │   │   └── book.css               ← book-only styles, scoped under .book-page
 │   ├── podcast/
 │   │   ├── page.js                ← PODCAST page
@@ -70,16 +105,26 @@ public by design (they ship in the client bundle).
 │   │   ├── journal.css            ← feed + article styles
 │   │   ├── _posts.js              ← placeholder fallback posts (used only if Sanity empty)
 │   │   └── [slug]/page.js         ← single JOURNAL POST (Portable Text + funnel)
+│   ├── shop/
+│   │   ├── page.js                ← SHOP page — 4 product cards, see §5a for pricing/links
+│   │   └── shop.css
+│   ├── privacy/page.js            ← Privacy Policy (legal, see §5b)
+│   ├── terms/page.js              ← Terms of Service (legal, see §5b)
+│   ├── shipping-returns/page.js   ← Shipping & Returns incl. Membership cancellation copy (legal, see §5b)
+│   ├── legal-pages.css            ← shared styling for the 3 legal pages (reuses site design tokens)
+│   ├── velvet/
+│   │   └── VelvetClient.js        ← password-gated "Velvet Pages" reader page
 │   ├── studio/[[...tool]]/        ← embedded Sanity Studio (/studio)
 │   │   ├── page.jsx
 │   │   └── Studio.jsx             ← 'use client' wrapper (REQUIRED, see §10)
 │   ├── components/
-│   │   ├── SiteNav.js             ← light-register nav (home/podcast/journal)
-│   │   ├── SiteFooter.js          ← footer + social links
+│   │   ├── SiteNav.js             ← light-register nav (home/podcast/journal/shop)
+│   │   ├── SiteFooter.js          ← footer + social links + legal-page links
 │   │   ├── KitForm.js             ← email-capture section (uses inline form)
 │   │   ├── KitInlineForm.jsx      ← injects Kit inline form
 │   │   ├── BuzzsproutPlayer.jsx   ← injects Buzzsprout native player
-│   │   └── site-data.js           ← ⭐ central config: Kit ids, socials, podcast id + subscribe links
+│   │   └── site-data.js           ← ⭐ central config: Kit ids, socials, podcast id, SHOP product
+│   │                                 links/prices (Stripe Payment Links — see §5a)
 │   └── sanity/
 │       ├── env.js                 ← projectId / dataset / apiVersion
 │       ├── client.js              ← next-sanity client
@@ -100,7 +145,7 @@ public by design (they ship in the client bundle).
 ## 4. Run / build / deploy
 
 ```bash
-cd ~/Downloads/Jennifer/Website
+cd ~/Documents/Jennifer/Website
 npm install          # first time
 npm run dev          # local dev → http://localhost:3000 (or pass -- --port 3100)
 npm run build        # production build (run this to catch errors before pushing)
@@ -135,6 +180,44 @@ deploys (behind Vercel login).
 - **Nav / footer / social links** → `app/components/SiteNav.js`, `SiteFooter.js`, `site-data.js`.
 - **Redirects** → `next.config.js` (per-post ones are in `blog-redirects.json`).
 - **Design tokens (colors/fonts/spacing)** → `app/tokens/*.css`. Brand accent gold = `#BE9543`.
+- **Shop products / prices / Payment Links** → `app/components/site-data.js` (`SHOP` object).
+  **Always check `~/Documents/Jennifer/07_Legal/VELVET-CIRCLE-COMMERCE-STATUS.md` for the
+  current correct prices and links before editing this** — don't hardcode a price you're not
+  sure is current.
+
+### 5a. Shop / commerce — architecture rule, read before touching anything here
+
+**Kit Commerce's own checkout cannot collect a shipping address, a custom field (e.g. book
+personalization), or give a subscriber a self-service cancel option — for ANY product.** So
+the live "Buy"/"Join" button on the site must always point to a **Stripe Payment Link**,
+never to a Kit product's own checkout URL. This has been broken once already (a site update
+accidentally pointed a Buy button at Kit's checkout, which silently had no shipping/
+personalization fields) — don't repeat it. Kit product records still exist for all 4 products
+(cover art, price, tags) and are used by the Make.com automation, but a real customer should
+never land on Kit's own checkout page.
+
+Current products (verify against `VELVET-CIRCLE-COMMERCE-STATUS.md` before trusting these —
+that file is updated more frequently than this one):
+- **Signed Copy** — $41.99 total ($35 + $6.99 shipping) — Stripe Payment Link, live.
+- **Velvet Circle Membership** — $9.99/month — Stripe Payment Link + Stripe Customer Portal
+  (self-service cancel, required for FTC click-to-cancel/ROSCA compliance) — check the status
+  file for whether the site's `site-data.js` link has actually been updated to point at it yet.
+- **Founding Box (Season 1)** — $59 + shipping (shipping estimate under review) — Stripe
+  Payment Link exists but kept off the live site ("Coming Soon") until inventory is in hand.
+- **Signature Velvet Bookmark** — $24.99, not built yet, "Coming Soon"/waitlist.
+
+The Stripe→Kit→Google Sheets automation (tagging buyers in Kit, logging orders to a Google
+Sheet fulfillment tracker) is built and maintained in a separate Make.com scenario, not in
+this repo — full detail in `VELVET-CIRCLE-COMMERCE-STATUS.md`.
+
+### 5b. Legal pages
+
+`/privacy`, `/terms`, `/shipping-returns` were added 2026-07-23, drafted by an AI assistant
+(not a licensed attorney) using "Archuleta Entertainment" as the business name and Arizona as
+governing law — both inferred from the Stripe checkout display name and existing marketing
+copy, **not verified against an actual business registration.** Full original text and the
+attorney-review checklist: `~/Documents/Jennifer/07_Legal/Legal-Pages-Handoff-2026-07-23.md`.
+These pages have NOT been reviewed by counsel yet — don't represent them as final/binding.
 
 ---
 
@@ -192,6 +275,11 @@ the contact address on the site's legal pages (`/privacy`, `/terms`, `/shipping-
 4. **Invite Jen** as a Sanity member so she can publish herself.
 5. **Spot-check categories** — auto-classification is keyword-based; a few posts may want a
    manual category tweak in `/studio`.
+6. **Commerce (check `VELVET-CIRCLE-COMMERCE-STATUS.md` for current detail):** confirm the
+   Membership Payment Link and price are actually live in `site-data.js`; confirm the
+   Shipping & Returns cancellation copy has been updated with the real Stripe portal link
+   (both were instructed 2026-07-24, not yet confirmed shipped as of this writing).
+7. **Legal pages** need a licensed attorney's review before being treated as final.
 
 ---
 
@@ -209,12 +297,48 @@ the contact address on the site's legal pages (`/privacy`, `/terms`, `/shipping-
   editing layout, change the tokens or the relevant page CSS, don't re-architect.
 - **Don't put the inline Kit form on the dark book page** — it's a light form; the book page
   keeps the landing-page button instead.
+- **Never point a physical-goods "Buy" button at a Kit checkout URL** — Kit Commerce can't
+  collect shipping addresses or custom fields for any product. Stripe Payment Links only for
+  Signed Copy, Founding Box, and the Bookmark. See §5a.
+- **A Make.com scenario "looking done" isn't the same as it being saved/active.** The
+  Stripe→Kit→Sheets automation ran for over a day with an empty, deactivated scenario before
+  anyone caught it (fixed 2026-07-24) — if you're ever asked to verify that automation is
+  working, don't trust a screenshot of the visual builder; check the scenario's actual saved
+  state and active/inactive flag.
 
 ---
 
 ## 11. Safety
 
 - **Never commit or paste passwords/API tokens.** This repo is public on GitHub.
-- The site owner manages GitHub, Vercel, Sanity, Kit, Buzzsprout, and Network Solutions
-  accounts — automated sign-ins on their behalf are off-limits; hand account-level login
-  steps back to them.
+- The site owner manages GitHub, Vercel, Sanity, Kit, Buzzsprout, Stripe, and Network
+  Solutions accounts — automated sign-ins on their behalf are off-limits; hand account-level
+  login steps back to them.
+
+---
+
+## 12. Automated safety net — commerce "Stop" hook (added 2026-07-24)
+
+To stop the exact failure mode that happened today (a site-code instruction for the Membership
+Payment Link + Shipping & Returns copy sat un-confirmed for hours, and separately a Make.com
+automation ran broken for over a day, both only caught because a human happened to double-check),
+this repo has a Claude Code **Stop hook**: `.claude/settings.local.json` registers
+`.claude/hooks/check-commerce-log.sh` to run every time a session is about to finish.
+
+**What it does:** if the session touched a commerce/legal-relevant path (`app/shop`,
+`app/privacy`, `app/terms`, `app/shipping-returns`, `app/velvet`, or
+`app/components/site-data.js`) and `../07_Legal/VELVET-CIRCLE-COMMERCE-STATUS.md` hasn't been
+modified in the last 2 hours, the hook **blocks the session from stopping** and prints a message
+telling Claude to go update that status file first. Exit code 2 = blocked; the session must act
+before it's allowed to finish.
+
+**What it does NOT cover:** anything outside this repo (Kit, Stripe, Make.com config changes made
+directly in those dashboards, or Cowork-side brand/book/content work) — those rely on the Drive
+BRAND HQ `STUDIO_LOG.md` + the standing "update before you finish" convention, not a hard gate.
+This hook only closes the gap for site-code changes made through Claude Code in this repo.
+
+**If you're troubleshooting it:** the hook script lives at `.claude/hooks/check-commerce-log.sh`
+(bash, not tracked in git — local-only, see `.gitignore`). It checks `git status --porcelain` and
+the last commit for relevant paths, then compares against the status file's mtime. If it's
+misfiring (blocking when it shouldn't, or not blocking when it should), read the script — it's
+short and heavily commented — before assuming something's broken elsewhere.

@@ -13,3 +13,6 @@
 .env*.local
 npm-debug.log*
 .env*
+
+# Claude Code local-only permissions/hooks config (personal, not shared)
+.claude/settings.local.json
