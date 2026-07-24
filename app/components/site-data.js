@@ -44,11 +44,13 @@ export const SHOP = {
   bookmarkWaitlist: '',
   bookmarkPrice: '$24.99',
 
-  // VELVET CIRCLE MEMBERSHIP — not yet live on the site. Kit product is
-  // ready at https://jennifer-archuleta.kit.com/products/velvet-circle-membership
-  // — paste that URL into `velvetCircleMembership` below to launch it.
+  // VELVET CIRCLE MEMBERSHIP — not yet live on the site. Billed through
+  // Stripe (recurring price + Payment Link, same pattern as `signedBook`);
+  // the Stripe Customer Portal is already active for self-service cancellation
+  // (see app/shipping-returns/page.js). Paste the Stripe Payment Link URL
+  // into `velvetCircleMembership` below to launch it.
   velvetCircleMembership: '',
-  velvetCircleMembershipPrice: '$19/mo',
+  velvetCircleMembershipPrice: '$9.99/mo',
 
   // FOUNDING BOX (Season 1) — not yet live on the site. Kit product is
   // ready at https://jennifer-archuleta.kit.com/products/founding-box-season-1
