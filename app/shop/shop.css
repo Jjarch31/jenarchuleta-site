@@ -61,12 +61,6 @@
   object-fit: contain;
   padding: 7%;
 }
-/* portrait artwork (3:4) — matches the source image exactly so it fills
-   the frame edge-to-edge with no cropping and no padding */
-.shop-page .product-media--portrait {
-  aspect-ratio: 3 / 4;
-}
-
 /* status badge over the photo (ink scrim + cream text = AAA on any image) */
 .shop-page .badge {
   position: absolute;
