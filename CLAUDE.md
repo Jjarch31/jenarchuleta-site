@@ -178,8 +178,8 @@ Website records (point to Vercel):
 - `CNAME cka._domainkey`, `cka2._domainkey`, `ckespa` (DKIM/SPF)
 - `TXT _dmarc`
 
-There is **no inbox** at the domain (no MX records) — `jen@jenarchuleta.com` does not
-receive mail. Setting up a real mailbox would be a separate task (Google Workspace etc.).
+`jen@jenarchuleta.com` **is live and receives mail** (confirmed 2026-07-24) — it's used as
+the contact address on the site's legal pages (`/privacy`, `/terms`, `/shipping-returns`).
 
 ---
 

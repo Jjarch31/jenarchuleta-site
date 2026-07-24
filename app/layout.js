@@ -1,5 +1,35 @@
+import { Cinzel, Cormorant_Garamond, Allura, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import ScrollReveal from './components/ScrollReveal';
+
+// Self-hosted via next/font (built at compile time — no runtime request to
+// Google, so no visitor IP is ever sent to fonts.googleapis.com/gstatic.com).
+// Same families, weights, and styles as before — no design change.
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-cinzel',
+  display: 'swap',
+});
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant-garamond',
+  display: 'swap',
+});
+const allura = Allura({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-allura',
+  display: 'swap',
+});
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-hanken-grotesk',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL('https://jenarchuleta.com'),
@@ -22,15 +52,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Allura&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${cinzel.variable} ${cormorantGaramond.variable} ${allura.variable} ${hankenGrotesk.variable}`}
+    >
       <body>
         {children}
         <ScrollReveal />

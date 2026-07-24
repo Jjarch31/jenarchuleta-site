@@ -8,12 +8,12 @@
    ============================================================ */
 
 :root {
-  /* -- families -- */
-  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-body:    'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-caps:    'Cinzel', Georgia, serif;          /* backbone caps */
-  --font-script:  'Allura', cursive;
-  --font-sans:    'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  /* -- families -- (self-hosted via next/font, see app/layout.js) */
+  --font-display: var(--font-cormorant-garamond), Georgia, 'Times New Roman', serif;
+  --font-body:    var(--font-cormorant-garamond), Georgia, 'Times New Roman', serif;
+  --font-caps:    var(--font-cinzel), Georgia, serif;          /* backbone caps */
+  --font-script:  var(--font-allura), cursive;
+  --font-sans:    var(--font-hanken-grotesk), system-ui, -apple-system, sans-serif;
 
   /* -- weights -- */
   --w-light: 300;    /* @kind other */

@@ -5,7 +5,8 @@
      Cormorant Garamond— display name + memoir reading body
      Allura            — signature script accent
      Hanken Grotesk    — clean modern sans for UI / captions
-   Loaded via <link> + preconnect in app/layout.js (not @import,
-   which is render-blocking and can't be preloaded). Drop into
-   @font-face to self-host later with no design change.
+   Self-hosted via next/font/google in app/layout.js — fetched and
+   served from this domain at build time, so no runtime request ever
+   goes to Google's font servers. Exposed as CSS variables consumed
+   by --font-display / --font-caps / --font-script / --font-sans below.
    ============================================================ */
