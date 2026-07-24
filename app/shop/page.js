@@ -134,13 +134,26 @@ export default function ShopPage() {
 
           {/* VELVET CIRCLE MEMBERSHIP */}
           <article className="product-card">
-            <div className="product-media product-media--contain">
+            <div className="product-media product-media--portrait">
               <img src="/assets/velvet-circle-membership.png" alt="The Velvet Circle — for readers of Beyond the Velvet Ropes" />
             </div>
             <div className="product-body">
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
+              <p className="product-desc">
+                A private monthly gathering with me — live, where we talk through the book, the
+                questions people ask me most, and what&rsquo;s actually true about starting over.
+              </p>
+              <p className="product-desc">
+                Every month: a live conversation, the chance to send in your questions ahead of
+                time, and the replay if you can&rsquo;t make it live.
+              </p>
+              <p className="product-desc">
+                This is for anyone working through their own hard chapter and looking for a little
+                company along the way.
+              </p>
+              <p className="product-desc">I&rsquo;d love for you to join us.</p>
               <div className="product-cta">
                 {SHOP.velvetCircleMembership ? (
                   <>
