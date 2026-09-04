@@ -40,16 +40,23 @@ export const SHOP = {
   signedBookPrice: '$35',
   signedBookLeadTime: 'Signed by hand, one at a time — please allow 2–3 weeks.',
 
-  bookmark: '',
+  // SOLD OUT SWITCH — flip to false to put signed copies back on sale.
+  // NOTE: `signedBook` above is deliberately left populated. The printed
+  // Barnes & Noble poster QR (Aug 23 Youngstown signing) points straight at
+  // that Stripe link, so it must stay alive even while the site says sold out.
+  signedBookSoldOut: true,
+  signedBookSoldOutNote: 'Sold out for now — I sign these by hand, a few at a time. The next batch is coming soon.',
+
+  bookmark: 'https://buy.stripe.com/4gM4gyfqP1ixbvdewads407',
   bookmarkWaitlist: '',
   bookmarkPrice: '$24.99',
 
-  // VELVET CIRCLE MEMBERSHIP — not yet live on the site (Jen isn't set up
-  // to run it yet). The recurring Stripe Payment Link ($9.99/mo) already
-  // exists and is ready to go — paste it back into `velvetCircleMembership`
-  // below when she's ready to launch:
-  // https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406
-  velvetCircleMembership: '',
+  // VELVET CIRCLE MEMBERSHIP — LIVE as of 2026-08-19. Recurring Stripe Payment
+  // Link, $9.99/mo. Self-service cancel is handled by the Stripe Customer
+  // Portal (https://billing.stripe.com/p/login/14A8wO3I70et2YHco2ds400), which
+  // is what keeps this FTC click-to-cancel / ROSCA compliant — don't take the
+  // membership live through any checkout that lacks that portal.
+  velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
   velvetCircleMembershipPrice: '$9.99/mo',
 
   // FOUNDING BOX (Season 1) — not yet live on the site. Kit product is
