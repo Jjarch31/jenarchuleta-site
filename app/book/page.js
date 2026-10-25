@@ -50,7 +50,7 @@ export default function BookPage() {
             <div className="eyebrow">My memoir is out now.</div>
             <h1>Beyond the Velvet Ropes</h1>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
-            <p style={{ color: 'var(--text)' }}>This isn’t the story you think it is. From the outside, it looked like a dream. It wasn’t the whole story. But the real story lives in the moments no one saw. This is my real story.</p>
+            <p style={{ color: 'var(--text)' }}>Here’s what really happened. From the outside, it looked like a dream. It wasn’t the whole story. But the real story lives in the moments no one saw. This is my real story.</p>
             <div className="buy-row">
               <a href="https://books.by/beyond-the-velvet-ropes" target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
               <a href="https://www.amazon.com/dp/B0H6YZWDT3" target="_blank" rel="noopener" className="btn btn-ghost">Also on Amazon</a>
@@ -68,7 +68,7 @@ export default function BookPage() {
       {/* THE HOOK */}
       <section className="wrap text-wrap center">
         <div className="threshold-rule" style={{ maxWidth: '220px', margin: '0 auto 24px' }}><span className="diamond" /></div>
-        <p className="lead" style={{ fontSize: 'var(--text-body-l)' }}>Before the spotlight, there was pain. Behind the image, there was fear. And beneath it all, there was a girl trying to hold on to who she was while everything around her tried to define her. <em>Beyond the Velvet Ropes</em> is about getting through it, and finding my way back to myself.</p>
+        <p className="lead" style={{ fontSize: 'var(--text-body-l)' }}><em>Beyond the Velvet Ropes</em> is about getting through it, and finding my way back to myself.</p>
       </section>
 
       {/* WHO IT'S FOR */}

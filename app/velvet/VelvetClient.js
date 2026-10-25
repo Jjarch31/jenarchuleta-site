@@ -120,7 +120,7 @@ export default function VelvetClient({ letters = [] }) {
               height="1370"
             />
             <div className="eyebrow">For readers of Beyond the Velvet Ropes</div>
-            <h1>This is where the story continues.</h1>
+            <h1>For readers of the book.</h1>
             <p className="gate-sub">
               Enter the password from the back of the book.
             </p>
@@ -183,7 +183,7 @@ export default function VelvetClient({ letters = [] }) {
       {/* WELCOME LETTER */}
       <section className="wrap text-wrap letter">
         <div className="eyebrow">You made it</div>
-        <h1>Welcome behind the ropes.</h1>
+        <h1>You’re in.</h1>
         <p>
           If you&rsquo;re reading this, you just finished my story, or you skipped
           to the back. Either way, I&rsquo;m glad you&rsquo;re here.

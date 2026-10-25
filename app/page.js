@@ -84,7 +84,7 @@ export default function Home() {
         <div className="wrap trailer-feature">
           <div className="tf-copy">
             <div className="eyebrow">Watch the Trailer</div>
-            <p className="tf-logline">“Everyone knew the headlines. No one knew the story.”</p>
+            <p className="tf-logline">Watch the trailer.</p>
             <p className="tf-cap">The official trailer for <em>Beyond the Velvet Ropes</em>, about ninety seconds.</p>
           </div>
           <figure className="tf-video">
@@ -104,7 +104,7 @@ export default function Home() {
       <section id="story" className="wrap">
         <div className="story-grid">
           <div>
-            <h2>The long way to an ordinary, beautiful life.</h2>
+            <h2>How I got here.</h2>
             <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent my twenties proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
             <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
             <p className="pull">“You didn’t need rescuing. You needed time. Time to find your voice. Time to believe it mattered.”</p>
@@ -151,20 +151,20 @@ export default function Home() {
       {/* MOVEMENT */}
       <section id="movement" className="wrap creed" style={{ background: 'var(--surface)' }}>
         <div className="threshold-rule" style={{ marginBottom: '20px' }}><span className="diamond" /></div>
-        <h2>Everyone belongs beyond the ropes.</h2>
+        <h2>Everyone belongs.</h2>
         <p className="lead" style={{ maxWidth: '60ch', marginInline: 'auto' }}>A velvet rope decides who gets in. I’d rather let everyone in. No one’s story is over.</p>
         <ul>
           <li>Everyone belongs, so we choose the overlooked.</li>
-          <li>No one’s story is over. It’s still being written.</li>
+          <li>No one’s story is over.</li>
           <li>We forgive, even without the apology.</li>
-          <li>We fall, we learn, and we rise anyway.</li>
+          <li>We fall, we learn, and we get back up.</li>
           <li>What we went through can help someone else.</li>
         </ul>
       </section>
 
       {/* JOURNAL */}
       <section id="journal" className="wrap">
-        <div className="center"><h2>Notes from the road back to myself.</h2>
+        <div className="center"><h2>From the journal.</h2>
           <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Short, honest writing on faith, family, healing, and starting over.</p></div>
         <div className="cards-3 feature-first">
           <a className="mini" href="/journal"><div className="body"><div className="k">Faith</div><h3>It is in the waiting that we become who we’re meant to be.</h3></div></a>

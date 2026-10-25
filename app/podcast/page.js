@@ -74,7 +74,7 @@ export default function PodcastPage() {
       </section>
 
       <KitForm
-        heading="Never miss an episode."
+        heading="New episodes, by email."
         blurb="Get new episodes and the first chapter of the book, straight to your inbox."
         cta="Join the newsletter"
       />

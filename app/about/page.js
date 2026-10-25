@@ -102,7 +102,7 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow">My people</p>
             <h2 className="tim-h2" style={{ fontSize: '46px', marginBottom: '24px' }}>
-              Fiercely loyal to the few who are mine.
+              The people who are mine.
             </h2>
             <p className="tim-lead" style={{ margin: 0 }}>
               My husband, my kids, a handful of people I’d do anything for, and a houseful of animals

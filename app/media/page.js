@@ -180,7 +180,7 @@ export default function MediaPage() {
 
       <section className="wrap">
         <h2>My podcast</h2>
-        <p className="media-lead">Unfiltered with Jen Archuleta. Real stories, no filters.</p>
+        <p className="media-lead">Unfiltered with Jen Archuleta.</p>
         <div className="media-actions">
           <a className="btn btn-primary" href={PODCAST.buzzsprout} target="_blank" rel="noopener noreferrer">Listen on Buzzsprout</a>
           <a className="btn btn-ghost" href={PODCAST.youtube} target="_blank" rel="noopener noreferrer">Watch on YouTube</a>

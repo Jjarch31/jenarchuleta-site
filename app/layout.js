@@ -46,7 +46,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'Jen Archuleta, Beyond the Velvet Ropes',
-    description: "This isn't the story you think it is. Read the first chapter free.",
+    description: "Here’s what really happened. Read the first chapter free.",
     type: 'website',
     images: [OG_IMAGE],
   },
