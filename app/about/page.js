@@ -7,7 +7,7 @@ import { KIT_FORM_UID, SOCIALS } from '../components/site-data';
 export const metadata = {
   title: 'About',
   description:
-    'Hi, I’m Jen — a mom, a wife, and a houseful of rescue dogs. Faith, family, and giving back. This is me.',
+    'Hi, I’m Jen — a mom, a wife, and the human behind a houseful of rescue dogs. Faith, family, and giving back. This is me.',
 };
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
           <h1 className="tim-display">Hi — I’m&nbsp;Jen.</h1>
           <p className="tim-script">and this is me</p>
           <p className="tim-lead">
-            I don’t really do labels. I’m just me — a mom, a wife, and yes, a houseful of rescue dogs.
+            I don’t really do labels. I’m just me — a mom, a wife, and yes, the human behind a houseful of rescue dogs.
             I had a whole lot of incredible experiences in my twenties… but honestly? These days it’s the
             small stuff that gets me. Kids everywhere, dogs on the couch they’re not allowed on. My
             faith, my family, and giving back. That’s pretty much it.
@@ -76,19 +76,20 @@ export default function AboutPage() {
           <p className="tim-hint">A few true things · dogs, animals, the everyday</p>
           <div className="tim-grid2">
             <div className="tim-slot-wrap" style={{ gridColumn: '1 / -1' }}>
-              <img className="tim-img" src="/assets/dogs.jpg" alt="Jen’s five rescue dogs together in the garden" />
+              <img className="tim-img" src="/assets/dogs.jpg" alt="Jen’s five rescue dogs together in the garden" width="1400" height="786" loading="lazy" decoding="async" />
               <span className="tim-slot-cap">All five of them</span>
             </div>
             <div className="tim-slot-wrap">
-              <img className="tim-img tall" src="/assets/wandered-in.jpg" alt="The family tortoise wandering through the house" />
+              <img className="tim-img tall" src="/assets/wandered-in.jpg" alt="The family tortoise wandering through the house" loading="lazy" decoding="async" />
               <span className="tim-slot-cap">Whoever else wandered in</span>
             </div>
             <div className="tim-slot-wrap">
-              <img className="tim-img tall" src="/assets/coffee.jpg" alt="A quiet morning coffee before the house wakes up" />
+              <img className="tim-img tall" src="/assets/coffee.jpg" alt="A quiet morning coffee before the house wakes up" loading="lazy" decoding="async" />
               <span className="tim-slot-cap">Before the house wakes up</span>
             </div>
             <div className="tim-slot-wrap" style={{ gridColumn: '1 / -1' }}>
-              <img className="tim-img" src="/assets/kids.jpg" alt="Jen’s kids asleep with one of the dogs" />
+              {/* Was kids.jpg (kids’ faces visible) — swapped 2026-10-24 for a dogs-only crop of the same photo per the no-kids’-faces rule. */}
+              <img className="tim-img" src="/assets/dogs-on-the-bed.jpg" alt="Two of the rescue dogs curled up on the bed" width="660" height="520" loading="lazy" decoding="async" />
               <span className="tim-slot-cap">A full, happy house</span>
             </div>
           </div>
@@ -118,7 +119,7 @@ export default function AboutPage() {
       {/* THEN & NOW */}
       <section id="then" className="tim-wrap tim-then">
         <div>
-          <img className="tim-gray" src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta, earlier years" />
+          <img className="tim-gray" src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta, earlier years" loading="lazy" decoding="async" />
         </div>
         <div>
           <p className="eyebrow">Then &amp; now</p>

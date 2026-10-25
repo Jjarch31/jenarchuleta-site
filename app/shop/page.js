@@ -51,6 +51,7 @@ export default function ShopPage() {
           {/* SIGNED BOOK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
+              {SHOP.signedBookSoldOut && <span className="badge">Sold out — restocking soon</span>}
               <img
                 src="/assets/book-cover.jpg"
                 alt="Beyond the Velvet Ropes — book cover"
@@ -64,9 +65,18 @@ export default function ShopPage() {
                 Signed by me, with a note to whoever you’d like — you, or someone
                 who needs to hear that their story isn’t over.
               </p>
-              <p className="fulfill">{SHOP.signedBookLeadTime}</p>
+              <p className="fulfill">
+                {SHOP.signedBookSoldOut ? SHOP.signedBookSoldOutNote : SHOP.signedBookLeadTime}
+              </p>
               <div className="product-cta">
-                {SHOP.signedBook ? (
+                {SHOP.signedBookSoldOut ? (
+                  <>
+                    <span className="btn btn-disabled">Sold out — restocking soon</span>
+                    <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
+                      Read the first chapter free
+                    </a>
+                  </>
+                ) : SHOP.signedBook ? (
                   <>
                     <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">
                       Order a signed copy

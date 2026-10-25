@@ -7,6 +7,7 @@ One-off / repeatable maintenance scripts. Not part of the Next.js build.
 | `migrate.py` | Parses a Squarespace **WordPress XML** export → Sanity NDJSON (`out/posts.ndjson`) + per-post redirects (`../blog-redirects.json`). Filters to substantive posts (600+ chars), strips social-feed noise, preserves dates/images/slugs. | Edit the `F` (export path) and output paths at the top, then `python3 scripts/migrate.py` |
 | `classify.py` | Reads `out/posts.ndjson` → assigns each post a Category by keyword scoring → `out/categories.json`. | `python3 scripts/classify.py` |
 | `patch-categories.cjs` | Applies `out/categories.json` to posts already in Sanity. | `CATS=./scripts/out/categories.json npx sanity exec scripts/patch-categories.cjs --with-user-token` |
+| `fix-journal-links-2026-10.cjs` | One-off (2026-10-24): fixes the B&N, Vindicator, and Chapter 2 post links + two migration-glued podcast posts. Re-run safe (skips anything already fixed or edited since). | `npx sanity exec scripts/fix-journal-links-2026-10.cjs --with-user-token` |
 
 **Import migrated posts into Sanity** (downloads + uploads images via `_sanityAsset` URLs):
 ```

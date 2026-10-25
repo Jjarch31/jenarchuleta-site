@@ -1,7 +1,7 @@
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
-import { KIT_FREE_CHAPTER_URL, KIT_FORM_UID, SOCIALS, SHOP } from './components/site-data';
+import { KIT_FREE_CHAPTER_URL, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 
 export default function Home() {
   return (
@@ -108,6 +108,19 @@ export default function Home() {
           </div>
           <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="1026" height="1532" loading="lazy" /></div>
         </div>
+      </section>
+
+      {/* PODCAST — subscribe buttons (the buy row's Spotify link is the AUDIOBOOK, not the show) */}
+      <section id="podcast" className="wrap center" style={{ background: 'var(--surface)' }}>
+        <div className="eyebrow">The Podcast</div>
+        <h2>{PODCAST.name}</h2>
+        <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Honest conversations on faith, family, resilience, and starting over — the same honest voice as the book.</p>
+        <div className="hero-ctas" style={{ justifyContent: 'center', marginTop: '8px' }}>
+          <a href={PODCAST.subscribe.spotify} target="_blank" rel="noopener" className="btn btn-primary">Listen on Spotify</a>
+          <a href={PODCAST.subscribe.apple} target="_blank" rel="noopener" className="btn btn-ghost">Apple Podcasts</a>
+          <a href={PODCAST.subscribe.youtube} target="_blank" rel="noopener" className="btn btn-ghost">Watch on YouTube</a>
+        </div>
+        <p className="foot-meta" style={{ marginTop: '18px' }}><a href="/podcast">All episodes →</a></p>
       </section>
 
       {/* MEET JEN (beauty + personality) */}

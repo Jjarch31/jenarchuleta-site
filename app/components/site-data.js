@@ -44,7 +44,7 @@ export const SHOP = {
   // NOTE: `signedBook` above is deliberately left populated. The printed
   // Barnes & Noble poster QR (Aug 23 Youngstown signing) points straight at
   // that Stripe link, so it must stay alive even while the site says sold out.
-  signedBookSoldOut: true,
+  signedBookSoldOut: false,
   signedBookSoldOutNote: 'Sold out for now — I sign these by hand, a few at a time. The next batch is coming soon.',
 
   bookmark: 'https://buy.stripe.com/4gM4gyfqP1ixbvdewads407',

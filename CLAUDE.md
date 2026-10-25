@@ -63,7 +63,7 @@ still reference the Downloads path).
 | Live site | https://jenarchuleta.com (apex 301→ `www.jenarchuleta.com`) |
 | Vercel preview/prod URL | https://jenarchuleta-site.vercel.app |
 | **GitHub repo** | https://github.com/SpartanArch31/jenarchuleta-site (branch `main` auto-deploys; owner GitHub acct `SpartanArch31`) |
-| **Vercel** | project `jenarchuleta-site`, team "spartanarch31's projects" (Hobby). Git-integrated → push to `main` = production deploy. |
+| **Vercel** | project `jenarchuleta-site`, team "spartanarch31's projects" (Hobby). Git-integrated → push to `main` = production deploy. **Access (checked 2026-10-24):** Hobby can't add team members (Pro = $20/mo platform incl. 1 deploying seat, +$20/mo per extra Owner/Member seat, Viewer seats free). Because this repo is **public**, a GitHub collaborator's pushes deploy on Hobby without a Vercel seat ("collaboration is free for public repositories"). Hobby is also non-commercial-only per Vercel's terms, and this site sells things — Pro fixes that. |
 | **Sanity (CMS)** | project ID **`ac1ruwaz`**, dataset **`production`** (PUBLIC). Studio embedded at `/studio`. Manage: sanity.io/manage/project/ac1ruwaz |
 | **Buzzsprout (podcast)** | show id **`2467154`**, feed `unfilteredwithjenarchuleta.buzzsprout.com` |
 | **Kit (email)** | inline form uid **`ab5cfa4752`** (form 9625768); free-chapter landing slug `ea44cdb33a`. Kit also holds Commerce *product records* (cover art, tags) for all 4 shop products, but **Kit's own checkout is NOT used for real purchases** — see §5a. |
@@ -233,6 +233,11 @@ These pages have NOT been reviewed by counsel yet — don't represent them as fi
   Add new origins with: `npx sanity cors add <url> --credentials`.
 - **Data flow:** site reads PUBLISHED posts via the public dataset (no token), with ISR
   (`app/sanity/queries.js`, revalidate 60s) — new/edited posts go live without a redeploy.
+- **Bare URLs auto-link (2026-10-24):** `linkifyBody()` in `app/journal/[slug]/page.js` turns
+  plain-text http(s) URLs in a post into real links at render time (the Squarespace migration
+  left ~90 links as plain text, and URLs pasted in /studio arrive as plain text). External
+  links open in a new tab. Nothing in Sanity is changed by this. Still prefer real links
+  (select text → link icon in /studio) for nice link text.
 - **CLI:** the Sanity CLI is logged in on this Mac. `npx sanity ...` works. If not:
   `npx sanity login` (pick GitHub).
 
@@ -305,6 +310,20 @@ the contact address on the site's legal pages (`/privacy`, `/terms`, `/shipping-
   anyone caught it (fixed 2026-07-24) — if you're ever asked to verify that automation is
   working, don't trust a screenshot of the visual builder; check the scenario's actual saved
   state and active/inactive flag.
+
+- **No kids' faces anywhere on the site** (Jen's hard rule). `kids.jpg` on /about showed all
+  three kids' faces — swapped 2026-10-24 for `dogs-on-the-bed.jpg` (a dogs-only crop of the
+  same photo); the original is in `../_ARCHIVE/site-media-originals-2026-10-24/`.
+- **Compress media before adding it.** Phones were slow because of a 21.9 MB trailer and
+  700 KB+ photos. Now: `trailer.mp4` = 720×1280 H.264 CRF 28 (~7 MB; the 196 MB master is
+  `../03_Trailer_Reel/BTVR_Reel_FINAL_VO.mp4`), photos ≤1000–1400 px wide at JPEG q80.
+  Originals of everything recompressed are in `../_ARCHIVE/site-media-originals-2026-10-24/`.
+- **The buy-row "Audiobook (Spotify)" link is the AUDIOBOOK, not the podcast.** Podcast
+  subscribe buttons live in the homepage `#podcast` section and read from `PODCAST` in
+  `site-data.js` (same as /podcast).
+- **Name:** visible brand stays "Jen Archuleta"; book listings say "Jennifer Walcott
+  Archuleta." JSON-LD in `app/layout.js` (Person, with alternateName) and `app/book/page.js`
+  (Book) tells search engines they're the same person. /book's title matches the listings.
 
 ---
 

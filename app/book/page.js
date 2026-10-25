@@ -2,14 +2,35 @@ import './book.css';
 import { KIT_FREE_CHAPTER_URL } from '../components/site-data';
 
 export const metadata = {
-  title: 'Beyond the Velvet Ropes',
+  // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
+  title: { absolute: 'Beyond the Velvet Ropes by Jennifer Walcott Archuleta' },
   description:
     'Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love by Jennifer Walcott Archuleta. Out now. Read the first chapter free.',
+};
+
+const bookJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: 'Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love',
+  author: {
+    '@type': 'Person',
+    name: 'Jennifer Walcott Archuleta',
+    alternateName: 'Jen Archuleta',
+    url: 'https://jenarchuleta.com/about',
+  },
+  image: 'https://jenarchuleta.com/assets/book-cover.jpg',
+  url: 'https://jenarchuleta.com/book',
+  datePublished: '2026-07-04',
+  sameAs: [
+    'https://www.amazon.com/dp/B0H6YZWDT3',
+    'https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885',
+  ],
 };
 
 export default function BookPage() {
   return (
     <div className="dark book-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }} />
       <nav className="nav">
         <div className="nav-inner">
           <a href="/" className="brand">Jen Archuleta</a>

@@ -57,6 +57,7 @@
 .article-head .meta { font-family:var(--font-sans); font-size:var(--text-meta); color:var(--text-muted); }
 .article-hero { width:100%; max-height:520px; object-fit:cover; border-radius:var(--radius-lg); box-shadow:var(--shadow); margin:28px 0; }
 .article-body p { font-size: var(--text-body); margin:0 0 1.1em; }
+.article-body a { overflow-wrap: anywhere; }
 
 .disclosure { font-family:var(--font-sans); font-size:var(--text-meta); color:var(--text-muted); border-top:var(--hairline); padding-top:16px; margin-top:28px; }
 .sponsor-block { background:var(--surface-alt); border:var(--hairline); border-radius:var(--radius-lg); padding:20px 24px; margin:28px 0; }

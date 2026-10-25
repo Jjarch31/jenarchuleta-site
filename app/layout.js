@@ -1,6 +1,7 @@
 import { Cinzel, Cormorant_Garamond, Allura, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import ScrollReveal from './components/ScrollReveal';
+import { SOCIALS, PODCAST } from './components/site-data';
 
 // Self-hosted via next/font (built at compile time — no runtime request to
 // Google, so no visitor IP is ever sent to fonts.googleapis.com/gstatic.com).
@@ -38,7 +39,7 @@ export const metadata = {
     template: '%s — Jen Archuleta',
   },
   description:
-    'Jen Archuleta (Jennifer Walcott) — author, speaker, and advocate. Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love. Read the first chapter free.',
+    'Jen Archuleta (Jennifer Walcott Archuleta) — author, speaker, and advocate. Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love. Read the first chapter free.',
   icons: {
     icon: '/assets/favicon.svg',
     apple: '/assets/app-icon-512.png',
@@ -50,6 +51,20 @@ export const metadata = {
   },
 };
 
+// The site brand is "Jen Archuleta"; the book listings (Amazon, B&N, Spotify)
+// say "Jennifer Walcott Archuleta." This structured data tells search engines
+// they're the same person without changing what visitors see.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jen Archuleta',
+  alternateName: ['Jennifer Walcott Archuleta', 'Jennifer Walcott', 'Jennifer Archuleta'],
+  url: 'https://jenarchuleta.com',
+  image: 'https://jenarchuleta.com/assets/jen-headshot-blazer.jpg',
+  jobTitle: 'Author',
+  sameAs: [SOCIALS.instagram, SOCIALS.x, PODCAST.subscribe.spotify, PODCAST.subscribe.apple, PODCAST.subscribe.youtube],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -57,6 +72,7 @@ export default function RootLayout({ children }) {
       className={`${cinzel.variable} ${cormorantGaramond.variable} ${allura.variable} ${hankenGrotesk.variable}`}
     >
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
         {children}
         <ScrollReveal />
       </body>
