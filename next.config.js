@@ -14,7 +14,7 @@ const pageRedirects = [
   { source: '/bio', destination: '/about', permanent: true },
   { source: '/story', destination: '/#story', permanent: true },
   { source: '/my-story', destination: '/#story', permanent: true },
-  { source: '/speaking', destination: '/#speaking', permanent: true },
+  { source: '/speaking', destination: '/media#speaking', permanent: true },
   // Old Squarespace store, product, and cart URLs → the shop.
   { source: '/store/:path*', destination: '/shop', permanent: true },
   { source: '/shop/p/:path*', destination: '/shop', permanent: true },
@@ -22,16 +22,15 @@ const pageRedirects = [
   { source: '/checkout', destination: '/shop', permanent: true },
   // Old newsletter / Mailchimp-era signup paths → the free-chapter signup.
   // Temporary (307) so a real page can take these paths later without cached redirects.
-  { source: '/subscribe', destination: '/#speaking', permanent: false },
-  { source: '/signup', destination: '/#speaking', permanent: false },
-  { source: '/sign-up', destination: '/#speaking', permanent: false },
-  { source: '/mailing-list', destination: '/#speaking', permanent: false },
+  { source: '/subscribe', destination: '/#letter', permanent: false },
+  { source: '/signup', destination: '/#letter', permanent: false },
+  { source: '/sign-up', destination: '/#letter', permanent: false },
+  { source: '/mailing-list', destination: '/#letter', permanent: false },
   { source: '/the-forever-angels', destination: '/#movement', permanent: true },
   { source: '/forever-angels', destination: '/#movement', permanent: true },
-  { source: '/newsletter', destination: '/#speaking', permanent: true },
-  { source: '/contact', destination: '/', permanent: true },
-  { source: '/press', destination: '/', permanent: true },
-  { source: '/media', destination: '/', permanent: true },
+  { source: '/newsletter', destination: '/#letter', permanent: true },
+  // /contact and /media are real pages. /press stays a permanent alias.
+  { source: '/press', destination: '/media', permanent: true },
   { source: '/events', destination: '/', permanent: true },
   { source: '/home', destination: '/', permanent: true },
   { source: '/work-with-me', destination: '/', permanent: true },

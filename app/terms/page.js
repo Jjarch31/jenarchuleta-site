@@ -37,15 +37,15 @@ export default function TermsPage() {
             Archuleta, including her memoir <em>Beyond the Velvet Ropes</em> and the Journal blog. This
             content reflects the author&rsquo;s personal recollections and perspective at the time of
             writing; names or identifying details of other people may be changed. Nothing on this Site
-            is professional medical, legal, financial, or psychological advice — if you&rsquo;re
+            is professional medical, legal, financial, or psychological advice. If you&rsquo;re
             struggling, please reach out to a qualified professional or a crisis line in your area.
           </p>
 
           <h2>3. Purchases</h2>
           <p>
-            Some items — such as signed copies of the book, and in the future, memberships or specialty
-            boxes — are available for direct purchase through third-party checkout providers (currently
-            Stripe, and Kit for certain products). By placing an order, you agree to that provider&rsquo;s
+            The Site offers signed copies of the book and a monthly membership (Velvet Circle), and may
+            offer specialty boxes. These are available for direct purchase through third-party checkout
+            providers (currently Stripe, and Kit for certain products). By placing an order, you agree to that provider&rsquo;s
             terms in addition to these. Prices, availability, and product details are subject to change
             without notice. Shipping, returns, and cancellation terms for physical and recurring products
             are set out in our{' '}
@@ -54,8 +54,8 @@ export default function TermsPage() {
 
           <h2>4. Intellectual property</h2>
           <p>
-            All text, images, audio, and other content on this Site — including the book cover, photos,
-            podcast episodes, and Journal posts — is owned by Archuleta Entertainment / Jennifer Walcott
+            All text, images, audio, and other content on this Site, including the book cover, photos,
+            podcast episodes, and Journal posts, is owned by Archuleta Entertainment / Jennifer Walcott
             Archuleta or used with permission, unless stated otherwise, and may not be copied,
             republished, or used commercially without our written permission.
           </p>
@@ -70,7 +70,7 @@ export default function TermsPage() {
 
           <h2>6. Acceptable use</h2>
           <p>
-            You agree not to misuse the Site — including attempting to gain unauthorized access,
+            You agree not to misuse the Site, including attempting to gain unauthorized access,
             scraping content for republication, or using the Site for any unlawful purpose.
           </p>
 

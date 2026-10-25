@@ -18,7 +18,7 @@ function TrustLine() {
           <rect x="4" y="11" width="16" height="10" rx="2" />
           <path d="M8 11V7a4 4 0 0 1 8 0v4" />
         </svg>
-        Secure checkout — Stripe · Apple Pay · Google Pay
+        Secure checkout. Stripe, Apple Pay, Google Pay
       </p>
       <p className="foot-meta">
         By ordering, you agree to our <a href="/terms">Terms</a> and{' '}
@@ -51,18 +51,18 @@ export default function ShopPage() {
           {/* SIGNED BOOK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
-              {SHOP.signedBookSoldOut && <span className="badge">Sold out — restocking soon</span>}
+              {SHOP.signedBookSoldOut && <span className="badge">Sold out, restocking soon</span>}
               <img
                 src="/assets/book-cover.jpg"
-                alt="Beyond the Velvet Ropes — book cover"
+                alt="Beyond the Velvet Ropes book cover"
               />
             </div>
             <div className="product-body">
               <div className="eyebrow">The Book · Signed &amp; Personalized</div>
-              <h3>Signed copy — <em>Beyond the Velvet Ropes</em></h3>
+              <h3>Signed copy, <em>Beyond the Velvet Ropes</em></h3>
               <p className="price">{SHOP.signedBookPrice}</p>
               <p className="product-desc">
-                Signed by me, with a note to whoever you’d like — you, or someone
+                Signed by me, with a note to whoever you’d like, you, or someone
                 who needs to hear that their story isn’t over.
               </p>
               <p className="fulfill">
@@ -71,7 +71,7 @@ export default function ShopPage() {
               <div className="product-cta">
                 {SHOP.signedBookSoldOut ? (
                   <>
-                    <span className="btn btn-disabled">Sold out — restocking soon</span>
+                    <span className="btn btn-disabled">Sold out, restocking soon</span>
                     <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
                       Read the first chapter free
                     </a>
@@ -98,10 +98,10 @@ export default function ShopPage() {
           {/* SIGNATURE VELVET BOOKMARK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
-              {!SHOP.bookmark && <span className="badge">First drop — coming soon</span>}
+              {!SHOP.bookmark && <span className="badge">First drop, coming soon</span>}
               <img
                 src="/assets/bookmark.jpg"
-                alt="The Signature Velvet Bookmark — black velvet ribbon, a gold heart engraved “you matter. everyone belongs”, and a vintage key pressed in burgundy wax, resting on an open copy of the book"
+                alt="The Signature Velvet Bookmark, black velvet ribbon, a gold heart engraved “you matter. everyone belongs”, and a vintage key pressed in burgundy wax, resting on an open copy of the book"
                 loading="lazy"
               />
             </div>
@@ -113,7 +113,7 @@ export default function ShopPage() {
                 Black velvet with gold detailing, a vintage-style key pressed into a
                 burgundy wax seal, and a gold heart engraved with a reminder I believe
                 in: <em>you matter, everyone belongs.</em> Handmade by me, one at a
-                time. <strong>Every story is different. Every key is different — so no
+                time. <strong>Every story is different. Every key is different, so no
                 two are ever alike.</strong>
               </p>
               <p className="fulfill">Made in small batches · every piece one of a kind</p>
@@ -130,7 +130,7 @@ export default function ShopPage() {
                     <a href={SHOP.bookmarkWaitlist} target="_blank" rel="noopener" className="btn btn-primary">
                       Join the first-drop list
                     </a>
-                    <p className="fulfill">Small handmade batches — the list hears first.</p>
+                    <p className="fulfill">Small handmade batches. The list hears first.</p>
                   </>
                 ) : (
                   <>
@@ -143,16 +143,17 @@ export default function ShopPage() {
           </article>
 
           {/* VELVET CIRCLE MEMBERSHIP */}
+          {/* TODO: Velvet Circle members area idea is pending Jen's decision. Do not build yet. */}
           <article className="product-card">
             <div className="product-media">
-              <img src="/assets/velvet-circle-membership.jpg" alt="The Velvet Circle — for readers of Beyond the Velvet Ropes" />
+              <img src="/assets/velvet-circle-membership.jpg" alt="The Velvet Circle, for readers of Beyond the Velvet Ropes" />
             </div>
             <div className="product-body">
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
               <p className="product-desc">
-                A private monthly gathering with me — live, where we talk through the book, the
+                A private monthly gathering with me, live, where we talk through the book, the
                 questions people ask me most, and what&rsquo;s actually true about starting over.
               </p>
               <p className="product-desc">
@@ -203,7 +204,7 @@ export default function ShopPage() {
         </div>
 
         <p className="assurance">
-          Every direct order checks out securely through Stripe and ships from Arizona.
+          Every direct order checks out securely through Stripe.
         </p>
       </section>
 
@@ -219,7 +220,7 @@ export default function ShopPage() {
             <div className="body">
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
-              <p className="foot-meta">A little reminder to fly your own way — shop on Etsy →</p>
+              <p className="foot-meta">A little reminder to fly your own way. Shop on Etsy →</p>
             </div>
           </a>
           <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener">

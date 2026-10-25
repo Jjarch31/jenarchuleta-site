@@ -62,7 +62,7 @@ export const POSTS = [
     slug: 'getting-back-up',
     publishedAt: '2026-06-04',
     category: 'Family',
-    heroImage: '/assets/jen-headshot-blazer.jpg',
+    heroImage: '/assets/jen-headshot-bw.jpg',
     excerpt:
       'If they remember one thing about their mother, let it be this: we fall, we learn, and we rise anyway.',
     body: [

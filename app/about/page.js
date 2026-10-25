@@ -7,7 +7,7 @@ import { KIT_FORM_UID, SOCIALS } from '../components/site-data';
 export const metadata = {
   title: 'About',
   description:
-    'Hi, I’m Jen — a mom, a wife, and the human behind a houseful of rescue dogs. Faith, family, and giving back. This is me.',
+    'Hi, I’m Jen. A mom, a wife, and the human behind a houseful of rescue dogs. Faith, family, and giving back. This is me.',
 };
 
 export default function AboutPage() {
@@ -21,10 +21,10 @@ export default function AboutPage() {
       <section id="main-content" className="tim-wrap tim-hero">
         <div>
           <p className="eyebrow">All of me</p>
-          <h1 className="tim-display">Hi — I’m&nbsp;Jen.</h1>
+          <h1 className="tim-display">Hi, I’m&nbsp;Jen.</h1>
           <p className="tim-script">and this is me</p>
           <p className="tim-lead">
-            I don’t really do labels. I’m just me — a mom, a wife, and yes, the human behind a houseful of rescue dogs.
+            I don’t really do labels. I’m just me. A mom, a wife, and yes, the human behind a houseful of rescue dogs.
             I had a whole lot of incredible experiences in my twenties… but honestly? These days it’s the
             small stuff that gets me. Kids everywhere, dogs on the couch they’re not allowed on. My
             faith, my family, and giving back. That’s pretty much it.
@@ -106,7 +106,7 @@ export default function AboutPage() {
             </h2>
             <p className="tim-lead" style={{ margin: 0 }}>
               My husband, my kids, a handful of people I’d do anything for, and a houseful of animals
-              I love like family. I love hard and I show up — that part of me has never changed.
+              I love like family. I love hard and I show up. That hasn’t changed.
             </p>
           </div>
           <div className="tim-quote">
@@ -127,7 +127,7 @@ export default function AboutPage() {
           <p className="tim-lead" style={{ marginTop: '28px' }}>
             Incredible experiences, rooms most people never get to see, a version of my life that
             looked like a highlight reel. I’m grateful for all of it. I also walked through some
-            genuinely hard things to get here — but that’s not the headline. The headline is the
+            genuinely hard things to get here, but that’s not the headline. The headline is the
             ordinary, beautiful life I get to wake up to now. I wouldn’t trade a single regular
             morning for any of it.
           </p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
           </h2>
           <p className="tim-lead" style={{ margin: 0, maxWidth: '660px' }}>
             My faith keeps me steady and it keeps me humble. So does remembering how lucky I am.
-            Whatever I’ve got — time, a story, a hand to lend — I’d rather use it for somebody else
+            Whatever I’ve got, time, a story, a hand to lend, I’d rather use it for somebody else
             than keep it for myself.
           </p>
           <div style={{ marginTop: '14px' }}>
@@ -162,7 +162,7 @@ export default function AboutPage() {
             <p className="eyebrow">Say hi</p>
             <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come hang out. No agenda.</h2>
             <p className="tim-lead" style={{ marginTop: '24px' }}>
-              A little note from me every now and then — whatever I’m actually thinking about that
+              A little note from me every now and then, whatever I’m actually thinking about that
               week, the good and the hard. No pitch, I promise.
             </p>
           </div>

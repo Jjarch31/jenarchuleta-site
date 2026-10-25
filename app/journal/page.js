@@ -12,7 +12,7 @@ const CATEGORY_ORDER = ['Podcast', 'Faith', 'Family', 'Advocacy', 'Health & Well
 export const metadata = {
   title: 'Journal',
   description:
-    'Short, honest writing on faith, family, healing, and starting over — from Jen Archuleta.',
+    'Short, honest writing on faith, family, healing, and starting over, from Jen Archuleta.',
 };
 
 function formatDate(iso) {
@@ -74,7 +74,7 @@ export default async function JournalPage({ searchParams }) {
 
       <section className="wrap" style={{ paddingTop: 0 }}>
         {visible.length === 0 ? (
-          <p className="center lead">No posts in “{active}” yet — check back soon.</p>
+          <p className="center lead">No posts in “{active}” yet. Check back soon.</p>
         ) : (
           <div className="feed">
             {visible.map((p) => {

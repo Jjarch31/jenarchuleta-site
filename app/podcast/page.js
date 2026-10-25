@@ -3,12 +3,12 @@ import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import KitForm from '../components/KitForm';
 import BuzzsproutPlayer from '../components/BuzzsproutPlayer';
-import { PODCAST } from '../components/site-data';
+import { BOOKING_EMAIL, PODCAST } from '../components/site-data';
 
 export const metadata = {
-  title: 'Podcast — Unfiltered with Jen Archuleta',
+  title: { absolute: 'Podcast, Unfiltered with Jen Archuleta' },
   description:
-    'Unfiltered with Jen Archuleta — honest conversations on faith, family, resilience, and starting over. Listen to every episode and subscribe.',
+    'Unfiltered with Jen Archuleta. Real talks about faith, family, and starting over. Listen to every episode and subscribe.',
 };
 
 export default function PodcastPage() {
@@ -31,8 +31,8 @@ export default function PodcastPage() {
         <div className="hero-script" style={{ fontSize: 'var(--text-script-m)' }}>unfiltered…</div>
         <h1>{name}</h1>
         <p className="lead" style={{ maxWidth: '60ch', marginInline: 'auto' }}>
-          Honest conversations on faith, family, resilience, and starting over —
-          the same honest voice as the book. New episodes land here automatically.
+          Real talks about faith, family, and starting over.
+          New episodes land here automatically.
         </p>
         <div className="subscribe-row">
           <a href={sub.spotify} className="btn btn-ghost btn-sm">Spotify</a>
@@ -47,11 +47,11 @@ export default function PodcastPage() {
           <BuzzsproutPlayer showId={buzzsproutId} />
         ) : (
           <div className="pod-embed">
-            <iframe src={buzzsproutSite} title={`${name} — episodes`} loading="lazy" allow="autoplay" />
+            <iframe src={buzzsproutSite} title={`${name}, episodes`} loading="lazy" allow="autoplay" />
           </div>
         )}
         <p className="foot-meta center" style={{ marginTop: '14px' }}>
-          Prefer your own app? <a href={buzzsproutSite}>Open the show on Buzzsprout →</a>
+          Prefer your own app? <a href={PODCAST.buzzsprout} target="_blank" rel="noopener noreferrer">Open the show on Buzzsprout →</a>
         </p>
       </section>
 
@@ -60,12 +60,11 @@ export default function PodcastPage() {
         <div className="eyebrow">Come on the show</div>
         <h2>Have a story worth telling?</h2>
         <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
-          I’m always looking for honest voices — survivors, builders, believers.
-          If that’s you, I’d love to hear from you.
+          Have a story to tell? I’d love to hear it.
         </p>
         <div className="center" style={{ marginTop: '20px' }}>
           <a
-            href="mailto:hello@jenarchuleta.com?subject=Podcast%20guest%20%E2%80%94%20Unfiltered%20with%20Jen%20Archuleta"
+            href={`mailto:${BOOKING_EMAIL}?subject=${encodeURIComponent('Podcast guest, Unfiltered with Jen Archuleta')}`}
             className="btn btn-primary"
           >
             Be a guest
@@ -75,7 +74,7 @@ export default function PodcastPage() {
 
       <KitForm
         heading="Never miss an episode."
-        blurb="Get new episodes and the first chapter of the book — straight to your inbox."
+        blurb="Get new episodes and the first chapter of the book, straight to your inbox."
         cta="Join the newsletter"
       />
 

@@ -4,7 +4,7 @@ import '../journal.css';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import KitForm from '../../components/KitForm';
-import { KIT_FREE_CHAPTER_URL } from '../../components/site-data';
+import { KIT_FREE_CHAPTER_URL, OG_IMAGE } from '../../components/site-data';
 import { urlFor } from '../../sanity/image';
 import { getPostBySlug, getAllSlugs } from '../../sanity/queries';
 import { POSTS as FALLBACK_POSTS, getPost as getFallbackPost } from '../_posts';
@@ -26,7 +26,12 @@ export async function generateMetadata({ params }) {
   return {
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
-    openGraph: { title: post.seoTitle || post.title, description: post.seoDescription || post.excerpt, type: 'article' },
+    openGraph: {
+      title: post.seoTitle || post.title,
+      description: post.seoDescription || post.excerpt,
+      type: 'article',
+      images: [OG_IMAGE],
+    },
   };
 }
 
@@ -187,7 +192,7 @@ export default async function JournalPost({ params }) {
         <div className="book-cta">
           <img src="/assets/book-cover.jpg" alt="Beyond the Velvet Ropes" />
           <div>
-            <div className="eyebrow">The Memoir — Out Now</div>
+            <div className="eyebrow">My memoir is out now.</div>
             <h3 style={{ margin: '.2em 0 .3em' }}>Beyond the Velvet Ropes</h3>
             <p className="foot-meta" style={{ margin: '0 0 14px' }}>My Story of Perseverance, Hope, and Love</p>
             <a href="/book" className="btn btn-primary btn-sm">Get the book</a>{' '}

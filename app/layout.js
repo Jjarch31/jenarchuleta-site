@@ -1,7 +1,7 @@
 import { Cinzel, Cormorant_Garamond, Allura, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import ScrollReveal from './components/ScrollReveal';
-import { SOCIALS, PODCAST } from './components/site-data';
+import { SOCIALS, PODCAST, OG_IMAGE } from './components/site-data';
 
 // Self-hosted via next/font (built at compile time — no runtime request to
 // Google, so no visitor IP is ever sent to fonts.googleapis.com/gstatic.com).
@@ -35,19 +35,24 @@ const hankenGrotesk = Hanken_Grotesk({
 export const metadata = {
   metadataBase: new URL('https://jenarchuleta.com'),
   title: {
-    default: 'Jen Archuleta — Author of Beyond the Velvet Ropes',
-    template: '%s — Jen Archuleta',
+    default: 'Jen Archuleta, Author of Beyond the Velvet Ropes',
+    template: '%s, Jen Archuleta',
   },
   description:
-    'Jen Archuleta (Jennifer Walcott Archuleta) — author, speaker, and advocate. Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love. Read the first chapter free.',
+    'Jen Archuleta (Jennifer Walcott Archuleta), author, speaker, and advocate. Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love. Read the first chapter free.',
   icons: {
     icon: '/assets/favicon.svg',
     apple: '/assets/app-icon-512.png',
   },
   openGraph: {
-    title: 'Jen Archuleta — Beyond the Velvet Ropes',
+    title: 'Jen Archuleta, Beyond the Velvet Ropes',
     description: "This isn't the story you think it is. Read the first chapter free.",
     type: 'website',
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [OG_IMAGE.url],
   },
 };
 
@@ -60,7 +65,7 @@ const personJsonLd = {
   name: 'Jen Archuleta',
   alternateName: ['Jennifer Walcott Archuleta', 'Jennifer Walcott', 'Jennifer Archuleta'],
   url: 'https://jenarchuleta.com',
-  image: 'https://jenarchuleta.com/assets/jen-headshot-blazer.jpg',
+  image: 'https://jenarchuleta.com/assets/jen-headshot-bw.jpg',
   jobTitle: 'Author',
   sameAs: [SOCIALS.instagram, SOCIALS.x, PODCAST.subscribe.spotify, PODCAST.subscribe.apple, PODCAST.subscribe.youtube],
 };

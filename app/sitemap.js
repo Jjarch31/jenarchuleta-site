@@ -18,6 +18,8 @@ export default async function sitemap() {
     { url: `${BASE}/podcast`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/journal`, changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE}/shop`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/media`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/contact`, changeFrequency: 'yearly', priority: 0.5 },
   ];
   return [...pages, ...posts];
 }

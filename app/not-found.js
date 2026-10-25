@@ -17,7 +17,7 @@ export default function NotFound() {
         <h1>The site has a new home.</h1>
         <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
           That link is from the old site and didn’t make the trip. Everything’s still
-          here — just in a new place. Where would you like to go?
+          here, just in a new place. Where would you like to go?
         </p>
         <div className="hero-ctas" style={{ justifyContent: 'center', marginTop: '8px' }}>
           <a href="/" className="btn btn-primary">Home</a>
