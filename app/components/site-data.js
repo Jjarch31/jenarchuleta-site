@@ -77,13 +77,11 @@ export const SHOP = {
   // That portal is what keeps this FTC click-to-cancel / ROSCA compliant.
   // Do not take the membership live through any checkout that lacks that portal.
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
-  velvetCircleMembershipPrice: '$9.99/mo',
+  velvetCircleMembershipPrice: '$9.99/month',
 
-  // FOUNDING BOX (Season 1) — not yet live on the site. Kit product is
-  // ready at https://jennifer-archuleta.kit.com/products/founding-box-season-1
-  // — paste that URL into `foundingBox` below to launch it.
-  foundingBox: '',
-  foundingBoxPrice: '$59',
+  // THE FOUNDERS BOX. Live. Jen approved this Kit product page as the buy link.
+  foundingBox: 'https://jennifer-archuleta.kit.com/products/founding-box-season-1',
+  foundingBoxPrice: '$69',
 };
 
 // Podcast (Buzzsprout). The numeric podcast ID powers the official

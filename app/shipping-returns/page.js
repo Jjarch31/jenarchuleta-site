@@ -43,17 +43,17 @@ export default function ShippingReturnsPage() {
             handmade, one-of-a-kind pieces, all other sales are final.
           </p>
 
-          {/* TODO: confirm with Jen. The shop keeps "Coming soon" until the box is for sale. */}
-          <h2>When the Founding Box launches</h2>
+          <h2>The Founders Box</h2>
           <p>
-            The Founding Box is a one-time purchase. All sales are final except for items that arrive
+            The Founders Box is a one-time purchase. All sales are final except for items that arrive
             damaged or defective. Contact us within 14 days for a replacement or refund.
           </p>
 
           <h2>Velvet Circle Membership</h2>
           <p>
             The Velvet Circle Membership is a recurring monthly subscription billed at $9.99/month until
-            you cancel. You can cancel anytime before your next billing date to avoid being charged for
+            you cancel. Once the circle reaches 13 members, it includes a live monthly Zoom. Until then,
+            you get a private monthly letter and written answers to up to 3 questions a month. You can cancel anytime before your next billing date to avoid being charged for
             the following month; charges already processed for the current billing period are
             non-refundable. Your membership stays active through the end of the billing period
             you&rsquo;ve already paid for. We don&rsquo;t offer refunds for time already used, but

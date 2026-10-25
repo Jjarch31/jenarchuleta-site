@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 // Small reassurance line under each live buy button.
-function TrustLine() {
+function TrustLine({ note = 'Secure checkout. Stripe, Apple Pay, Google Pay' }) {
   return (
     <>
       <p className="trust">
@@ -18,7 +18,7 @@ function TrustLine() {
           <rect x="4" y="11" width="16" height="10" rx="2" />
           <path d="M8 11V7a4 4 0 0 1 8 0v4" />
         </svg>
-        Secure checkout. Stripe, Apple Pay, Google Pay
+        {note}
       </p>
       <p className="foot-meta">
         By ordering, you agree to our <a href="/terms">Terms</a> and{' '}
@@ -153,18 +153,14 @@ export default function ShopPage() {
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
               <p className="product-desc">
-                A private monthly gathering with me, live, where we talk through the book, the
-                questions people ask me most, and what&rsquo;s actually true about starting over.
+                Your backstage pass. Each month you get a private letter from me. Once our circle reaches 13 members, we meet live on Zoom once a month. Until then, send me up to 3 questions a month and I&rsquo;ll answer you personally in writing.
               </p>
-              <p className="product-desc">
-                Every month: a live conversation, the chance to send in your questions ahead of
-                time, and the replay if you can&rsquo;t make it live.
-              </p>
-              <p className="product-desc">
-                This is for anyone working through their own hard chapter and looking for a little
-                company along the way.
-              </p>
-              <p className="product-desc">I&rsquo;d love for you to join us.</p>
+              <ul className="product-list">
+                <li>A private monthly letter from Jen</li>
+                <li>A live monthly Zoom once we reach 13 members</li>
+                <li>Until then, up to 3 questions a month answered by Jen in writing</li>
+                <li>Cancel anytime</li>
+              </ul>
               <div className="product-cta">
                 {SHOP.velvetCircleMembership ? (
                   <>
@@ -180,31 +176,42 @@ export default function ShopPage() {
             </div>
           </article>
 
-          {/* FOUNDING BOX — SEASON 1 */}
+          {/* THE FOUNDERS BOX */}
           <article className="product-card">
-            <div className="product-media" />
+            <div className="product-media">
+              <img
+                src="/assets/founders-box.jpg"
+                alt="The Founders Box, a black gift box with the signed book, velvet bookmark, and black velvet bunny ears"
+                width="1152"
+                height="864"
+                loading="lazy"
+              />
+            </div>
             <div className="product-body">
-              <div className="eyebrow">Founding Box · Season 1</div>
-              <h3>Founding Box</h3>
+              <div className="eyebrow">Limited first run</div>
+              <h3>The Founders Box</h3>
               <p className="price">{SHOP.foundingBoxPrice}</p>
+              <p className="product-desc">
+                My signed book, the Velvet Ropes bookmark, and a pair of black velvet bunny ears, packed in a black gift box with a black ribbon. Made for the readers who were here first.
+              </p>
+              <ul className="product-list">
+                <li>Signed copy of Beyond the Velvet Ropes</li>
+                <li>The Velvet Ropes bookmark with the wax seal key</li>
+                <li>Black velvet bunny ears</li>
+              </ul>
+              <p className="fulfill">One-time purchase. Packed and shipped to you.</p>
               <div className="product-cta">
-                {SHOP.foundingBox ? (
-                  <>
-                    <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
-                      Get the Founding Box
-                    </a>
-                    <TrustLine />
-                  </>
-                ) : (
-                  <span className="btn btn-disabled">Coming soon</span>
-                )}
+                <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
+                  Get the Founders Box
+                </a>
+                <TrustLine note="Secure checkout" />
               </div>
             </div>
           </article>
         </div>
 
         <p className="assurance">
-          Every direct order checks out securely through Stripe.
+          Every direct order checks out securely.
         </p>
       </section>
 

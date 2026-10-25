@@ -43,8 +43,8 @@ export default function TermsPage() {
 
           <h2>3. Purchases</h2>
           <p>
-            The Site offers signed copies of the book and a monthly membership (Velvet Circle), and may
-            offer specialty boxes. These are available for direct purchase through third-party checkout
+            The Site offers signed copies of the book, The Founders Box, and a monthly membership (Velvet Circle).
+            These are available for direct purchase through third-party checkout
             providers (currently Stripe, and Kit for certain products). By placing an order, you agree to that provider&rsquo;s
             terms in addition to these. Prices, availability, and product details are subject to change
             without notice. Shipping, returns, and cancellation terms for physical and recurring products

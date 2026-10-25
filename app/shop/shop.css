@@ -112,6 +112,15 @@
   font-weight: var(--w-semibold);
 }
 
+.shop-page .product-list {
+  margin: 0;
+  padding-left: 1.15em;
+  color: var(--text-secondary);
+  font-size: var(--text-body-s);
+  line-height: var(--leading-body);
+}
+.shop-page .product-list li { margin: 0.2em 0; }
+
 /* fulfillment expectation — important info, so secondary ink (AAA),
    never the muted metadata tone */
 .shop-page .fulfill {

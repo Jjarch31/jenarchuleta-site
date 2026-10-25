@@ -131,7 +131,7 @@ export default function VelvetClient({ letters = [] }) {
             <div className="gate-join">
               <h2>Not in yet?</h2>
               <p>Have the book? Scan the QR code in the back and enter the password printed there.</p>
-              <p>Want more? Join the Velvet Circle, my private monthly conversation, for $9.99 a month.</p>
+              <p>Want more? Join the Velvet Circle for $9.99 a month. Each month you get a private letter from me. Once we reach 13 members, we meet live on Zoom once a month. Until then, send me up to 3 questions a month and I&rsquo;ll answer you in writing.</p>
               <a
                 className="btn btn-primary"
                 href={CIRCLE_HREF}
