@@ -80,11 +80,11 @@ export default function AboutPage() {
               <span className="tim-slot-cap">All five of them</span>
             </div>
             <div className="tim-slot-wrap">
-              <img className="tim-img tall" src="/assets/wandered-in.jpg" alt="The family tortoise wandering through the house" loading="lazy" decoding="async" />
+              <img className="tim-img tall" src="/assets/wandered-in.jpg" alt="The family tortoise wandering through the house" width="600" height="1067" loading="lazy" decoding="async" />
               <span className="tim-slot-cap">Whoever else wandered in</span>
             </div>
             <div className="tim-slot-wrap">
-              <img className="tim-img tall" src="/assets/coffee.jpg" alt="A quiet morning coffee before the house wakes up" loading="lazy" decoding="async" />
+              <img className="tim-img tall" src="/assets/coffee.jpg" alt="A quiet morning coffee before the house wakes up" width="700" height="700" loading="lazy" decoding="async" />
               <span className="tim-slot-cap">Before the house wakes up</span>
             </div>
             <div className="tim-slot-wrap" style={{ gridColumn: '1 / -1' }}>

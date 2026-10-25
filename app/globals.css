@@ -201,8 +201,8 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
 }
 
 /* photo row (beauty / personality) */
-.photo-row { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-top:30px; }
-.photo-row img { width:100%; height: auto; aspect-ratio: 4/5; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow); transition: transform var(--dur) var(--ease-out); }
+.photo-row { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-top:30px; align-items: start; }
+.photo-row img { width:100%; height: auto; object-fit: contain; border-radius: var(--radius-lg); box-shadow: var(--shadow); transition: transform var(--dur) var(--ease-out); }
 @media (hover: hover) and (pointer: fine) {
   .photo-row img:hover { transform: translateY(-3px); }
 }

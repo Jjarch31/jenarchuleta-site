@@ -36,7 +36,7 @@
 .tim-joy .dot { width: 6px; height: 6px; transform: rotate(45deg); background: var(--accent); flex: none; }
 .tim-hint { font-family: var(--font-caps); font-size: 11px; letter-spacing: var(--track-eyebrow);
             text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
-.tim-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tim-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
 .tim-slot-wrap { display: flex; flex-direction: column; gap: 8px; }
 /* placeholder tile — swap each for <img className="tim-img …"> when real photos arrive */
 .tim-slot { width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border);
@@ -46,9 +46,16 @@
             letter-spacing: .14em; text-transform: uppercase; padding: 12px; }
 .tim-slot.tall { height: 280px; }
 .tim-slot.short { height: 220px; }
-.tim-img { width: 100%; object-fit: cover; border-radius: var(--radius-lg); display: block; box-shadow: var(--shadow); }
-.tim-img.tall { height: 280px; }
-.tim-img.short { height: 220px; }
+/* Whole photo, natural ratio. The old fixed heights plus object-fit: cover
+   were slicing pets off the edges. */
+.tim-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  display: block;
+  box-shadow: var(--shadow);
+}
 .tim-slot-cap { font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); }
 
 /* ---- my people band ---- */
@@ -86,6 +93,7 @@
 @media (max-width: 860px) {
   .tim-hero, .tim-everyday, .tim-band-inner, .tim-then, .tim-card { grid-template-columns: 1fr; }
   .tim-portrait { height: auto; max-height: 520px; }
+  .tim-grid2 { grid-template-columns: 1fr; }
   .tim-sticky { position: static; }
   .tim-display { white-space: normal; }
 }
