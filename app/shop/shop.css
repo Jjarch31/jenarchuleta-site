@@ -61,6 +61,18 @@
   object-fit: contain;
   padding: 7%;
 }
+/* Tall portraits keep their own shape. A 4/3 cover frame would cut the face. */
+.shop-page .product-media--portrait {
+  aspect-ratio: auto;
+}
+.shop-page .product-media--portrait img {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 /* status badge over the photo (ink scrim + cream text = AAA on any image) */
 .shop-page .badge {
   position: absolute;

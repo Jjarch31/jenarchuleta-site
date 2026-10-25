@@ -144,9 +144,14 @@ export default function ShopPage() {
 
           {/* VELVET CIRCLE MEMBERSHIP */}
           {/* TODO: Velvet Circle members area idea is pending Jen's decision. Do not build yet. */}
-          <article className="product-card">
-            <div className="product-media">
-              <img src="/assets/velvet-circle-membership.jpg" alt="The Velvet Circle, for readers of Beyond the Velvet Ropes" />
+          <article className="product-card" id="velvet-circle">
+            <div className="product-media product-media--portrait">
+              <img
+                src="/assets/presskit-headshot-floral.jpg"
+                alt="Jen Walcott Archuleta"
+                width="1100"
+                height="1370"
+              />
             </div>
             <div className="product-body">
               <div className="eyebrow">Membership</div>

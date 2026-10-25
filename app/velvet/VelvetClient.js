@@ -112,6 +112,13 @@ export default function VelvetClient({ letters = [] }) {
       <div className="dark velvet-page">
         <main className="gate">
           <div className="gate-card">
+            <img
+              className="gate-portrait"
+              src="/assets/presskit-headshot-floral.jpg"
+              alt="Jen Walcott Archuleta"
+              width="1100"
+              height="1370"
+            />
             <div className="eyebrow">For readers of Beyond the Velvet Ropes</div>
             <h1>This is where the story continues.</h1>
             <p className="gate-sub">
