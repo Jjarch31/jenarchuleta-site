@@ -43,7 +43,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div>
-          <img className="tim-portrait" src="/assets/jen-beauty.jpg" alt="Jen Archuleta" />
+          <img className="tim-portrait" src="/assets/presskit-headshot-floral.jpg" alt="Jen Walcott Archuleta" width="1100" height="1370" />
           <p className="tim-cap">Caught mid-laugh, which is most of the time</p>
         </div>
       </section>

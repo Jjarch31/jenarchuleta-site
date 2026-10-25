@@ -83,8 +83,8 @@ section { padding-block: var(--section-y); }
   width: 100%;
   height: auto;
   max-height: 720px;
-  object-fit: cover;
-  object-position: center 18%;
+  object-fit: contain;
+  object-position: center center;
   border: 1px solid var(--gold);
   border-radius: 0;
 }

@@ -1,12 +1,14 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { KIT_FREE_CHAPTER_URL, SHOP } from '../components/site-data';
+import { KIT_FREE_CHAPTER_URL, OG_IMAGE, SHOP } from '../components/site-data';
 import './shop.css';
 
 export const metadata = {
   title: 'Shop',
   description:
     'Signed copies of Beyond the Velvet Ropes, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+  openGraph: { images: [OG_IMAGE] },
+  twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
 
 // Small reassurance line under each live buy button.

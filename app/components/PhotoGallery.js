@@ -9,17 +9,12 @@ const SLIDES = [
   {
     src: '/assets/presskit-headshot-floral.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center 18%',
+    position: 'center top',
   },
   {
     src: '/assets/jen-glam.jpg',
     alt: 'Jen Walcott Archuleta',
     position: 'center 16%',
-  },
-  {
-    src: '/assets/jen-beauty.jpg',
-    alt: 'Jen Walcott Archuleta',
-    position: 'center 12%',
   },
   {
     src: '/assets/jen-joy.jpg',
