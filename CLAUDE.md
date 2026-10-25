@@ -129,7 +129,7 @@ public by design (that's what a Payment Link is) — never commit a Stripe *secr
 │       ├── env.js                 ← projectId / dataset / apiVersion
 │       ├── client.js              ← next-sanity client
 │       ├── image.js               ← urlFor() image helper
-│       └── queries.js             ← GROQ queries (ISR revalidate 60s)
+│       └── queries.js             ← GROQ queries (journal reads are uncached)
 │
 ├── sanity/schemaTypes/            ← CMS schema
 │   ├── post.js                    ← post fields + CATEGORIES list
@@ -231,8 +231,10 @@ These pages have NOT been reviewed by counsel yet — don't represent them as fi
 - **Let Jen publish herself:** sanity.io/manage/project/ac1ruwaz → **Members** → invite her email.
 - **CORS** (already configured): jenarchuleta.com, www, localhost:3100, the .vercel.app domain.
   Add new origins with: `npx sanity cors add <url> --credentials`.
-- **Data flow:** site reads PUBLISHED posts via the public dataset (no token), with ISR
-  (`app/sanity/queries.js`, revalidate 60s) — new/edited posts go live without a redeploy.
+- **Data flow:** site reads PUBLISHED posts via the public dataset (no token). Journal
+  post pages and the feed fetch with `cache: 'no-store'` (`app/journal/[slug]/page.js`
+  is `force-dynamic`) so a publish shows on the next view. A 60s ISR window was
+  serving the previous HTML after publish.
 - **Bare URLs auto-link (2026-10-24):** `linkifyBody()` in `app/journal/[slug]/page.js` turns
   plain-text http(s) URLs in a post into real links at render time (the Squarespace migration
   left ~90 links as plain text, and URLs pasted in /studio arrive as plain text). External

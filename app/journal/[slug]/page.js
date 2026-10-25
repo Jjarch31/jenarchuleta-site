@@ -9,6 +9,12 @@ import { urlFor } from '../../sanity/image';
 import { getPostBySlug, getAllSlugs } from '../../sanity/queries';
 import { POSTS as FALLBACK_POSTS, getPost as getFallbackPost } from '../_posts';
 
+// Render each post from the published Sanity document on the request.
+// These routes were static ISR. The first view after a publish still received
+// the previous HTML, so an edited handle stayed wrong while /journal (dynamic)
+// already showed other new posts.
+export const dynamic = 'force-dynamic';
+
 export async function generateStaticParams() {
   const slugs = await getAllSlugs().catch(() => []);
   const all = slugs && slugs.length > 0 ? slugs : FALLBACK_POSTS.map((p) => p.slug);

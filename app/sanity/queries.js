@@ -24,15 +24,21 @@ const ONE_POST = groq`*[_type == "post" && slug.current == $slug][0]{
 
 const ALL_SLUGS = groq`*[_type == "post" && defined(slug.current)].slug.current`;
 
-// next: { revalidate } gives ISR — new/edited posts appear without a redeploy.
+// Journal HTML was prerendered and then kept (Vercel served it STALE well past
+// the old 60s window). A publish showed up on the uncached /journal index, and
+// stayed invisible on the post page until a later refresh. Read the published
+// document on each request instead.
+const FRESH = { cache: 'no-store' };
+
+// Slug list and Velvet letters can lag a minute. They are not the post body.
 const REVALIDATE = { next: { revalidate: 60 } };
 
 export async function getAllPosts() {
-  return client.fetch(ALL_POSTS, {}, REVALIDATE);
+  return client.fetch(ALL_POSTS, {}, FRESH);
 }
 
 export async function getPostBySlug(slug) {
-  return client.fetch(ONE_POST, { slug }, REVALIDATE);
+  return client.fetch(ONE_POST, { slug }, FRESH);
 }
 
 export async function getAllSlugs() {
