@@ -152,7 +152,9 @@ export default function ShopPage() {
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
-              <p className="product-desc">Your backstage pass.</p>
+              <p className="product-desc">
+                Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.
+              </p>
               <ul className="product-list">
                 <li>Private monthly letter</li>
                 <li>Members-only photo carousel</li>
@@ -179,12 +181,12 @@ export default function ShopPage() {
             </div>
           </article>
 
-          {/* THE FOUNDERS BOX */}
-          <article className="product-card">
+          {/* THE BACKSTAGE BOX. Public name only. foundingBox stays the Kit product URL. */}
+          <article className="product-card" id="backstage-box">
             <div className="product-media">
               <img
                 src="/assets/founders-box.jpg"
-                alt="The Founders Box, a black gift box with the signed book, velvet bookmark, and black velvet bunny ears"
+                alt="The Backstage Box, a black gift box with the signed book, velvet bookmark, and black velvet bunny ears"
                 width="1152"
                 height="864"
                 loading="lazy"
@@ -192,20 +194,21 @@ export default function ShopPage() {
             </div>
             <div className="product-body">
               <div className="eyebrow">Limited first run</div>
-              <h3>The Founders Box</h3>
+              <h3>The Backstage Box</h3>
               <p className="price">{SHOP.foundingBoxPrice}</p>
               <p className="product-desc">
-                My signed book, the Velvet Ropes bookmark, and a pair of black velvet bunny ears, packed in a black gift box with a black ribbon. Made for the readers who were here first.
+                It includes a signed copy of Beyond the Velvet Ropes, the velvet bookmark, and black velvet bunny ears in a black box tied with a black ribbon, plus your first month of the Velvet Circle free, then $9.99 a month.
               </p>
               <ul className="product-list">
                 <li>Signed copy of Beyond the Velvet Ropes</li>
-                <li>The Velvet Ropes bookmark with the wax seal key</li>
+                <li>The velvet bookmark</li>
                 <li>Black velvet bunny ears</li>
+                <li>Your first month of the Velvet Circle free, then $9.99 a month</li>
               </ul>
-              <p className="fulfill">One-time purchase. Packed and shipped to you.</p>
+              <p className="fulfill">Packed and shipped to you.</p>
               <div className="product-cta">
                 <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
-                  Get the Founders Box
+                  Get the Backstage Box
                 </a>
                 <TrustLine note="Secure checkout" />
               </div>

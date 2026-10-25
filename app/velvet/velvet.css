@@ -43,6 +43,7 @@
   margin: 0 0 12px;
   color: var(--text);
 }
+.velvet-page .gate-join a { color: var(--accent); }
 .velvet-page .gate-join p {
   color: var(--text-secondary);
   font-size: 1.02rem;

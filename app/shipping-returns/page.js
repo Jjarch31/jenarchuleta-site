@@ -43,10 +43,13 @@ export default function ShippingReturnsPage() {
             handmade, one-of-a-kind pieces, all other sales are final.
           </p>
 
-          <h2>The Founders Box</h2>
+          <h2>The Backstage Box</h2>
           <p>
-            The Founders Box is a one-time purchase. All sales are final except for items that arrive
-            damaged or defective. Contact us within 14 days for a replacement or refund.
+            The Backstage Box includes a signed copy of the book, the velvet bookmark, and black velvet
+            bunny ears, plus your first month of the Velvet Circle free. After that month, the membership
+            is $9.99 a month until you cancel. The physical items ship once. All sales of those items are
+            final except for items that arrive damaged or defective. Contact us within 14 days for a
+            replacement or refund.
           </p>
 
           <h2>Velvet Circle Membership</h2>

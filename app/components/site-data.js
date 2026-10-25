@@ -79,7 +79,7 @@ export const SHOP = {
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
   velvetCircleMembershipPrice: '$9.99/month',
 
-  // THE FOUNDERS BOX. Live. Jen approved this Kit product page as the buy link.
+  // THE BACKSTAGE BOX (public name). Live. The Kit product URL and slug stay as they are.
   foundingBox: 'https://jennifer-archuleta.kit.com/products/founding-box-season-1',
   foundingBoxPrice: '$69',
 };
