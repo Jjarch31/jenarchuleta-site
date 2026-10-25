@@ -155,18 +155,40 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
 }
 .gallery-viewport {
   position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
+  width: 100%;
   border: 1px solid var(--gold);
   background: var(--linen);
 }
+/* One photo in flow sets the frame. The rest fade over it.
+   Natural ratio, nothing cropped. A shared 3/4 cover frame was cutting
+   heads and the sides of wider photos. */
 .gallery-slide {
   position: absolute;
   inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 680ms var(--ease-out);
 }
-.gallery-slide.is-active { opacity: 1; z-index: 1; }
+.gallery-slide.is-active {
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  z-index: 1;
+  width: 100%;
+  pointer-events: auto;
+}
+.gallery-slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(82vh, 840px);
+  object-fit: contain;
+  margin-inline: auto;
+}
 .gallery-arrow {
   width: 44px;
   height: 44px;

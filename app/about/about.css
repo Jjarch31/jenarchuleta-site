@@ -36,8 +36,11 @@
 .tim-joy .dot { width: 6px; height: 6px; transform: rotate(45deg); background: var(--accent); flex: none; }
 .tim-hint { font-family: var(--font-caps); font-size: 11px; letter-spacing: var(--track-eyebrow);
             text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; }
-.tim-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
-.tim-slot-wrap { display: flex; flex-direction: column; gap: 8px; }
+/* Tall tortoise beside a square mug. A slightly narrower first column
+   keeps that pair closer in height without cropping either file. */
+.tim-grid2 { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr); gap: 22px 16px; align-items: start; }
+.tim-span { grid-column: 1 / -1; }
+.tim-slot-wrap { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 /* placeholder tile — swap each for <img className="tim-img …"> when real photos arrive */
 .tim-slot { width: 100%; border-radius: var(--radius-lg); border: 1px solid var(--border);
             background: linear-gradient(135deg, var(--surface), var(--surface-alt));
@@ -46,12 +49,16 @@
             letter-spacing: .14em; text-transform: uppercase; padding: 12px; }
 .tim-slot.tall { height: 280px; }
 .tim-slot.short { height: 220px; }
-/* Whole photo, natural ratio. The old fixed heights plus object-fit: cover
-   were slicing pets off the edges. */
+/* Whole file, real ratio, caption directly underneath. These photos were
+   already cropped when saved (the larger jpeg siblings are the same frames).
+   Do not cover-crop the row to even it out, and do not outpaint the missing edges.
+   dogs-on-the-bed stays the dogs-only crop. */
 .tim-img {
   width: 100%;
   height: auto;
+  max-width: 100%;
   object-fit: contain;
+  object-position: center center;
   border-radius: var(--radius-lg);
   display: block;
   box-shadow: var(--shadow);
@@ -72,7 +79,8 @@
 /* ---- then & now ---- */
 .tim-then { display: grid; grid-template-columns: 0.78fr 1.22fr; gap: clamp(32px, 5vw, 60px);
             align-items: center; padding-block: clamp(64px, 8vw, 92px); }
-.tim-gray { width: 100%; height: 520px; object-fit: cover; object-position: center top;
+/* Whole portrait. A fixed 520px cover frame was cutting the coat. */
+.tim-gray { width: 100%; height: auto; object-fit: contain; object-position: center center;
             border-radius: var(--radius-lg); display: block; filter: grayscale(1); box-shadow: var(--shadow); }
 
 /* ---- faith & giving (the one dark band) ---- */

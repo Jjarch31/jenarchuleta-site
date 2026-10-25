@@ -3,43 +3,51 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
-// Public portraits only. Faces are unretouched; the frame is CSS.
-// Order alternates close portraits and fuller scenes.
+// Public portraits only. Faces are unretouched. Each slide is the whole file
+// at its real ratio (width/height below). Do not cover-crop these into a
+// shared frame. That was cutting heads, hems, and the sides of wider shots.
 const SLIDES = [
   {
     src: '/assets/presskit-headshot-floral.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center top',
+    width: 1100,
+    height: 1370,
   },
   {
     src: '/assets/jen-glam.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center 16%',
+    width: 700,
+    height: 835,
   },
   {
     src: '/assets/jen-joy.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center 10%',
+    width: 841,
+    height: 1960,
   },
   {
     src: '/assets/jen-bw-coat.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center 14%',
+    width: 1320,
+    height: 1971,
   },
   {
     src: '/assets/presskit-headshot-glam.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center 42%',
+    width: 1320,
+    height: 1259,
   },
   {
     src: '/assets/jen-fitness.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center center',
+    width: 1077,
+    height: 887,
   },
   {
     src: '/assets/jen-fun.jpg',
     alt: 'Jen Walcott Archuleta',
-    position: 'center 34%',
+    width: 1320,
+    height: 1756,
   },
 ];
 
@@ -163,10 +171,10 @@ export default function PhotoGallery() {
                     <Image
                       src={slide.src}
                       alt={active ? slide.alt : ''}
-                      fill
+                      width={slide.width}
+                      height={slide.height}
                       sizes="(max-width: 760px) 86vw, 440px"
                       priority={slideIndex === 0}
-                      style={{ objectFit: 'cover', objectPosition: slide.position }}
                     />
                   </div>
                 );
