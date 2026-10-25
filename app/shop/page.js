@@ -152,15 +152,18 @@ export default function ShopPage() {
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
-              <p className="product-desc">
-                Your backstage pass. Each month you get a private letter from me. Once our circle reaches 13 members, we meet live on Zoom once a month. Until then, send me up to 3 questions a month and I&rsquo;ll answer you personally in writing.
-              </p>
+              <p className="product-desc">Your backstage pass.</p>
               <ul className="product-list">
-                <li>A private monthly letter from Jen</li>
-                <li>A live monthly Zoom once we reach 13 members</li>
-                <li>Until then, up to 3 questions a month answered by Jen in writing</li>
+                <li>Private monthly letter</li>
+                <li>Members-only photo carousel</li>
+                <li>The private passcode journal</li>
+                <li>Up to 3 questions a month that Jen answers in writing</li>
+                <li>Live monthly Zoom</li>
                 <li>Cancel anytime</li>
               </ul>
+              <p className="product-desc">
+                Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
+              </p>
               <div className="product-cta">
                 {SHOP.velvetCircleMembership ? (
                   <>
