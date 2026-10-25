@@ -7,7 +7,7 @@ import { getAllPosts } from '../sanity/queries';
 import { POSTS as FALLBACK_POSTS } from './_posts';
 
 // Chip order. Every name here is shown, including a category with no posts yet.
-const CATEGORY_ORDER = ['Podcast', 'Faith', 'Family', 'Cooking', 'Advocacy', 'Health & Wellness', 'Behind the Book', 'Journal'];
+const CATEGORY_ORDER = ['Podcast', 'Pup of the Podcast', 'Faith', 'Family', 'Cooking', 'Advocacy', 'Health & Wellness', 'Behind the Book', 'Journal'];
 
 export const metadata = {
   title: 'Journal',

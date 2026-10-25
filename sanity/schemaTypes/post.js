@@ -2,6 +2,7 @@ import { defineType, defineField } from 'sanity';
 
 export const CATEGORIES = [
   'Podcast',
+  'Pup of the Podcast',
   'Faith',
   'Family',
   'Cooking',
