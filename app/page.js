@@ -1,6 +1,7 @@
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
+import PhotoGallery from './components/PhotoGallery';
 import { KIT_FREE_CHAPTER_URL, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 
 export default function Home() {
@@ -112,6 +113,8 @@ export default function Home() {
           <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="1026" height="1532" loading="lazy" /></div>
         </div>
       </section>
+
+      <PhotoGallery />
 
       {/* PODCAST. Subscribe buttons. The buy row's Spotify link is the audiobook, not the show.
           TODO: confirm with Jen which Spotify show ID is the podcast and which is the audiobook. */}
