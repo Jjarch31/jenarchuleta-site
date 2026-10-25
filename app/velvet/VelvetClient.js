@@ -119,7 +119,6 @@ export default function VelvetClient({ letters = [] }) {
               width="1100"
               height="1370"
             />
-            <div className="eyebrow">For readers of Beyond the Velvet Ropes</div>
             <h1>For readers of the book.</h1>
             <p className="gate-sub">
               Enter the password from the back of the book.
@@ -147,6 +146,7 @@ export default function VelvetClient({ letters = [] }) {
                 <li>The private passcode journal</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
                 <li>Live monthly Zoom</li>
+                <li>Cancel anytime</li>
               </ul>
               <p>Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.</p>
               <VelvetCarousel />
@@ -155,7 +155,7 @@ export default function VelvetClient({ letters = [] }) {
                 href={CIRCLE_HREF}
                 {...(SHOP.velvetCircleMembership ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
-                Get your backstage pass
+                Join the Velvet Circle
               </a>
             </div>
             <p className="gate-foot">
