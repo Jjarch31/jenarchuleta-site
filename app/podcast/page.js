@@ -37,7 +37,8 @@ export default function PodcastPage() {
         <div className="subscribe-row">
           <a href={sub.spotify} className="btn btn-ghost btn-sm">Spotify</a>
           <a href={sub.apple} className="btn btn-ghost btn-sm">Apple Podcasts</a>
-          <a href={sub.youtube} className="btn btn-ghost btn-sm">YouTube</a>
+          <a href={PODCAST.youtube} className="btn btn-ghost btn-sm">YouTube</a>
+          <a href={PODCAST.buzzsprout} className="btn btn-ghost btn-sm">Buzzsprout</a>
         </div>
       </section>
 

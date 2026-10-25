@@ -17,11 +17,11 @@ export const SOCIALS = {
   foreverAngels: 'https://www.theforeverangels.com',
 };
 
-// Site-wide social share image (open graph and Twitter).
+// Site-wide social share image (open graph and Twitter). Floral headshot.
 export const OG_IMAGE = {
-  url: 'https://jenarchuleta.com/assets/jen-og.jpg',
-  width: 1200,
-  height: 630,
+  url: 'https://jenarchuleta.com/assets/presskit-headshot-floral.jpg',
+  width: 1100,
+  height: 1370,
   alt: 'Jen Walcott Archuleta',
 };
 

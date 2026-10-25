@@ -65,7 +65,7 @@ const personJsonLd = {
   name: 'Jen Archuleta',
   alternateName: ['Jennifer Walcott Archuleta', 'Jennifer Walcott', 'Jennifer Archuleta'],
   url: 'https://jenarchuleta.com',
-  image: 'https://jenarchuleta.com/assets/jen-headshot-bw.jpg',
+  image: 'https://jenarchuleta.com/assets/presskit-headshot-floral.jpg',
   jobTitle: 'Author',
   sameAs: [SOCIALS.instagram, SOCIALS.x, PODCAST.subscribe.spotify, PODCAST.subscribe.apple, PODCAST.subscribe.youtube],
 };

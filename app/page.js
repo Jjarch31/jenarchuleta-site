@@ -24,7 +24,9 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-media">
-          <img className="portrait" src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta" width="1320" height="1946" />
+          <div className="portrait hero-frame">
+            <img src="/assets/presskit-headshot-floral.jpg" alt="Jen Walcott Archuleta" width="1100" height="1370" />
+          </div>
         </div>
       </section>
 

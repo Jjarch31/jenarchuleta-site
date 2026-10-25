@@ -36,6 +36,7 @@ export default function BookPage() {
           <a href="/" className="brand">Jen Archuleta</a>
           <div className="nav-links">
             <a href="/">Home</a>
+            <a href="/podcast">Podcast</a>
             <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary btn-sm">Free Chapter</a>
           </div>
         </div>

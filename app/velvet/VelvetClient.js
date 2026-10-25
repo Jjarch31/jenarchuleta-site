@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
 import KitInlineForm from '../components/KitInlineForm';
-import { KIT_FORM_UID } from '../components/site-data';
+import { KIT_FORM_UID, SHOP } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
@@ -36,6 +36,7 @@ const letterComponents = {
 
 const PASSWORD = 'velvet';
 const KEY = 'velvet_ok';
+const CIRCLE_HREF = SHOP.velvetCircleMembership || '/shop';
 
 const PHOTOS = [
   { src: '/velvet/young-jen.jpg', alt: 'Jen as a young girl' },
@@ -101,7 +102,19 @@ export default function VelvetClient({ letters = [] }) {
               />
               <button type="submit" className="btn btn-primary">Open the rope</button>
             </form>
-            {error && <p className="gate-error">That&rsquo;s not it — check the last page of the book.</p>}
+            {error && <p className="gate-error">That&rsquo;s not it. Check the last page of the book.</p>}
+            <div className="gate-join">
+              <h2>Not in yet?</h2>
+              <p>Have the book? Scan the QR code in the back and enter the password printed there.</p>
+              <p>Want more? Join the Velvet Circle, my private monthly conversation, for $9.99 a month.</p>
+              <a
+                className="btn btn-primary"
+                href={CIRCLE_HREF}
+                {...(SHOP.velvetCircleMembership ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                Get your backstage pass
+              </a>
+            </div>
             <p className="gate-foot">
               Don&rsquo;t have the book yet? <a href="/book">Start here</a>.
             </p>

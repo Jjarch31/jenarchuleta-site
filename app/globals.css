@@ -70,6 +70,24 @@ section { padding-block: var(--section-y); }
 .hero .lead { margin-bottom: 30px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
 .portrait { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: block; }
+/* Cream mat and gold hairlines, matching the framed press headshots. The photo file itself is not altered. */
+.hero-frame {
+  padding: clamp(12px, 1.8vw, 18px);
+  background: var(--paper);
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 720px;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 1px solid var(--gold);
+  border-radius: 0;
+}
 @media (max-width: 860px){ .hero { grid-template-columns: 1fr; } .hero-media { order: -1; max-width: 420px; margin-inline:auto; } }
 
 /* tagline band */
