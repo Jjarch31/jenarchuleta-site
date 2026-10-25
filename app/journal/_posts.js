@@ -13,6 +13,7 @@ export const CATEGORIES = [
   'Journal',
   'Faith',
   'Family',
+  'Cooking',
   'Advocacy',
   'Behind the Book',
   'Health & Wellness',

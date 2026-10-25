@@ -4,6 +4,7 @@ export const CATEGORIES = [
   'Podcast',
   'Faith',
   'Family',
+  'Cooking',
   'Advocacy',
   'Health & Wellness',
   'Behind the Book',
