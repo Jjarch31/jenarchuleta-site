@@ -129,11 +129,11 @@
   },
   {
     "file": "33.jpg",
-    "caption": "Childhelp Wings Fashion Show Luncheon"
+    "caption": ""
   },
   {
     "file": "34.jpg",
-    "caption": "With friends"
+    "caption": "Childhelp Wings Fashion Show Luncheon"
   },
   {
     "file": "35.jpg",
@@ -153,14 +153,18 @@
   },
   {
     "file": "39.jpg",
-    "caption": "Urban Axes"
+    "caption": "With friends"
   },
   {
     "file": "40.jpg",
-    "caption": ""
+    "caption": "Urban Axes"
   },
   {
     "file": "41.jpg",
+    "caption": ""
+  },
+  {
+    "file": "42.jpg",
     "caption": ""
   }
 ]
