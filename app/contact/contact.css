@@ -5,6 +5,15 @@
   padding-top: clamp(56px, 9vw, 110px);
 }
 
+.contact-page .contact-cover {
+  width: min(240px, 62vw);
+  height: auto;
+  display: block;
+  margin: 0 auto 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+
 .contact-page h1 {
   font-size: var(--text-display-l);
   margin: 8px 0 12px;

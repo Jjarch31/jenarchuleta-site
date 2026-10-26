@@ -27,6 +27,13 @@ export default function ContactPage() {
       <a href="#main-content" className="skip-link">Skip to content</a>
 
       <section id="main-content" className="wrap contact-hero">
+        <img
+          className="contact-cover"
+          src="/assets/book-cover.jpg"
+          alt="Beyond the Velvet Ropes book cover"
+          width="1000"
+          height="1500"
+        />
         <p className="hero-script" style={{ fontSize: 'var(--text-script-m)' }}>Let’s connect</p>
         <h1>Jen Walcott Archuleta</h1>
         <p className="contact-role">

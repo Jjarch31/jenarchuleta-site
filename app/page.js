@@ -18,7 +18,7 @@ export default function Home() {
           <div className="hero-script">Here’s what really<br />happened.</div>
           <h1>Faith, family, and a bunch of dogs.</h1>
           <div className="eyebrow" style={{ marginTop: '16px' }}>Author of <em>Beyond the Velvet Ropes</em></div>
-          <p className="lead">These days I’m happiest in the small stuff. My kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I had a wild, wonderful run in my twenties, and I’m grateful for all of it. But the part I care about most isn’t the glamorous version. It’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
+          <p className="lead">These days I’m happiest in the small stuff. My kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I’m grateful for the wild, wonderful run that came before this. But the part I care about most isn’t the glamorous version. It’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
           <div className="hero-ctas">
             <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary">Read the first chapter free</a>
             <a href="/book" className="btn btn-ghost">Get the book</a>
@@ -43,7 +43,7 @@ export default function Home() {
         <div className="p">
           <div className="eyebrow">Story</div>
           <h3>The Author</h3>
-          <p>Her memoir, <em>Beyond the Velvet Ropes</em>, and what I write about the hard years.</p>
+          <p>My book, and what I write about the hard years.</p>
           <p><a href="/book" className="btn btn-ghost btn-sm">The book</a></p>
         </div>
         <div className="p">
@@ -85,7 +85,7 @@ export default function Home() {
           <div className="tf-copy">
             <div className="eyebrow">Watch the Trailer</div>
             <p className="tf-logline">Watch the trailer.</p>
-            <p className="tf-cap">The official trailer for <em>Beyond the Velvet Ropes</em>, about ninety seconds.</p>
+            <p className="tf-cap">The official trailer for the book, about ninety seconds.</p>
           </div>
           <figure className="tf-video">
             <video
@@ -105,7 +105,7 @@ export default function Home() {
         <div className="story-grid">
           <div>
             <h2>How I got here.</h2>
-            <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent my twenties proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
+            <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
             <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
             <p className="pull">“You didn’t need rescuing. You needed time. Time to find your voice. Time to believe it mattered.”</p>
             <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost">Start with the first chapter</a>

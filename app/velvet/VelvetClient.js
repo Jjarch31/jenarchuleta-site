@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
 import KitInlineForm from '../components/KitInlineForm';
+import VelvetCarousel from './VelvetCarousel';
 import { KIT_FORM_UID, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 
@@ -141,6 +142,7 @@ export default function VelvetClient({ letters = [] }) {
                 </li>
               </ul>
               <p>Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.</p>
+              <VelvetCarousel />
               <div className="vc-see-more">
                 <a className="btn btn-primary" href="/book">See more</a>
               </div>
