@@ -5,7 +5,8 @@ import Image from 'next/image';
 import captions from '../velvet/captions.json';
 import sizes from '../velvet/slide-sizes.json';
 
-// One slideshow. Portraits that are not already on the homepage, then
+// One slideshow. The Hollywood set is first, together, so those slides
+// lead. Then portraits that are not already on the homepage, then
 // Velvet Circle photos, then gallery-new. A file stays in the repo when
 // its slide is left out. /velvet still reads captions.json.
 // Out of this slideshow:
@@ -24,6 +25,64 @@ import sizes from '../velvet/slide-sizes.json';
 // real ratio. Do not cover-crop these into a shared frame. Only the
 // current slide and its two neighbors are mounted.
 const BLANK_ALT = 'Photo from Jen’s personal collection';
+
+// Long edge already at or under 1600. Stored at the original size.
+const HOLLYWOOD = [
+  {
+    src: '/assets/gallery-hw/hw_01.jpg',
+    alt: 'On stage at Playboy’s Rock the Rabbit party, SXSW',
+    caption: 'On stage at Playboy’s Rock the Rabbit party, SXSW',
+    width: 1242,
+    height: 781,
+  },
+  {
+    src: '/assets/gallery-hw/hw_02.jpg',
+    alt: 'Jen Walcott Archuleta on a red carpet',
+    width: 1320,
+    height: 1067,
+  },
+  {
+    src: '/assets/gallery-hw/hw_03.jpg',
+    alt: 'With Tommy Lee',
+    caption: 'With Tommy Lee',
+    width: 960,
+    height: 998,
+  },
+  {
+    src: '/assets/gallery-hw/hw_04.jpg',
+    alt: 'With Howard Stern',
+    caption: 'With Howard Stern',
+    width: 1242,
+    height: 950,
+  },
+  {
+    src: '/assets/gallery-hw/hw_05.jpg',
+    alt: 'With Shaggy in Los Angeles',
+    caption: 'With Shaggy in Los Angeles',
+    width: 1320,
+    height: 1290,
+  },
+  {
+    src: '/assets/gallery-hw/hw_06.jpg',
+    alt: 'My name on the Palms marquee in Las Vegas',
+    caption: 'My name on the Palms marquee in Las Vegas',
+    width: 640,
+    height: 480,
+  },
+  {
+    src: '/assets/gallery-hw/hw_07.jpg',
+    alt: 'Swimming with a dolphin',
+    caption: 'Swimming with a dolphin',
+    width: 1179,
+    height: 817,
+  },
+  {
+    src: '/assets/gallery-hw/hw_09.jpg',
+    alt: 'Jen Walcott Archuleta',
+    width: 786,
+    height: 1577,
+  },
+];
 
 const PORTRAITS = [
   {
@@ -89,7 +148,7 @@ const GALLERY_NEW = [
   { src: '/assets/gallery-new/new_38.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 1500, height: 2000 },
 ];
 
-const SLIDES = [...PORTRAITS, ...FAMILY, ...GALLERY_NEW];
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW];
 
 const INTERVAL_MS = 4000;
 
