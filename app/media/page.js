@@ -15,19 +15,19 @@ export const metadata = {
 // Do not publish FilmFreeway personal details (birth date, height, school, college)
 // or a representative's phone number or street address.
 // Speaking reel and past events: render nothing until Jen supplies them.
-// Boardman News is omitted until a real article link exists.
+// Boardman News uses the article link, not the homepage.
 // Direct WKBN video embed is omitted until a video URL exists. The article link stands in.
 // Press kit PDF is shown only when public/press/jen-walcott-archuleta-press-kit.pdf exists.
 // Book cover download is omitted. public/assets/book-cover.jpg is the compressed
 // web image (1000x1500), not a press-resolution file.
 // Outlet logos are names until files arrive in public/assets/logos/.
 
-const PRESS_BIO = 'Jennifer Walcott Archuleta is the author of Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love, and the host of the podcast Unfiltered with Jen Archuleta. Raised in Youngstown, Ohio, she moved to California at 18, worked as a makeup artist, and became Playboy’s Miss August 2001. She co-founded The Forever Angels, a nonprofit that helps families, veterans, hospice patients, and animals in need. A film based on her memoir is in development with Leone Marucci’s Steelyard Pictures. She lives on the West Coast with her husband, former NFL safety Adam Archuleta, their three children, and a houseful of rescue animals.';
+const PRESS_BIO = 'Jennifer Walcott Archuleta is the author of Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love, and the host of the podcast Unfiltered with Jen Archuleta. Raised in Youngstown, Ohio, she moved to California at 18, worked as a makeup artist, and became Playboy’s Miss August 2001. She co-founded The Forever Angels, a nonprofit that helps families, veterans, hospice patients, and animals in need. A film based on her memoir is in development with Leone Marucci’s Steelyard Pictures, and a feature documentary is in development with Mark Andrew Hamer of Crash Cat Media Group. She lives on the West Coast with her husband, former NFL safety Adam Archuleta, their three children, and a houseful of rescue animals.';
 
 const PRESS = [
   {
-    outlet: 'The Vindicator / Tribune Chronicle',
-    headline: 'Area native offers peak behind the ‘Velvet Rope’',
+    outlet: 'Tribune Chronicle',
+    headline: 'Area native offers peek behind the Velvet Rope',
     byline: 'Andy Gray',
     date: 'Aug 20, 2026',
     href: 'https://www.vindy.com/life/ticket/2026/08/area-native-offers-peak-behind-the-velvet-rope/',
@@ -46,10 +46,9 @@ const PRESS = [
     href: 'https://www.mahoningmatters.com/news/local/article316760975.html',
   },
   {
-    outlet: 'Mahoning Matters',
-    headline: 'Jen Archuleta memoir book signing set for Boardman Aug. 23',
-    date: 'Aug 22, 2026',
-    href: 'https://www.mahoningmatters.com/news/local/article316963484.html',
+    outlet: 'Boardman News',
+    headline: 'Former Playboy Playmate Will Hold Book Signing Aug. 23 at Barnes & Noble',
+    href: 'https://www.boardmannews.net/article.php?article=0000001900',
   },
   {
     outlet: 'Akron Beacon Journal',
@@ -105,6 +104,7 @@ const LOGO_NAMES = [
   'Akron Beacon Journal',
   'Star 94.7 FM',
   'Steelyard Pictures',
+  'Crash Cat Media Group',
 ];
 
 function publicFileExists(rel) {
@@ -167,12 +167,18 @@ export default function MediaPage() {
       </section>
 
       <section className="wrap text-wrap">
-        <h2>Film</h2>
+        <h2>Film and documentary</h2>
         <p>
           Beyond the Velvet Ropes is being developed into a feature film with Leone Marucci and Steelyard Pictures. The screenplay was named a Second Rounder in the 2026 Austin Film Festival Screenplay Competition.
         </p>
         <p>
+          A feature documentary based on Beyond the Velvet Ropes is in development with filmmaker Mark Andrew Hamer of{' '}
+          <a href="https://CrashCatMedia.com" target="_blank" rel="noopener noreferrer">Crash Cat Media Group</a>.
+        </p>
+        <p>
           <a href="http://www.steelyardpictures.com/bio" target="_blank" rel="noopener noreferrer">Steelyard Pictures</a>
+          {' · '}
+          <a href="https://CrashCatMedia.com" target="_blank" rel="noopener noreferrer">Crash Cat Media Group</a>
           {' · '}
           <a href="https://filmfreeway.com/JenniferArchuleta" target="_blank" rel="noopener noreferrer">FilmFreeway</a>
         </p>

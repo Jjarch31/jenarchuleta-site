@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import './journal.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
@@ -6,7 +7,7 @@ import { urlFor } from '../sanity/image';
 import { getAllPosts } from '../sanity/queries';
 import { POSTS as FALLBACK_POSTS } from './_posts';
 
-// Chip order. Every name here is shown, including a category with no posts yet.
+// Chip order. A category is shown only when it has at least one post.
 const CATEGORY_ORDER = ['Podcast', 'Pup of the Podcast', 'Faith', 'Family', 'Cooking', 'Advocacy', 'Health & Wellness', 'Behind the Book', 'Journal'];
 
 export const metadata = {
@@ -41,11 +42,12 @@ export default async function JournalPage({ searchParams }) {
     if (p.category) m[p.category] = (m[p.category] || 0) + 1;
     return m;
   }, {});
-  // Known categories stay in the row even with zero posts. A direct
-  // /journal?category=Cooking visit then shows the empty line below.
-  // Any other category that already has posts is appended after these.
+  // Empty categories stay off the row, except Pup of the Podcast, which
+  // stays up while posts are moved into it. Sponsors is a page link, not
+  // a category, and sits right after that chip. A direct empty-category
+  // URL still shows the empty line below.
   const presentCategories = [
-    ...CATEGORY_ORDER,
+    ...CATEGORY_ORDER.filter((c) => c === 'Pup of the Podcast' || counts[c]),
     ...Object.keys(counts).filter((c) => !CATEGORY_ORDER.includes(c)).sort(),
   ];
 
@@ -63,13 +65,17 @@ export default async function JournalPage({ searchParams }) {
         <div className="filter-row">
           <a className={`chip ${active === 'All' ? 'is-active' : ''}`} href="/journal">All</a>
           {presentCategories.map((c) => (
-            <a
-              key={c}
-              className={`chip ${active === c ? 'is-active' : ''}`}
-              href={`/journal?category=${encodeURIComponent(c)}`}
-            >
-              {c}
-            </a>
+            <Fragment key={c}>
+              <a
+                className={`chip ${active === c ? 'is-active' : ''}`}
+                href={`/journal?category=${encodeURIComponent(c)}`}
+              >
+                {c}
+              </a>
+              {c === 'Pup of the Podcast' ? (
+                <a className="chip" href="/sponsors">Sponsors</a>
+              ) : null}
+            </Fragment>
           ))}
         </div>
         {active === 'Pup of the Podcast' && (

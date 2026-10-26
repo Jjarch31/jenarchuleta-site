@@ -16,6 +16,7 @@ export default async function sitemap() {
     { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/book`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/podcast`, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE}/sponsors`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE}/pups`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/journal`, changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE}/shop`, changeFrequency: 'monthly', priority: 0.7 },

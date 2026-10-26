@@ -1,0 +1,35 @@
+.sponsors-page .sponsors-head { text-align: center; }
+.sponsors-page .sponsors-head h1 { font-size: var(--text-display-l); }
+.sponsors-page .sponsors-head .lead { max-width: 42ch; margin-inline: auto; }
+
+.sponsors-page .sponsor-list {
+  list-style: none;
+  padding: 0;
+  margin: 40px auto 0;
+  max-width: 640px;
+  text-align: left;
+}
+.sponsors-page .sponsor-list li {
+  padding: 20px 0;
+  border-top: var(--hairline);
+}
+.sponsors-page .sponsor-list li:last-child { border-bottom: var(--hairline); }
+.sponsors-page .sponsor-list h2 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin: 0 0 6px;
+}
+.sponsors-page .sponsor-note {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+}
+.sponsors-page .sponsor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+}
+.sponsors-page .sponsors-close {
+  margin-top: 36px;
+}

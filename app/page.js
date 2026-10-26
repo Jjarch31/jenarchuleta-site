@@ -127,7 +127,11 @@ export default function Home() {
           <a href={PODCAST.subscribe.apple} target="_blank" rel="noopener" className="btn btn-ghost">Apple Podcasts</a>
           <a href={PODCAST.youtube} target="_blank" rel="noopener" className="btn btn-ghost">Watch on YouTube</a>
         </div>
-        <p className="foot-meta" style={{ marginTop: '18px' }}><a href="/podcast">All episodes →</a></p>
+        <p className="foot-meta" style={{ marginTop: '18px' }}>
+          <a href="/podcast">All episodes →</a>
+          {' · '}
+          <a href="/sponsors">Sponsors</a>
+        </p>
       </section>
 
       {/* MEET JEN (beauty + personality) */}

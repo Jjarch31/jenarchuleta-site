@@ -1,6 +1,6 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { KIT_FREE_CHAPTER_URL, OG_IMAGE, SHOP } from '../components/site-data';
+import { KIT_FREE_CHAPTER_URL, OG_IMAGE, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import './shop.css';
 
 export const metadata = {
@@ -159,18 +159,14 @@ export default function ShopPage() {
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
-              {SHOP.foundingBox ? (
-                <p className="product-desc">
-                  Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.
-                </p>
-              ) : null}
               <ul className="product-list">
                 <li>Private monthly letter</li>
-                <li>Members-only photo carousel</li>
                 <li>The private passcode journal</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
                 <li>Live monthly Zoom</li>
-                <li>Cancel anytime</li>
+                <li>
+                  <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
+                </li>
               </ul>
               <p className="product-desc">
                 Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
@@ -182,46 +178,6 @@ export default function ShopPage() {
                       Join the Velvet Circle
                     </a>
                     <TrustLine />
-                  </>
-                ) : (
-                  <span className="btn btn-disabled">Coming soon</span>
-                )}
-              </div>
-            </div>
-          </article>
-
-          {/* THE BACKSTAGE BOX. Public name only. Buy button stays off until foundingBox is a Stripe Payment Link. */}
-          <article className="product-card" id="backstage-box">
-            <div className="product-media">
-              <img
-                src="/assets/founders-box.jpg"
-                alt="The Backstage Box, a black gift box with the signed book, velvet bookmark, and black velvet bunny ears"
-                width="1152"
-                height="864"
-                loading="lazy"
-              />
-            </div>
-            <div className="product-body">
-              <div className="eyebrow">Limited first run</div>
-              <h3>The Backstage Box</h3>
-              <p className="price">{SHOP.foundingBoxPrice}</p>
-              <p className="product-desc">
-                It includes a signed copy of Beyond the Velvet Ropes, the velvet bookmark, and black velvet bunny ears in a black box tied with a black ribbon, plus your first month of the Velvet Circle free, then $9.99 a month.
-              </p>
-              <ul className="product-list">
-                <li>Signed copy of Beyond the Velvet Ropes</li>
-                <li>The velvet bookmark</li>
-                <li>Black velvet bunny ears</li>
-                <li>Your first month of the Velvet Circle free, then $9.99 a month</li>
-              </ul>
-              <p className="fulfill">Packed and shipped to you.</p>
-              <div className="product-cta">
-                {SHOP.foundingBox ? (
-                  <>
-                    <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
-                      Get the Backstage Box
-                    </a>
-                    <TrustLine note="Secure checkout" />
                   </>
                 ) : (
                   <span className="btn btn-disabled">Coming soon</span>

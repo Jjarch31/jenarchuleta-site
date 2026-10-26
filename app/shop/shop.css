@@ -132,6 +132,10 @@
   line-height: var(--leading-body);
 }
 .shop-page .product-list li { margin: 0.2em 0; }
+.shop-page .product-list a.cancel-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* fulfillment expectation — important info, so secondary ink (AAA),
    never the muted metadata tone */

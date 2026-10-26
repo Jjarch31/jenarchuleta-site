@@ -74,12 +74,6 @@ export const SHOP = {
   // Do not take the membership live through any checkout that lacks that portal.
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
   velvetCircleMembershipPrice: '$9.99/month',
-
-  // THE BACKSTAGE BOX (public name). Off the site until a $69 Stripe Payment
-  // Link that collects a shipping address exists. Do not point this at Kit.
-  // Kit checkout cannot collect a shipping address. Empty shows Coming soon.
-  foundingBox: '',
-  foundingBoxPrice: '$69',
 };
 
 // Podcast (Buzzsprout). The numeric podcast ID powers the official
