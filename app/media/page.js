@@ -90,10 +90,10 @@ const APPEARANCES = [
 ];
 
 const HEADSHOTS = [
-  { href: '/assets/jen-headshot-bw.jpg', label: 'Headshot, black and white' },
-  { href: '/assets/jen-headshot-bw-framed.jpg', label: 'Headshot, framed' },
-  { href: '/assets/presskit-headshot-floral.jpg', label: 'Headshot, floral' },
-  { href: '/assets/presskit-headshot-glam.jpg', label: 'Headshot, glam' },
+  { href: '/assets/jen-headshot-bw.jpg', label: 'Black and White Portrait' },
+  { href: '/assets/jen-headshot-bw-framed.jpg', label: 'Framed Portrait' },
+  { href: '/assets/presskit-headshot-floral.jpg', label: 'Floral Portrait' },
+  { href: '/assets/presskit-headshot-glam.jpg', label: 'Glam Portrait' },
 ];
 
 const LOGO_NAMES = [
