@@ -25,12 +25,6 @@ const SPONSORS = [
     ],
   },
   {
-    name: 'Photos of Jennifer Walcott (An Autographs Company)',
-    links: [
-      { label: 'Instagram @PhotosofJenniferWalcott', href: 'https://instagram.com/PhotosofJenniferWalcott' },
-    ],
-  },
-  {
     name: 'KJ Classic Creations',
     links: [
       { label: 'kjclassiccreations.etsy.com', href: 'https://kjclassiccreations.etsy.com' },

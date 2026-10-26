@@ -15,7 +15,8 @@ export const metadata = {
 // Do not publish FilmFreeway personal details (birth date, height, school, college)
 // or a representative's phone number or street address.
 // Speaking reel and past events: render nothing until Jen supplies them.
-// Boardman News uses the article link, not the homepage.
+// Boardman News links to the outlet's Facebook post. The article host's
+// certificate is expired, so the card does not point at boardmannews.net.
 // Direct WKBN video embed is omitted until a video URL exists. The article link stands in.
 // Press kit PDF is shown only when public/press/jen-walcott-archuleta-press-kit.pdf exists.
 // Book cover download is omitted. public/assets/book-cover.jpg is the compressed
@@ -48,7 +49,7 @@ const PRESS = [
   {
     outlet: 'Boardman News',
     headline: 'Former Playboy Playmate Will Hold Book Signing Aug. 23 at Barnes & Noble',
-    href: 'https://www.boardmannews.net/article.php?article=0000001900',
+    href: 'https://www.facebook.com/boardmannews/posts/former-playboy-playmate-will-hold-book-signing-aug-23-at-barnes-nobleaug-6-12-20/1703665671629905/',
   },
   {
     outlet: 'Akron Beacon Journal',
