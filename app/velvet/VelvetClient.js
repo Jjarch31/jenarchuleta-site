@@ -3,10 +3,8 @@
 import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
-import KitInlineForm from '../components/KitInlineForm';
 import VelvetCirclePanel from '../components/VelvetCirclePanel';
 import VelvetCarousel from './VelvetCarousel';
-import { KIT_FORM_UID } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
@@ -184,11 +182,6 @@ export default function VelvetClient({ letters = [] }) {
           between the covers, the photos up close, the stories behind them, the
           parts I read out loud, the scenes that almost made it in.
         </p>
-        <p>
-          But before any of that: if the book stirred something in you, I hope you
-          heard the one thing I most wanted to say. Your story isn&rsquo;t what
-          happened to you. It&rsquo;s what you do with it.
-        </p>
         <p className="signoff">Jen.</p>
       </section>
 
@@ -294,19 +287,6 @@ export default function VelvetClient({ letters = [] }) {
               Review on Barnes &amp; Noble
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* EMAIL CAPTURE — light band (Kit inline form is light-styled) */}
-      <section className="capture-band">
-        <div className="wrap text-wrap center">
-          <div className="eyebrow">Stay close</div>
-          <h2>Be first when something new lands here.</h2>
-          <p className="lead">
-            When I add the audio, the cut scenes, or news about the film,
-            I&rsquo;ll tell my readers first, by email.
-          </p>
-          <KitInlineForm uid={KIT_FORM_UID} />
         </div>
       </section>
 

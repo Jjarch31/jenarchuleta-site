@@ -150,6 +150,13 @@ const GALLERY_NEW = [
 
 const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW];
 
+// Slides 19 and 27 of the 59-photo order (before the Hollywood set was
+// added). Those two stay fully visible: native img, no max-height crop.
+const UNCROPPED = new Set([
+  '/velvet-carousel/20.jpg',
+  '/velvet-carousel/32.jpg',
+]);
+
 const INTERVAL_MS = 4000;
 
 function Chevron({ direction }) {
@@ -174,6 +181,15 @@ export default function PhotoGallery() {
   }, []);
 
   useEffect(() => {
+    const slide = new URLSearchParams(window.location.search).get('slide');
+    if (slide) {
+      const start = SLIDES.findIndex((item) => item.src === slide);
+      if (start >= 0) {
+        setIndex(start);
+        setPaused(true);
+      }
+    }
+
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const applyMotion = () => setReduceMotion(motion.matches);
     applyMotion();
@@ -276,22 +292,34 @@ export default function PhotoGallery() {
             onTouchCancel={onTouchCancel}
           >
             <div className="gallery-viewport">
-              {nearby.map(({ offset, slide: item }) => (
-                <div
-                  key={item.src}
-                  className={`gallery-slide${offset === 0 ? ' is-active' : ''}`}
-                  aria-hidden={offset === 0 ? undefined : true}
-                >
-                  <Image
-                    src={item.src}
-                    alt={offset === 0 ? item.alt : ''}
-                    width={item.width}
-                    height={item.height}
-                    sizes="(max-width: 760px) 86vw, 440px"
-                    {...(offset === 0 && index === 0 ? { priority: true } : { loading: 'eager' })}
-                  />
-                </div>
-              ))}
+              {nearby.map(({ offset, slide: item }) => {
+                const full = UNCROPPED.has(item.src);
+                return (
+                  <div
+                    key={item.src}
+                    className={`gallery-slide${offset === 0 ? ' is-active' : ''}${full ? ' is-full' : ''}`}
+                    aria-hidden={offset === 0 ? undefined : true}
+                  >
+                    {full ? (
+                      <img
+                        src={item.src}
+                        alt={offset === 0 ? item.alt : ''}
+                        width={item.width}
+                        height={item.height}
+                      />
+                    ) : (
+                      <Image
+                        src={item.src}
+                        alt={offset === 0 ? item.alt : ''}
+                        width={item.width}
+                        height={item.height}
+                        sizes="(max-width: 760px) 86vw, 440px"
+                        {...(offset === 0 && index === 0 ? { priority: true } : { loading: 'eager' })}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
             {slide.caption ? <p className="gallery-caption">{slide.caption}</p> : null}
             <p className="gallery-count" aria-hidden="true">{index + 1} / {count}</p>

@@ -2,7 +2,8 @@ import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
 import PhotoGallery from './components/PhotoGallery';
-import { KIT_FREE_CHAPTER_URL, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
+import PhotoNeeded from './components/PhotoNeeded';
+import { KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 
 export default function Home() {
   return (
@@ -20,8 +21,7 @@ export default function Home() {
           <div className="eyebrow" style={{ marginTop: '16px' }}>Author of <em>Beyond the Velvet Ropes</em></div>
           <p className="lead">These days I’m happiest in the small stuff. My kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I’m grateful for the wild, wonderful run that came before this. But the part I care about most isn’t the glamorous version. It’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
           <div className="hero-ctas">
-            <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary">Read the first chapter free</a>
-            <a href="/book" className="btn btn-ghost">Get the book</a>
+            <a href="/book" className="btn btn-primary">Get the book</a>
           </div>
         </div>
         <div className="hero-media">
@@ -29,13 +29,6 @@ export default function Home() {
             <img src="/assets/presskit-headshot-floral.jpg" alt="Jen Walcott Archuleta" width="1100" height="1370" />
           </div>
         </div>
-      </section>
-
-      {/* TAGLINE */}
-      <section className="wrap tagline" style={{ paddingBlock: 'var(--space-9)' }}>
-        <div className="threshold-rule"><span className="diamond" /></div>
-        <p className="q">“Your story isn’t what happened to you. It’s what you do with it.”</p>
-        <div className="threshold-rule"><span className="diamond" /></div>
       </section>
 
       {/* PILLARS */}
@@ -78,7 +71,6 @@ export default function Home() {
               <a href="https://open.spotify.com/show/153EBrZVIkJY1xaY703km4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Spotify)</a>
               <a href="https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Apple)</a>
             </div>
-            <p style={{ marginTop: '6px' }}><a href={KIT_FREE_CHAPTER_URL} style={{ color: 'var(--accent)' }}>Or read the first chapter free →</a></p>
           </div>
         </div>
         <div className="wrap trailer-feature">
@@ -107,8 +99,6 @@ export default function Home() {
             <h2>How I got here.</h2>
             <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
             <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
-            <p className="pull">“You didn’t need rescuing. You needed time. Time to find your voice. Time to believe it mattered.”</p>
-            <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost">Start with the first chapter</a>
           </div>
           <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="1026" height="1532" loading="lazy" /></div>
         </div>
@@ -194,9 +184,13 @@ export default function Home() {
       <section id="letter" className="capture">
         <div className="wrap text-wrap">
           <div className="eyebrow">Stay close</div>
-          <h2>Read the first chapter free.</h2>
+          <h2>Get the First Chapter Free</h2>
           <p className="lead">Read how it started. I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
           <KitInlineForm uid={KIT_FORM_UID} />
+          <div className="signup-banner">
+            <PhotoNeeded>Childhood photo with a starry background.</PhotoNeeded>
+            <img src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta, black and white portrait" width="1320" height="1946" />
+          </div>
         </div>
       </section>
 

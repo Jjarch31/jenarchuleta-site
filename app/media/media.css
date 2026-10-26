@@ -146,8 +146,31 @@
   background: var(--surface);
 }
 
+.headshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 8px 0 28px;
+  align-items: start;
+}
+
+.headshot-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #1c1816;
+}
+
+.headshot-grid figcaption {
+  margin: 12px 0;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+}
+
 @media (max-width: 760px) {
-  .media-grid {
+  .media-grid,
+  .headshot-grid {
     grid-template-columns: 1fr;
   }
 }

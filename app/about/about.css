@@ -69,6 +69,8 @@
 .tim-band { background: var(--surface-alt); border-block: 1px solid var(--border); }
 .tim-band-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 56px);
                   align-items: center; padding-block: 80px; }
+.tim-band-inner.is-solo { grid-template-columns: 1fr; max-width: 42rem; }
+.tim-card.is-solo { grid-template-columns: 1fr; }
 .tim-quote { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
              box-shadow: var(--shadow); padding: 40px 36px; }
 .tim-quote p { font-family: var(--font-display); font-style: italic; font-size: clamp(24px, 3vw, 30px);

@@ -1,4 +1,5 @@
 import './velvet-circle-panel.css';
+import PhotoNeeded from './PhotoNeeded';
 import { SHOP, STRIPE_CUSTOMER_PORTAL_URL } from './site-data';
 
 const PERKS = [
@@ -16,26 +17,16 @@ export default function VelvetCirclePanel() {
     <section className="vc-announce" aria-labelledby="vc-announce-title">
       <div className="vc-announce-photo">
         <div className="vc-announce-frame">
-          <img
-            src="/assets/velvet-circle-bookclub.jpg"
-            alt="Friends gathered for a book club, some wearing black velvet bunny ears"
-            width="1152"
-            height="864"
-          />
-          <div className="vc-finder" aria-hidden="true">
-            <span className="vc-rec"><i />REC</span>
-            <span className="vc-corner vc-corner-tl" />
-            <span className="vc-corner vc-corner-tr" />
-            <span className="vc-corner vc-corner-bl" />
-            <span className="vc-corner vc-corner-br" />
-          </div>
+          <PhotoNeeded>
+            A warm, cozy cream and gold book club scene. People with a book at a meeting.
+          </PhotoNeeded>
         </div>
       </div>
 
       <div className="vc-announce-copy">
         <p className="vc-announce-eyebrow">THE VELVET CIRCLE</p>
         <h2 id="vc-announce-title">
-          A private book club &amp; community for readers of Beyond the Velvet Ropes
+          A private book club and community for readers of Beyond the Velvet Ropes.
         </h2>
         <p className="vc-announce-line">
           Real conversations. Untold stories. A place to connect, ask questions, and grow together.
@@ -44,8 +35,8 @@ export default function VelvetCirclePanel() {
           {PERKS.map((perk) => <li key={perk}>{perk}</li>)}
         </ul>
         <p className="vc-announce-box">
-          <a href="/shop#backstage-box">
-            Want the full experience? The Backstage Box has my signed book, my velvet bookmark and black velvet bunny ears.
+          <a href="/shop#backstage-bundle">
+            Want the full experience? The Backstage Bundle has my signed book, my velvet bookmark, and black velvet bunny ears.
           </a>
         </p>
         {join ? (

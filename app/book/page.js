@@ -1,5 +1,5 @@
 import './book.css';
-import { KIT_FREE_CHAPTER_URL, PODCAST } from '../components/site-data';
+import { PODCAST } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -37,7 +37,7 @@ export default function BookPage() {
           <div className="nav-links">
             <a href="/">Home</a>
             <a href="/podcast">Podcast</a>
-            <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary btn-sm">Free Chapter</a>
+            <a href="/quotes">Quotes</a>
           </div>
         </div>
       </nav>
@@ -60,7 +60,6 @@ export default function BookPage() {
               <a href="https://open.spotify.com/show/153EBrZVIkJY1xaY703km4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Spotify)</a>
               <a href="https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Apple)</a>
             </div>
-            <p><a href={KIT_FREE_CHAPTER_URL} style={{ color: 'var(--accent)' }}>Or read the first chapter free →</a></p>
           </div>
         </div>
       </section>
@@ -85,29 +84,11 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* EXCERPTS */}
-      <section className="wrap text-wrap">
-        <div className="center"><div className="eyebrow">From the pages</div></div>
-        <p className="pull">“I’ve lost people by being myself, but I would have lost myself by being who they wanted.”</p>
-        <p className="pull">“You didn’t need rescuing. You needed time. Time to find your voice. Time to believe it mattered.”</p>
-        <p className="pull">“To those who doubted me, you didn’t break me. You made me fight harder. And still, I forgive you.”</p>
-      </section>
-
       {/* FILM NOTE */}
       <section className="who center">
         <div className="wrap text-wrap">
           <h2>A film adaptation is in development.</h2>
           <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>The story is being adapted for the screen. More to come.</p>
-        </div>
-      </section>
-
-      {/* CAPTURE */}
-      <section className="capture">
-        <div className="wrap text-wrap">
-          <div className="eyebrow">Start reading</div>
-          <h2>Read the first chapter free.</h2>
-          <p className="lead">I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
-          <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary">Send me the first chapter</a>
         </div>
       </section>
 

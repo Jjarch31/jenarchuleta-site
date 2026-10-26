@@ -90,10 +90,9 @@ const APPEARANCES = [
 ];
 
 const HEADSHOTS = [
-  { href: '/assets/jen-headshot-bw.jpg', label: 'Black and White Portrait' },
-  { href: '/assets/jen-headshot-bw-framed.jpg', label: 'Framed Portrait' },
-  { href: '/assets/presskit-headshot-floral.jpg', label: 'Floral Portrait' },
-  { href: '/assets/presskit-headshot-glam.jpg', label: 'Glam Portrait' },
+  { href: '/assets/presskit-headshot-floral.jpg', label: 'Candid', width: 1100, height: 1370 },
+  { href: '/assets/jen-headshot-bw.jpg', label: 'Glamour', width: 1320, height: 1946 },
+  { href: '/assets/jen-headshot-signature.jpg', label: 'Signature', width: 1162, height: 1597 },
 ];
 
 const LOGO_NAMES = [
@@ -130,13 +129,6 @@ export default function MediaPage() {
         <p className="media-lead">
           Thank you for your interest in my story. Here you will find the interviews, articles, and conversations around Beyond the Velvet Ropes, my podcast, and The Forever Angels. If you would like me on your show, at your event, or in your pages, I would love to hear from you.
         </p>
-      </section>
-
-      <section className="wrap">
-        <figure className="media-quote">
-          <p>“It’s not who I am, it’s what I did. And the bunny ears here were just representing a piece of my life, not my whole life.”</p>
-          <cite>Jen Walcott Archuleta, WKBN 27 First News, Aug 23, 2026</cite>
-        </figure>
       </section>
 
       <section className="wrap">
@@ -213,12 +205,18 @@ export default function MediaPage() {
           </div>
           <p>{PRESS_BIO}</p>
         </div>
-        <div className="media-actions">
+        <div className="headshot-grid">
           {HEADSHOTS.map((shot) => (
-            <a key={shot.href} className="btn btn-ghost btn-sm" href={shot.href} download>
-              {shot.label}
-            </a>
+            <figure key={shot.href}>
+              <img src={shot.href} alt={`${shot.label} headshot of Jen Walcott Archuleta`} width={shot.width} height={shot.height} />
+              <figcaption>{shot.label}</figcaption>
+              <a className="btn btn-ghost btn-sm" href={shot.href} download>
+                {shot.label}
+              </a>
+            </figure>
           ))}
+        </div>
+        <div className="media-actions">
           {hasPressKit ? (
             <a className="btn btn-ghost btn-sm" href="/press/jen-walcott-archuleta-press-kit.pdf" download>
               Press kit PDF

@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import './journal.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import KitForm from '../components/KitForm';
 import { urlFor } from '../sanity/image';
 import { getAllPosts } from '../sanity/queries';
 import { POSTS as FALLBACK_POSTS } from './_posts';
@@ -122,12 +121,6 @@ export default async function JournalPage({ searchParams }) {
           </div>
         )}
       </section>
-
-      <KitForm
-        heading="Get the journal in your inbox."
-        blurb="New essays, plus the first chapter of the book. No spam, ever."
-        cta="Subscribe"
-      />
 
       <SiteFooter />
     </>
