@@ -56,6 +56,17 @@ export default function PodcastPage() {
         </p>
       </section>
 
+      <section className="wrap center">
+        <div className="eyebrow">Pups of the Podcast</div>
+        <h2>Meet the pups.</h2>
+        <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
+          Every episode features a rescue pup looking for a home.
+        </p>
+        <div style={{ marginTop: '20px' }}>
+          <a href="/pups" className="btn btn-primary">Meet the Pups of the Podcast</a>
+        </div>
+      </section>
+
       {/* BE A GUEST */}
       <section className="wrap guest" style={{ background: 'var(--surface)' }}>
         <div className="eyebrow">Come on the show</div>

@@ -1,0 +1,103 @@
+/* /pups — showcase grid. Light register, same cards as the journal feed. */
+
+.pups-page .pups-head { text-align: center; }
+.pups-page .pups-head h1 { font-size: var(--text-display-l); }
+.pups-page .pups-head .lead { max-width: 58ch; margin-inline: auto; }
+
+.pups-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  align-items: stretch;
+}
+
+.pup-card {
+  background: var(--surface);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+.pup-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pup-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.pup-paw {
+  width: 76px;
+  height: 76px;
+  color: var(--accent);
+}
+.pup-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  font-weight: var(--w-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+}
+
+.pup-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.pup-body h2 {
+  font-size: var(--text-h4);
+  margin: 0;
+}
+.pup-breed {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--text-body-s);
+}
+.pup-rescue,
+.pup-guest {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--text-body-s);
+}
+.pup-k {
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.pup-more {
+  margin-top: auto;
+  padding-top: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .pups-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .pups-grid { grid-template-columns: 1fr; }
+}

@@ -72,6 +72,11 @@ export default async function JournalPage({ searchParams }) {
             </a>
           ))}
         </div>
+        {active === 'Pup of the Podcast' && (
+          <p className="center" style={{ marginTop: '18px' }}>
+            <a href="/pups">Meet the Pups of the Podcast</a>
+          </p>
+        )}
       </section>
 
       <section className="wrap" style={{ paddingTop: 0 }}>
