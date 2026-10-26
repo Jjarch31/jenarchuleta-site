@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
 import KitInlineForm from '../components/KitInlineForm';
-import VelvetCarousel from './VelvetCarousel';
-import { KIT_FORM_UID, SHOP } from '../components/site-data';
+import { KIT_FORM_UID, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
@@ -112,13 +111,6 @@ export default function VelvetClient({ letters = [] }) {
       <div className="dark velvet-page">
         <main className="gate">
           <div className="gate-card">
-            <img
-              className="gate-portrait"
-              src="/assets/presskit-headshot-floral.jpg"
-              alt="Jen Walcott Archuleta"
-              width="1100"
-              height="1370"
-            />
             <h1>For readers of the book.</h1>
             <p className="gate-sub">
               Enter the password from the back of the book.
@@ -139,19 +131,16 @@ export default function VelvetClient({ letters = [] }) {
               <h2>Not in yet?</h2>
               <p>Have the book? Scan the QR code in the back and enter the password printed there.</p>
               <p>Want more? Join the Velvet Circle for $9.99 a month.</p>
-              {SHOP.foundingBox ? (
-                <p>Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.</p>
-              ) : null}
               <ul className="gate-perks">
                 <li>Private monthly letter</li>
-                <li>Members-only photo carousel</li>
                 <li>The private passcode journal</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
                 <li>Live monthly Zoom</li>
-                <li>Cancel anytime</li>
+                <li>
+                  <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
+                </li>
               </ul>
               <p>Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.</p>
-              <VelvetCarousel />
               <div className="vc-see-more">
                 <a className="btn btn-primary" href="/book">See more</a>
               </div>

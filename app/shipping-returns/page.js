@@ -43,19 +43,10 @@ export default function ShippingReturnsPage() {
             handmade, one-of-a-kind pieces, all other sales are final.
           </p>
 
-          <h2>The Backstage Box</h2>
-          <p>
-            The Backstage Box includes a signed copy of the book, the velvet bookmark, and black velvet
-            bunny ears, plus your first month of the Velvet Circle free. After that month, the membership
-            is $9.99 a month until you cancel. The physical items ship once. All sales of those items are
-            final except for items that arrive damaged or defective. Contact us within 14 days for a
-            replacement or refund.
-          </p>
-
           <h2>Velvet Circle Membership</h2>
           <p>
             The Velvet Circle Membership is a recurring monthly subscription billed at $9.99/month until
-            you cancel. It includes a private monthly letter, a members-only photo carousel, the private
+            you cancel. It includes a private monthly letter, the private
             passcode journal, and written answers to up to 3 questions a month. Live monthly Zooms begin
             once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions
             each month, and I&rsquo;ll answer every one in writing. You can cancel anytime before your next billing date to avoid being charged for

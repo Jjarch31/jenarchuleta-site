@@ -46,8 +46,8 @@ It is a **Next.js 14 (App Router, plain JavaScript — no TypeScript)** app:
 - A **Podcast** page (native Buzzsprout player).
 - A **Journal** blog powered by **Sanity CMS** (Jen self-publishes at `/studio`, no code).
 - Email capture via **Kit** (ConvertKit) inline form.
-- A **Shop** page selling a signed book copy, and (soon) a paid membership, a
-  one-time "Founding Box," and a keepsake bookmark — see §5a.
+- A **Shop** page selling a signed book copy, a paid membership, and a
+  keepsake bookmark — see §5a.
 - **Legal pages**: Privacy Policy, Terms of Service, Shipping & Returns — see §5b.
 
 **Local project folder:** `~/Documents/Jennifer/Website` (moved here from
@@ -106,7 +106,7 @@ public by design (that's what a Payment Link is) — never commit a Stripe *secr
 │   │   ├── _posts.js              ← placeholder fallback posts (used only if Sanity empty)
 │   │   └── [slug]/page.js         ← single JOURNAL POST (Portable Text + funnel)
 │   ├── shop/
-│   │   ├── page.js                ← SHOP page — 4 product cards, see §5a for pricing/links
+│   │   ├── page.js                ← SHOP page — product cards, see §5a for pricing/links
 │   │   └── shop.css
 │   ├── privacy/page.js            ← Privacy Policy (legal, see §5b)
 │   ├── terms/page.js              ← Terms of Service (legal, see §5b)
@@ -192,7 +192,7 @@ personalization), or give a subscriber a self-service cancel option — for ANY 
 the live "Buy"/"Join" button on the site must always point to a **Stripe Payment Link**,
 never to a Kit product's own checkout URL. This has been broken once already (a site update
 accidentally pointed a Buy button at Kit's checkout, which silently had no shipping/
-personalization fields) — don't repeat it. Kit product records still exist for all 4 products
+personalization fields) — don't repeat it. Kit product records may still exist off the site
 (cover art, price, tags) and are used by the Make.com automation, but a real customer should
 never land on Kit's own checkout page.
 
@@ -200,13 +200,10 @@ Current products (verify against `VELVET-CIRCLE-COMMERCE-STATUS.md` before trust
 that file is updated more frequently than this one):
 - **Signed Copy** — $41.99 total ($35 + $6.99 shipping) — Stripe Payment Link, live.
 - **Velvet Circle Membership** — $9.99/month — Stripe Payment Link. Cancel link is
-  `STRIPE_CUSTOMER_PORTAL_URL` (capital I in the Stripe login id). Shipping & Returns
-  uses that URL.
-- **The Backstage Box** — $69. `foundingBox` is an empty string until a Stripe Payment
-  Link that collects shipping exists. The shop card says Coming soon. Do not point it
-  at the Kit product checkout. The Velvet gate hides the Backstage Box line while the
-  link is empty.
-- **Signature Velvet Bookmark** — $24.99, not built yet, "Coming Soon"/waitlist.
+  `STRIPE_CUSTOMER_PORTAL_URL` (capital I in the Stripe login id). It is on the shop
+  membership card, the Velvet gate, and Shipping & Returns.
+- **The Backstage Box** is not sold. It is not on the shop, the gate, or the legal pages.
+- **Signature Velvet Bookmark** — $24.99, Stripe Payment Link.
 
 The Stripe→Kit→Google Sheets automation (tagging buyers in Kit, logging orders to a Google
 Sheet fulfillment tracker) is built and maintained in a separate Make.com scenario, not in
@@ -308,7 +305,7 @@ the contact address on the site's legal pages (`/privacy`, `/terms`, `/shipping-
   keeps the landing-page button instead.
 - **Never point a physical-goods "Buy" button at a Kit checkout URL** — Kit Commerce can't
   collect shipping addresses or custom fields for any product. Stripe Payment Links only for
-  Signed Copy, Founding Box, and the Bookmark. See §5a.
+  the signed copy and the bookmark. See §5a.
 - **A Make.com scenario "looking done" isn't the same as it being saved/active.** The
   Stripe→Kit→Sheets automation ran for over a day with an empty, deactivated scenario before
   anyone caught it (fixed 2026-07-24) — if you're ever asked to verify that automation is

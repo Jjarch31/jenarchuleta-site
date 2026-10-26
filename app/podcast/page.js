@@ -67,6 +67,17 @@ export default function PodcastPage() {
         </div>
       </section>
 
+      <section className="wrap center">
+        <div className="eyebrow">Sponsors</div>
+        <h2>Thank you.</h2>
+        <p className="lead" style={{ maxWidth: '46ch', marginInline: 'auto' }}>
+          Thank you to the sponsors who have supported the show.
+        </p>
+        <div style={{ marginTop: '20px' }}>
+          <a href="/sponsors" className="btn btn-ghost">See the sponsors</a>
+        </div>
+      </section>
+
       {/* BE A GUEST */}
       <section className="wrap guest" style={{ background: 'var(--surface)' }}>
         <div className="eyebrow">Come on the show</div>

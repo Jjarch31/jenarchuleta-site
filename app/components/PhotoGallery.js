@@ -2,11 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import captions from '../velvet/captions.json';
+import sizes from '../velvet/slide-sizes.json';
 
-// Public portraits only. Faces are unretouched. Each slide is the whole file
-// at its real ratio (width/height below). Do not cover-crop these into a
-// shared frame. That was cutting heads, hems, and the sides of wider shots.
-const SLIDES = [
+// One slideshow. The original 7 gallery portraits, then the two home-page
+// row photos that are not already here (jen-sultry, jen-fun2), then all 45
+// Velvet Circle photos, including 24, 25, and 26. jen-glam and jen-fitness
+// stay once. Faces are unretouched. Each slide is the whole file at its
+// real ratio. Do not cover-crop these into a shared frame.
+const BLANK_ALT = 'Photo from Jen’s personal collection';
+
+const PORTRAITS = [
   {
     src: '/assets/presskit-headshot-floral.jpg',
     alt: 'Jen Walcott Archuleta',
@@ -49,7 +55,33 @@ const SLIDES = [
     width: 1320,
     height: 1756,
   },
+  {
+    src: '/assets/jen-sultry.jpg',
+    alt: 'Jen Archuleta',
+    width: 599,
+    height: 1111,
+  },
+  {
+    src: '/assets/jen-fun2.jpeg',
+    alt: 'Jen Archuleta with a rescue puppy',
+    width: 510,
+    height: 512,
+  },
 ];
+
+const FAMILY = captions.map((item) => {
+  const caption = typeof item.caption === 'string' ? item.caption.trim() : '';
+  const [width, height] = sizes[item.file];
+  return {
+    src: `/velvet-carousel/${item.file}`,
+    alt: caption || BLANK_ALT,
+    caption,
+    width,
+    height,
+  };
+});
+
+const SLIDES = [...PORTRAITS, ...FAMILY];
 
 const INTERVAL_MS = 2700;
 
@@ -119,6 +151,8 @@ export default function PhotoGallery() {
     if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
   };
 
+  const slide = SLIDES[index];
+
   const onKeyDown = (event) => {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
@@ -160,26 +194,19 @@ export default function PhotoGallery() {
             onTouchEnd={onTouchEnd}
           >
             <div className="gallery-viewport">
-              {SLIDES.map((slide, slideIndex) => {
-                const active = slideIndex === index;
-                return (
-                  <div
-                    key={slide.src}
-                    className={`gallery-slide${active ? ' is-active' : ''}`}
-                    aria-hidden={active ? undefined : true}
-                  >
-                    <Image
-                      src={slide.src}
-                      alt={active ? slide.alt : ''}
-                      width={slide.width}
-                      height={slide.height}
-                      sizes="(max-width: 760px) 86vw, 440px"
-                      priority={slideIndex === 0}
-                    />
-                  </div>
-                );
-              })}
+              <div className="gallery-slide is-active">
+                <Image
+                  key={slide.src}
+                  src={slide.src}
+                  alt={slide.alt}
+                  width={slide.width}
+                  height={slide.height}
+                  sizes="(max-width: 760px) 86vw, 440px"
+                  {...(index === 0 ? { priority: true } : { loading: 'lazy' })}
+                />
+              </div>
             </div>
+            {slide.caption ? <p className="gallery-caption">{slide.caption}</p> : null}
           </div>
 
           <button

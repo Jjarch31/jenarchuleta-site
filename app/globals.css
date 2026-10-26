@@ -189,6 +189,12 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
   object-fit: contain;
   margin-inline: auto;
 }
+.gallery-caption {
+  margin: 12px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
 .gallery-arrow {
   width: 44px;
   height: 44px;
