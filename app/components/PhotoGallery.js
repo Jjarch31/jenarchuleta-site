@@ -5,11 +5,16 @@ import Image from 'next/image';
 import captions from '../velvet/captions.json';
 import sizes from '../velvet/slide-sizes.json';
 
-// One slideshow. The original 7 gallery portraits, then the two home-page
-// row photos that are not already here (jen-sultry, jen-fun2), then all 45
-// Velvet Circle photos, including 24, 25, and 26. jen-glam and jen-fitness
-// stay once. Faces are unretouched. Each slide is the whole file at its
-// real ratio. Do not cover-crop these into a shared frame.
+// One slideshow. The original gallery portraits, including jen-fun, except
+// jen-bw-coat (the same coat shot as velvet 07, with magazine text over it;
+// the file stays in the repo and on the other pages that use it). Then the
+// two home-page row photos that are not already here (jen-sultry, jen-fun2),
+// then the Velvet Circle photos except 08.jpg (the signed Miss August 2001
+// portrait), 44.jpg (the puppy selfie), and 09.jpg. 09.jpg stays in the
+// /velvet slideshow; the sharper press-kit copy is the home slide. 08 and
+// 44 stay in the repo and out of both slideshows. 24, 25, and 26 stay.
+// jen-glam and jen-fitness stay once. Faces are unretouched. Each slide is
+// the whole file at its real ratio. Do not cover-crop these into a shared frame.
 const BLANK_ALT = 'Photo from Jen’s personal collection';
 
 const PORTRAITS = [
@@ -30,12 +35,6 @@ const PORTRAITS = [
     alt: 'Jen Walcott Archuleta',
     width: 841,
     height: 1960,
-  },
-  {
-    src: '/assets/jen-bw-coat.jpg',
-    alt: 'Jen Walcott Archuleta',
-    width: 1320,
-    height: 1971,
   },
   {
     src: '/assets/presskit-headshot-glam.jpg',
@@ -69,7 +68,10 @@ const PORTRAITS = [
   },
 ];
 
-const FAMILY = captions.map((item) => {
+// 09.jpg stays in captions.json so /velvet still shows it.
+const HOME_ONLY_SKIP = new Set(['09.jpg']);
+
+const FAMILY = captions.filter((item) => !HOME_ONLY_SKIP.has(item.file)).map((item) => {
   const caption = typeof item.caption === 'string' ? item.caption.trim() : '';
   const [width, height] = sizes[item.file];
   return {
@@ -83,7 +85,7 @@ const FAMILY = captions.map((item) => {
 
 const SLIDES = [...PORTRAITS, ...FAMILY];
 
-const INTERVAL_MS = 2700;
+const INTERVAL_MS = 4000;
 
 function Chevron({ direction }) {
   const d = direction === 'prev' ? 'M14 5 L7 12 L14 19' : 'M10 5 L17 12 L10 19';
@@ -132,26 +134,40 @@ export default function PhotoGallery() {
   }, [paused, reduceMotion, inView, index, go]);
 
   const onTouchStart = (event) => {
-    const touch = event.changedTouches[0];
+    if (event.touches.length !== 1) return;
+    const touch = event.touches[0];
     touchRef.current = { x: touch.clientX, y: touch.clientY };
+    setPaused(true);
   };
 
   const onTouchEnd = (event) => {
     const start = touchRef.current;
     touchRef.current = null;
+    setPaused(false);
     if (!start) return;
     const touch = event.changedTouches[0];
+    if (!touch) return;
     const dx = touch.clientX - start.x;
     const dy = touch.clientY - start.y;
     if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
     go(dx > 0 ? -1 : 1);
   };
 
+  const onTouchCancel = () => {
+    touchRef.current = null;
+    setPaused(false);
+  };
+
   const onBlur = (event) => {
     if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
   };
 
+  const count = SLIDES.length;
   const slide = SLIDES[index];
+  const nearby = [-1, 0, 1].map((offset) => {
+    const i = (index + offset + count) % count;
+    return { offset, slide: SLIDES[i] };
+  });
 
   const onKeyDown = (event) => {
     if (event.key === 'ArrowLeft') {
@@ -189,22 +205,28 @@ export default function PhotoGallery() {
             className="gallery-frame"
             role="group"
             aria-roledescription="carousel"
-            aria-label={`Photo ${index + 1} of ${SLIDES.length}`}
+            aria-label={`Photo ${index + 1} of ${count}`}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
+            onTouchCancel={onTouchCancel}
           >
             <div className="gallery-viewport">
-              <div className="gallery-slide is-active">
-                <Image
-                  key={slide.src}
-                  src={slide.src}
-                  alt={slide.alt}
-                  width={slide.width}
-                  height={slide.height}
-                  sizes="(max-width: 760px) 86vw, 440px"
-                  {...(index === 0 ? { priority: true } : { loading: 'lazy' })}
-                />
-              </div>
+              {nearby.map(({ offset, slide: item }) => (
+                <div
+                  key={item.src}
+                  className={`gallery-slide${offset === 0 ? ' is-active' : ''}`}
+                  aria-hidden={offset === 0 ? undefined : true}
+                >
+                  <Image
+                    src={item.src}
+                    alt={offset === 0 ? item.alt : ''}
+                    width={item.width}
+                    height={item.height}
+                    sizes="(max-width: 760px) 86vw, 440px"
+                    {...(offset === 0 && index === 0 ? { priority: true } : { loading: 'eager' })}
+                  />
+                </div>
+              ))}
             </div>
             {slide.caption ? <p className="gallery-caption">{slide.caption}</p> : null}
           </div>

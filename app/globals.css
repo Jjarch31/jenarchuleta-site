@@ -158,6 +158,7 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
   width: 100%;
   border: 1px solid var(--gold);
   background: var(--linen);
+  touch-action: pan-y;
 }
 /* One photo in flow sets the frame. The rest fade over it.
    Natural ratio, nothing cropped. A shared 3/4 cover frame was cutting
