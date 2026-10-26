@@ -28,6 +28,28 @@ function unlocked() {
   return timingSafeEqual(a, b);
 }
 
+function softenDashes(text) {
+  if (typeof text !== 'string' || !text.includes('—')) return text;
+  const trimmed = text.trim();
+  if (trimmed === '— Jen' || trimmed === '—Jen') return 'Jen.';
+  return text.replace(/\s*—\s*/g, ', ');
+}
+
+function softenBody(value) {
+  if (!Array.isArray(value)) return value;
+  return value.map((block) => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.children)) return block;
+    return {
+      ...block,
+      children: block.children.map((child) => (
+        child && typeof child.text === 'string'
+          ? { ...child, text: softenDashes(child.text) }
+          : child
+      )),
+    };
+  });
+}
+
 function formatLetterDate(iso) {
   if (!iso) return '';
   return new Date(iso).toLocaleDateString('en-US', {
@@ -67,14 +89,14 @@ export default async function VelvetLetterPage() {
             letters.map((letter) => (
               <article key={letter._id}>
                 <p className="vl-date">{formatLetterDate(letter.publishedAt)}</p>
-                <h2>{letter.title}</h2>
+                <h2>{softenDashes(letter.title)}</h2>
                 {letter.image ? (
                   <img
                     src={urlFor(letter.image).width(1200).url()}
                     alt={letter.image.alt || ''}
                   />
                 ) : null}
-                {letter.body ? <PortableText value={letter.body} /> : null}
+                {letter.body ? <PortableText value={softenBody(letter.body)} /> : null}
               </article>
             ))
           )}
