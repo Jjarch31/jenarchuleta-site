@@ -154,9 +154,9 @@ const GALLERY_NEW = [
 
 // Added after the existing slides, in numeric order. 113 and 116 are
 // the same pictures as hw_01 and hw_06, so they are not repeated here.
+// 118 is the same photo as gallery-new/new_10.jpg, a pup photo on /pups.
 const PICKS = [
   { src: '/assets/gallery-picks/112.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 840, height: 1600 },
-  { src: '/assets/gallery-picks/118.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1320, height: 1480 },
   { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
   { src: '/assets/gallery-picks/124.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 1293 },
   { src: '/assets/gallery-picks/127.jpg', alt: 'Jen Walcott Archuleta', width: 1320, height: 1283 },
