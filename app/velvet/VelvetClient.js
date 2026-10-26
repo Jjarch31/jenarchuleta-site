@@ -139,7 +139,9 @@ export default function VelvetClient({ letters = [] }) {
               <h2>Not in yet?</h2>
               <p>Have the book? Scan the QR code in the back and enter the password printed there.</p>
               <p>Want more? Join the Velvet Circle for $9.99 a month.</p>
-              <p>Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.</p>
+              {SHOP.foundingBox ? (
+                <p>Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.</p>
+              ) : null}
               <ul className="gate-perks">
                 <li>Private monthly letter</li>
                 <li>Members-only photo carousel</li>

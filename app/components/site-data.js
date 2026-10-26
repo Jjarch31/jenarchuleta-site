@@ -25,13 +25,9 @@ export const OG_IMAGE = {
   alt: 'Jen Walcott Archuleta',
 };
 
-// Live Stripe Customer Portal login link.
-// The previous URL returns 404:
-// https://billing.stripe.com/p/login/14A8wO3l70et2YHco2ds400
-// Adam: paste the live link from the Stripe Dashboard
-// (Settings > Billing > Customer portal, then copy the login link).
-// Leave this empty until that link exists so the site does not show a dead link.
-export const STRIPE_CUSTOMER_PORTAL_URL = '';
+// Live Stripe Customer Portal login link. Capital I after wO3.
+// The lookalike with a lowercase L in that spot returns 404.
+export const STRIPE_CUSTOMER_PORTAL_URL = 'https://billing.stripe.com/p/login/14A8wO3I70et2YHco2ds400';
 
 // The Shop. Apparel lives on Jen's Etsy; the charity is The Forever Angels.
 //
@@ -79,8 +75,10 @@ export const SHOP = {
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
   velvetCircleMembershipPrice: '$9.99/month',
 
-  // THE BACKSTAGE BOX (public name). Live. The Kit product URL and slug stay as they are.
-  foundingBox: 'https://jennifer-archuleta.kit.com/products/founding-box-season-1',
+  // THE BACKSTAGE BOX (public name). Off the site until a $69 Stripe Payment
+  // Link that collects a shipping address exists. Do not point this at Kit.
+  // Kit checkout cannot collect a shipping address. Empty shows Coming soon.
+  foundingBox: '',
   foundingBoxPrice: '$69',
 };
 

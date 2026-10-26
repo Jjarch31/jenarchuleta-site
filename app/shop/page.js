@@ -159,9 +159,11 @@ export default function ShopPage() {
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
-              <p className="product-desc">
-                Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.
-              </p>
+              {SHOP.foundingBox ? (
+                <p className="product-desc">
+                  Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.
+                </p>
+              ) : null}
               <ul className="product-list">
                 <li>Private monthly letter</li>
                 <li>Members-only photo carousel</li>
@@ -188,7 +190,7 @@ export default function ShopPage() {
             </div>
           </article>
 
-          {/* THE BACKSTAGE BOX. Public name only. foundingBox stays the Kit product URL. */}
+          {/* THE BACKSTAGE BOX. Public name only. Buy button stays off until foundingBox is a Stripe Payment Link. */}
           <article className="product-card" id="backstage-box">
             <div className="product-media">
               <img
@@ -214,10 +216,16 @@ export default function ShopPage() {
               </ul>
               <p className="fulfill">Packed and shipped to you.</p>
               <div className="product-cta">
-                <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
-                  Get the Backstage Box
-                </a>
-                <TrustLine note="Secure checkout" />
+                {SHOP.foundingBox ? (
+                  <>
+                    <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
+                      Get the Backstage Box
+                    </a>
+                    <TrustLine note="Secure checkout" />
+                  </>
+                ) : (
+                  <span className="btn btn-disabled">Coming soon</span>
+                )}
               </div>
             </div>
           </article>

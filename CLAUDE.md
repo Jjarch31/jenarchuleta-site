@@ -199,11 +199,13 @@ never land on Kit's own checkout page.
 Current products (verify against `VELVET-CIRCLE-COMMERCE-STATUS.md` before trusting these —
 that file is updated more frequently than this one):
 - **Signed Copy** — $41.99 total ($35 + $6.99 shipping) — Stripe Payment Link, live.
-- **Velvet Circle Membership** — $9.99/month — Stripe Payment Link + Stripe Customer Portal
-  (self-service cancel, required for FTC click-to-cancel/ROSCA compliance) — check the status
-  file for whether the site's `site-data.js` link has actually been updated to point at it yet.
-- **Founding Box (Season 1)** — $59 + shipping (shipping estimate under review) — Stripe
-  Payment Link exists but kept off the live site ("Coming Soon") until inventory is in hand.
+- **Velvet Circle Membership** — $9.99/month — Stripe Payment Link. Cancel link is
+  `STRIPE_CUSTOMER_PORTAL_URL` (capital I in the Stripe login id). Shipping & Returns
+  uses that URL.
+- **The Backstage Box** — $69. `foundingBox` is an empty string until a Stripe Payment
+  Link that collects shipping exists. The shop card says Coming soon. Do not point it
+  at the Kit product checkout. The Velvet gate hides the Backstage Box line while the
+  link is empty.
 - **Signature Velvet Bookmark** — $24.99, not built yet, "Coming Soon"/waitlist.
 
 The Stripe→Kit→Google Sheets automation (tagging buyers in Kit, logging orders to a Google
