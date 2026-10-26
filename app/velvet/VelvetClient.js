@@ -4,12 +4,38 @@ import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
 import KitInlineForm from '../components/KitInlineForm';
-import { KIT_FORM_UID } from '../components/site-data';
+import VelvetCarousel from './VelvetCarousel';
+import { KIT_FORM_UID, SHOP } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
   if (!iso) return '';
   return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// Velvet Letters are stored in Sanity. Swap em dashes for a comma (or a
+// period on a signature line) at render time so the page matches the
+// welcome letter. The words stay the same, and Sanity itself is not edited.
+function softenDashes(text) {
+  if (typeof text !== 'string' || !text.includes('—')) return text;
+  const trimmed = text.trim();
+  if (trimmed === '— Jen' || trimmed === '—Jen') return 'Jen.';
+  return text.replace(/\s*—\s*/g, ', ');
+}
+
+function softenBody(value) {
+  if (!Array.isArray(value)) return value;
+  return value.map((block) => {
+    if (!block || block._type !== 'block' || !Array.isArray(block.children)) return block;
+    return {
+      ...block,
+      children: block.children.map((child) => (
+        child && typeof child.text === 'string'
+          ? { ...child, text: softenDashes(child.text) }
+          : child
+      )),
+    };
+  });
 }
 
 // Portable Text renderers for the letter body (links + any inline images).
@@ -36,6 +62,7 @@ const letterComponents = {
 
 const PASSWORD = 'velvet';
 const KEY = 'velvet_ok';
+const CIRCLE_HREF = SHOP.velvetCircleMembership || '/shop';
 
 const PHOTOS = [
   { src: '/velvet/young-jen.jpg', alt: 'Jen as a young girl' },
@@ -85,8 +112,14 @@ export default function VelvetClient({ letters = [] }) {
       <div className="dark velvet-page">
         <main className="gate">
           <div className="gate-card">
-            <div className="eyebrow">For readers of Beyond the Velvet Ropes</div>
-            <h1>This is where the story continues.</h1>
+            <img
+              className="gate-portrait"
+              src="/assets/presskit-headshot-floral.jpg"
+              alt="Jen Walcott Archuleta"
+              width="1100"
+              height="1370"
+            />
+            <h1>For readers of the book.</h1>
             <p className="gate-sub">
               Enter the password from the back of the book.
             </p>
@@ -99,9 +132,37 @@ export default function VelvetClient({ letters = [] }) {
                 aria-label="Password"
                 autoFocus
               />
-              <button type="submit" className="btn btn-primary">Open the rope</button>
+              <button type="submit" className="btn btn-primary">Come in</button>
             </form>
-            {error && <p className="gate-error">That&rsquo;s not it — check the last page of the book.</p>}
+            {error && <p className="gate-error">That&rsquo;s not it. Check the last page of the book.</p>}
+            <div className="gate-join">
+              <h2>Not in yet?</h2>
+              <p>Have the book? Scan the QR code in the back and enter the password printed there.</p>
+              <p>Want more? Join the Velvet Circle for $9.99 a month.</p>
+              {SHOP.foundingBox ? (
+                <p>Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.</p>
+              ) : null}
+              <ul className="gate-perks">
+                <li>Private monthly letter</li>
+                <li>Members-only photo carousel</li>
+                <li>The private passcode journal</li>
+                <li>Up to 3 questions a month that Jen answers in writing</li>
+                <li>Live monthly Zoom</li>
+                <li>Cancel anytime</li>
+              </ul>
+              <p>Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.</p>
+              <VelvetCarousel />
+              <div className="vc-see-more">
+                <a className="btn btn-primary" href="/book">See more</a>
+              </div>
+              <a
+                className="btn btn-primary"
+                href={CIRCLE_HREF}
+                {...(SHOP.velvetCircleMembership ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                Join the Velvet Circle
+              </a>
+            </div>
             <p className="gate-foot">
               Don&rsquo;t have the book yet? <a href="/book">Start here</a>.
             </p>
@@ -127,15 +188,15 @@ export default function VelvetClient({ letters = [] }) {
       {/* WELCOME LETTER */}
       <section className="wrap text-wrap letter">
         <div className="eyebrow">You made it</div>
-        <h1>Welcome behind the ropes.</h1>
+        <h1>You’re in.</h1>
         <p>
-          If you&rsquo;re reading this, you just finished my story — or you skipped
-          to the back of the book, which honestly is very me of you.
+          If you&rsquo;re reading this, you just finished my story, or you skipped
+          to the back. Either way, I&rsquo;m glad you&rsquo;re here.
         </p>
         <p>
-          Either way, I&rsquo;m glad you&rsquo;re here. This page is my thank-you.
+          This page is my thank-you.
           It&rsquo;s where I&rsquo;ll keep adding the things that didn&rsquo;t fit
-          between the covers — the photos up close, the stories behind them, the
+          between the covers, the photos up close, the stories behind them, the
           parts I read out loud, the scenes that almost made it in.
         </p>
         <p>
@@ -143,7 +204,7 @@ export default function VelvetClient({ letters = [] }) {
           heard the one thing I most wanted to say. Your story isn&rsquo;t what
           happened to you. It&rsquo;s what you do with it.
         </p>
-        <p className="signoff">— Jen</p>
+        <p className="signoff">Jen.</p>
       </section>
 
       {/* VELVET LETTERS — reader-exclusive updates (Sanity, newest first) */}
@@ -161,7 +222,7 @@ export default function VelvetClient({ letters = [] }) {
               {letters.map((l) => (
                 <article className="vletter" key={l._id}>
                   <div className="vletter-date">{formatLetterDate(l.publishedAt)}</div>
-                  <h3 className="vletter-title">{l.title}</h3>
+                  <h3 className="vletter-title">{softenDashes(l.title)}</h3>
                   {l.image && (
                     <img
                       className="vletter-img"
@@ -172,7 +233,7 @@ export default function VelvetClient({ letters = [] }) {
                   )}
                   {l.body && (
                     <div className="vletter-body">
-                      <PortableText value={l.body} components={letterComponents} />
+                      <PortableText value={softenBody(l.body)} components={letterComponents} />
                     </div>
                   )}
                 </article>
@@ -190,7 +251,7 @@ export default function VelvetClient({ letters = [] }) {
             <h2>The photos, up close.</h2>
             <p className="lead gallery-note">
               Every photo from the book, bigger than the printed page could show
-              them. I&rsquo;m adding the story behind each one — check back.
+              them. I&rsquo;m adding the story behind each one. Check back.
             </p>
           </div>
           <div className="gallery">
@@ -212,11 +273,11 @@ export default function VelvetClient({ letters = [] }) {
         <div className="soon-grid">
           <div className="soon-card">
             <h3>Me, reading to you</h3>
-            <p>A chapter from the book, read out loud — the one that was hardest to write.</p>
+            <p>A chapter from the book, read out loud, the one that was hardest to write.</p>
           </div>
           <div className="soon-card">
             <h3>What didn&rsquo;t make the book</h3>
-            <p>Stories and scenes that were cut — and why they almost stayed.</p>
+            <p>Stories and scenes that were cut, and why they almost stayed.</p>
           </div>
           <div className="soon-card">
             <h3>The film, first look</h3>
@@ -231,7 +292,7 @@ export default function VelvetClient({ letters = [] }) {
           <div className="eyebrow">One small thing</div>
           <h2>If this story mattered to you.</h2>
           <p className="lead">
-            A short review helps this book find the next woman who needs it —
+            A short review helps this book find the next woman who needs it,
             someone in the middle of her own hard chapter. I&rsquo;d be honored.
           </p>
           <div className="review-row">
@@ -258,7 +319,7 @@ export default function VelvetClient({ letters = [] }) {
           <h2>Be first when something new lands here.</h2>
           <p className="lead">
             When I add the audio, the cut scenes, or news about the film,
-            I&rsquo;ll tell my readers first — by email.
+            I&rsquo;ll tell my readers first, by email.
           </p>
           <KitInlineForm uid={KIT_FORM_UID} />
         </div>
@@ -267,7 +328,7 @@ export default function VelvetClient({ letters = [] }) {
       <footer>
         <div className="wrap">
           <p className="foot-meta">
-            © 2026 Jen Archuleta — Jennifer Walcott Archuleta. <a href="/">Home</a>
+            © 2026 Jen Archuleta, Jennifer Walcott Archuleta. <a href="/">Home</a>
           </p>
           <p className="foot-meta">
             <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> ·{' '}

@@ -30,11 +30,14 @@ export default function SiteNav() {
 
         <div id="nav-links" className={`nav-links${open ? ' open' : ''}`}>
           <a href="/about" onClick={close}>About</a>
+          <a href="/#gallery" onClick={close}>Gallery</a>
           <a href="/book" onClick={close}>Book</a>
           <a href="/podcast" onClick={close}>Podcast</a>
           <a href="/journal" onClick={close}>Journal</a>
-          <a href="/#speaking" onClick={close}>Speaking</a>
+          <a href="/media" onClick={close}>Media</a>
+          <a href="/media#speaking" onClick={close}>Speaking</a>
           <a href="/shop" onClick={close}>Shop</a>
+          <a href="/contact" onClick={close}>Contact</a>
           <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary btn-sm" onClick={close}>Free Chapter</a>
         </div>
       </div>

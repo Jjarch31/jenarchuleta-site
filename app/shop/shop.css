@@ -61,6 +61,18 @@
   object-fit: contain;
   padding: 7%;
 }
+/* Tall portraits keep their own shape. A 4/3 cover frame would cut the face. */
+.shop-page .product-media--portrait {
+  aspect-ratio: auto;
+}
+.shop-page .product-media--portrait img {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 /* status badge over the photo (ink scrim + cream text = AAA on any image) */
 .shop-page .badge {
   position: absolute;
@@ -111,6 +123,15 @@
   color: var(--text);
   font-weight: var(--w-semibold);
 }
+
+.shop-page .product-list {
+  margin: 0;
+  padding-left: 1.15em;
+  color: var(--text-secondary);
+  font-size: var(--text-body-s);
+  line-height: var(--leading-body);
+}
+.shop-page .product-list li { margin: 0.2em 0; }
 
 /* fulfillment expectation — important info, so secondary ink (AAA),
    never the muted metadata tone */

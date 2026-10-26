@@ -9,8 +9,8 @@ import KitInlineForm from './KitInlineForm';
  */
 
 export default function KitForm({
-  heading = 'Read the first chapter — free.',
-  blurb = "I'll send the opening pages straight to your inbox. Come as you are.",
+  heading = 'Read the first chapter free.',
+  blurb = 'I’ll send the opening pages straight to your inbox.',
   cta = 'Send me the first chapter',
 }) {
   return (

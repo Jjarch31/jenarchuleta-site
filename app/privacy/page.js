@@ -40,7 +40,7 @@ export default function PrivacyPage() {
               Your shipping address, phone number, and any personalization note (e.g., &ldquo;who should
               Jen sign it to?&rdquo;) when you order a signed book or other product.
             </li>
-            <li>Your payment details when you check out — collected and processed directly by our payment processor (see below); we never see or store your full card number.</li>
+            <li>Your payment details when you check out, collected and processed directly by our payment processor (see below); we never see or store your full card number.</li>
             <li>Anything you tell us directly, such as an email you send us.</li>
           </ul>
 
@@ -56,18 +56,18 @@ export default function PrivacyPage() {
           <p><strong>Third-party services embedded on the Site:</strong></p>
           <ul>
             <li>
-              <strong>Kit (ConvertKit)</strong> — powers our newsletter sign-up and free-chapter form, and
+              <strong>Kit (ConvertKit)</strong> powers our newsletter sign-up and free-chapter form, and
               may set its own cookies (<a href="https://www.kit.com/privacy-policy" target="_blank" rel="noopener">their privacy policy</a>).
             </li>
             <li>
-              <strong>Stripe</strong> — powers checkout for direct purchases and processes your payment
+              <strong>Stripe</strong> powers checkout for direct purchases and processes your payment
               details directly (<a href="https://stripe.com/privacy" target="_blank" rel="noopener">their privacy policy</a>).
             </li>
             <li>
-              <strong>Buzzsprout</strong> — powers the embedded podcast player (<a href="https://www.buzzsprout.com/privacy" target="_blank" rel="noopener">their privacy policy</a>).
+              <strong>Buzzsprout</strong> powers the embedded podcast player (<a href="https://www.buzzsprout.com/privacy" target="_blank" rel="noopener">their privacy policy</a>).
             </li>
             <li>
-              <strong>Sanity</strong> — powers our Journal content management system; it does not collect
+              <strong>Sanity</strong> powers our Journal content management system; it does not collect
               visitor data from this Site.
             </li>
           </ul>
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
           <h2>3. How we use your information</h2>
           <ul>
             <li>To fulfill and ship your order.</li>
-            <li>To send the newsletter or free chapter you requested — you can unsubscribe anytime via the link in any email.</li>
+            <li>To send the newsletter or free chapter you requested, you can unsubscribe anytime via the link in any email.</li>
             <li>To respond to questions or requests you send us.</li>
             <li>To maintain and improve the Site.</li>
           </ul>
@@ -106,7 +106,7 @@ export default function PrivacyPage() {
           <p>
             We keep personal information only as long as reasonably needed for the purposes above, or
             as required by law. Payment information is handled entirely by Stripe, a PCI-DSS-compliant
-            payment processor — we do not store card numbers on our own systems.
+            payment processor. We do not store card numbers on our own systems.
           </p>
 
           <h2>8. International visitors</h2>

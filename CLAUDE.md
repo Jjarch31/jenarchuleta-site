@@ -129,7 +129,7 @@ public by design (that's what a Payment Link is) — never commit a Stripe *secr
 │       ├── env.js                 ← projectId / dataset / apiVersion
 │       ├── client.js              ← next-sanity client
 │       ├── image.js               ← urlFor() image helper
-│       └── queries.js             ← GROQ queries (ISR revalidate 60s)
+│       └── queries.js             ← GROQ queries (journal reads are uncached)
 │
 ├── sanity/schemaTypes/            ← CMS schema
 │   ├── post.js                    ← post fields + CATEGORIES list
@@ -199,11 +199,13 @@ never land on Kit's own checkout page.
 Current products (verify against `VELVET-CIRCLE-COMMERCE-STATUS.md` before trusting these —
 that file is updated more frequently than this one):
 - **Signed Copy** — $41.99 total ($35 + $6.99 shipping) — Stripe Payment Link, live.
-- **Velvet Circle Membership** — $9.99/month — Stripe Payment Link + Stripe Customer Portal
-  (self-service cancel, required for FTC click-to-cancel/ROSCA compliance) — check the status
-  file for whether the site's `site-data.js` link has actually been updated to point at it yet.
-- **Founding Box (Season 1)** — $59 + shipping (shipping estimate under review) — Stripe
-  Payment Link exists but kept off the live site ("Coming Soon") until inventory is in hand.
+- **Velvet Circle Membership** — $9.99/month — Stripe Payment Link. Cancel link is
+  `STRIPE_CUSTOMER_PORTAL_URL` (capital I in the Stripe login id). Shipping & Returns
+  uses that URL.
+- **The Backstage Box** — $69. `foundingBox` is an empty string until a Stripe Payment
+  Link that collects shipping exists. The shop card says Coming soon. Do not point it
+  at the Kit product checkout. The Velvet gate hides the Backstage Box line while the
+  link is empty.
 - **Signature Velvet Bookmark** — $24.99, not built yet, "Coming Soon"/waitlist.
 
 The Stripe→Kit→Google Sheets automation (tagging buyers in Kit, logging orders to a Google
@@ -231,8 +233,10 @@ These pages have NOT been reviewed by counsel yet — don't represent them as fi
 - **Let Jen publish herself:** sanity.io/manage/project/ac1ruwaz → **Members** → invite her email.
 - **CORS** (already configured): jenarchuleta.com, www, localhost:3100, the .vercel.app domain.
   Add new origins with: `npx sanity cors add <url> --credentials`.
-- **Data flow:** site reads PUBLISHED posts via the public dataset (no token), with ISR
-  (`app/sanity/queries.js`, revalidate 60s) — new/edited posts go live without a redeploy.
+- **Data flow:** site reads PUBLISHED posts via the public dataset (no token). Journal
+  post pages and the feed fetch with `cache: 'no-store'` (`app/journal/[slug]/page.js`
+  is `force-dynamic`) so a publish shows on the next view. A 60s ISR window was
+  serving the previous HTML after publish.
 - **Bare URLs auto-link (2026-10-24):** `linkifyBody()` in `app/journal/[slug]/page.js` turns
   plain-text http(s) URLs in a post into real links at render time (the Squarespace migration
   left ~90 links as plain text, and URLs pasted in /studio arrive as plain text). External

@@ -1,16 +1,18 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { KIT_FREE_CHAPTER_URL, SHOP } from '../components/site-data';
+import { KIT_FREE_CHAPTER_URL, OG_IMAGE, SHOP } from '../components/site-data';
 import './shop.css';
 
 export const metadata = {
   title: 'Shop',
   description:
     'Signed copies of Beyond the Velvet Ropes, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+  openGraph: { images: [OG_IMAGE] },
+  twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
 
 // Small reassurance line under each live buy button.
-function TrustLine() {
+function TrustLine({ note = 'Secure checkout. Stripe, Apple Pay, Google Pay' }) {
   return (
     <>
       <p className="trust">
@@ -18,7 +20,7 @@ function TrustLine() {
           <rect x="4" y="11" width="16" height="10" rx="2" />
           <path d="M8 11V7a4 4 0 0 1 8 0v4" />
         </svg>
-        Secure checkout — Stripe · Apple Pay · Google Pay
+        {note}
       </p>
       <p className="foot-meta">
         By ordering, you agree to our <a href="/terms">Terms</a> and{' '}
@@ -51,18 +53,18 @@ export default function ShopPage() {
           {/* SIGNED BOOK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
-              {SHOP.signedBookSoldOut && <span className="badge">Sold out — restocking soon</span>}
+              {SHOP.signedBookSoldOut && <span className="badge">Sold out, restocking soon</span>}
               <img
                 src="/assets/book-cover.jpg"
-                alt="Beyond the Velvet Ropes — book cover"
+                alt="Beyond the Velvet Ropes book cover"
               />
             </div>
             <div className="product-body">
               <div className="eyebrow">The Book · Signed &amp; Personalized</div>
-              <h3>Signed copy — <em>Beyond the Velvet Ropes</em></h3>
+              <h3>Signed copy, <em>Beyond the Velvet Ropes</em></h3>
               <p className="price">{SHOP.signedBookPrice}</p>
               <p className="product-desc">
-                Signed by me, with a note to whoever you’d like — you, or someone
+                Signed by me, with a note to whoever you’d like, you, or someone
                 who needs to hear that their story isn’t over.
               </p>
               <p className="fulfill">
@@ -71,7 +73,7 @@ export default function ShopPage() {
               <div className="product-cta">
                 {SHOP.signedBookSoldOut ? (
                   <>
-                    <span className="btn btn-disabled">Sold out — restocking soon</span>
+                    <span className="btn btn-disabled">Sold out, restocking soon</span>
                     <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
                       Read the first chapter free
                     </a>
@@ -98,10 +100,10 @@ export default function ShopPage() {
           {/* SIGNATURE VELVET BOOKMARK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
-              {!SHOP.bookmark && <span className="badge">First drop — coming soon</span>}
+              {!SHOP.bookmark && <span className="badge">First drop, coming soon</span>}
               <img
                 src="/assets/bookmark.jpg"
-                alt="The Signature Velvet Bookmark — black velvet ribbon, a gold heart engraved “you matter. everyone belongs”, and a vintage key pressed in burgundy wax, resting on an open copy of the book"
+                alt="The Signature Velvet Bookmark, black velvet ribbon, a gold heart engraved “you matter. everyone belongs”, and a vintage key pressed in burgundy wax, resting on an open copy of the book"
                 loading="lazy"
               />
             </div>
@@ -113,7 +115,7 @@ export default function ShopPage() {
                 Black velvet with gold detailing, a vintage-style key pressed into a
                 burgundy wax seal, and a gold heart engraved with a reminder I believe
                 in: <em>you matter, everyone belongs.</em> Handmade by me, one at a
-                time. <strong>Every story is different. Every key is different — so no
+                time. <strong>Every story is different. Every key is different, so no
                 two are ever alike.</strong>
               </p>
               <p className="fulfill">Made in small batches · every piece one of a kind</p>
@@ -130,7 +132,7 @@ export default function ShopPage() {
                     <a href={SHOP.bookmarkWaitlist} target="_blank" rel="noopener" className="btn btn-primary">
                       Join the first-drop list
                     </a>
-                    <p className="fulfill">Small handmade batches — the list hears first.</p>
+                    <p className="fulfill">Small handmade batches. The list hears first.</p>
                   </>
                 ) : (
                   <>
@@ -143,27 +145,36 @@ export default function ShopPage() {
           </article>
 
           {/* VELVET CIRCLE MEMBERSHIP */}
-          <article className="product-card">
-            <div className="product-media">
-              <img src="/assets/velvet-circle-membership.jpg" alt="The Velvet Circle — for readers of Beyond the Velvet Ropes" />
+          {/* TODO: Velvet Circle members area idea is pending Jen's decision. Do not build yet. */}
+          <article className="product-card" id="velvet-circle">
+            <div className="product-media product-media--portrait">
+              <img
+                src="/assets/presskit-headshot-floral.jpg"
+                alt="Jen Walcott Archuleta"
+                width="1100"
+                height="1370"
+              />
             </div>
             <div className="product-body">
               <div className="eyebrow">Membership</div>
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
+              {SHOP.foundingBox ? (
+                <p className="product-desc">
+                  Your backstage pass. Start with <a href={SHOP.foundingBox} target="_blank" rel="noopener">The Backstage Box</a> and your first month is on me.
+                </p>
+              ) : null}
+              <ul className="product-list">
+                <li>Private monthly letter</li>
+                <li>Members-only photo carousel</li>
+                <li>The private passcode journal</li>
+                <li>Up to 3 questions a month that Jen answers in writing</li>
+                <li>Live monthly Zoom</li>
+                <li>Cancel anytime</li>
+              </ul>
               <p className="product-desc">
-                A private monthly gathering with me — live, where we talk through the book, the
-                questions people ask me most, and what&rsquo;s actually true about starting over.
+                Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
               </p>
-              <p className="product-desc">
-                Every month: a live conversation, the chance to send in your questions ahead of
-                time, and the replay if you can&rsquo;t make it live.
-              </p>
-              <p className="product-desc">
-                This is for anyone working through their own hard chapter and looking for a little
-                company along the way.
-              </p>
-              <p className="product-desc">I&rsquo;d love for you to join us.</p>
               <div className="product-cta">
                 {SHOP.velvetCircleMembership ? (
                   <>
@@ -179,20 +190,38 @@ export default function ShopPage() {
             </div>
           </article>
 
-          {/* FOUNDING BOX — SEASON 1 */}
-          <article className="product-card">
-            <div className="product-media" />
+          {/* THE BACKSTAGE BOX. Public name only. Buy button stays off until foundingBox is a Stripe Payment Link. */}
+          <article className="product-card" id="backstage-box">
+            <div className="product-media">
+              <img
+                src="/assets/founders-box.jpg"
+                alt="The Backstage Box, a black gift box with the signed book, velvet bookmark, and black velvet bunny ears"
+                width="1152"
+                height="864"
+                loading="lazy"
+              />
+            </div>
             <div className="product-body">
-              <div className="eyebrow">Founding Box · Season 1</div>
-              <h3>Founding Box</h3>
+              <div className="eyebrow">Limited first run</div>
+              <h3>The Backstage Box</h3>
               <p className="price">{SHOP.foundingBoxPrice}</p>
+              <p className="product-desc">
+                It includes a signed copy of Beyond the Velvet Ropes, the velvet bookmark, and black velvet bunny ears in a black box tied with a black ribbon, plus your first month of the Velvet Circle free, then $9.99 a month.
+              </p>
+              <ul className="product-list">
+                <li>Signed copy of Beyond the Velvet Ropes</li>
+                <li>The velvet bookmark</li>
+                <li>Black velvet bunny ears</li>
+                <li>Your first month of the Velvet Circle free, then $9.99 a month</li>
+              </ul>
+              <p className="fulfill">Packed and shipped to you.</p>
               <div className="product-cta">
                 {SHOP.foundingBox ? (
                   <>
                     <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
-                      Get the Founding Box
+                      Get the Backstage Box
                     </a>
-                    <TrustLine />
+                    <TrustLine note="Secure checkout" />
                   </>
                 ) : (
                   <span className="btn btn-disabled">Coming soon</span>
@@ -203,7 +232,7 @@ export default function ShopPage() {
         </div>
 
         <p className="assurance">
-          Every direct order checks out securely through Stripe and ships from Arizona.
+          Every direct order checks out securely.
         </p>
       </section>
 
@@ -219,7 +248,7 @@ export default function ShopPage() {
             <div className="body">
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
-              <p className="foot-meta">A little reminder to fly your own way — shop on Etsy →</p>
+              <p className="foot-meta">A little reminder to fly your own way. Shop on Etsy →</p>
             </div>
           </a>
           <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener">

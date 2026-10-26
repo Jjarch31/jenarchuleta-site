@@ -6,11 +6,28 @@ export const KIT_FREE_CHAPTER_URL = 'https://jennifer-archuleta.kit.com/ea44cdb3
 // Kit (ConvertKit) INLINE form uid — the embeddable email-capture form.
 export const KIT_FORM_UID = 'ab5cfa4752';
 
+// Press, interviews, speaking, podcast guests, and the contact page.
+export const BOOKING_EMAIL = 'therealunfilteredpod@gmail.com';
+
 export const SOCIALS = {
   instagram: 'https://www.instagram.com/jenniferwalcott/',
   x: 'https://x.com/Jenniferwalcott',
+  facebook: 'https://facebook.com/therealjenniferwalcott',
+  linkedin: 'https://www.linkedin.com/in/jennifer-archuleta-633805115',
   foreverAngels: 'https://www.theforeverangels.com',
 };
+
+// Site-wide social share image (open graph and Twitter). Wide floral frame.
+export const OG_IMAGE = {
+  url: 'https://jenarchuleta.com/assets/og-floral-1200x630.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'Jen Walcott Archuleta',
+};
+
+// Live Stripe Customer Portal login link. Capital I after wO3.
+// The lookalike with a lowercase L in that spot returns 404.
+export const STRIPE_CUSTOMER_PORTAL_URL = 'https://billing.stripe.com/p/login/14A8wO3I70et2YHco2ds400';
 
 // The Shop. Apparel lives on Jen's Etsy; the charity is The Forever Angels.
 //
@@ -38,44 +55,50 @@ export const SHOP = {
 
   signedBook: 'https://buy.stripe.com/3cI5kC0vVf9n1UDewads405',
   signedBookPrice: '$35',
-  signedBookLeadTime: 'Signed by hand, one at a time — please allow 2–3 weeks.',
+  signedBookLeadTime: 'Signed by hand, one at a time. Please allow 2–3 weeks.',
 
   // SOLD OUT SWITCH — flip to false to put signed copies back on sale.
   // NOTE: `signedBook` above is deliberately left populated. The printed
   // Barnes & Noble poster QR (Aug 23 Youngstown signing) points straight at
   // that Stripe link, so it must stay alive even while the site says sold out.
   signedBookSoldOut: false,
-  signedBookSoldOutNote: 'Sold out for now — I sign these by hand, a few at a time. The next batch is coming soon.',
+  signedBookSoldOutNote: 'Sold out for now. I sign these by hand, a few at a time. The next batch is coming soon.',
 
   bookmark: 'https://buy.stripe.com/4gM4gyfqP1ixbvdewads407',
   bookmarkWaitlist: '',
   bookmarkPrice: '$24.99',
 
-  // VELVET CIRCLE MEMBERSHIP — LIVE as of 2026-08-19. Recurring Stripe Payment
-  // Link, $9.99/mo. Self-service cancel is handled by the Stripe Customer
-  // Portal (https://billing.stripe.com/p/login/14A8wO3I70et2YHco2ds400), which
-  // is what keeps this FTC click-to-cancel / ROSCA compliant — don't take the
-  // membership live through any checkout that lacks that portal.
+  // VELVET CIRCLE MEMBERSHIP. LIVE as of 2026-08-19. Recurring Stripe Payment
+  // Link, $9.99/mo. Self-service cancel uses STRIPE_CUSTOMER_PORTAL_URL.
+  // That portal is what keeps this FTC click-to-cancel / ROSCA compliant.
+  // Do not take the membership live through any checkout that lacks that portal.
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
-  velvetCircleMembershipPrice: '$9.99/mo',
+  velvetCircleMembershipPrice: '$9.99/month',
 
-  // FOUNDING BOX (Season 1) — not yet live on the site. Kit product is
-  // ready at https://jennifer-archuleta.kit.com/products/founding-box-season-1
-  // — paste that URL into `foundingBox` below to launch it.
+  // THE BACKSTAGE BOX (public name). Off the site until a $69 Stripe Payment
+  // Link that collects a shipping address exists. Do not point this at Kit.
+  // Kit checkout cannot collect a shipping address. Empty shows Coming soon.
   foundingBox: '',
-  foundingBoxPrice: '$59',
+  foundingBoxPrice: '$69',
 };
 
 // Podcast (Buzzsprout). The numeric podcast ID powers the official
 // all-episodes player; until confirmed we embed the hosted site.
+// TODO: confirm with Jen which Spotify show ID is the podcast and which is the audiobook.
+// Podcast subscribe button: 2HmclW6k1CEjTJmp0wpy7Z
+// Audiobook buy-row on the homepage and /book: 153EBrZVIkJY1xaY703km4
+// Do not swap these until Jen confirms.
 export const PODCAST = {
   name: 'Unfiltered with Jen Archuleta',
   buzzsproutSite: 'https://unfilteredwithjenarchuleta.buzzsprout.com',
-  // Numeric show id (powers the native large player) — sourced from the show.
+  // Public show page (nav, footer, media, contact).
+  buzzsprout: 'https://www.buzzsprout.com/2467154',
+  // Numeric show id (powers the native large player). Sourced from the show.
   buzzsproutId: '2467154',
+  youtube: 'https://www.youtube.com/@jenarchuletaunfiltered',
   subscribe: {
     spotify: 'https://open.spotify.com/show/2HmclW6k1CEjTJmp0wpy7Z',
     apple: 'https://podcasts.apple.com/podcast/id1806868424',
-    youtube: 'https://www.youtube.com/channel/UCAcb9IhD-4BgqoZ5ycBNdBw',
+    youtube: 'https://www.youtube.com/@jenarchuletaunfiltered',
   },
 };

@@ -1,6 +1,7 @@
 import '../legal-pages.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import { STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 
 export const metadata = {
   title: 'Shipping & Returns',
@@ -9,7 +10,6 @@ export const metadata = {
 
 const EFFECTIVE_DATE = 'July 23, 2026';
 const CONTACT_EMAIL = 'jen@jenarchuleta.com';
-const MEMBER_PORTAL_URL = 'https://billing.stripe.com/p/login/14A8wO3l70et2YHco2ds400';
 
 export default function ShippingReturnsPage() {
   return (
@@ -28,10 +28,10 @@ export default function ShippingReturnsPage() {
         <div className="legal-body">
           <h2>Signed copies of the book</h2>
           <p>
-            Each signed copy is personalized and signed by hand by Jen, one at a time — please allow
+            Each signed copy is personalized and signed by hand by Jen, one at a time. Please allow
             2&ndash;3 weeks for your order to ship. Orders currently ship within the United States only.
             Because each book is personalized to your order, we&rsquo;re unable to accept returns for a
-            change of mind — but if your book arrives damaged or defective, contact us within 14 days at{' '}
+            change of mind, but if your book arrives damaged or defective, contact us within 14 days at{' '}
             <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> with a photo, and we&rsquo;ll make it
             right with a replacement or refund.
           </p>
@@ -43,23 +43,35 @@ export default function ShippingReturnsPage() {
             handmade, one-of-a-kind pieces, all other sales are final.
           </p>
 
-          <h2>Founding Box (Season 1)</h2>
+          <h2>The Backstage Box</h2>
           <p>
-            The Founding Box is a one-time purchase. All sales are final except for items that arrive
-            damaged or defective — contact us within 14 days for a replacement or refund.
+            The Backstage Box includes a signed copy of the book, the velvet bookmark, and black velvet
+            bunny ears, plus your first month of the Velvet Circle free. After that month, the membership
+            is $9.99 a month until you cancel. The physical items ship once. All sales of those items are
+            final except for items that arrive damaged or defective. Contact us within 14 days for a
+            replacement or refund.
           </p>
 
           <h2>Velvet Circle Membership</h2>
           <p>
             The Velvet Circle Membership is a recurring monthly subscription billed at $9.99/month until
-            you cancel. You can cancel anytime before your next billing date to avoid being charged for
+            you cancel. It includes a private monthly letter, a members-only photo carousel, the private
+            passcode journal, and written answers to up to 3 questions a month. Live monthly Zooms begin
+            once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions
+            each month, and I&rsquo;ll answer every one in writing. You can cancel anytime before your next billing date to avoid being charged for
             the following month; charges already processed for the current billing period are
             non-refundable. Your membership stays active through the end of the billing period
-            you&rsquo;ve already paid for — we don&rsquo;t offer refunds for time already used, but
+            you&rsquo;ve already paid for. We don&rsquo;t offer refunds for time already used, but
             you&rsquo;ll never be charged again after you cancel. You can manage or cancel your
-            membership anytime through the link in your subscription receipt email, or by visiting our
-            member portal directly{' '}
-            <a href={MEMBER_PORTAL_URL} target="_blank" rel="noopener">here</a>.
+            membership anytime through the link in your subscription receipt email
+            {STRIPE_CUSTOMER_PORTAL_URL ? (
+              <>
+                , or by visiting our member portal directly{' '}
+                <a href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">here</a>.
+              </>
+            ) : (
+              '.'
+            )}
           </p>
 
           <h2>Questions about your order</h2>
