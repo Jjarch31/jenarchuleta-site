@@ -166,7 +166,6 @@ export default function ShopPage() {
               ) : null}
               <ul className="product-list">
                 <li>Private monthly letter</li>
-                <li>Members-only photo carousel</li>
                 <li>The private passcode journal</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
                 <li>Live monthly Zoom</li>

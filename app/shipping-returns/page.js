@@ -55,7 +55,7 @@ export default function ShippingReturnsPage() {
           <h2>Velvet Circle Membership</h2>
           <p>
             The Velvet Circle Membership is a recurring monthly subscription billed at $9.99/month until
-            you cancel. It includes a private monthly letter, a members-only photo carousel, the private
+            you cancel. It includes a private monthly letter, the private
             passcode journal, and written answers to up to 3 questions a month. Live monthly Zooms begin
             once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions
             each month, and I&rsquo;ll answer every one in writing. You can cancel anytime before your next billing date to avoid being charged for
