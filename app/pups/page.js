@@ -62,6 +62,7 @@ function PupCard({ pup, photo }) {
         {pup.guest ? (
           <p className="pup-guest"><span className="pup-k">With </span>{pup.guest}</p>
         ) : null}
+        {pup.note ? <p className="pup-note">{pup.note}</p> : null}
         {pup.post ? <a className="pup-more" href={`/journal/${pup.post}`}>Read more</a> : null}
       </div>
     </article>
@@ -91,7 +92,7 @@ export default async function PupsPage() {
             <PupCard
               key={pup.date}
               pup={pup}
-              photo={pup.imageSlug ? photos[pup.imageSlug] : null}
+              photo={pup.src || (pup.imageSlug ? photos[pup.imageSlug] : null)}
             />
           ))}
           {GALLERY_PUPS.map((pup) => (

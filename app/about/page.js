@@ -1,8 +1,7 @@
 import './about.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import KitInlineForm from '../components/KitInlineForm';
-import { KIT_FORM_UID, SOCIALS } from '../components/site-data';
+import { SOCIALS } from '../components/site-data';
 
 export const metadata = {
   title: 'About',
@@ -98,7 +97,7 @@ export default function AboutPage() {
 
       {/* MY PEOPLE */}
       <section id="life" className="tim-band">
-        <div className="tim-wrap tim-band-inner">
+        <div className="tim-wrap tim-band-inner is-solo">
           <div>
             <p className="eyebrow">My people</p>
             <h2 className="tim-h2" style={{ fontSize: '46px', marginBottom: '24px' }}>
@@ -108,10 +107,6 @@ export default function AboutPage() {
               My husband, my kids, a handful of people I’d do anything for, and a houseful of animals
               I love like family. I love hard and I show up. That hasn’t changed.
             </p>
-          </div>
-          <div className="tim-quote">
-            <p>“I’m not trying to be anybody. I’m just really happy being who I am.”</p>
-            <div className="by">Jen</div>
           </div>
         </div>
       </section>
@@ -157,7 +152,7 @@ export default function AboutPage() {
 
       {/* SAY HI */}
       <section id="hi" className="tim-wrap tim-hi">
-        <div className="tim-card">
+        <div className="tim-card is-solo">
           <div>
             <p className="eyebrow">Say hi</p>
             <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come hang out. No agenda.</h2>
@@ -165,11 +160,6 @@ export default function AboutPage() {
               A little note from me every now and then, whatever I’m actually thinking about that
               week, the good and the hard. No pitch, I promise.
             </p>
-          </div>
-          <div>
-            <span className="tim-label">Join the letter</span>
-            <KitInlineForm uid={KIT_FORM_UID} />
-            <p className="tim-note">A few times a month. Unsubscribe whenever, no hard feelings.</p>
           </div>
         </div>
       </section>

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import captions from '../velvet/captions.json';
 import sizes from '../velvet/slide-sizes.json';
 
-// One slideshow. Portraits that are not already on the homepage, then
+// One slideshow. The Hollywood set is first, together, so those slides
+// lead. Then portraits that are not already on the homepage, then
 // Velvet Circle photos, then gallery-new. A file stays in the repo when
 // its slide is left out. /velvet still reads captions.json.
 // Out of this slideshow:
@@ -17,13 +18,72 @@ import sizes from '../velvet/slide-sizes.json';
 // and stay on /velvet only. 27 and 45 are dog photos on /pups. 43 is the
 // same Urban Axes outing as gallery-new new_24, so new_24 stays.
 // gallery-new left out: new_02, new_10, new_11, new_12, new_15, new_17,
-// new_20, new_21, new_26, new_27. new_17, new_20, and new_21 repeat the
+// new_20, new_21, new_26, new_27. new_27 stays out. It is not the same
+// photo as velvet 34. new_17, new_20, and new_21 repeat the
 // Childhelp luncheon in velvet 37, which stays. new_10, new_11, and
 // new_12 are on /pups. new_01, new_29, new_30, new_32, and new_33 are not
 // in the repo. Faces are unretouched. Each slide is the whole file at its
 // real ratio. Do not cover-crop these into a shared frame. Only the
 // current slide and its two neighbors are mounted.
 const BLANK_ALT = 'Photo from Jen’s personal collection';
+
+// Long edge already at or under 1600. Stored at the original size.
+const HOLLYWOOD = [
+  {
+    src: '/assets/gallery-hw/hw_01.jpg',
+    alt: 'On stage at Playboy’s Rock the Rabbit party, SXSW',
+    caption: 'On stage at Playboy’s Rock the Rabbit party, SXSW',
+    width: 1242,
+    height: 781,
+  },
+  {
+    src: '/assets/gallery-hw/hw_02.jpg',
+    alt: 'Jen Walcott Archuleta on a red carpet',
+    width: 1320,
+    height: 1067,
+  },
+  {
+    src: '/assets/gallery-hw/hw_03.jpg',
+    alt: 'With Tommy Lee',
+    caption: 'With Tommy Lee',
+    width: 960,
+    height: 998,
+  },
+  {
+    src: '/assets/gallery-hw/hw_04.jpg',
+    alt: 'With Howard Stern',
+    caption: 'With Howard Stern',
+    width: 1242,
+    height: 950,
+  },
+  {
+    src: '/assets/gallery-hw/hw_05.jpg',
+    alt: 'With Shaggy in Los Angeles',
+    caption: 'With Shaggy in Los Angeles',
+    width: 1320,
+    height: 1290,
+  },
+  {
+    src: '/assets/gallery-hw/hw_06.jpg',
+    alt: 'My name on the Palms marquee in Las Vegas',
+    caption: 'My name on the Palms marquee in Las Vegas',
+    width: 640,
+    height: 480,
+  },
+  {
+    src: '/assets/gallery-hw/hw_07.jpg',
+    alt: 'Swimming with a dolphin',
+    caption: 'Swimming with a dolphin',
+    width: 1179,
+    height: 817,
+  },
+  {
+    src: '/assets/gallery-hw/hw_09.jpg',
+    alt: 'Jen Walcott Archuleta',
+    width: 786,
+    height: 1577,
+  },
+];
 
 const PORTRAITS = [
   {
@@ -48,6 +108,9 @@ const HOME_ONLY_SKIP = new Set([
   '25.jpg',
   '26.jpg',
   '27.jpg',
+  '33.jpg',
+  '34.jpg',
+  '36.jpg',
   '43.jpg',
   '45.jpg',
 ]);
@@ -89,7 +152,74 @@ const GALLERY_NEW = [
   { src: '/assets/gallery-new/new_38.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 1500, height: 2000 },
 ];
 
-const SLIDES = [...PORTRAITS, ...FAMILY, ...GALLERY_NEW];
+// Added after the existing slides, in numeric order. 113 and 116 are
+// the same pictures as hw_01 and hw_06, so they are not repeated here.
+const PICKS = [
+  { src: '/assets/gallery-picks/112.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 840, height: 1600 },
+  { src: '/assets/gallery-picks/118.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1320, height: 1480 },
+  { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
+  { src: '/assets/gallery-picks/124.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 1293 },
+  { src: '/assets/gallery-picks/127.jpg', alt: 'Jen Walcott Archuleta', width: 1320, height: 1283 },
+  { src: '/assets/gallery-picks/129.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/131.jpg', alt: 'Jen Walcott Archuleta', width: 234, height: 292 },
+  { src: '/assets/gallery-picks/132.jpg', alt: 'Jen Walcott Archuleta with friends on stage', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/136.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/137.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/141.jpg', alt: 'Jen Walcott Archuleta', width: 1066, height: 1332 },
+  { src: '/assets/gallery-picks/142.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/146.jpg', alt: 'Jen Walcott Archuleta', width: 664, height: 830 },
+  { src: '/assets/gallery-picks/148.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/151.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/153.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/154.jpg', alt: 'Jen Walcott Archuleta', width: 640, height: 800 },
+  { src: '/assets/gallery-picks/155.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/156.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/157.jpg', alt: 'Jen Walcott Archuleta', width: 808, height: 1010 },
+  { src: '/assets/gallery-picks/158.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/159.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/160.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/164.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/166.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 1200 },
+  { src: '/assets/gallery-picks/168.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/169.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/171.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/172.jpg', alt: 'Jen Walcott Archuleta', width: 1179, height: 1037 },
+  { src: '/assets/gallery-picks/175.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 884 },
+  { src: '/assets/gallery-picks/178.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 926 },
+];
+
+// October 26 batch, after the picks, in Jen's order. Two files from
+// that batch are not here: the ivy-door family photo is already
+// velvet-carousel/26.jpg, and the five dogs under the bougainvillea
+// are already dogs.jpg (and velvet/the-dogs.jpg). Full frames, long
+// edge at most 1600, no upscaling.
+const OCT26 = [
+  { src: '/assets/gallery-oct26/wedding.jpg', alt: 'A wedding at sunset', width: 1070, height: 1147 },
+  { src: '/assets/gallery-oct26/snow.jpg', alt: 'Jen Walcott Archuleta in the snow', width: 1320, height: 1266 },
+  { src: '/assets/gallery-oct26/ski.jpg', alt: 'On a ski lift', width: 1217, height: 1600 },
+  { src: '/assets/gallery-oct26/pajamas.jpg', alt: 'Christmas pajamas', width: 1320, height: 1164 },
+  { src: '/assets/gallery-oct26/hug.jpg', alt: 'A family hug', width: 851, height: 1527 },
+  { src: '/assets/gallery-oct26/lawn.jpg', alt: 'On the lawn', width: 1320, height: 1461 },
+  { src: '/assets/gallery-oct26/jet-cabin.jpg', alt: 'Inside a private jet', width: 1029, height: 845 },
+  { src: '/assets/gallery-oct26/jet-stairs.jpg', alt: 'On the stairs of a private jet', width: 1320, height: 1271 },
+  { src: '/assets/gallery-oct26/hangar.jpg', alt: 'A plane in the hangar', width: 922, height: 1263 },
+  { src: '/assets/gallery-oct26/jet-seats.jpg', alt: 'Seated inside a private jet', width: 1320, height: 1454 },
+  { src: '/assets/gallery-oct26/beach.jpg', alt: 'A beach with palm trees', width: 1320, height: 1165 },
+  { src: '/assets/gallery-oct26/cliff.jpg', alt: 'Above the ocean', width: 1320, height: 1597 },
+  { src: '/assets/gallery-oct26/tree.jpg', alt: 'A Christmas tree', width: 1320, height: 1216 },
+  { src: '/assets/gallery-oct26/driveway.jpg', alt: 'On the driveway', width: 1320, height: 1301 },
+  { src: '/assets/gallery-oct26/dog-tortoise.jpg', alt: 'A dog on a tortoise', width: 1320, height: 1327 },
+  { src: '/assets/gallery-oct26/tortoise.jpg', alt: 'A tortoise with greens', width: 665, height: 940 },
+];
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26];
+
+// Slides 19 and 27 of the 59-photo order (before the Hollywood set was
+// added). Those two stay fully visible: native img, no max-height crop.
+const UNCROPPED = new Set([
+  '/velvet-carousel/20.jpg',
+  '/velvet-carousel/32.jpg',
+]);
 
 const INTERVAL_MS = 4000;
 
@@ -115,6 +245,15 @@ export default function PhotoGallery() {
   }, []);
 
   useEffect(() => {
+    const slide = new URLSearchParams(window.location.search).get('slide');
+    if (slide) {
+      const start = SLIDES.findIndex((item) => item.src === slide);
+      if (start >= 0) {
+        setIndex(start);
+        setPaused(true);
+      }
+    }
+
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const applyMotion = () => setReduceMotion(motion.matches);
     applyMotion();
@@ -217,22 +356,34 @@ export default function PhotoGallery() {
             onTouchCancel={onTouchCancel}
           >
             <div className="gallery-viewport">
-              {nearby.map(({ offset, slide: item }) => (
-                <div
-                  key={item.src}
-                  className={`gallery-slide${offset === 0 ? ' is-active' : ''}`}
-                  aria-hidden={offset === 0 ? undefined : true}
-                >
-                  <Image
-                    src={item.src}
-                    alt={offset === 0 ? item.alt : ''}
-                    width={item.width}
-                    height={item.height}
-                    sizes="(max-width: 760px) 86vw, 440px"
-                    {...(offset === 0 && index === 0 ? { priority: true } : { loading: 'eager' })}
-                  />
-                </div>
-              ))}
+              {nearby.map(({ offset, slide: item }) => {
+                const full = UNCROPPED.has(item.src);
+                return (
+                  <div
+                    key={item.src}
+                    className={`gallery-slide${offset === 0 ? ' is-active' : ''}${full ? ' is-full' : ''}`}
+                    aria-hidden={offset === 0 ? undefined : true}
+                  >
+                    {full ? (
+                      <img
+                        src={item.src}
+                        alt={offset === 0 ? item.alt : ''}
+                        width={item.width}
+                        height={item.height}
+                      />
+                    ) : (
+                      <Image
+                        src={item.src}
+                        alt={offset === 0 ? item.alt : ''}
+                        width={item.width}
+                        height={item.height}
+                        sizes="(max-width: 760px) 86vw, 440px"
+                        {...(offset === 0 && index === 0 ? { priority: true } : { loading: 'eager' })}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
             {slide.caption ? <p className="gallery-caption">{slide.caption}</p> : null}
             <p className="gallery-count" aria-hidden="true">{index + 1} / {count}</p>

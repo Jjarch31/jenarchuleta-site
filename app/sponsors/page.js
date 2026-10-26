@@ -39,7 +39,8 @@ const SPONSORS = [
     ],
   },
   {
-    name: 'Ask Eloise (Dr. Eloise Nelson)',
+    name: 'Ask Eloise',
+    person: 'Dr. Eloise Nelson',
     note: 'Holistic nutrition.',
   },
   {
@@ -69,6 +70,7 @@ export default function SponsorsPage() {
           {SPONSORS.map((sponsor) => (
             <li key={sponsor.name}>
               <h2>{sponsor.name}</h2>
+              {sponsor.person ? <p className="sponsor-person">{sponsor.person}</p> : null}
               {sponsor.note ? <p className="sponsor-note">{sponsor.note}</p> : null}
               {sponsor.links ? (
                 <p className="sponsor-links">

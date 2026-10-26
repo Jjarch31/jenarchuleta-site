@@ -1,12 +1,12 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { KIT_FREE_CHAPTER_URL, OG_IMAGE, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
+import { OG_IMAGE, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import './shop.css';
 
 export const metadata = {
   title: 'Shop',
   description:
-    'Signed copies of Beyond the Velvet Ropes, The Backstage Box, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+    'Signed copies of Beyond the Velvet Ropes, The Backstage Bundle, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
   openGraph: { images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
@@ -44,7 +44,7 @@ export default function ShopPage() {
           <div className="eyebrow">The Shop</div>
           <h2>A few things worth sharing.</h2>
           <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>
-            A signed copy of the book, The Backstage Box, a keepsake I make by hand,
+            A signed copy of the book, The Backstage Bundle, a keepsake I make by hand,
             a tee with a message I love, and a rescue close to my heart.
           </p>
         </div>
@@ -72,12 +72,7 @@ export default function ShopPage() {
               </p>
               <div className="product-cta">
                 {SHOP.signedBookSoldOut ? (
-                  <>
-                    <span className="btn btn-disabled">Sold out, restocking soon</span>
-                    <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
-                      Read the first chapter free
-                    </a>
-                  </>
+                  <span className="btn btn-disabled">Sold out, restocking soon</span>
                 ) : SHOP.signedBook ? (
                   <>
                     <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">
@@ -86,12 +81,7 @@ export default function ShopPage() {
                     <TrustLine />
                   </>
                 ) : (
-                  <>
-                    <span className="btn btn-disabled">Coming soon</span>
-                    <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
-                      Read the first chapter free
-                    </a>
-                  </>
+                  <span className="btn btn-disabled">Coming soon</span>
                 )}
               </div>
             </div>
@@ -186,42 +176,41 @@ export default function ShopPage() {
             </div>
           </article>
 
-          {/* THE BACKSTAGE BOX. No Stripe Payment Link exists, so checkout stays off. */}
-          <article className="product-card" id="backstage-box">
-            <div className="product-media product-media--pair">
+          {/* THE BACKSTAGE BUNDLE. No Stripe Payment Link exists, so checkout stays off.
+              #backstage-box stays so older links still land on this card. */}
+          <article className="product-card" id="backstage-bundle">
+            <span id="backstage-box" />
+            <div className="product-media product-media--portrait">
               <img
-                src="/assets/book-cover.jpg"
-                alt="Beyond the Velvet Ropes book cover"
-                width="1000"
-                height="1500"
-              />
-              <img
-                src="/assets/bookmark.jpg"
-                alt="The Signature Velvet Bookmark"
-                width="900"
-                height="893"
-                loading="lazy"
+                src="/assets/backstage-bundle.jpg"
+                alt="The book, a handmade velvet bookmark, and black bunny ears, with a display box of red tissue"
+                width="1268"
+                height="1600"
               />
             </div>
             <div className="product-body">
               <div className="eyebrow">A little bundle</div>
-              <h3>The Backstage Box</h3>
+              <h3>The Backstage Bundle</h3>
               <p className="price">{SHOP.foundingBoxPrice}</p>
               <p className="product-desc">
                 My signed copy of <em>Beyond the Velvet Ropes</em>, the velvet bookmark
                 I make by hand, and a pair of black velvet bunny ears.
               </p>
+              <p className="product-desc">
+                The box in the picture is for display only. A box is not part of this bundle.
+              </p>
               <ul className="product-list">
                 <li>Jen’s signed copy of <em>Beyond the Velvet Ropes</em></li>
                 <li>Her velvet bookmark</li>
                 <li>Black velvet bunny ears</li>
+                <li>Your first month of the Velvet Circle free, then $9.99 a month.</li>
               </ul>
               <p className="fulfill">Ships when this drop is ready.</p>
               <div className="product-cta">
                 {SHOP.foundingBox ? (
                   <>
                     <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
-                      Get the Backstage Box
+                      Get the Backstage Bundle
                     </a>
                     <TrustLine />
                   </>
@@ -262,9 +251,6 @@ export default function ShopPage() {
           </a>
         </div>
 
-        <div className="center" style={{ marginTop: '40px' }}>
-          <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost">New here? Read the first chapter free</a>
-        </div>
       </section>
 
       <SiteFooter />

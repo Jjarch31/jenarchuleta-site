@@ -3,9 +3,8 @@
 import { useEffect, useState } from 'react';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
-import KitInlineForm from '../components/KitInlineForm';
+import VelvetCirclePanel from '../components/VelvetCirclePanel';
 import VelvetCarousel from './VelvetCarousel';
-import { KIT_FORM_UID, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
@@ -62,7 +61,6 @@ const letterComponents = {
 
 const PASSWORD = 'velvet';
 const KEY = 'velvet_ok';
-const CIRCLE_HREF = SHOP.velvetCircleMembership || '/shop';
 
 const PHOTOS = [
   { src: '/velvet/young-jen.jpg', alt: 'Jen as a young girl' },
@@ -105,11 +103,20 @@ export default function VelvetClient({ letters = [] }) {
     }
   }
 
-  if (!ready) return <div className="dark velvet-page" style={{ minHeight: '100vh' }} />;
+  if (!ready) {
+    return (
+      <>
+        <VelvetCirclePanel />
+        <div className="dark velvet-page" style={{ minHeight: '40vh' }} />
+      </>
+    );
+  }
 
   if (!unlocked) {
     return (
-      <div className="dark velvet-page">
+      <>
+        <VelvetCirclePanel />
+        <div className="dark velvet-page">
         <main className="gate">
           <div className="gate-card">
             <h1>For readers of the book.</h1>
@@ -131,39 +138,24 @@ export default function VelvetClient({ letters = [] }) {
             <div className="gate-join">
               <h2>Not in yet?</h2>
               <p>Have the book? Scan the QR code in the back and enter the password printed there.</p>
-              <p>Want more? Join the Velvet Circle for $9.99 a month.</p>
-              <ul className="gate-perks">
-                <li>Private monthly letter</li>
-                <li>The private passcode journal</li>
-                <li>Up to 3 questions a month that Jen answers in writing</li>
-                <li>Live monthly Zoom</li>
-                <li>
-                  <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
-                </li>
-              </ul>
-              <p>Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.</p>
               <VelvetCarousel />
               <div className="vc-see-more">
                 <a className="btn btn-primary" href="/book">See more</a>
               </div>
-              <a
-                className="btn btn-primary"
-                href={CIRCLE_HREF}
-                {...(SHOP.velvetCircleMembership ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              >
-                Join the Velvet Circle
-              </a>
             </div>
             <p className="gate-foot">
               Don&rsquo;t have the book yet? <a href="/book">Start here</a>.
             </p>
           </div>
         </main>
-      </div>
+        </div>
+      </>
     );
   }
 
   return (
+    <>
+      <VelvetCirclePanel />
     <div className="dark velvet-page">
       <nav className="nav">
         <div className="nav-inner">
@@ -189,11 +181,6 @@ export default function VelvetClient({ letters = [] }) {
           It&rsquo;s where I&rsquo;ll keep adding the things that didn&rsquo;t fit
           between the covers, the photos up close, the stories behind them, the
           parts I read out loud, the scenes that almost made it in.
-        </p>
-        <p>
-          But before any of that: if the book stirred something in you, I hope you
-          heard the one thing I most wanted to say. Your story isn&rsquo;t what
-          happened to you. It&rsquo;s what you do with it.
         </p>
         <p className="signoff">Jen.</p>
       </section>
@@ -303,19 +290,6 @@ export default function VelvetClient({ letters = [] }) {
         </div>
       </section>
 
-      {/* EMAIL CAPTURE — light band (Kit inline form is light-styled) */}
-      <section className="capture-band">
-        <div className="wrap text-wrap center">
-          <div className="eyebrow">Stay close</div>
-          <h2>Be first when something new lands here.</h2>
-          <p className="lead">
-            When I add the audio, the cut scenes, or news about the film,
-            I&rsquo;ll tell my readers first, by email.
-          </p>
-          <KitInlineForm uid={KIT_FORM_UID} />
-        </div>
-      </section>
-
       <footer>
         <div className="wrap">
           <p className="foot-meta">
@@ -328,5 +302,6 @@ export default function VelvetClient({ letters = [] }) {
         </div>
       </footer>
     </div>
+    </>
   );
 }

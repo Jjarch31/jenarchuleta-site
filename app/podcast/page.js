@@ -1,7 +1,6 @@
 import './podcast.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import KitForm from '../components/KitForm';
 import BuzzsproutPlayer from '../components/BuzzsproutPlayer';
 import { BOOKING_EMAIL, PODCAST } from '../components/site-data';
 
@@ -94,12 +93,6 @@ export default function PodcastPage() {
           </a>
         </div>
       </section>
-
-      <KitForm
-        heading="New episodes, by email."
-        blurb="Get new episodes and the first chapter of the book, straight to your inbox."
-        cta="Join the newsletter"
-      />
 
       <SiteFooter />
     </>
