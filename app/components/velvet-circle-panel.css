@@ -27,6 +27,18 @@
   height: auto;
 }
 
+.vc-announce-frame img.vc-mark {
+  position: absolute;
+  left: 8%;
+  bottom: 4%;
+  width: 20%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(12, 8, 6, 0.5);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .vc-finder {
   position: absolute;
   inset: 4.5%;

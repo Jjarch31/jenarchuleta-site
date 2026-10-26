@@ -1,6 +1,5 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import PhotoNeeded from '../components/PhotoNeeded';
 import { OG_IMAGE, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import './shop.css';
 
@@ -181,10 +180,13 @@ export default function ShopPage() {
               #backstage-box stays so older links still land on this card. */}
           <article className="product-card" id="backstage-bundle">
             <span id="backstage-box" />
-            <div className="product-media">
-              <PhotoNeeded>
-                The book tied with a black ribbon, the handmade bookmark, black bunny ears, and a display box with red tissue.
-              </PhotoNeeded>
+            <div className="product-media product-media--portrait">
+              <img
+                src="/assets/backstage-bundle.jpg"
+                alt="The book, a handmade velvet bookmark, and black bunny ears, with a display box of red tissue"
+                width="1268"
+                height="1600"
+              />
             </div>
             <div className="product-body">
               <div className="eyebrow">A little bundle</div>

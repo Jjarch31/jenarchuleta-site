@@ -188,7 +188,31 @@ const PICKS = [
   { src: '/assets/gallery-picks/178.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 926 },
 ];
 
-const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS];
+// October 26 batch, after the picks, in Jen's order. Two files from
+// that batch are not here: the ivy-door family photo is already
+// velvet-carousel/26.jpg, and the five dogs under the bougainvillea
+// are already dogs.jpg (and velvet/the-dogs.jpg). Full frames, long
+// edge at most 1600, no upscaling.
+const OCT26 = [
+  { src: '/assets/gallery-oct26/wedding.jpg', alt: 'A wedding at sunset', width: 1070, height: 1147 },
+  { src: '/assets/gallery-oct26/snow.jpg', alt: 'Jen Walcott Archuleta in the snow', width: 1320, height: 1266 },
+  { src: '/assets/gallery-oct26/ski.jpg', alt: 'On a ski lift', width: 1217, height: 1600 },
+  { src: '/assets/gallery-oct26/pajamas.jpg', alt: 'Christmas pajamas', width: 1320, height: 1164 },
+  { src: '/assets/gallery-oct26/hug.jpg', alt: 'A family hug', width: 851, height: 1527 },
+  { src: '/assets/gallery-oct26/lawn.jpg', alt: 'On the lawn', width: 1320, height: 1461 },
+  { src: '/assets/gallery-oct26/jet-cabin.jpg', alt: 'Inside a private jet', width: 1029, height: 845 },
+  { src: '/assets/gallery-oct26/jet-stairs.jpg', alt: 'On the stairs of a private jet', width: 1320, height: 1271 },
+  { src: '/assets/gallery-oct26/hangar.jpg', alt: 'A plane in the hangar', width: 922, height: 1263 },
+  { src: '/assets/gallery-oct26/jet-seats.jpg', alt: 'Seated inside a private jet', width: 1320, height: 1454 },
+  { src: '/assets/gallery-oct26/beach.jpg', alt: 'A beach with palm trees', width: 1320, height: 1165 },
+  { src: '/assets/gallery-oct26/cliff.jpg', alt: 'Above the ocean', width: 1320, height: 1597 },
+  { src: '/assets/gallery-oct26/tree.jpg', alt: 'A Christmas tree', width: 1320, height: 1216 },
+  { src: '/assets/gallery-oct26/driveway.jpg', alt: 'On the driveway', width: 1320, height: 1301 },
+  { src: '/assets/gallery-oct26/dog-tortoise.jpg', alt: 'A dog on a tortoise', width: 1320, height: 1327 },
+  { src: '/assets/gallery-oct26/tortoise.jpg', alt: 'A tortoise with greens', width: 665, height: 940 },
+];
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26];
 
 // Slides 19 and 27 of the 59-photo order (before the Hollywood set was
 // added). Those two stay fully visible: native img, no max-height crop.

@@ -17,10 +17,17 @@ export default function VelvetCirclePanel() {
       <div className="vc-announce-photo">
         <div className="vc-announce-frame">
           <img
-            src="/assets/velvet-circle-bookclub.jpg"
+            src="/assets/velvet-circle-room.jpg"
             alt="Friends in a candlelit living room, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
-            width="1152"
-            height="864"
+            width="1122"
+            height="1402"
+          />
+          <img
+            className="vc-mark"
+            src="/assets/velvet-circle-mark.png"
+            alt=""
+            width="436"
+            height="436"
           />
         </div>
       </div>
