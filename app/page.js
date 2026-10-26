@@ -3,7 +3,27 @@ import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
 import PhotoGallery from './components/PhotoGallery';
 import PhotoNeeded from './components/PhotoNeeded';
+import VelvetCirclePanel from './components/VelvetCirclePanel';
 import { KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
+import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
+
+function HomeQuote({ quote, more = false, id }) {
+  return (
+    <section className="home-quote" id={id}>
+      <figure>
+        <blockquote>
+          <p>{quote.text}</p>
+        </blockquote>
+        {quote.source ? <figcaption>{quote.source}</figcaption> : null}
+        {more ? (
+          <p className="home-quote-more">
+            <a href="/quotes">More quotes</a>
+          </p>
+        ) : null}
+      </figure>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -92,6 +112,8 @@ export default function Home() {
         </div>
       </section>
 
+      <HomeQuote id="quote-book" quote={QUOTE_RESCUE} />
+
       {/* STORY */}
       <section id="story" className="wrap">
         <div className="story-grid">
@@ -105,6 +127,10 @@ export default function Home() {
       </section>
 
       <PhotoGallery />
+
+      <HomeQuote id="quote-gallery" quote={QUOTE_FORGIVE} more />
+
+      <VelvetCirclePanel />
 
       {/* PODCAST. Subscribe buttons. The buy row's Spotify link is the audiobook, not the show.
           TODO: confirm with Jen which Spotify show ID is the podcast and which is the audiobook. */}
@@ -179,6 +205,8 @@ export default function Home() {
         </div>
         <div className="center" style={{ marginTop: '28px' }}><a href="/shop" className="btn btn-ghost">Visit the shop</a></div>
       </section>
+
+      <HomeQuote id="quote-letter" quote={QUOTE_STORY} />
 
       {/* CAPTURE. id was "speaking"; that anchor now lives on /media#speaking. */}
       <section id="letter" className="capture">

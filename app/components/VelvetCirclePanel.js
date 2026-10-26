@@ -22,42 +22,44 @@ export default function VelvetCirclePanel() {
             width="1122"
             height="1402"
           />
-          <img
-            className="vc-mark"
-            src="/assets/velvet-circle-mark.png"
-            alt=""
-            width="436"
-            height="436"
-          />
         </div>
       </div>
 
       <div className="vc-announce-copy">
-        <p className="vc-announce-eyebrow">THE VELVET CIRCLE</p>
-        <h2 id="vc-announce-title">
-          A private book club and community for readers of Beyond the Velvet Ropes.
-        </h2>
-        <p className="vc-announce-line">
-          Real conversations. Untold stories. A place to connect, ask questions, and grow together.
-        </p>
-        <ul className="vc-announce-perks">
-          {PERKS.map((perk) => <li key={perk}>{perk}</li>)}
-        </ul>
-        <p className="vc-announce-box">
-          <a href="/shop#backstage-bundle">
-            Want the full experience? The Backstage Bundle has my signed book, my velvet bookmark, and black velvet bunny ears.
-          </a>
-        </p>
-        {join ? (
-          <a className="btn btn-primary" href={join} target="_blank" rel="noopener noreferrer">
-            Join the Velvet Circle
-          </a>
-        ) : (
-          <span className="btn btn-disabled">Coming soon</span>
-        )}
-        <p className="vc-announce-cancel">
-          <a href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener noreferrer">Cancel anytime</a>
-        </p>
+        <img
+          className="vc-mark"
+          src="/assets/velvet-circle-mark.png"
+          alt=""
+          width="436"
+          height="436"
+        />
+        <div className="vc-announce-text">
+          <p className="vc-announce-eyebrow">THE VELVET CIRCLE</p>
+          <h2 id="vc-announce-title">
+            A private book club and community for readers of Beyond the Velvet Ropes.
+          </h2>
+          <p className="vc-announce-line">
+            Real conversations. Untold stories. A place to connect, ask questions, and grow together.
+          </p>
+          <ul className="vc-announce-perks">
+            {PERKS.map((perk) => <li key={perk}>{perk}</li>)}
+          </ul>
+          <p className="vc-announce-box">
+            <a href="/shop#backstage-bundle">
+              Want the full experience? The Backstage Bundle has my signed book, my velvet bookmark, and black velvet bunny ears.
+            </a>
+          </p>
+          {join ? (
+            <a className="btn btn-primary" href={join} target="_blank" rel="noopener noreferrer">
+              Join the Velvet Circle
+            </a>
+          ) : (
+            <span className="btn btn-disabled">Coming soon</span>
+          )}
+          <p className="vc-announce-cancel">
+            <a href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener noreferrer">Cancel anytime</a>
+          </p>
+        </div>
       </div>
     </section>
   );
