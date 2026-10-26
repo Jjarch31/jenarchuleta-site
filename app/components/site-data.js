@@ -74,6 +74,13 @@ export const SHOP = {
   // Do not take the membership live through any checkout that lacks that portal.
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
   velvetCircleMembershipPrice: '$9.99/month',
+
+  // THE BACKSTAGE BOX. No $69 Stripe Payment Link exists in this repo or its
+  // history. The old checkout was a Kit product URL, which cannot collect a
+  // shipping address, so it stays empty. Empty renders a Coming soon button
+  // that does not go to checkout.
+  foundingBox: '',
+  foundingBoxPrice: '$69',
 };
 
 // Podcast (Buzzsprout). The numeric podcast ID powers the official

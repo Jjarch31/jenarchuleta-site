@@ -73,6 +73,30 @@
   height: auto;
   object-fit: contain;
 }
+/* Round gold membership art. The file is a dark wide frame, so contain it
+   instead of cropping the circle or showing Jen's portrait. */
+.shop-page .product-media--circle {
+  background: #111;
+}
+.shop-page .product-media--circle img {
+  object-fit: contain;
+  padding: 0;
+}
+/* Book plus bookmark. No box photo. */
+.shop-page .product-media--pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+  padding: 6% 7%;
+}
+.shop-page .product-media--pair img {
+  position: static;
+  width: auto;
+  height: 100%;
+  max-width: 44%;
+  object-fit: contain;
+}
 /* status badge over the photo (ink scrim + cream text = AAA on any image) */
 .shop-page .badge {
   position: absolute;

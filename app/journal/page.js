@@ -18,6 +18,20 @@ export const metadata = {
     'Short, honest writing on faith, family, healing, and starting over, from Jen Archuleta.',
 };
 
+// Podcast cards often open with the show name as a stamp. Drop that
+// leading label on the card. A sentence that actually says the name stays.
+function cardExcerpt(excerpt) {
+  if (typeof excerpt !== 'string') return excerpt;
+  const text = excerpt.trim();
+  const match = text.match(/^[\s\S]{0,90}?Unfiltered with Jen Archuleta\b[\s:.\-–—,…]*/i);
+  if (!match) return text;
+  const prefix = match[0];
+  const promo = /^(?:[\s🎙🎙️🖤🥳❗️🚨🐾🔜📢]*)(?:coming|new episode|this month|welcome|season finale|live now|beyond the bombshell|in this powerful episode)/i;
+  if (!promo.test(prefix)) return text;
+  const rest = text.slice(prefix.length).trim();
+  return rest || text;
+}
+
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -100,7 +114,7 @@ export default async function JournalPage({ searchParams }) {
                   <div className="body">
                     <div className="k">{p.category} · {formatDate(p.publishedAt)}</div>
                     <h3>{p.title}</h3>
-                    <p>{p.excerpt}</p>
+                    <p>{cardExcerpt(p.excerpt)}</p>
                   </div>
                 </a>
               );
