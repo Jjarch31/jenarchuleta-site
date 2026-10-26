@@ -201,6 +201,7 @@ export default function ShopPage() {
                 <li>Jen’s signed copy of <em>Beyond the Velvet Ropes</em></li>
                 <li>Her velvet bookmark</li>
                 <li>Black velvet bunny ears</li>
+                <li>Your first month of the Velvet Circle free, then $9.99 a month.</li>
               </ul>
               <p className="fulfill">Ships when this drop is ready.</p>
               <div className="product-cta">

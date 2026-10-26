@@ -1,5 +1,4 @@
 import './velvet-circle-panel.css';
-import PhotoNeeded from './PhotoNeeded';
 import { SHOP, STRIPE_CUSTOMER_PORTAL_URL } from './site-data';
 
 const PERKS = [
@@ -17,9 +16,12 @@ export default function VelvetCirclePanel() {
     <section className="vc-announce" aria-labelledby="vc-announce-title">
       <div className="vc-announce-photo">
         <div className="vc-announce-frame">
-          <PhotoNeeded>
-            A warm, cozy cream and gold book club scene. People with a book at a meeting.
-          </PhotoNeeded>
+          <img
+            src="/assets/velvet-circle-bookclub.jpg"
+            alt="Friends in a candlelit living room, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
+            width="1152"
+            height="864"
+          />
         </div>
       </div>
 
