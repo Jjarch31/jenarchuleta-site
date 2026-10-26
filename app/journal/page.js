@@ -7,7 +7,9 @@ import { urlFor } from '../sanity/image';
 import { getAllPosts } from '../sanity/queries';
 import { POSTS as FALLBACK_POSTS } from './_posts';
 
-// Chip order. A category is shown only when it has at least one post.
+// Chip order: Podcast, Pup of the Podcast, then the Sponsors page link, then
+// the rest of this list. Cooking stays in the list so its chip comes back as
+// soon as a post uses that category. Empty categories stay off the row.
 const CATEGORY_ORDER = ['Podcast', 'Pup of the Podcast', 'Faith', 'Family', 'Cooking', 'Advocacy', 'Health & Wellness', 'Behind the Book', 'Journal'];
 
 export const metadata = {
@@ -42,10 +44,10 @@ export default async function JournalPage({ searchParams }) {
     if (p.category) m[p.category] = (m[p.category] || 0) + 1;
     return m;
   }, {});
-  // Empty categories stay off the row, except Pup of the Podcast, which
-  // stays up while posts are moved into it. Sponsors is a page link, not
-  // a category, and sits right after that chip. A direct empty-category
-  // URL still shows the empty line below.
+  // Pup of the Podcast stays up while posts are moved into it. Every other
+  // category, including Cooking, appears once counts[c] is at least one.
+  // Sponsors is a page link, not a category, and sits right after Pup.
+  // A direct empty-category URL still shows the empty line below.
   const presentCategories = [
     ...CATEGORY_ORDER.filter((c) => c === 'Pup of the Podcast' || counts[c]),
     ...Object.keys(counts).filter((c) => !CATEGORY_ORDER.includes(c)).sort(),
