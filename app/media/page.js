@@ -92,7 +92,7 @@ const APPEARANCES = [
 const HEADSHOTS = [
   { href: '/assets/presskit-headshot-floral.jpg', label: 'Candid', width: 1100, height: 1370 },
   { href: '/assets/jen-headshot-bw.jpg', label: 'Glamour', width: 1320, height: 1946 },
-  { href: '/assets/presskit-headshot-glam.jpg', label: 'Classic', width: 1320, height: 1259 },
+  { href: '/assets/jen-headshot-signature.jpg', label: 'Signature', width: 1162, height: 1597 },
 ];
 
 const LOGO_NAMES = [
