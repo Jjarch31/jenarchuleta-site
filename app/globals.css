@@ -196,6 +196,13 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
   font-size: 0.95rem;
   line-height: 1.45;
 }
+.gallery-count {
+  margin: 14px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
 .gallery-arrow {
   width: 44px;
   height: 44px;

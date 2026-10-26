@@ -13,8 +13,12 @@ import sizes from '../velvet/slide-sizes.json';
 // portrait), 44.jpg (the puppy selfie), and 09.jpg. 09.jpg stays in the
 // /velvet slideshow; the sharper press-kit copy is the home slide. 08 and
 // 44 stay in the repo and out of both slideshows. 24, 25, and 26 stay.
-// jen-glam and jen-fitness stay once. Faces are unretouched. Each slide is
-// the whole file at its real ratio. Do not cover-crop these into a shared frame.
+// jen-glam and jen-fitness stay once. The approved gallery-new photos are
+// appended after that, in numeric order, and are not on /velvet. new_01,
+// new_29, new_30, new_32, and new_33 are not in the repo. Faces are
+// unretouched. Each slide is the whole file at its real ratio. Do not
+// cover-crop these into a shared frame. Only the current slide and its two
+// neighbors are mounted, so the rest are not requested.
 const BLANK_ALT = 'Photo from Jen’s personal collection';
 
 const PORTRAITS = [
@@ -83,7 +87,42 @@ const FAMILY = captions.filter((item) => !HOME_ONLY_SKIP.has(item.file)).map((it
   };
 });
 
-const SLIDES = [...PORTRAITS, ...FAMILY];
+const GALLERY_NEW = [
+  { src: '/assets/gallery-new/new_02.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1075, height: 1600 },
+  { src: '/assets/gallery-new/new_03.jpg', alt: 'Jen Walcott Archuleta holding her book', width: 1062, height: 1600 },
+  { src: '/assets/gallery-new/new_04.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 1320, height: 1537 },
+  { src: '/assets/gallery-new/new_05.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 1280, height: 1600 },
+  { src: '/assets/gallery-new/new_06.jpg', alt: 'Jen Walcott Archuleta in a black coat', width: 1065, height: 1600 },
+  { src: '/assets/gallery-new/new_07.jpg', alt: 'Jen Walcott Archuleta in a black and white portrait', width: 1266, height: 1600 },
+  { src: '/assets/gallery-new/new_08.jpg', alt: 'Jen Walcott Archuleta holding her book at a signing', width: 869, height: 1232 },
+  { src: '/assets/gallery-new/new_09.jpg', alt: 'Jen Walcott Archuleta with her husband', width: 1320, height: 837 },
+  { src: '/assets/gallery-new/new_10.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 1320, height: 1480 },
+  { src: '/assets/gallery-new/new_11.jpg', alt: 'Jen Walcott Archuleta in denim overalls', width: 1440, height: 1440 },
+  { src: '/assets/gallery-new/new_12.jpg', alt: 'Jen Walcott Archuleta with her husband on a red carpet', width: 1600, height: 1600 },
+  { src: '/assets/gallery-new/new_13.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 845, height: 1600 },
+  { src: '/assets/gallery-new/new_14.jpg', alt: 'Jen Walcott Archuleta in a car', width: 1097, height: 1600 },
+  { src: '/assets/gallery-new/new_15.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 1600, height: 1200 },
+  { src: '/assets/gallery-new/new_16.jpg', alt: 'Jen Walcott Archuleta laughing outdoors', width: 1168, height: 1460 },
+  { src: '/assets/gallery-new/new_17.jpg', alt: 'Jen Walcott Archuleta in a black dress on a red carpet', width: 934, height: 1600 },
+  { src: '/assets/gallery-new/new_18.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 827, height: 1002 },
+  { src: '/assets/gallery-new/new_19.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 1200, height: 1600 },
+  { src: '/assets/gallery-new/new_20.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1440, height: 1085 },
+  { src: '/assets/gallery-new/new_21.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 768, height: 960 },
+  { src: '/assets/gallery-new/new_22.jpg', alt: 'Jen Walcott Archuleta signing a copy of her book', width: 1224, height: 917 },
+  { src: '/assets/gallery-new/new_23.jpg', alt: 'Jen Walcott Archuleta at an outdoor book signing', width: 828, height: 934 },
+  { src: '/assets/gallery-new/new_24.jpg', alt: 'Jen Walcott Archuleta with her book', width: 828, height: 831 },
+  { src: '/assets/gallery-new/new_25.jpg', alt: 'Jen Walcott Archuleta on a red carpet in a white dress', width: 1600, height: 1200 },
+  { src: '/assets/gallery-new/new_26.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 851, height: 1600 },
+  { src: '/assets/gallery-new/new_27.jpg', alt: 'Jen Walcott Archuleta in a black and white portrait', width: 1179, height: 1585 },
+  { src: '/assets/gallery-new/new_28.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 829, height: 1600 },
+  { src: '/assets/gallery-new/new_34.jpg', alt: 'Jen Walcott Archuleta with her husband', width: 1179, height: 1100 },
+  { src: '/assets/gallery-new/new_35.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 1320, height: 1296 },
+  { src: '/assets/gallery-new/new_36.jpg', alt: 'Jen Walcott Archuleta with her husband', width: 1320, height: 1607 },
+  { src: '/assets/gallery-new/new_37.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 790, height: 2000 },
+  { src: '/assets/gallery-new/new_38.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 1500, height: 2000 },
+];
+
+const SLIDES = [...PORTRAITS, ...FAMILY, ...GALLERY_NEW];
 
 const INTERVAL_MS = 4000;
 
@@ -229,6 +268,7 @@ export default function PhotoGallery() {
               ))}
             </div>
             {slide.caption ? <p className="gallery-caption">{slide.caption}</p> : null}
+            <p className="gallery-count" aria-hidden="true">{index + 1} / {count}</p>
           </div>
 
           <button
