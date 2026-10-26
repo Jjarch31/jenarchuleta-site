@@ -70,6 +70,15 @@
 }
 .velvet-page .gate-perks li { margin: 0.2em 0; }
 .velvet-page .gate-join .btn { margin-top: 8px; }
+.velvet-page .vc-see-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+.velvet-page .gate-join .vc-see-more a.btn-primary,
+.velvet-page .gate-join .vc-see-more a.btn-primary:hover {
+  color: var(--on-accent);
+}
 
 /* Members photo carousel. Whole frame, no crop. */
 .velvet-page .vc-carousel {

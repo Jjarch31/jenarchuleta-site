@@ -152,6 +152,9 @@ export default function VelvetClient({ letters = [] }) {
               </ul>
               <p>Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.</p>
               <VelvetCarousel />
+              <div className="vc-see-more">
+                <a className="btn btn-primary" href="/book">See more</a>
+              </div>
               <a
                 className="btn btn-primary"
                 href={CIRCLE_HREF}
