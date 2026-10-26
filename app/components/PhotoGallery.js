@@ -18,7 +18,8 @@ import sizes from '../velvet/slide-sizes.json';
 // and stay on /velvet only. 27 and 45 are dog photos on /pups. 43 is the
 // same Urban Axes outing as gallery-new new_24, so new_24 stays.
 // gallery-new left out: new_02, new_10, new_11, new_12, new_15, new_17,
-// new_20, new_21, new_26, new_27. new_17, new_20, and new_21 repeat the
+// new_20, new_21, new_26, new_27. new_27 stays out. It is not the same
+// photo as velvet 34. new_17, new_20, and new_21 repeat the
 // Childhelp luncheon in velvet 37, which stays. new_10, new_11, and
 // new_12 are on /pups. new_01, new_29, new_30, new_32, and new_33 are not
 // in the repo. Faces are unretouched. Each slide is the whole file at its
@@ -107,6 +108,9 @@ const HOME_ONLY_SKIP = new Set([
   '25.jpg',
   '26.jpg',
   '27.jpg',
+  '33.jpg',
+  '34.jpg',
+  '36.jpg',
   '43.jpg',
   '45.jpg',
 ]);
@@ -148,7 +152,43 @@ const GALLERY_NEW = [
   { src: '/assets/gallery-new/new_38.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 1500, height: 2000 },
 ];
 
-const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW];
+// Added after the existing slides, in numeric order. 113 and 116 are
+// the same pictures as hw_01 and hw_06, so they are not repeated here.
+const PICKS = [
+  { src: '/assets/gallery-picks/112.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 840, height: 1600 },
+  { src: '/assets/gallery-picks/118.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1320, height: 1480 },
+  { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
+  { src: '/assets/gallery-picks/124.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 1293 },
+  { src: '/assets/gallery-picks/127.jpg', alt: 'Jen Walcott Archuleta', width: 1320, height: 1283 },
+  { src: '/assets/gallery-picks/129.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/131.jpg', alt: 'Jen Walcott Archuleta', width: 234, height: 292 },
+  { src: '/assets/gallery-picks/132.jpg', alt: 'Jen Walcott Archuleta with friends on stage', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/136.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/137.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/141.jpg', alt: 'Jen Walcott Archuleta', width: 1066, height: 1332 },
+  { src: '/assets/gallery-picks/142.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/146.jpg', alt: 'Jen Walcott Archuleta', width: 664, height: 830 },
+  { src: '/assets/gallery-picks/148.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/151.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/153.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/154.jpg', alt: 'Jen Walcott Archuleta', width: 640, height: 800 },
+  { src: '/assets/gallery-picks/155.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/156.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/157.jpg', alt: 'Jen Walcott Archuleta', width: 808, height: 1010 },
+  { src: '/assets/gallery-picks/158.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/159.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/160.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/164.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/166.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 1200 },
+  { src: '/assets/gallery-picks/168.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/169.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/171.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/172.jpg', alt: 'Jen Walcott Archuleta', width: 1179, height: 1037 },
+  { src: '/assets/gallery-picks/175.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 884 },
+  { src: '/assets/gallery-picks/178.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 926 },
+];
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS];
 
 // Slides 19 and 27 of the 59-photo order (before the Hollywood set was
 // added). Those two stay fully visible: native img, no max-height crop.
