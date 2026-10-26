@@ -3,7 +3,7 @@ import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import { client } from '../sanity/client';
 import { urlFor } from '../sanity/image';
-import { PUPS } from '../../lib/pups';
+import { GALLERY_PUPS, PUPS } from '../../lib/pups';
 
 export const metadata = {
   title: 'Pups of the Podcast',
@@ -42,6 +42,32 @@ async function heroUrls(slugs) {
   }
 }
 
+function PupCard({ pup, photo }) {
+  return (
+    <article className="pup-card">
+      <div className="pup-media">
+        {photo ? (
+          <img src={photo} alt={pup.alt || pup.name} />
+        ) : (
+          <Paw />
+        )}
+        {pup.adopted ? <span className="pup-badge">Adopted</span> : null}
+      </div>
+      <div className="pup-body">
+        <h2>{pup.name}</h2>
+        {pup.breedAge ? <p className="pup-breed">{pup.breedAge}</p> : null}
+        {pup.rescue ? (
+          <p className="pup-rescue"><span className="pup-k">Rescue </span>{pup.rescue}</p>
+        ) : null}
+        {pup.guest ? (
+          <p className="pup-guest"><span className="pup-k">With </span>{pup.guest}</p>
+        ) : null}
+        {pup.post ? <a className="pup-more" href={`/journal/${pup.post}`}>Read more</a> : null}
+      </div>
+    </article>
+  );
+}
+
 export default async function PupsPage() {
   const pups = [...PUPS].sort((a, b) => a.date.localeCompare(b.date));
   const photos = await heroUrls([...new Set(pups.map((p) => p.imageSlug).filter(Boolean))]);
@@ -61,32 +87,20 @@ export default async function PupsPage() {
 
       <section className="wrap" style={{ paddingTop: 0 }}>
         <div className="pups-grid">
-          {pups.map((pup) => {
-            const photo = pup.imageSlug ? photos[pup.imageSlug] : null;
-            return (
-              <article className="pup-card" key={pup.date}>
-                <div className="pup-media">
-                  {photo ? (
-                    <img src={photo} alt={pup.name} />
-                  ) : (
-                    <Paw />
-                  )}
-                  {pup.adopted ? <span className="pup-badge">Adopted</span> : null}
-                </div>
-                <div className="pup-body">
-                  <h2>{pup.name}</h2>
-                  {pup.breedAge ? <p className="pup-breed">{pup.breedAge}</p> : null}
-                  {pup.rescue ? (
-                    <p className="pup-rescue"><span className="pup-k">Rescue </span>{pup.rescue}</p>
-                  ) : null}
-                  {pup.guest ? (
-                    <p className="pup-guest"><span className="pup-k">With </span>{pup.guest}</p>
-                  ) : null}
-                  <a className="pup-more" href={`/journal/${pup.post}`}>Read more</a>
-                </div>
-              </article>
-            );
-          })}
+          {pups.map((pup) => (
+            <PupCard
+              key={pup.date}
+              pup={pup}
+              photo={pup.imageSlug ? photos[pup.imageSlug] : null}
+            />
+          ))}
+          {GALLERY_PUPS.map((pup) => (
+            <PupCard
+              key={pup.src}
+              pup={{ ...pup, name: 'Pup of the Podcast' }}
+              photo={pup.src}
+            />
+          ))}
         </div>
       </section>
 

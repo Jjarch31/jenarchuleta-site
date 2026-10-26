@@ -25,7 +25,7 @@ export default function AboutPage() {
           <p className="tim-script">and this is me</p>
           <p className="tim-lead">
             I don’t really do labels. I’m just me. A mom, a wife, and yes, the human behind a houseful of rescue dogs.
-            I had a whole lot of incredible experiences in my twenties… but honestly? These days it’s the
+            I had a whole lot of incredible experiences… but honestly? These days it’s the
             small stuff that gets me. Kids everywhere, dogs on the couch they’re not allowed on. My
             faith, my family, and giving back. That’s pretty much it.
           </p>
