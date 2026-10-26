@@ -5,35 +5,27 @@ import Image from 'next/image';
 import captions from '../velvet/captions.json';
 import sizes from '../velvet/slide-sizes.json';
 
-// One slideshow. The original gallery portraits, including jen-fun, except
-// jen-bw-coat (the same coat shot as velvet 07, with magazine text over it;
-// the file stays in the repo and on the other pages that use it). Then the
-// two home-page row photos that are not already here (jen-sultry, jen-fun2),
-// then the Velvet Circle photos except 08.jpg (the signed Miss August 2001
-// portrait), 44.jpg (the puppy selfie), and 09.jpg. 09.jpg stays in the
-// /velvet slideshow; the sharper press-kit copy is the home slide. 08 and
-// 44 stay in the repo and out of both slideshows. 24, 25, and 26 stay.
-// jen-glam and jen-fitness stay once. The approved gallery-new photos are
-// appended after that, in numeric order, and are not on /velvet. new_01,
-// new_29, new_30, new_32, and new_33 are not in the repo. Faces are
-// unretouched. Each slide is the whole file at its real ratio. Do not
-// cover-crop these into a shared frame. Only the current slide and its two
-// neighbors are mounted, so the rest are not requested.
+// One slideshow. Portraits that are not already on the homepage, then
+// Velvet Circle photos, then gallery-new. A file stays in the repo when
+// its slide is left out. /velvet still reads captions.json.
+// Out of this slideshow:
+// presskit-headshot-floral (home hero). jen-glam, jen-fitness, jen-sultry,
+// and jen-fun2 (the homepage photo row; the row itself stays). jen-fun
+// (group of adults, not a dog photo). jen-bw-coat and velvet 07 (the coat
+// already in the story section as jen-bw-coat2). 08 and 44 are already
+// out of captions.json. 09 stays on /velvet. 24, 25, and 26 show the kids
+// and stay on /velvet only. 27 and 45 are dog photos on /pups. 43 is the
+// same Urban Axes outing as gallery-new new_24, so new_24 stays.
+// gallery-new left out: new_02, new_10, new_11, new_12, new_15, new_17,
+// new_20, new_21, new_26, new_27. new_17, new_20, and new_21 repeat the
+// Childhelp luncheon in velvet 37, which stays. new_10, new_11, and
+// new_12 are on /pups. new_01, new_29, new_30, new_32, and new_33 are not
+// in the repo. Faces are unretouched. Each slide is the whole file at its
+// real ratio. Do not cover-crop these into a shared frame. Only the
+// current slide and its two neighbors are mounted.
 const BLANK_ALT = 'Photo from Jen’s personal collection';
 
 const PORTRAITS = [
-  {
-    src: '/assets/presskit-headshot-floral.jpg',
-    alt: 'Jen Walcott Archuleta',
-    width: 1100,
-    height: 1370,
-  },
-  {
-    src: '/assets/jen-glam.jpg',
-    alt: 'Jen Walcott Archuleta',
-    width: 700,
-    height: 835,
-  },
   {
     src: '/assets/jen-joy.jpg',
     alt: 'Jen Walcott Archuleta',
@@ -46,34 +38,19 @@ const PORTRAITS = [
     width: 1320,
     height: 1259,
   },
-  {
-    src: '/assets/jen-fitness.jpg',
-    alt: 'Jen Walcott Archuleta',
-    width: 1077,
-    height: 887,
-  },
-  {
-    src: '/assets/jen-fun.jpg',
-    alt: 'Jen Walcott Archuleta',
-    width: 1320,
-    height: 1756,
-  },
-  {
-    src: '/assets/jen-sultry.jpg',
-    alt: 'Jen Archuleta',
-    width: 599,
-    height: 1111,
-  },
-  {
-    src: '/assets/jen-fun2.jpeg',
-    alt: 'Jen Archuleta with a rescue puppy',
-    width: 510,
-    height: 512,
-  },
 ];
 
-// 09.jpg stays in captions.json so /velvet still shows it.
-const HOME_ONLY_SKIP = new Set(['09.jpg']);
+// These stay in captions.json so /velvet still shows them.
+const HOME_ONLY_SKIP = new Set([
+  '07.jpg',
+  '09.jpg',
+  '24.jpg',
+  '25.jpg',
+  '26.jpg',
+  '27.jpg',
+  '43.jpg',
+  '45.jpg',
+]);
 
 const FAMILY = captions.filter((item) => !HOME_ONLY_SKIP.has(item.file)).map((item) => {
   const caption = typeof item.caption === 'string' ? item.caption.trim() : '';
@@ -88,7 +65,6 @@ const FAMILY = captions.filter((item) => !HOME_ONLY_SKIP.has(item.file)).map((it
 });
 
 const GALLERY_NEW = [
-  { src: '/assets/gallery-new/new_02.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1075, height: 1600 },
   { src: '/assets/gallery-new/new_03.jpg', alt: 'Jen Walcott Archuleta holding her book', width: 1062, height: 1600 },
   { src: '/assets/gallery-new/new_04.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 1320, height: 1537 },
   { src: '/assets/gallery-new/new_05.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 1280, height: 1600 },
@@ -96,24 +72,15 @@ const GALLERY_NEW = [
   { src: '/assets/gallery-new/new_07.jpg', alt: 'Jen Walcott Archuleta in a black and white portrait', width: 1266, height: 1600 },
   { src: '/assets/gallery-new/new_08.jpg', alt: 'Jen Walcott Archuleta holding her book at a signing', width: 869, height: 1232 },
   { src: '/assets/gallery-new/new_09.jpg', alt: 'Jen Walcott Archuleta with her husband', width: 1320, height: 837 },
-  { src: '/assets/gallery-new/new_10.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 1320, height: 1480 },
-  { src: '/assets/gallery-new/new_11.jpg', alt: 'Jen Walcott Archuleta in denim overalls', width: 1440, height: 1440 },
-  { src: '/assets/gallery-new/new_12.jpg', alt: 'Jen Walcott Archuleta with her husband on a red carpet', width: 1600, height: 1600 },
   { src: '/assets/gallery-new/new_13.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 845, height: 1600 },
   { src: '/assets/gallery-new/new_14.jpg', alt: 'Jen Walcott Archuleta in a car', width: 1097, height: 1600 },
-  { src: '/assets/gallery-new/new_15.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 1600, height: 1200 },
   { src: '/assets/gallery-new/new_16.jpg', alt: 'Jen Walcott Archuleta laughing outdoors', width: 1168, height: 1460 },
-  { src: '/assets/gallery-new/new_17.jpg', alt: 'Jen Walcott Archuleta in a black dress on a red carpet', width: 934, height: 1600 },
   { src: '/assets/gallery-new/new_18.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 827, height: 1002 },
   { src: '/assets/gallery-new/new_19.jpg', alt: 'Jen Walcott Archuleta on a red carpet', width: 1200, height: 1600 },
-  { src: '/assets/gallery-new/new_20.jpg', alt: 'Jen Walcott Archuleta at a book signing', width: 1440, height: 1085 },
-  { src: '/assets/gallery-new/new_21.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 768, height: 960 },
   { src: '/assets/gallery-new/new_22.jpg', alt: 'Jen Walcott Archuleta signing a copy of her book', width: 1224, height: 917 },
   { src: '/assets/gallery-new/new_23.jpg', alt: 'Jen Walcott Archuleta at an outdoor book signing', width: 828, height: 934 },
   { src: '/assets/gallery-new/new_24.jpg', alt: 'Jen Walcott Archuleta with her book', width: 828, height: 831 },
   { src: '/assets/gallery-new/new_25.jpg', alt: 'Jen Walcott Archuleta on a red carpet in a white dress', width: 1600, height: 1200 },
-  { src: '/assets/gallery-new/new_26.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 851, height: 1600 },
-  { src: '/assets/gallery-new/new_27.jpg', alt: 'Jen Walcott Archuleta in a black and white portrait', width: 1179, height: 1585 },
   { src: '/assets/gallery-new/new_28.jpg', alt: 'Jen Walcott Archuleta in a black dress', width: 829, height: 1600 },
   { src: '/assets/gallery-new/new_34.jpg', alt: 'Jen Walcott Archuleta with her husband', width: 1179, height: 1100 },
   { src: '/assets/gallery-new/new_35.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 1320, height: 1296 },

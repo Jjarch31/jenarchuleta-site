@@ -202,7 +202,7 @@ that file is updated more frequently than this one):
 - **Velvet Circle Membership** — $9.99/month — Stripe Payment Link. Cancel link is
   `STRIPE_CUSTOMER_PORTAL_URL` (capital I in the Stripe login id). It is on the shop
   membership card, the Velvet gate, and Shipping & Returns.
-- **The Backstage Box** is not sold. It is not on the shop, the gate, or the legal pages.
+- **The Backstage Box** is on the shop as Coming soon at $69. There is no Stripe Payment Link for it. The card does not say it comes in a black box, and it is not on the gate or the legal pages.
 - **Signature Velvet Bookmark** — $24.99, Stripe Payment Link.
 
 The Stripe→Kit→Google Sheets automation (tagging buyers in Kit, logging orders to a Google

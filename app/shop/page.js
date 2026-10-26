@@ -6,7 +6,7 @@ import './shop.css';
 export const metadata = {
   title: 'Shop',
   description:
-    'Signed copies of Beyond the Velvet Ropes, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+    'Signed copies of Beyond the Velvet Ropes, The Backstage Box, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
   openGraph: { images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
@@ -44,8 +44,8 @@ export default function ShopPage() {
           <div className="eyebrow">The Shop</div>
           <h2>A few things worth sharing.</h2>
           <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>
-            A signed copy of the book, a keepsake I make by hand, a tee with a message
-            I love, and a rescue close to my heart. Story, a good reminder, and giving back.
+            A signed copy of the book, The Backstage Box, a keepsake I make by hand,
+            a tee with a message I love, and a rescue close to my heart.
           </p>
         </div>
 
@@ -147,12 +147,12 @@ export default function ShopPage() {
           {/* VELVET CIRCLE MEMBERSHIP */}
           {/* TODO: Velvet Circle members area idea is pending Jen's decision. Do not build yet. */}
           <article className="product-card" id="velvet-circle">
-            <div className="product-media product-media--portrait">
+            <div className="product-media product-media--circle">
               <img
-                src="/assets/presskit-headshot-floral.jpg"
-                alt="Jen Walcott Archuleta"
-                width="1100"
-                height="1370"
+                src="/assets/velvet-circle-membership.jpg"
+                alt="The Velvet Circle, for readers of Beyond the Velvet Ropes"
+                width="1000"
+                height="667"
               />
             </div>
             <div className="product-body">
@@ -176,6 +176,52 @@ export default function ShopPage() {
                   <>
                     <a href={SHOP.velvetCircleMembership} target="_blank" rel="noopener" className="btn btn-primary">
                       Join the Velvet Circle
+                    </a>
+                    <TrustLine />
+                  </>
+                ) : (
+                  <span className="btn btn-disabled">Coming soon</span>
+                )}
+              </div>
+            </div>
+          </article>
+
+          {/* THE BACKSTAGE BOX. No Stripe Payment Link exists, so checkout stays off. */}
+          <article className="product-card" id="backstage-box">
+            <div className="product-media product-media--pair">
+              <img
+                src="/assets/book-cover.jpg"
+                alt="Beyond the Velvet Ropes book cover"
+                width="1000"
+                height="1500"
+              />
+              <img
+                src="/assets/bookmark.jpg"
+                alt="The Signature Velvet Bookmark"
+                width="900"
+                height="893"
+                loading="lazy"
+              />
+            </div>
+            <div className="product-body">
+              <div className="eyebrow">A little bundle</div>
+              <h3>The Backstage Box</h3>
+              <p className="price">{SHOP.foundingBoxPrice}</p>
+              <p className="product-desc">
+                My signed copy of <em>Beyond the Velvet Ropes</em>, the velvet bookmark
+                I make by hand, and a pair of black velvet bunny ears.
+              </p>
+              <ul className="product-list">
+                <li>Jen’s signed copy of <em>Beyond the Velvet Ropes</em></li>
+                <li>Her velvet bookmark</li>
+                <li>Black velvet bunny ears</li>
+              </ul>
+              <p className="fulfill">Ships when this drop is ready.</p>
+              <div className="product-cta">
+                {SHOP.foundingBox ? (
+                  <>
+                    <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
+                      Get the Backstage Box
                     </a>
                     <TrustLine />
                   </>
