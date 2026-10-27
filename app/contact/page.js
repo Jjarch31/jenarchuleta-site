@@ -1,6 +1,6 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { BOOKING_EMAIL, PODCAST } from '../components/site-data';
+import { BOOKING_EMAIL, PODCAST, SOCIALS } from '../components/site-data';
 import './contact.css';
 
 export const metadata = {
@@ -14,6 +14,7 @@ const FOLLOW = [
   { label: 'X', href: 'https://x.com/Jenniferwalcott' },
   { label: 'Facebook', href: 'https://facebook.com/therealjenniferwalcott' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jennifer-archuleta-633805115' },
+  { label: 'TikTok', href: SOCIALS.tiktok },
   { label: 'Podcast on Buzzsprout', href: PODCAST.buzzsprout },
   { label: 'Podcast on YouTube', href: PODCAST.youtube },
 ];

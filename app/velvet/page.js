@@ -7,8 +7,8 @@ import VelvetInside from './VelvetInside';
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-  title: 'The Velvet Pages',
-  description: 'A private journal for readers of Beyond the Velvet Ropes.',
+  title: 'The Velvet Letter',
+  description: 'The Velvet Letter, a private journal for readers of Beyond the Velvet Ropes.',
   robots: { index: false, follow: false },
   openGraph: { images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },

@@ -8,6 +8,8 @@ const pageRedirects = [
   // The QR code printed in the back of the book encodes /velvetropes —
   // it must land on the password-gated reader page, NOT /book.
   { source: '/velvetropes', destination: '/velvet', permanent: true },
+  { source: '/velvet-letter', destination: '/velvet', permanent: true },
+  { source: '/velvet-letter/:path*', destination: '/velvet', permanent: true },
   // NOTE: /about is a real page (app/about) — do not redirect it.
   { source: '/about-me', destination: '/about', permanent: true },
   { source: '/about-1', destination: '/about', permanent: true },

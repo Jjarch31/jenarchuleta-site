@@ -80,6 +80,13 @@ const APPEARANCES = [
     linkLabel: 'Listen',
   },
   {
+    outlet: 'Youngstown Studio',
+    kind: 'TikTok',
+    headline: 'Youngstown Studio on TikTok',
+    href: 'https://www.tiktok.com/@youngstownstudio',
+    linkLabel: 'Watch',
+  },
+  {
     outlet: 'Unfiltered with Jen Archuleta',
     kind: 'Podcast',
     headline: 'The episode where Adam interviews Jen',

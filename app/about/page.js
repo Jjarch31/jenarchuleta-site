@@ -6,7 +6,7 @@ import { SOCIALS } from '../components/site-data';
 export const metadata = {
   title: 'About',
   description:
-    'Hi, I’m Jen. A mom, a wife, and the human behind a houseful of rescue dogs. Faith, family, and giving back. This is me.',
+    'Hi, I’m Jen. A mom, a wife, and the human behind a houseful of five rescue dogs and two tortoises. Faith, family, and giving back. This is me.',
 };
 
 export default function AboutPage() {
@@ -23,21 +23,22 @@ export default function AboutPage() {
           <h1 className="tim-display">Hi, I’m&nbsp;Jen.</h1>
           <p className="tim-script">and this is me</p>
           <p className="tim-lead">
-            I don’t really do labels. I’m just me. A mom, a wife, and yes, the human behind a houseful of rescue dogs.
+            I don’t really do labels. I’m just me. A mom, a wife, and yes, the human behind a houseful of five rescue dogs and two tortoises.
             I had a whole lot of incredible experiences… but honestly? These days it’s the
-            small stuff that gets me. Kids everywhere, dogs on the couch they’re not allowed on. My
+            small stuff that gets me. Kids everywhere, rescue dogs on the couch they’re not allowed on. My
             faith, my family, and giving back. That’s pretty much it.
           </p>
           <div className="tim-chips">
             <span className="tim-chip">Mom</span>
             <span className="tim-chip">Wife</span>
             <span className="tim-chip">Faith</span>
-            <span className="tim-chip">Five dogs</span>
+            <span className="tim-chip">Five rescue dogs</span>
+            <span className="tim-chip">Two tortoises</span>
             <span className="tim-chip">Giving back</span>
             <span className="tim-chip">Just me</span>
           </div>
           <div className="tim-ctas">
-            <a href="#hi" className="btn btn-primary">Stay in touch</a>
+            <a href="/contact" className="btn btn-primary">Come say hi</a>
             <a href="#then" className="btn btn-ghost">My story →</a>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function AboutPage() {
         <div>
           {/* Photo drop-zones. Privacy: dogs/animals/everyday — no kids' faces.
               Swap each placeholder for <img className="tim-img tall|short" src="/assets/<name>.jpg" .../> */}
-          <p className="tim-hint">A few true things · dogs, animals, the everyday</p>
+          <p className="tim-hint">A few true things · rescue dogs, animals, the everyday</p>
           <div className="tim-grid2">
             <div className="tim-slot-wrap tim-span">
               <img className="tim-img" src="/assets/dogs.jpg" alt="Jen’s five rescue dogs together in the garden" width="1400" height="786" loading="lazy" decoding="async" />
@@ -104,7 +105,8 @@ export default function AboutPage() {
               The people who are mine.
             </h2>
             <p className="tim-lead" style={{ margin: 0 }}>
-              My husband, my kids, family, and friends. I love hard and I show up. That part of me has never changed.
+              My husband, my kids, my family, a few friends, the handful of people I’d do anything for, and a houseful of animals
+              I love like family. I love hard and I show up. That hasn’t changed.
             </p>
           </div>
         </div>
@@ -153,13 +155,15 @@ export default function AboutPage() {
       <section id="hi" className="tim-wrap tim-hi">
         <div className="tim-card is-solo">
           <div>
-            <p className="eyebrow">Stay in touch</p>
-            <h2 className="tim-h2" style={{ fontSize: '44px' }}>Stay in touch</h2>
+            <p className="eyebrow">Say hi</p>
+            <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come say hi.</h2>
             <p className="tim-lead" style={{ marginTop: '24px' }}>
-              A note from me now and then, and the first chapter of the book. No pitch, I promise.
+              For press, interviews, speaking, and events, write me from the contact page. I read every message.
             </p>
             <p style={{ marginTop: '22px' }}>
-              <a href="/#letter" className="btn btn-primary">Get the first chapter</a>
+              <a href="/contact" className="btn btn-primary">Contact</a>
+              {' '}
+              <a href="/#letter" className="btn btn-ghost">Get the first chapter</a>
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import './book.css';
 import SiteNav from '../components/SiteNav';
-import { BOOK_BUY_URL, PODCAST, SHOP } from '../components/site-data';
+import { BOOK_BUY_URL, BOOK_STORES, PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -48,12 +48,9 @@ export default function BookPage() {
                 <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">Buy a signed copy</a>
               ) : null}
               <a href={BOOK_BUY_URL} target="_blank" rel="noopener" className="btn btn-primary">Buy the book</a>
-              <a href="https://www.amazon.com/dp/B0H6YZWDT3" target="_blank" rel="noopener" className="btn btn-ghost">Also on Amazon</a>
-              <a href="https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885" target="_blank" rel="noopener" className="btn btn-ghost">Barnes &amp; Noble</a>
-              <a href="https://www.amazon.com/dp/B0H6YK1KTL" target="_blank" rel="noopener" className="btn btn-ghost">Kindle (Amazon)</a>
-              {/* TODO: confirm with Jen which Spotify show ID is the audiobook (this one) and which is the podcast. */}
-              <a href="https://open.spotify.com/show/153EBrZVIkJY1xaY703km4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Spotify)</a>
-              <a href="https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Apple)</a>
+              {BOOK_STORES.map((store) => (
+                <a key={store.href} href={store.href} target="_blank" rel="noopener" className="btn btn-ghost">{store.label}</a>
+              ))}
             </div>
           </div>
         </div>
@@ -90,14 +87,14 @@ export default function BookPage() {
       <section className="who center">
         <div className="wrap text-wrap">
           <div className="eyebrow">The story is not over yet</div>
-          <h2>The Velvet Pages</h2>
+          <h2>The Velvet Letter</h2>
           <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
-            In the back of the book there is a QR code, and the passcode printed under it. That passcode opens The Velvet Pages, a private journal for readers. I add something special here every once in a while, so check back.
+            In the back of the book there is a QR code, and the passcode printed under it. That passcode opens The Velvet Letter. I add something special here every once in a while, so check back.
           </p>
           <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
-            The Velvet Letter comes with Velvet Circle membership.
+            Velvet Circle membership includes the passcode to The Velvet Letter.
           </p>
-          <p><a href="/velvet" className="btn btn-ghost">The Velvet Pages</a></p>
+          <p><a href="/velvet" className="btn btn-ghost">The Velvet Letter</a></p>
         </div>
       </section>
 

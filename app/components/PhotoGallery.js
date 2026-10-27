@@ -158,25 +158,24 @@ const GALLERY_NEW = [
 // Jen removed nine of these (old slides 65, 68, 72, 77, 79, 82, 88, 92, 94).
 // 65 and 68 are different photos, so both are gone. The files left the
 // repo because nothing else referenced them.
+// Later gallery numbers, before this cut: 66 (129.jpg), 69 (137.jpg),
+// and 82 (169.jpg) are out. 75, 78, and 80 keep their captions.
 const PICKS = [
   { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
-  { src: '/assets/gallery-picks/129.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/131.jpg', alt: 'Jen Walcott Archuleta', width: 234, height: 292 },
   { src: '/assets/gallery-picks/132.jpg', alt: 'Jen Walcott Archuleta with friends on stage', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/137.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/141.jpg', alt: 'Jen Walcott Archuleta', width: 1066, height: 1332 },
   { src: '/assets/gallery-picks/142.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/146.jpg', alt: 'Jen Walcott Archuleta', width: 664, height: 830 },
   { src: '/assets/gallery-picks/151.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/154.jpg', alt: 'Jen Walcott Archuleta', width: 640, height: 800 },
-  { src: '/assets/gallery-picks/155.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/155.jpg', alt: 'Jen in Bangkok', caption: 'Jen in Bangkok', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/157.jpg', alt: 'Jen Walcott Archuleta', width: 808, height: 1010 },
   { src: '/assets/gallery-picks/158.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/159.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/159.jpg', alt: 'Childhelp', caption: 'Childhelp', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/160.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/164.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/164.jpg', alt: 'Costa Rica', caption: 'Costa Rica', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/168.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/169.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/171.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/175.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 884 },
 ];

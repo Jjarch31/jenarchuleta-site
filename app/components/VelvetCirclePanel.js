@@ -3,8 +3,7 @@ import { SHOP, STRIPE_CUSTOMER_PORTAL_URL } from './site-data';
 
 const PERKS = [
   '$9.99 a month',
-  'The Velvet Letter',
-  'The Velvet Pages, the private journal',
+  'The Velvet Letter, and the passcode to open it',
   'Up to 3 questions a month answered in writing',
   'Live monthly Zooms begin once the circle reaches 13 members',
 ];
@@ -17,17 +16,17 @@ export default function VelvetCirclePanel() {
       <div className="vc-announce-photo">
         <div className="vc-announce-frame">
           <img
-            src="/assets/velvet-circle-room.jpg"
-            alt="Friends in a candlelit living room, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
-            width="842"
-            height="1402"
+            src="/assets/velvet-circle-bookclub.jpg"
+            alt="Friends having drinks, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
+            width="1152"
+            height="864"
           />
         </div>
       </div>
 
       <div className="vc-announce-copy">
         <img
-          className="vc-mark"
+          className="vc-watermark"
           src="/assets/velvet-circle-mark.png"
           alt=""
           width="436"
@@ -42,7 +41,7 @@ export default function VelvetCirclePanel() {
             Real conversations. Untold stories. A place to connect, ask questions, and grow together.
           </p>
           <p className="vc-announce-line">
-            The QR code in the back of the book, and the passcode printed under it, open The Velvet Pages. The Velvet Letter comes with membership.
+            Membership includes the passcode to The Velvet Letter. The passcode is also printed in the back of the book, right under the QR code.
           </p>
           <ul className="vc-announce-perks">
             {PERKS.map((perk) => <li key={perk}>{perk}</li>)}

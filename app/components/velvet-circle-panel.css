@@ -1,11 +1,25 @@
 /* Velvet Circle announcement. Light cream panel, independent of .dark. */
 
 .vc-announce {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   background: var(--cream);
   color: var(--ink);
+  overflow: hidden;
   animation: vc-arrive 0.9s ease-out both;
+}
+
+.vc-watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(92%, 460px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .vc-announce-photo {
@@ -27,17 +41,14 @@
   height: auto;
 }
 
-.vc-mark {
-  display: block;
-  width: 84px;
-  height: auto;
-  margin: 28px auto 16px;
-  justify-self: center;
-  order: 1;
+.vc-announce-photo,
+.vc-announce-copy {
+  position: relative;
+  z-index: 1;
 }
 
-.vc-announce-photo { order: 2; }
-.vc-announce-text { order: 3; }
+.vc-announce-photo { order: 1; }
+.vc-announce-text { order: 2; position: relative; z-index: 1; }
 
 .vc-finder {
   position: absolute;
@@ -212,13 +223,6 @@
     grid-column: 2;
     grid-row: 1;
     padding: clamp(36px, 5vw, 72px) clamp(28px, 4vw, 64px);
-  }
-
-  .vc-mark {
-    order: 0;
-    width: 108px;
-    margin: 0 0 22px;
-    justify-self: auto;
   }
 
   .vc-announce-text {

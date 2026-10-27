@@ -4,7 +4,7 @@ import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
 import PhotoGallery from './components/PhotoGallery';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
-import { BOOK_BUY_URL, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
+import { BOOK_BUY_URL, BOOK_STORES, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
 import { urlFor } from './sanity/image';
 import { getAllPosts } from './sanity/queries';
@@ -113,10 +113,13 @@ export default async function Home() {
             <h2>Beyond the Velvet Ropes</h2>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
             <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream. The real story is the one I wrote down.</p>
-            <p>
+            <p className="buy-row">
               <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy the book</a>
               {' '}
               <a href="/book" className="btn btn-ghost">The book</a>
+              {BOOK_STORES.map((store) => (
+                <a key={store.href} href={store.href} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">{store.label}</a>
+              ))}
             </p>
           </div>
         </div>
@@ -188,6 +191,8 @@ export default async function Home() {
         </div>
         <div className="center" style={{ marginTop: '26px' }}>
           <a href={SOCIALS.instagram} className="btn btn-ghost">Follow along on Instagram</a>
+          {' '}
+          <a href={SOCIALS.tiktok} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
       </section>
 

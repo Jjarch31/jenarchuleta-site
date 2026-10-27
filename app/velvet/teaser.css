@@ -13,6 +13,17 @@
   margin: 0 0 16px;
 }
 
+.vp-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vp-title .vp-key {
+  width: 28px;
+  height: 28px;
+}
+
 .vp-intro .lead {
   max-width: 42rem;
 }
@@ -32,7 +43,7 @@
 }
 
 .vp-close {
-  margin: 28px 0 0;
+  margin: 8px 0 16px;
   max-width: 34rem;
 }
 
