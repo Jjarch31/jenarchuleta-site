@@ -296,14 +296,14 @@ function isDanglingLabel(text) {
   if (!line || line.length > 220 || /https?:\/\//i.test(line)) return false;
   if (/listen more|watch you bleed|won.?t listen|nobody is watching|little orphan|watching my kids/i.test(line)) return false;
   const words = line.split(/\s+/).length;
-  const ctaStart = /^(?:[\p{Extended_Pictographic}\uFE0F\u200D\s▶🎧]*)?(watch\b|listen\b|subscribe\b|more information\b|see more on my youtube|youtube\b|buzzsprout\b|apple podcasts\b|also available on buzzsprout|please subscribe\b|episode out now\b|full episode streaming soon)/iu;
+  const ctaStart = /^(?:[\p{Extended_Pictographic}\uFE0F\u200D\s▶🎧]*)?(watch\b|listen\b|subscribe\b|more information\b|see more on my youtube|follow on instagram\b|youtube\b|buzzsprout\b|apple podcasts\b|also available on buzzsprout|please subscribe\b|episode out now\b|full episode streaming soon)/iu
   if (!ctaStart.test(line)) return false;
   if (words > 18 && !/:\s*$/.test(line) && !/^watch the full episode/i.test(line) && !/listen (&|and) subscribe/i.test(line)) return false;
   return true;
 }
 
 function urlsForLabel(text, links) {
-  if (/interview here/i.test(text) || /youtube shorts/i.test(text)) return [];
+  if (/interview here/i.test(text) || /youtube shorts/i.test(text) || /^follow on instagram\b/i.test(text.trim())) return [];
   if (/more information/i.test(text)) return links?.more ? [links.more] : [];
   if (!links) return [];
   const urls = [];
