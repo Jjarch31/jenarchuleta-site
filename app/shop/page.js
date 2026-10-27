@@ -54,6 +54,10 @@ export default function ShopPage() {
           <article className="product-card">
             <div className="product-media product-media--contain">
               {SHOP.signedBookSoldOut && <span className="badge">Sold out — restocking soon</span>}
+              <img
+                src="/assets/book-cover.jpg"
+                alt="Beyond the Velvet Ropes book cover"
+              />
             </div>
             <div className="product-body">
               <div className="eyebrow">The Book · Signed &amp; Personalized</div>
