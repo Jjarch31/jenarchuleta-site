@@ -3,10 +3,9 @@ import { SHOP, STRIPE_CUSTOMER_PORTAL_URL } from './site-data';
 
 const PERKS = [
   '$9.99 a month',
-  'A private monthly letter from Jen',
-  'A private passcode journal',
+  'The Velvet Letter, and the passcode to open it',
   'Up to 3 questions a month answered in writing',
-  'Live Zooms once the circle reaches 13 members',
+  'Live monthly Zooms begin once the circle reaches 13 members',
 ];
 
 export default function VelvetCirclePanel() {
@@ -15,10 +14,17 @@ export default function VelvetCirclePanel() {
   return (
     <section className="vc-announce" aria-labelledby="vc-announce-title">
       <div className="vc-announce-photo">
+        <img
+          className="vc-watermark"
+          src="/assets/velvet-circle-watermark.png"
+          alt=""
+          width="436"
+          height="436"
+        />
         <div className="vc-announce-frame">
           <img
             src="/assets/velvet-circle-room.jpg"
-            alt="Friends in a candlelit living room, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
+            alt="A book club gathered in a living room with copies of Beyond the Velvet Ropes"
             width="842"
             height="1402"
           />
@@ -26,13 +32,6 @@ export default function VelvetCirclePanel() {
       </div>
 
       <div className="vc-announce-copy">
-        <img
-          className="vc-mark"
-          src="/assets/velvet-circle-mark.png"
-          alt=""
-          width="436"
-          height="436"
-        />
         <div className="vc-announce-text">
           <p className="vc-announce-eyebrow">THE VELVET CIRCLE</p>
           <h2 id="vc-announce-title">
@@ -41,13 +40,15 @@ export default function VelvetCirclePanel() {
           <p className="vc-announce-line">
             Real conversations. Untold stories. A place to connect, ask questions, and grow together.
           </p>
+          <p className="vc-announce-line">
+            Membership includes the passcode to The Velvet Letter. The passcode is also printed in the back of the book, right under the QR code.
+          </p>
           <ul className="vc-announce-perks">
             {PERKS.map((perk) => <li key={perk}>{perk}</li>)}
           </ul>
           <p className="vc-announce-box">
-            <a href="/shop#backstage-bundle">
-              Want the full experience? The Backstage Bundle has my signed book, my velvet bookmark, and black velvet bunny ears.
-            </a>
+            Want the full experience? The Backstage Bundle is coming soon. It has my signed book, my velvet bookmark, and black velvet bunny ears.{' '}
+            <a href="/shop#backstage-bundle">See the bundle</a>
           </p>
           {join ? (
             <a className="btn btn-primary" href={join} target="_blank" rel="noopener noreferrer">

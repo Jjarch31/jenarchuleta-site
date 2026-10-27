@@ -1,5 +1,6 @@
 import './book.css';
-import { PODCAST } from '../components/site-data';
+import ChapterContact from '../components/ChapterContact';
+import { BOOK_BUY_URL, BOOK_STORES, PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -52,13 +53,13 @@ export default function BookPage() {
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
             <p style={{ color: 'var(--text)' }}>Here’s what really happened. From the outside, it looked like a dream. It wasn’t the whole story. But the real story lives in the moments no one saw. This is my real story.</p>
             <div className="buy-row">
-              <a href="https://books.by/beyond-the-velvet-ropes" target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
-              <a href="https://www.amazon.com/dp/B0H6YZWDT3" target="_blank" rel="noopener" className="btn btn-ghost">Also on Amazon</a>
-              <a href="https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885" target="_blank" rel="noopener" className="btn btn-ghost">Barnes &amp; Noble</a>
-              <a href="https://www.amazon.com/dp/B0H6YK1KTL" target="_blank" rel="noopener" className="btn btn-ghost">Kindle (Amazon)</a>
-              {/* TODO: confirm with Jen which Spotify show ID is the audiobook (this one) and which is the podcast. */}
-              <a href="https://open.spotify.com/show/153EBrZVIkJY1xaY703km4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Spotify)</a>
-              <a href="https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Apple)</a>
+              <a href={BOOK_BUY_URL} target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
+              {SHOP.signedBook ? (
+                <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-ghost">Buy a signed copy</a>
+              ) : null}
+              {BOOK_STORES.map((store) => (
+                <a key={store.href} href={store.href} target="_blank" rel="noopener" className="btn btn-ghost">{store.label}</a>
+              ))}
             </div>
           </div>
         </div>
@@ -91,6 +92,8 @@ export default function BookPage() {
           <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>The story is being adapted for the screen. More to come.</p>
         </div>
       </section>
+
+      <ChapterContact />
 
       <footer>
         <div className="wrap">

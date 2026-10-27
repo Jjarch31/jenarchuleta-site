@@ -1,31 +1,43 @@
+import './journal/journal.css';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
-import KitInlineForm from './components/KitInlineForm';
 import PhotoGallery from './components/PhotoGallery';
-import PhotoNeeded from './components/PhotoNeeded';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
-import { KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
-import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
+import ChapterContact from './components/ChapterContact';
+import { BOOK_BUY_URL, BOOK_STORES, SOCIALS, SHOP, PODCAST } from './components/site-data';
+import { urlFor } from './sanity/image';
+import { getAllPosts } from './sanity/queries';
 
-function HomeQuote({ quote, more = false, id }) {
-  return (
-    <section className="home-quote" id={id}>
-      <figure>
-        <blockquote>
-          <p>{quote.text}</p>
-        </blockquote>
-        {quote.source ? <figcaption>{quote.source}</figcaption> : null}
-        {more ? (
-          <p className="home-quote-more">
-            <a href="/quotes">More quotes</a>
-          </p>
-        ) : null}
-      </figure>
-    </section>
-  );
+function formatDate(iso) {
+  if (!iso) return '';
+  return new Date(iso).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 }
 
-export default function Home() {
+function cardExcerpt(excerpt) {
+  if (typeof excerpt !== 'string') return '';
+  const text = excerpt.replace(/\s+/g, ' ').trim();
+  if (text.length <= 140) return text;
+  return `${text.slice(0, 140).replace(/\s+\S*$/, '')}…`;
+}
+
+function heroUrl(img) {
+  if (!img) return null;
+  if (typeof img === 'string') return img;
+  try {
+    return urlFor(img).width(800).height(533).fit('crop').url();
+  } catch {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const live = await getAllPosts().catch(() => []);
+  const featured = (Array.isArray(live) ? live : []).filter((post) => post?.slug).slice(0, 3);
+
   return (
     <>
       <SiteNav />
@@ -68,7 +80,7 @@ export default function Home() {
         <div className="p">
           <div className="eyebrow">Heart</div>
           <h3>The Advocate</h3>
-          <p>Beyond the Ropes and The Forever Angels. I help the people and animals who get passed over.</p>
+          <p>I help the people and animals who get passed over. <a href="/about#faith">What I support</a>.</p>
           <p><a href="#movement" className="btn btn-ghost btn-sm">The movement</a></p>
         </div>
       </section>
@@ -82,15 +94,12 @@ export default function Home() {
             <h2>Beyond the Velvet Ropes</h2>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
             <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream. Covers, cameras, a life behind the velvet ropes. But the real story was never the part people saw. It’s in the moments I never talked about, and the long road back to the ordinary, happy life I have now. I wrote all of it down. The hard, the funny, and the faith that carried me through. If you’ve ever come through something and made it to the other side, I wrote this for you.</p>
-            <div className="buy-row">
-              <a href="https://books.by/beyond-the-velvet-ropes" target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
-              <a href="https://www.amazon.com/dp/B0H6YZWDT3" target="_blank" rel="noopener" className="btn btn-ghost">Also on Amazon</a>
-              <a href="https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885" target="_blank" rel="noopener" className="btn btn-ghost">Barnes &amp; Noble</a>
-              <a href="https://www.amazon.com/dp/B0H6YK1KTL" target="_blank" rel="noopener" className="btn btn-ghost">Kindle (Amazon)</a>
-              {/* TODO: confirm with Jen which Spotify show ID is the audiobook (this one) and which is the podcast. */}
-              <a href="https://open.spotify.com/show/153EBrZVIkJY1xaY703km4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Spotify)</a>
-              <a href="https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4" target="_blank" rel="noopener" className="btn btn-ghost">Audiobook (Apple)</a>
-            </div>
+            <p className="buy-row">
+              <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Paperback</a>
+              {BOOK_STORES.map((store) => (
+                <a key={store.href} href={store.href} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">{store.label}</a>
+              ))}
+            </p>
           </div>
         </div>
         <div className="wrap trailer-feature">
@@ -112,23 +121,19 @@ export default function Home() {
         </div>
       </section>
 
-      <HomeQuote id="quote-book" quote={QUOTE_RESCUE} />
-
       {/* STORY */}
       <section id="story" className="wrap">
         <div className="story-grid">
           <div>
             <h2>How I got here.</h2>
-            <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
+            <p>I grew up in a small town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
             <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
           </div>
-          <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="1026" height="1532" loading="lazy" /></div>
+          <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="800" height="1195" loading="lazy" /></div>
         </div>
       </section>
 
       <PhotoGallery />
-
-      <HomeQuote id="quote-gallery" quote={QUOTE_FORGIVE} more />
 
       <VelvetCirclePanel />
 
@@ -142,11 +147,14 @@ export default function Home() {
           <a href={PODCAST.subscribe.spotify} target="_blank" rel="noopener" className="btn btn-primary">Listen on Spotify</a>
           <a href={PODCAST.subscribe.apple} target="_blank" rel="noopener" className="btn btn-ghost">Apple Podcasts</a>
           <a href={PODCAST.youtube} target="_blank" rel="noopener" className="btn btn-ghost">Watch on YouTube</a>
+          <a href="/podcast" className="btn btn-ghost">All episodes</a>
         </div>
         <p className="foot-meta" style={{ marginTop: '18px' }}>
-          <a href="/podcast">All episodes →</a>
+          <a href="/pups">Pups of the Podcast</a>
           {' · '}
           <a href="/sponsors">Sponsors</a>
+          {' · '}
+          <a href="/about#faith">The dogs at home</a>
         </p>
       </section>
 
@@ -165,6 +173,8 @@ export default function Home() {
         </div>
         <div className="center" style={{ marginTop: '26px' }}>
           <a href={SOCIALS.instagram} className="btn btn-ghost">Follow along on Instagram</a>
+          {' '}
+          <a href={SOCIALS.tiktok} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">TikTok</a>
         </div>
       </section>
 
@@ -186,41 +196,40 @@ export default function Home() {
       <section id="journal" className="wrap">
         <div className="center"><h2>From the journal.</h2>
           <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Short, honest writing on faith, family, healing, and starting over.</p></div>
-        <div className="cards-3 feature-first">
-          <a className="mini" href="/journal"><div className="body"><div className="k">Faith</div><h3>It is in the waiting that we become who we’re meant to be.</h3></div></a>
-          <a className="mini" href="/journal"><div className="body"><div className="k">Healing</div><h3>Survival isn’t the same thing as healing.</h3></div></a>
-          <a className="mini" href="/journal"><div className="body"><div className="k">Family</div><h3>What I want my kids to know about getting back up.</h3></div></a>
-        </div>
+        {featured.length > 0 ? (
+          <div className="feed">
+            {featured.map((post) => {
+              const img = heroUrl(post.heroImage);
+              const excerpt = cardExcerpt(post.excerpt);
+              const meta = [post.category, formatDate(post.publishedAt)].filter(Boolean).join(' · ');
+              return (
+                <a key={post.slug} className="post-card" href={`/journal/${post.slug}`}>
+                  {img ? <img src={img} alt="" /> : null}
+                  <div className="body">
+                    {meta ? <div className="k">{meta}</div> : null}
+                    <h3>{post.title}</h3>
+                    {excerpt ? <p>{excerpt}</p> : null}
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        ) : null}
         <div className="center" style={{ marginTop: '28px' }}><a href="/journal" className="btn btn-ghost">Read the journal</a></div>
       </section>
 
       {/* SHOP */}
       <section id="shop" className="wrap" style={{ background: 'var(--surface)' }}>
         <div className="center"><h2>A few things worth sharing.</h2>
-          <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>A signed copy of the book, a tee I love, and a rescue close to my heart. Story, a good reminder, and a way to give back.</p></div>
+          <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>A signed copy of the book, and a tee I love.</p></div>
         <div className="cards-3">
           <a className="mini" href="/shop"><div className="body"><div className="k">Book</div><h3>Signed copy, <em>Beyond the Velvet Ropes</em></h3><p className="foot-meta">In the shop →</p></div></a>
           <a className="mini" href={SHOP.etsyTee} target="_blank" rel="noopener"><div className="body"><div className="k">Apparel</div><h3>Be the Bumblebee tee</h3><p className="foot-meta">Shop on Etsy →</p></div></a>
-          <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener"><div className="body"><div className="k">Give back</div><h3>The Forever Angels</h3><p className="foot-meta">Support the rescue →</p></div></a>
         </div>
         <div className="center" style={{ marginTop: '28px' }}><a href="/shop" className="btn btn-ghost">Visit the shop</a></div>
       </section>
 
-      <HomeQuote id="quote-letter" quote={QUOTE_STORY} />
-
-      {/* CAPTURE. id was "speaking"; that anchor now lives on /media#speaking. */}
-      <section id="letter" className="capture">
-        <div className="wrap text-wrap">
-          <div className="eyebrow">Stay close</div>
-          <h2>Get the First Chapter Free</h2>
-          <p className="lead">Read how it started. I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
-          <KitInlineForm uid={KIT_FORM_UID} />
-          <div className="signup-banner">
-            <PhotoNeeded>Childhood photo with a starry background.</PhotoNeeded>
-            <img src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta, black and white portrait" width="1320" height="1946" />
-          </div>
-        </div>
-      </section>
+      <ChapterContact />
 
       <SiteFooter />
     </>

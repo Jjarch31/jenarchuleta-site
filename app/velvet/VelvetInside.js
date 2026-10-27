@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
-import VelvetCirclePanel from '../components/VelvetCirclePanel';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
@@ -66,7 +65,6 @@ const PHOTOS = [
 export default function VelvetInside({ letters = [] }) {
   return (
     <>
-      <VelvetCirclePanel />
       <div className="dark velvet-page">
         <nav className="nav">
           <div className="nav-inner">
@@ -99,7 +97,7 @@ export default function VelvetInside({ letters = [] }) {
           <section className="letters-band">
             <div className="wrap text-wrap">
               <div className="center">
-                <div className="eyebrow">The Velvet Letters</div>
+                <div className="eyebrow">The Velvet Letter</div>
                 <h2>Notes for readers.</h2>
                 <p className="lead letters-note">
                   The behind-the-scenes updates I share with the people who read the book first.
@@ -198,6 +196,14 @@ export default function VelvetInside({ letters = [] }) {
               </a>
             </div>
           </div>
+        </section>
+
+        <section className="wrap text-wrap center">
+          <p>
+            The Velvet Circle is $9.99 a month. Live monthly Zooms begin once the Velvet Circle reaches 13 members.{' '}
+            <a href="/shop#velvet-circle">See the membership</a>.
+          </p>
+          <p>The story doesn’t stop here.</p>
         </section>
 
         <footer>

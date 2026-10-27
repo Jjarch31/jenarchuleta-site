@@ -75,6 +75,9 @@ export default function PodcastPage() {
         <div style={{ marginTop: '20px' }}>
           <a href="/sponsors" className="btn btn-ghost">See the sponsors</a>
         </div>
+        <p className="foot-meta" style={{ marginTop: '18px' }}>
+          <a href="/about#faith">The dogs at home</a>
+        </p>
       </section>
 
       {/* BE A GUEST */}

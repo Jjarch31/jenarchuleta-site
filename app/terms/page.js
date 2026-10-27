@@ -1,6 +1,7 @@
 import '../legal-pages.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import { SOCIALS } from '../components/site-data';
 
 export const metadata = {
   title: 'Terms of Service',
@@ -62,8 +63,8 @@ export default function TermsPage() {
 
           <h2>5. Third-party links</h2>
           <p>
-            This Site links to third-party sites and services we don&rsquo;t control, including Etsy,
-            The Forever Angels, podcast platforms (Spotify, Apple Podcasts, YouTube), and, occasionally,
+            This Site links to third-party sites and services we don&rsquo;t control, including Etsy,{' '}
+            <a href={SOCIALS.foreverAngels}>The Forever Angels</a>, podcast platforms (Spotify, Apple Podcasts, YouTube), and, occasionally,
             affiliate or sponsored links in Journal posts (each clearly disclosed on the post itself). We
             aren&rsquo;t responsible for the content, policies, or practices of any third-party site.
           </p>

@@ -6,7 +6,7 @@ import { SOCIALS } from '../components/site-data';
 export const metadata = {
   title: 'About',
   description:
-    'Hi, I’m Jen. A mom, a wife, and the human behind a houseful of rescue dogs. Faith, family, and giving back. This is me.',
+    'Hi, I’m Jen. A mom, a wife, and the human behind a houseful of five rescue dogs and two tortoises. Faith, family, and giving back. This is me.',
 };
 
 export default function AboutPage() {
@@ -23,16 +23,17 @@ export default function AboutPage() {
           <h1 className="tim-display">Hi, I’m&nbsp;Jen.</h1>
           <p className="tim-script">and this is me</p>
           <p className="tim-lead">
-            I don’t really do labels. I’m just me. A mom, a wife, and yes, the human behind a houseful of rescue dogs.
+            I don’t really do labels. I’m just me. A mom, a wife, and yes, the human behind a houseful of five rescue dogs and two tortoises.
             I had a whole lot of incredible experiences… but honestly? These days it’s the
-            small stuff that gets me. Kids everywhere, dogs on the couch they’re not allowed on. My
+            small stuff that gets me. Kids everywhere, rescue dogs on the couch they’re not allowed on. My
             faith, my family, and giving back. That’s pretty much it.
           </p>
           <div className="tim-chips">
             <span className="tim-chip">Mom</span>
             <span className="tim-chip">Wife</span>
             <span className="tim-chip">Faith</span>
-            <span className="tim-chip">Five dogs</span>
+            <span className="tim-chip">Five rescue dogs</span>
+            <span className="tim-chip">Two tortoises</span>
             <span className="tim-chip">Giving back</span>
             <span className="tim-chip">Just me</span>
           </div>
@@ -42,7 +43,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div>
-          <img className="tim-portrait" src="/assets/presskit-headshot-floral.jpg" alt="Jen Walcott Archuleta" width="1100" height="1370" />
+          <img className="tim-portrait" src="/assets/presskit-headshot-glam.jpg" alt="Jen Walcott Archuleta" width="1320" height="1259" />
           <p className="tim-cap">Caught mid-laugh, which is most of the time</p>
         </div>
       </section>
@@ -72,7 +73,7 @@ export default function AboutPage() {
         <div>
           {/* Photo drop-zones. Privacy: dogs/animals/everyday — no kids' faces.
               Swap each placeholder for <img className="tim-img tall|short" src="/assets/<name>.jpg" .../> */}
-          <p className="tim-hint">A few true things · dogs, animals, the everyday</p>
+          <p className="tim-hint">A few true things · rescue dogs, animals, the everyday</p>
           <div className="tim-grid2">
             <div className="tim-slot-wrap tim-span">
               <img className="tim-img" src="/assets/dogs.jpg" alt="Jen’s five rescue dogs together in the garden" width="1400" height="786" loading="lazy" decoding="async" />
@@ -114,7 +115,7 @@ export default function AboutPage() {
       {/* THEN & NOW */}
       <section id="then" className="tim-wrap tim-then">
         <div>
-          <img className="tim-gray" src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta, earlier years" loading="lazy" decoding="async" />
+          <img className="tim-gray" src="/assets/jen-headshot-blazer.jpg" alt="Jen Walcott Archuleta" width="1000" height="1249" loading="lazy" decoding="async" />
         </div>
         <div>
           <p className="eyebrow">Then &amp; now</p>
@@ -144,21 +145,22 @@ export default function AboutPage() {
             Whatever I’ve got, time, a story, a hand to lend, I’d rather use it for somebody else
             than keep it for myself.
           </p>
+          <p className="tim-lead" style={{ margin: '16px 0 0', maxWidth: '660px' }}>
+            I co-founded The Forever Angels, for the families, veterans, hospice patients, and animals who get passed over.
+          </p>
           <div style={{ marginTop: '14px' }}>
-            <a href={SOCIALS.foreverAngels} className="btn btn-primary">What I support</a>
+            <a href={SOCIALS.foreverAngels} className="btn btn-primary">The Forever Angels</a>
           </div>
         </div>
       </section>
 
-      {/* SAY HI */}
       <section id="hi" className="tim-wrap tim-hi">
         <div className="tim-card is-solo">
           <div>
             <p className="eyebrow">Say hi</p>
             <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come hang out. No agenda.</h2>
             <p className="tim-lead" style={{ marginTop: '24px' }}>
-              A little note from me every now and then, whatever I’m actually thinking about that
-              week, the good and the hard. No pitch, I promise.
+              A little note from me every now and then, whatever I’m actually thinking about that week, the good and the hard. No pitch, I promise.
             </p>
           </div>
         </div>

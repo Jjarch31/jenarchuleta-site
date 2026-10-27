@@ -6,7 +6,7 @@ import './shop.css';
 export const metadata = {
   title: 'Shop',
   description:
-    'Signed copies of Beyond the Velvet Ropes, The Backstage Bundle, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+    'Signed copies of Beyond the Velvet Ropes, The Backstage Bundle, the handmade Signature Velvet Bookmark, and the Be the Bumblebee tee.',
   openGraph: { images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
@@ -45,7 +45,7 @@ export default function ShopPage() {
           <h2>A few things worth sharing.</h2>
           <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>
             A signed copy of the book, The Backstage Bundle, a keepsake I make by hand,
-            a tee with a message I love, and a rescue close to my heart.
+            and a tee with a message I love.
           </p>
         </div>
 
@@ -150,14 +150,16 @@ export default function ShopPage() {
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
               <ul className="product-list">
-                <li>Private monthly letter</li>
-                <li>The private passcode journal</li>
+                <li>The Velvet Letter, and the passcode to open it</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
-                <li>Live monthly Zoom</li>
+                <li>Live monthly Zooms begin once the circle reaches 13 members</li>
                 <li>
                   <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
                 </li>
               </ul>
+              <p className="product-desc">
+                Velvet Circle membership includes the passcode to The Velvet Letter. The passcode is also printed in the back of the book, right under the QR code.
+              </p>
               <p className="product-desc">
                 Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
               </p>
@@ -183,7 +185,7 @@ export default function ShopPage() {
             <div className="product-media product-media--portrait">
               <img
                 src="/assets/backstage-bundle.jpg"
-                alt="The book, a handmade velvet bookmark, and black bunny ears, with a display box of red tissue"
+                alt="The signed book, a handmade velvet bookmark, and black velvet bunny ears"
                 width="1268"
                 height="1600"
               />
@@ -195,9 +197,6 @@ export default function ShopPage() {
               <p className="product-desc">
                 My signed copy of <em>Beyond the Velvet Ropes</em>, the velvet bookmark
                 I make by hand, and a pair of black velvet bunny ears.
-              </p>
-              <p className="product-desc">
-                The box in the picture is for display only. A box is not part of this bundle.
               </p>
               <ul className="product-list">
                 <li>Jen’s signed copy of <em>Beyond the Velvet Ropes</em></li>
@@ -215,7 +214,10 @@ export default function ShopPage() {
                     <TrustLine />
                   </>
                 ) : (
-                  <span className="btn btn-disabled">Coming soon</span>
+                  <>
+                    <span className="btn btn-disabled">Coming soon</span>
+                    <a href="/#letter" className="btn btn-ghost">Notify me</a>
+                  </>
                 )}
               </div>
             </div>
@@ -240,13 +242,6 @@ export default function ShopPage() {
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
               <p className="foot-meta">A little reminder to fly your own way. Shop on Etsy →</p>
-            </div>
-          </a>
-          <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener">
-            <div className="body">
-              <div className="k">Give back</div>
-              <h4>The Forever Angels</h4>
-              <p className="foot-meta">The rescue closest to my heart. Every bit helps →</p>
             </div>
           </a>
         </div>

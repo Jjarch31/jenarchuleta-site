@@ -6,7 +6,8 @@ import captions from '../velvet/captions.json';
 import sizes from '../velvet/slide-sizes.json';
 
 // One slideshow. The Hollywood set is first, together, so those slides
-// lead. Then portraits that are not already on the homepage, then
+// lead. Then portraits that are not already on the homepage or About
+// (the About portrait is presskit-headshot-glam, so it is not a slide), then
 // Velvet Circle photos, then gallery-new. A file stays in the repo when
 // its slide is left out. /velvet still reads captions.json.
 // Out of this slideshow:
@@ -93,10 +94,10 @@ const PORTRAITS = [
     height: 1960,
   },
   {
-    src: '/assets/presskit-headshot-glam.jpg',
+    src: '/assets/jen-beauty.jpg',
     alt: 'Jen Walcott Archuleta',
-    width: 1320,
-    height: 1259,
+    width: 900,
+    height: 1520,
   },
 ];
 
@@ -158,26 +159,24 @@ const GALLERY_NEW = [
 // Jen removed nine of these (old slides 65, 68, 72, 77, 79, 82, 88, 92, 94).
 // 65 and 68 are different photos, so both are gone. The files left the
 // repo because nothing else referenced them.
+// Later gallery numbers, before this cut: 66 (129.jpg), 69 (137.jpg),
+// and 82 (169.jpg) are out. 75, 78, and 80 keep their captions.
 const PICKS = [
   { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
-  { src: '/assets/gallery-picks/124.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 1293 },
-  { src: '/assets/gallery-picks/129.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/131.jpg', alt: 'Jen Walcott Archuleta', width: 234, height: 292 },
   { src: '/assets/gallery-picks/132.jpg', alt: 'Jen Walcott Archuleta with friends on stage', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/137.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/141.jpg', alt: 'Jen Walcott Archuleta', width: 1066, height: 1332 },
   { src: '/assets/gallery-picks/142.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/146.jpg', alt: 'Jen Walcott Archuleta', width: 664, height: 830 },
   { src: '/assets/gallery-picks/151.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/154.jpg', alt: 'Jen Walcott Archuleta', width: 640, height: 800 },
-  { src: '/assets/gallery-picks/155.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/155.jpg', alt: 'Jen in Bangkok', caption: 'Jen in Bangkok', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/157.jpg', alt: 'Jen Walcott Archuleta', width: 808, height: 1010 },
   { src: '/assets/gallery-picks/158.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/159.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/159.jpg', alt: 'Childhelp', caption: 'Childhelp', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/160.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/164.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
+  { src: '/assets/gallery-picks/164.jpg', alt: 'Costa Rica', caption: 'Costa Rica', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/168.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/169.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/171.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/175.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 884 },
 ];
@@ -206,7 +205,18 @@ const OCT26 = [
   { src: '/assets/gallery-oct26/tortoise.jpg', alt: 'A tortoise with greens', width: 665, height: 940 },
 ];
 
-const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26];
+// After every earlier slide. Place captions, same style as Costa Rica.
+const PLACES = [
+  { src: '/assets/gallery-places/ozarks-canoe.jpg', alt: 'Ozarks', caption: 'Ozarks', width: 940, height: 1140 },
+  { src: '/assets/gallery-places/muskoka-boat.jpg', alt: 'Muskoka, Canada', caption: 'Muskoka, Canada', width: 842, height: 1075 },
+];
+
+// Childhood portrait. The Hollywood set stays first, so this follows every earlier slide.
+const CHILDHOOD = [
+  { src: '/assets/gallery-childhood/jen-childhood.jpg', alt: 'Jen as a girl', width: 600, height: 600 },
+];
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES, ...CHILDHOOD];
 
 // Slides 19 and 27 of the 59-photo order (before the Hollywood set was
 // added). Those two stay fully visible: native img, no max-height crop.

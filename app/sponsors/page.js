@@ -4,17 +4,21 @@ import { BOOKING_EMAIL } from '../components/site-data';
 import './sponsors.css';
 
 export const metadata = {
-  title: 'Sponsors',
+  title: 'Sponsors and partners',
   description:
-    'Past sponsors of Unfiltered with Jen Archuleta.',
+    'Sponsors and partners of Unfiltered with Jen Archuleta.',
 };
 
+// Jen's list, this order. A link is included only when the page loads.
+// sunsetsandbonfires.com now redirects to the Etsy shop, so that shop is the link.
+// Etsy answers a script with 403; the shop URL is the one she confirmed.
+// Full names. A link is included only when that page itself loads.
 const SPONSORS = [
   {
     name: 'Sunsets & Bonfires',
     links: [
-      { label: 'sunsetsandbonfires.com', href: 'https://sunsetsandbonfires.com' },
-      { label: 'Instagram @sunsetsbonfires', href: 'https://instagram.com/sunsetsbonfires' },
+      { label: 'etsy.com/shop/SunsetsBonfires', href: 'https://www.etsy.com/shop/SunsetsBonfires' },
+      { label: 'Instagram @sunsetsbonfires', href: 'https://www.instagram.com/sunsetsbonfires/' },
     ],
   },
   {
@@ -24,29 +28,54 @@ const SPONSORS = [
   {
     name: 'KJ Classic Creations',
     links: [
-      { label: 'kjclassiccreations.etsy.com', href: 'https://kjclassiccreations.etsy.com' },
-      { label: 'Instagram @kjclassiccreations', href: 'https://instagram.com/kjclassiccreations' },
+      { label: 'etsy.com/shop/kjclassiccreations', href: 'https://www.etsy.com/shop/kjclassiccreations' },
+      { label: 'Instagram @kjclassiccreations', href: 'https://www.instagram.com/kjclassiccreations/' },
     ],
   },
   {
     name: 'Ring My Belle: Beauty, Delivered',
     links: [
       { label: 'ringmybelle.com', href: 'https://ringmybelle.com' },
-      { label: 'Instagram @ringmybelleco', href: 'https://instagram.com/ringmybelleco' },
+      { label: 'Instagram @ringmybelleco', href: 'https://www.instagram.com/ringmybelleco/' },
     ],
   },
   {
     name: 'Ask Eloise',
     person: 'Dr. Eloise Nelson',
     note: 'Holistic nutrition.',
+    links: [
+      { label: 'askeloise.com', href: 'https://www.askeloise.com/' },
+    ],
   },
   {
     name: 'MTJ Electric',
+    links: [
+      { label: 'mtjelectric.com', href: 'https://mtjelectric.com/' },
+    ],
   },
   {
     name: 'Shred Mill Speed',
     links: [
-      { label: 'Instagram @shredmillspeed', href: 'https://instagram.com/shredmillspeed' },
+      { label: 'shredmill.com', href: 'https://www.shredmill.com/' },
+      { label: 'Instagram @shredmillspeed', href: 'https://www.instagram.com/shredmillspeed/' },
+    ],
+  },
+  {
+    name: 'Coursen Security Group',
+    links: [
+      { label: 'coursensecuritygroup.com', href: 'https://www.coursensecuritygroup.com/' },
+    ],
+  },
+  {
+    name: 'Optimize Scottsdale',
+    links: [
+      { label: 'optimizescottsdale.com', href: 'https://optimizescottsdale.com/' },
+    ],
+  },
+  {
+    name: "Lil' DUDE Wipes",
+    links: [
+      { label: 'dudewipes.com', href: 'https://dudewipes.com/' },
     ],
   },
 ];
@@ -59,9 +88,9 @@ export default function SponsorsPage() {
 
       <section id="main-content" className="wrap sponsors-head">
         <div className="eyebrow">The Podcast</div>
-        <h1>Sponsors</h1>
+        <h1>Sponsors and partners</h1>
         <p className="lead">
-          Thank you to the sponsors who have supported Unfiltered with Jen Archuleta.
+          Thank you to the sponsors and partners who have supported Unfiltered with Jen Archuleta.
         </p>
         <ul className="sponsor-list">
           {SPONSORS.map((sponsor) => (
@@ -82,6 +111,13 @@ export default function SponsorsPage() {
         <p className="sponsors-close">
           Want to sponsor an episode? Email{' '}
           <a href={`mailto:${BOOKING_EMAIL}`}>{BOOKING_EMAIL}</a>.
+        </p>
+        <p className="sponsors-close">
+          <a href="/podcast">The podcast</a>
+          {' · '}
+          <a href="/pups">Pups of the Podcast</a>
+          {' · '}
+          <a href="/about#faith">The dogs at home</a>
         </p>
       </section>
 
