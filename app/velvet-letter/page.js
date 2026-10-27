@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { PortableText } from '@portabletext/react';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import { BOOK_BUY_URL } from '../components/site-data';
 import { urlFor } from '../sanity/image';
 import { getVelvetLetters } from '../sanity/queries';
 import { gateKey } from '../velvet/passcode';
@@ -61,8 +62,12 @@ function formatLetterDate(iso) {
 }
 
 export default async function VelvetLetterPage() {
-  const open = unlocked();
-  const letters = open ? await getVelvetLetters().catch(() => null) : null;
+  if (!unlocked()) return <LetterPage />;
+  const letters = await getVelvetLetters().catch(() => null);
+  return <LetterPage open letters={letters} />;
+}
+
+function LetterPage({ open = false, letters = null }) {
 
   return (
     <div className="vl-page">
@@ -77,7 +82,7 @@ export default async function VelvetLetterPage() {
         <p>
           Don’t have access yet? Buy Beyond the Velvet Ropes to receive your QR code and passcode, then come inside.
         </p>
-        <a className="btn btn-ghost" href="/book">Buy the Book</a>
+        <a className="btn btn-primary" href={BOOK_BUY_URL} target="_blank" rel="noopener noreferrer">Buy the book</a>
       </section>
 
       {open ? (

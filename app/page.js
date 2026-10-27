@@ -4,7 +4,7 @@ import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
 import PhotoGallery from './components/PhotoGallery';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
-import { KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
+import { BOOK_BUY_URL, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
 import { urlFor } from './sanity/image';
 import { getAllPosts } from './sanity/queries';
@@ -72,7 +72,7 @@ export default async function Home() {
           <div className="eyebrow" style={{ marginTop: '16px' }}>Author of <em>Beyond the Velvet Ropes</em></div>
           <p className="lead">These days I’m happiest in the small stuff. My kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I’m grateful for the wild, wonderful run that came before this. But the part I care about most isn’t the glamorous version. It’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
           <div className="hero-ctas">
-            <a href="/book" className="btn btn-primary">Get the book</a>
+            <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy the book</a>
           </div>
         </div>
         <div className="hero-media">
@@ -113,7 +113,11 @@ export default async function Home() {
             <h2>Beyond the Velvet Ropes</h2>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
             <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream. The real story is the one I wrote down.</p>
-            <p><a href="/book" className="btn btn-primary">The book</a></p>
+            <p>
+              <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy the book</a>
+              {' '}
+              <a href="/book" className="btn btn-ghost">The book</a>
+            </p>
           </div>
         </div>
         <div className="wrap trailer-feature">

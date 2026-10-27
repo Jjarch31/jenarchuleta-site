@@ -1,7 +1,6 @@
 import { getVelvetLetters } from '../sanity/queries';
 import { OG_IMAGE } from '../components/site-data';
 import { isPagesUnlocked } from './passcode';
-import { getLockedEntries } from './entries';
 import VelvetLocked from './VelvetLocked';
 import VelvetInside from './VelvetInside';
 
@@ -16,10 +15,7 @@ export const metadata = {
 };
 
 export default async function VelvetPage() {
-  if (!isPagesUnlocked()) {
-    const entries = await getLockedEntries();
-    return <VelvetLocked entries={entries} />;
-  }
+  if (!isPagesUnlocked()) return <VelvetLocked />;
   const letters = await getVelvetLetters().catch(() => []);
   return <VelvetInside letters={letters || []} />;
 }

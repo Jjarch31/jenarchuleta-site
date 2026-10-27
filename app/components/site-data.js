@@ -49,6 +49,9 @@ export const STRIPE_CUSTOMER_PORTAL_URL = 'https://billing.stripe.com/p/login/14
 //
 // Prices and the fulfillment promise live here too, so copy changes never
 // require touching page code.
+// Paperback purchase page. books.by sends readers to the live BookSpace listing.
+export const BOOK_BUY_URL = 'https://books.by/beyond-the-velvet-ropes';
+
 export const SHOP = {
   etsyTee: 'https://www.etsy.com/listing/4320791333/be-the-bumblebee-fly-away-t-shirt',
   foreverAngels: 'https://theforeverangels.com/',

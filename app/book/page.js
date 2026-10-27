@@ -1,6 +1,6 @@
 import './book.css';
 import SiteNav from '../components/SiteNav';
-import { PODCAST, SHOP } from '../components/site-data';
+import { BOOK_BUY_URL, PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -47,7 +47,7 @@ export default function BookPage() {
               {SHOP.signedBook ? (
                 <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">Buy a signed copy</a>
               ) : null}
-              <a href="https://books.by/beyond-the-velvet-ropes" target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
+              <a href={BOOK_BUY_URL} target="_blank" rel="noopener" className="btn btn-primary">Buy the book</a>
               <a href="https://www.amazon.com/dp/B0H6YZWDT3" target="_blank" rel="noopener" className="btn btn-ghost">Also on Amazon</a>
               <a href="https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885" target="_blank" rel="noopener" className="btn btn-ghost">Barnes &amp; Noble</a>
               <a href="https://www.amazon.com/dp/B0H6YK1KTL" target="_blank" rel="noopener" className="btn btn-ghost">Kindle (Amazon)</a>
