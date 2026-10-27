@@ -22,7 +22,7 @@ export default function VelvetLocked() {
         <h1 className="vp-title"><KeyIcon /> The Velvet Letter</h1>
         <p className="vp-close">The story doesn’t stop here.</p>
         <p className="vp-lock-note">
-          You have to buy the book to get in. The passcode is in the back of the book, right under the QR code.
+          Want access? Get the book. Your passcode is printed in the back pages, right under the QR code.
         </p>
         <div className="vp-actions">
           <a className="btn btn-primary" href="/book">Get the book</a>
