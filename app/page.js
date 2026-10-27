@@ -250,9 +250,9 @@ export default async function Home() {
         </div>
         <div className="signup-banner">
           <picture>
-            <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg?v=3" />
+            <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg?v=4" />
             <img
-              src="/assets/first-chapter-banner.jpg?v=3"
+              src="/assets/first-chapter-banner.jpg?v=4"
               alt="Jen as a girl, and her black-and-white glamour portrait, with gold stars"
               width="2048"
               height="633"
