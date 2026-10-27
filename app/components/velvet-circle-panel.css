@@ -33,12 +33,20 @@
 .vc-announce-frame {
   position: relative;
   width: min(100%, 760px);
+  /* Full photo is 1152×864. The right edge is a gray-haired man partly
+     out of frame. 1060 keeps the woman beside him and drops him. */
+  aspect-ratio: 1060 / 864;
+  overflow: hidden;
 }
 
 .vc-announce-frame img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
 }
 
 .vc-announce-photo,
