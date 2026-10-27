@@ -159,7 +159,7 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  background: #1c1816;
+  background: var(--linen);
 }
 
 .headshot-grid figcaption {

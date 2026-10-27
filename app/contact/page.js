@@ -30,19 +30,20 @@ export default function ContactPage() {
       <section id="main-content" className="wrap contact-hero">
         <img
           className="contact-cover"
-          src="/assets/book-cover.jpg"
-          alt="Beyond the Velvet Ropes book cover"
-          width="1000"
-          height="1500"
+          src="/assets/jen-fun.jpg"
+          alt="Jen Walcott Archuleta with friends"
+          width="1320"
+          height="1756"
         />
         <p className="hero-script" style={{ fontSize: 'var(--text-script-m)' }}>Let’s connect</p>
         <h1>Jen Walcott Archuleta</h1>
         <p className="contact-role">
-          Author of Beyond the Velvet Ropes. Co-founder of The Forever Angels. Host of Unfiltered with Jen Archuleta.
+          Author of Beyond the Velvet Ropes. Host of Unfiltered with Jen Archuleta.
         </p>
       </section>
 
-      <section className="wrap contact-body" style={{ paddingTop: 0 }}>
+      <section id="speaking" className="wrap contact-body" style={{ paddingTop: 0 }}>
+        <h2>Book me to speak</h2>
         <p>
           Thank you for reaching out. Whether you are a reporter, an event planner looking for a speaker, or a podcast host who would like to have me on, I would love to hear from you.
         </p>

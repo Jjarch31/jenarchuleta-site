@@ -6,7 +6,8 @@ import captions from '../velvet/captions.json';
 import sizes from '../velvet/slide-sizes.json';
 
 // One slideshow. The Hollywood set is first, together, so those slides
-// lead. Then portraits that are not already on the homepage, then
+// lead. Then portraits that are not already on the homepage or About
+// (the About portrait is presskit-headshot-glam, so it is not a slide), then
 // Velvet Circle photos, then gallery-new. A file stays in the repo when
 // its slide is left out. /velvet still reads captions.json.
 // Out of this slideshow:
@@ -93,10 +94,10 @@ const PORTRAITS = [
     height: 1960,
   },
   {
-    src: '/assets/presskit-headshot-glam.jpg',
+    src: '/assets/jen-beauty.jpg',
     alt: 'Jen Walcott Archuleta',
-    width: 1320,
-    height: 1259,
+    width: 900,
+    height: 1520,
   },
 ];
 

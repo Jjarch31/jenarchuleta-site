@@ -1,32 +1,12 @@
 import './journal/journal.css';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
-import KitInlineForm from './components/KitInlineForm';
-import PhotoNeeded from './components/PhotoNeeded';
 import PhotoGallery from './components/PhotoGallery';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
-import { BOOK_BUY_URL, BOOK_STORES, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
-import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
+import ChapterContact from './components/ChapterContact';
+import { BOOK_BUY_URL, BOOK_STORES, SOCIALS, SHOP, PODCAST } from './components/site-data';
 import { urlFor } from './sanity/image';
 import { getAllPosts } from './sanity/queries';
-
-function HomeQuote({ quote, more = false, id }) {
-  return (
-    <section className="home-quote" id={id}>
-      <figure>
-        <blockquote>
-          <p>{quote.text}</p>
-        </blockquote>
-        {quote.source ? <figcaption>{quote.source}</figcaption> : null}
-        {more ? (
-          <p className="home-quote-more">
-            <a href="/quotes">More quotes</a>
-          </p>
-        ) : null}
-      </figure>
-    </section>
-  );
-}
 
 function formatDate(iso) {
   if (!iso) return '';
@@ -73,7 +53,7 @@ export default async function Home() {
           <div className="eyebrow" style={{ marginTop: '16px' }}>Author of <em>Beyond the Velvet Ropes</em></div>
           <p className="lead">These days I’m happiest in the small stuff. My kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I’m grateful for the wild, wonderful run that came before this. But the part I care about most isn’t the glamorous version. It’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
           <div className="hero-ctas">
-            <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy the book</a>
+            <a href="/book" className="btn btn-primary">Get the book</a>
           </div>
         </div>
         <div className="hero-media">
@@ -100,7 +80,7 @@ export default async function Home() {
         <div className="p">
           <div className="eyebrow">Heart</div>
           <h3>The Advocate</h3>
-          <p>Beyond the Ropes and <a href={SOCIALS.foreverAngels}>The Forever Angels</a>. I help the people and animals who get passed over.</p>
+          <p>I help the people and animals who get passed over. <a href="/about#faith">What I support</a>.</p>
           <p><a href="#movement" className="btn btn-ghost btn-sm">The movement</a></p>
         </div>
       </section>
@@ -113,11 +93,9 @@ export default async function Home() {
             <div className="eyebrow">My memoir is out now.</div>
             <h2>Beyond the Velvet Ropes</h2>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
-            <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream. The real story is the one I wrote down.</p>
+            <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream. Covers, cameras, a life behind the velvet ropes. But the real story was never the part people saw. It’s in the moments I never talked about, and the long road back to the ordinary, happy life I have now. I wrote all of it down. The hard, the funny, and the faith that carried me through. If you’ve ever come through something and made it to the other side, I wrote this for you.</p>
             <p className="buy-row">
-              <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy the book</a>
-              {' '}
-              <a href="/book" className="btn btn-ghost">The book</a>
+              <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Paperback</a>
               {BOOK_STORES.map((store) => (
                 <a key={store.href} href={store.href} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">{store.label}</a>
               ))}
@@ -143,14 +121,12 @@ export default async function Home() {
         </div>
       </section>
 
-      <HomeQuote id="quote-book" quote={QUOTE_RESCUE} />
-
       {/* STORY */}
       <section id="story" className="wrap">
         <div className="story-grid">
           <div>
             <h2>How I got here.</h2>
-            <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
+            <p>I grew up in a small town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
             <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
           </div>
           <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="800" height="1195" loading="lazy" /></div>
@@ -158,8 +134,6 @@ export default async function Home() {
       </section>
 
       <PhotoGallery />
-
-      <HomeQuote id="quote-gallery" quote={QUOTE_FORGIVE} more />
 
       <VelvetCirclePanel />
 
@@ -170,10 +144,17 @@ export default async function Home() {
         <h2>{PODCAST.name}</h2>
         <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Real talks about faith, family, and starting over.</p>
         <div className="hero-ctas" style={{ justifyContent: 'center', marginTop: '8px' }}>
-          <a href="/podcast" className="btn btn-primary">Listen to the podcast</a>
+          <a href={PODCAST.subscribe.spotify} target="_blank" rel="noopener" className="btn btn-primary">Listen on Spotify</a>
+          <a href={PODCAST.subscribe.apple} target="_blank" rel="noopener" className="btn btn-ghost">Apple Podcasts</a>
+          <a href={PODCAST.youtube} target="_blank" rel="noopener" className="btn btn-ghost">Watch on YouTube</a>
+          <a href="/podcast" className="btn btn-ghost">All episodes</a>
         </div>
         <p className="foot-meta" style={{ marginTop: '18px' }}>
+          <a href="/pups">Pups of the Podcast</a>
+          {' · '}
           <a href="/sponsors">Sponsors</a>
+          {' · '}
+          <a href="/about#faith">The dogs at home</a>
         </p>
       </section>
 
@@ -248,21 +229,7 @@ export default async function Home() {
         <div className="center" style={{ marginTop: '28px' }}><a href="/shop" className="btn btn-ghost">Visit the shop</a></div>
       </section>
 
-      <HomeQuote id="quote-letter" quote={QUOTE_STORY} />
-
-      {/* CAPTURE. id was "speaking"; that anchor now lives on /media#speaking. */}
-      <section id="letter" className="capture">
-        <div className="wrap text-wrap">
-          <div className="eyebrow">Stay close</div>
-          <h2>Get the First Chapter Free</h2>
-          <p className="lead">Read how it started. I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
-          <KitInlineForm uid={KIT_FORM_UID} />
-          <div className="signup-banner">
-            <PhotoNeeded>Childhood photo with a starry background.</PhotoNeeded>
-            <img src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta, black and white portrait" width="1320" height="1946" />
-          </div>
-        </div>
-      </section>
+      <ChapterContact />
 
       <SiteFooter />
     </>

@@ -51,9 +51,7 @@ export const POSTS = [
       'Survival is holding it together. Healing is finally letting yourself fall apart in a safe place and rebuilding on purpose.',
       'For me, movement became part of that. Not punishment — proof that this body carried me through everything and is still here.',
     ],
-    affiliateLinks: [
-      { label: 'The trainers I actually use', url: 'https://example.com/affiliate' },
-    ],
+    affiliateLinks: [],
     sponsor: null,
     seoTitle: 'Survival Isn’t Healing — Jen Archuleta',
     seoDescription: 'Why surviving and healing are not the same thing.',

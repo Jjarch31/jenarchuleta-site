@@ -160,7 +160,7 @@ export default async function JournalPost({ params }) {
 
         {/* Book CTA */}
         <div className="book-cta">
-          <img src="/assets/book-cover.jpg" alt="Beyond the Velvet Ropes" />
+          <img src="/assets/quiet-mornings.jpg" alt="A quiet morning" width="1248" height="1400" />
           <div>
             <div className="eyebrow">My memoir is out now.</div>
             <h3 style={{ margin: '.2em 0 .3em' }}>Beyond the Velvet Ropes</h3>

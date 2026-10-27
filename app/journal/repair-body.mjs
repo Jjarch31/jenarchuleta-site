@@ -12,12 +12,19 @@ const RETIRED_URLS = [
   'https://www.udoerasmus.com/products/pdf_files/Probiotics.pdf',
   'http://www.cocoonnutrition.org/catalog/pdf_docs/Nutritional_Flakes.pdf',
   'https://www.cocoonnutrition.org/catalog/pdf_docs/Nutritional_Flakes.pdf',
+  'http://www.tdi-dog.org/HowToJoin.aspx?Page=New+TDI+Test',
+  'https://www.tdi-dog.org/HowToJoin.aspx?Page=New+TDI+Test',
 ];
 
 const RETIRED_SET = new Set(RETIRED_URLS);
 
 export function isRetiredHref(href) {
-  return RETIRED_SET.has(href || '');
+  const value = href || '';
+  if (RETIRED_SET.has(value)) return true;
+  // FilmFreeway profiles publish birth date, height, and school. Do not link them.
+  if (/filmfreeway\.com/i.test(value)) return true;
+  if (/tdi-dog\.org/i.test(value)) return true;
+  return false;
 }
 
 const BARE_URL = /https?:\/\/[A-Za-z0-9\-._~:/?#[\]@!$&'*+,;=%]+/g;
@@ -174,6 +181,7 @@ function rewriteText(text) {
   });
   next = next.replace(/\bFelling the Love\b/g, 'Feeling the Love');
   next = next.replace(/\bShawn Patrick Flanery\b/g, 'Sean Patrick Flanery');
+  next = next.replace(/\s*View Jennifer[’']s press coverage, media appearances and screenplay recognition on FilmFreeway\.?\s*/gi, ' ');
   return next;
 }
 
@@ -363,9 +371,17 @@ function repairLabels(blocks, slug) {
   });
 }
 
+function dropPrivatePitches(blocks) {
+  return blocks.filter((block) => {
+    const text = blockText(block);
+    if (/press coverage, media appearances and screenplay recognition on FilmFreeway/i.test(text)) return false;
+    return true;
+  });
+}
+
 export function prepareJournalBody(blocks, slug) {
   if (!Array.isArray(blocks)) return blocks;
-  let next = linkifyBody(rewriteBlocks(blocks));
+  let next = linkifyBody(rewriteBlocks(dropPrivatePitches(blocks)));
   if (slug === 'homemade-formula') {
     next = linkPhrase(next, 'THE HOMEMADE FORMULA RECIPES', WESTON_FORMULA);
     next = linkPhrase(next, 'Weston A. Price Foundation', WESTON_FORMULA);

@@ -76,7 +76,7 @@
 /* Round gold membership art. The file is a dark wide frame, so contain it
    instead of cropping the circle or showing Jen's portrait. */
 .shop-page .product-media--circle {
-  background: #111;
+  background: var(--linen);
 }
 .shop-page .product-media--circle img {
   object-fit: contain;

@@ -10,45 +10,41 @@ export const metadata = {
 };
 
 // Jen's list, this order. A link is included only when the page loads.
+// sunsetsandbonfires.com now redirects to the Etsy shop, so that shop is the link.
 // Etsy answers a script with 403; the shop URL is the one she confirmed.
+// Full names. A link is included only when that page itself loads.
 const SPONSORS = [
   {
     name: 'Sunsets & Bonfires',
     links: [
-      { label: 'sunsetsandbonfires.com', href: 'https://www.sunsetsandbonfires.com/' },
+      { label: 'etsy.com/shop/SunsetsBonfires', href: 'https://www.etsy.com/shop/SunsetsBonfires' },
+      { label: 'Instagram @sunsetsbonfires', href: 'https://www.instagram.com/sunsetsbonfires/' },
     ],
+  },
+  {
+    name: 'Thrive Media',
+    note: 'Also produced the podcast.',
   },
   {
     name: 'KJ Classic Creations',
     links: [
       { label: 'etsy.com/shop/kjclassiccreations', href: 'https://www.etsy.com/shop/kjclassiccreations' },
+      { label: 'Instagram @kjclassiccreations', href: 'https://www.instagram.com/kjclassiccreations/' },
     ],
   },
   {
-    name: 'Ring My Belle',
+    name: 'Ring My Belle: Beauty, Delivered',
     links: [
       { label: 'ringmybelle.com', href: 'https://ringmybelle.com' },
+      { label: 'Instagram @ringmybelleco', href: 'https://www.instagram.com/ringmybelleco/' },
     ],
   },
   {
-    name: 'Coursen Security Group',
-    links: [
-      { label: 'coursensecuritygroup.com', href: 'https://www.coursensecuritygroup.com/' },
-    ],
-  },
-  {
-    name: 'Thrive Media',
-  },
-  {
-    name: 'Ask Eloise / Dr. Eloise Nelson',
+    name: 'Ask Eloise',
+    person: 'Dr. Eloise Nelson',
+    note: 'Holistic nutrition.',
     links: [
       { label: 'askeloise.com', href: 'https://www.askeloise.com/' },
-    ],
-  },
-  {
-    name: 'Optimize Scottsdale',
-    links: [
-      { label: 'optimizescottsdale.com', href: 'https://optimizescottsdale.com/' },
     ],
   },
   {
@@ -58,15 +54,28 @@ const SPONSORS = [
     ],
   },
   {
-    name: "Lil' DUDE Wipes",
+    name: 'Shred Mill Speed',
     links: [
-      { label: 'dudewipes.com', href: 'https://dudewipes.com/' },
+      { label: 'shredmill.com', href: 'https://www.shredmill.com/' },
+      { label: 'Instagram @shredmillspeed', href: 'https://www.instagram.com/shredmillspeed/' },
     ],
   },
   {
-    name: 'SHREDmill',
+    name: 'Coursen Security Group',
     links: [
-      { label: 'shredmill.com', href: 'https://www.shredmill.com/' },
+      { label: 'coursensecuritygroup.com', href: 'https://www.coursensecuritygroup.com/' },
+    ],
+  },
+  {
+    name: 'Optimize Scottsdale',
+    links: [
+      { label: 'optimizescottsdale.com', href: 'https://optimizescottsdale.com/' },
+    ],
+  },
+  {
+    name: "Lil' DUDE Wipes",
+    links: [
+      { label: 'dudewipes.com', href: 'https://dudewipes.com/' },
     ],
   },
 ];
@@ -102,6 +111,13 @@ export default function SponsorsPage() {
         <p className="sponsors-close">
           Want to sponsor an episode? Email{' '}
           <a href={`mailto:${BOOKING_EMAIL}`}>{BOOKING_EMAIL}</a>.
+        </p>
+        <p className="sponsors-close">
+          <a href="/podcast">The podcast</a>
+          {' · '}
+          <a href="/pups">Pups of the Podcast</a>
+          {' · '}
+          <a href="/about#faith">The dogs at home</a>
         </p>
       </section>
 

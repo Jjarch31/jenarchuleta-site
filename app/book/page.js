@@ -1,5 +1,5 @@
 import './book.css';
-import SiteNav from '../components/SiteNav';
+import ChapterContact from '../components/ChapterContact';
 import { BOOK_BUY_URL, BOOK_STORES, PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
@@ -32,7 +32,16 @@ export default function BookPage() {
   return (
     <div className="dark book-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }} />
-      <SiteNav />
+      <nav className="nav">
+        <div className="nav-inner">
+          <a href="/" className="brand">Jen Archuleta</a>
+          <div className="nav-links">
+            <a href="/">Home</a>
+            <a href="/podcast">Podcast</a>
+            <a href="/quotes">Quotes</a>
+          </div>
+        </div>
+      </nav>
 
       {/* HERO (dark register, echoes the cover) */}
       <section className="hero-section dark" style={{ background: 'var(--bg)' }}>
@@ -44,10 +53,10 @@ export default function BookPage() {
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
             <p style={{ color: 'var(--text)' }}>Here’s what really happened. From the outside, it looked like a dream. It wasn’t the whole story. But the real story lives in the moments no one saw. This is my real story.</p>
             <div className="buy-row">
+              <a href={BOOK_BUY_URL} target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
               {SHOP.signedBook ? (
-                <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">Buy a signed copy</a>
+                <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-ghost">Buy a signed copy</a>
               ) : null}
-              <a href={BOOK_BUY_URL} target="_blank" rel="noopener" className="btn btn-primary">Buy the book</a>
               {BOOK_STORES.map((store) => (
                 <a key={store.href} href={store.href} target="_blank" rel="noopener" className="btn btn-ghost">{store.label}</a>
               ))}
@@ -83,6 +92,8 @@ export default function BookPage() {
           <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>The story is being adapted for the screen. More to come.</p>
         </div>
       </section>
+
+      <ChapterContact />
 
       <footer>
         <div className="wrap">

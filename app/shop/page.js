@@ -185,7 +185,7 @@ export default function ShopPage() {
             <div className="product-media product-media--portrait">
               <img
                 src="/assets/backstage-bundle.jpg"
-                alt="The book, a handmade velvet bookmark, and black bunny ears, with a display box of red tissue"
+                alt="The signed book, a handmade velvet bookmark, and black velvet bunny ears"
                 width="1268"
                 height="1600"
               />
@@ -197,9 +197,6 @@ export default function ShopPage() {
               <p className="product-desc">
                 My signed copy of <em>Beyond the Velvet Ropes</em>, the velvet bookmark
                 I make by hand, and a pair of black velvet bunny ears.
-              </p>
-              <p className="product-desc">
-                The box in the picture is for display only. A box is not part of this bundle.
               </p>
               <ul className="product-list">
                 <li>Jen’s signed copy of <em>Beyond the Velvet Ropes</em></li>

@@ -38,7 +38,7 @@ export default function AboutPage() {
             <span className="tim-chip">Just me</span>
           </div>
           <div className="tim-ctas">
-            <a href="/contact" className="btn btn-primary">Come say hi</a>
+            <a href="#hi" className="btn btn-primary">Come say hi</a>
             <a href="#then" className="btn btn-ghost">My story →</a>
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function AboutPage() {
       {/* THEN & NOW */}
       <section id="then" className="tim-wrap tim-then">
         <div>
-          <img className="tim-gray" src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta, earlier years" loading="lazy" decoding="async" />
+          <img className="tim-gray" src="/assets/jen-headshot-blazer.jpg" alt="Jen Walcott Archuleta" width="1000" height="1249" loading="lazy" decoding="async" />
         </div>
         <div>
           <p className="eyebrow">Then &amp; now</p>
@@ -145,25 +145,22 @@ export default function AboutPage() {
             Whatever I’ve got, time, a story, a hand to lend, I’d rather use it for somebody else
             than keep it for myself.
           </p>
+          <p className="tim-lead" style={{ margin: '16px 0 0', maxWidth: '660px' }}>
+            I co-founded The Forever Angels, for the families, veterans, hospice patients, and animals who get passed over.
+          </p>
           <div style={{ marginTop: '14px' }}>
-            <a href={SOCIALS.foreverAngels} className="btn btn-primary">What I support</a>
+            <a href={SOCIALS.foreverAngels} className="btn btn-primary">The Forever Angels</a>
           </div>
         </div>
       </section>
 
-      {/* NEWSLETTER. The form itself lives once, on the homepage. */}
       <section id="hi" className="tim-wrap tim-hi">
         <div className="tim-card is-solo">
           <div>
             <p className="eyebrow">Say hi</p>
-            <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come say hi.</h2>
+            <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come hang out. No agenda.</h2>
             <p className="tim-lead" style={{ marginTop: '24px' }}>
-              For press, interviews, speaking, and events, write me from the contact page. I read every message.
-            </p>
-            <p style={{ marginTop: '22px' }}>
-              <a href="/contact" className="btn btn-primary">Contact</a>
-              {' '}
-              <a href="/#letter" className="btn btn-ghost">Get the first chapter</a>
+              A little note from me every now and then, whatever I’m actually thinking about that week, the good and the hard. No pitch, I promise.
             </p>
           </div>
         </div>

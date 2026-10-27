@@ -3,7 +3,7 @@ import path from 'path';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import CopyTextButton from '../components/CopyTextButton';
-import { BOOKING_EMAIL, PODCAST } from '../components/site-data';
+import { BOOKING_EMAIL, PODCAST, SOCIALS } from '../components/site-data';
 import './media.css';
 
 export const metadata = {
@@ -23,7 +23,7 @@ export const metadata = {
 // web image (1000x1500), not a press-resolution file.
 // Outlet logos are names until files arrive in public/assets/logos/.
 
-const PRESS_BIO = 'Jennifer Walcott Archuleta is the author of Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love, and the host of the podcast Unfiltered with Jen Archuleta. Raised in Youngstown, Ohio, she moved to California at 18, worked as a makeup artist, and became Playboy’s Miss August 2001. She co-founded The Forever Angels, a nonprofit that helps families, veterans, hospice patients, and animals in need. A film based on her memoir is in development with Leone Marucci’s Steelyard Pictures, and a feature documentary is in development with Mark Andrew Hamer of Crash Cat Media Group. She lives on the West Coast with her husband, former NFL safety Adam Archuleta, their three children, and a houseful of rescue animals.';
+const PRESS_BIO = 'Jennifer Walcott Archuleta is the author of Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love, and the host of the podcast Unfiltered with Jen Archuleta. She grew up in a small town, worked as a makeup artist, and became Playboy’s Miss August 2001. A film based on her memoir is in development with Leone Marucci’s Steelyard Pictures, and a feature documentary is in development with Mark Andrew Hamer of Crash Cat Media Group. She lives on the West Coast with her husband, former NFL safety Adam Archuleta, their three children, and a houseful of rescue animals.';
 
 const PRESS = [
   {
@@ -134,8 +134,16 @@ export default function MediaPage() {
       <section id="main-content" className="wrap">
         <h1>Media</h1>
         <p className="media-lead">
-          Thank you for your interest in my story. Here you will find the interviews, articles, and conversations around Beyond the Velvet Ropes, my podcast, and The Forever Angels. If you would like me on your show, at your event, or in your pages, I would love to hear from you.
+          Thank you for your interest in my story. Here you will find the interviews, articles, and conversations around Beyond the Velvet Ropes and my podcast. If you would like me on your show, at your event, or in your pages, I would love to hear from you.
         </p>
+        <div className="media-actions">
+          <a className="btn btn-primary" href="/contact#speaking">Book me to speak</a>
+          <a className="btn btn-ghost" href={SOCIALS.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a className="btn btn-ghost" href={SOCIALS.x} target="_blank" rel="noopener noreferrer">X</a>
+          <a className="btn btn-ghost" href={SOCIALS.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a className="btn btn-ghost" href={SOCIALS.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a className="btn btn-ghost" href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
       </section>
 
       <section className="wrap">
@@ -179,8 +187,6 @@ export default function MediaPage() {
           <a href="https://www.steelyardpictures.com/bio" target="_blank" rel="noopener noreferrer">Steelyard Pictures</a>
           {' · '}
           <a href="https://CrashCatMedia.com" target="_blank" rel="noopener noreferrer">Crash Cat Media Group</a>
-          {' · '}
-          <a href="https://filmfreeway.com/JenniferArchuleta" target="_blank" rel="noopener noreferrer">FilmFreeway</a>
         </p>
       </section>
 
@@ -196,10 +202,10 @@ export default function MediaPage() {
       <section id="speaking" className="wrap text-wrap">
         <h2>Speaking</h2>
         <p>
-          I speak about faith, resilience, and starting over. About surviving hard things and rebuilding. And about giving back, through The Forever Angels, hospice volunteering, and animal rescue.
+          I speak about faith, resilience, and starting over. About surviving hard things and rebuilding.
         </p>
         <p>
-          To invite me to speak, email <a href={mailto}>{BOOKING_EMAIL}</a>.
+          To invite me to speak, email <a href={mailto}>{BOOKING_EMAIL}</a> or use the <a href="/contact#speaking">contact page</a>.
         </p>
       </section>
 

@@ -1,7 +1,6 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import VelvetCirclePanel from '../components/VelvetCirclePanel';
-import { BOOK_BUY_URL } from '../components/site-data';
 import VelvetGate from './Gate';
 import './teaser.css';
 
@@ -26,9 +25,8 @@ export default function VelvetLocked() {
         <p className="vp-lock-note">
           You have to buy the book to get in. The passcode is in the back of the book, right under the QR code.
         </p>
-        <p className="vp-return">I add something special here every once in a while, so check back.</p>
         <div className="vp-actions">
-          <a className="btn btn-primary" href={BOOK_BUY_URL} target="_blank" rel="noopener noreferrer">Buy the book</a>
+          <a className="btn btn-primary" href="/book">Get the book</a>
           <VelvetGate />
         </div>
       </section>
