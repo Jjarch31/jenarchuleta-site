@@ -19,7 +19,7 @@ export default function VelvetCirclePanel() {
           <img
             src="/assets/velvet-circle-room.jpg"
             alt="Friends in a candlelit living room, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
-            width="1122"
+            width="842"
             height="1402"
           />
         </div>

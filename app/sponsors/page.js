@@ -20,9 +20,6 @@ const SPONSORS = [
   {
     name: 'Thrive Media',
     note: 'Also produced the podcast.',
-    links: [
-      { label: 'Instagram @thrivemedia.social', href: 'https://instagram.com/thrivemedia.social' },
-    ],
   },
   {
     name: 'KJ Classic Creations',

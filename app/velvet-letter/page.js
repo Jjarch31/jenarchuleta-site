@@ -5,6 +5,7 @@ import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import { urlFor } from '../sanity/image';
 import { getVelvetLetters } from '../sanity/queries';
+import { gateKey } from '../velvet/passcode';
 import { velvetLetterToken } from './token';
 import Gate from './Gate';
 import './velvet-letter.css';
@@ -18,7 +19,7 @@ export const metadata = {
 };
 
 function unlocked() {
-  const secret = process.env.VELVET_LETTER_PASSCODE || '';
+  const secret = gateKey();
   if (!secret) return false;
   const got = cookies().get('velvet_letter')?.value || '';
   const expected = velvetLetterToken(secret);

@@ -12,6 +12,7 @@ export default function SiteFooter() {
           <a href={SOCIALS.foreverAngels}>The Forever Angels</a>
           <a href="/#letter">Newsletter</a>
           <a href="/quotes">Quotes</a>
+          <a href="/velvet">Velvet Pages</a>
           <a href={PODCAST.buzzsprout} target="_blank" rel="noopener noreferrer">Podcast on Buzzsprout</a>
           <a href={PODCAST.youtube} target="_blank" rel="noopener noreferrer">Podcast on YouTube</a>
           <a href="/media">Media</a>
