@@ -62,7 +62,7 @@ export const BOOK_STORES = [
   { label: 'Barnes & Noble', href: 'https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885' },
   { label: 'Audiobook (Spotify)', href: 'https://open.spotify.com/show/153EBrZVIkJY1xaY703km4' },
   { label: 'Audiobook (Apple)', href: 'https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4' },
-  { label: 'Audiobook (Kobo)', href: 'https://www.kobo.com/nl/nl/audiobook/beyond-the-velvet-ropes' },
+  { label: 'Audiobook (Kobo)', href: 'https://www.kobo.com/us/en/audiobook/beyond-the-velvet-ropes' },
 ];
 
 export const SHOP = {

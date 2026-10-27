@@ -58,7 +58,7 @@ export default async function Home() {
         </div>
         <div className="hero-media">
           <div className="portrait hero-frame">
-            <img src="/assets/presskit-headshot-floral.jpg" alt="Jen Walcott Archuleta" width="1100" height="1370" />
+            <img src="/assets/presskit-headshot-glam.jpg" alt="Jen Walcott Archuleta" width="1320" height="1259" />
           </div>
         </div>
       </section>
