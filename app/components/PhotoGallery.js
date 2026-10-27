@@ -210,7 +210,12 @@ const PLACES = [
   { src: '/assets/gallery-places/muskoka-boat.jpg', alt: 'Muskoka, Canada', caption: 'Muskoka, Canada', width: 842, height: 1075 },
 ];
 
-const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES];
+// Childhood portrait. The Hollywood set stays first, so this follows every earlier slide.
+const CHILDHOOD = [
+  { src: '/assets/gallery-childhood/jen-childhood.jpg', alt: 'Jen as a girl', width: 600, height: 600 },
+];
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES, ...CHILDHOOD];
 
 // Slides 19 and 27 of the 59-photo order (before the Hollywood set was
 // added). Those two stay fully visible: native img, no max-height crop.
