@@ -159,6 +159,7 @@ export default function ShopPage() {
               <p className="product-desc">
                 Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
               </p>
+              <p className="product-desc">I&rsquo;d love for you to join us.</p>
               <div className="product-cta">
                 {SHOP.velvetCircleMembership ? (
                   <>
@@ -238,6 +239,13 @@ export default function ShopPage() {
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
               <p className="foot-meta">A little reminder to fly your own way — shop on Etsy →</p>
+            </div>
+          </a>
+          <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener">
+            <div className="body">
+              <div className="k">Give back</div>
+              <h4>The Forever Angels</h4>
+              <p className="foot-meta">The rescue closest to my heart. Every bit helps →</p>
             </div>
           </a>
         </div>
