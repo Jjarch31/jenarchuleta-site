@@ -218,10 +218,17 @@ const CHILDHOOD = [
 
 // Oct 27: current slides 68, 69, and 73 leave the slideshow. Files stay in the repo.
 // 68 gallery-picks/141.jpg, 69 gallery-picks/142.jpg, 73 gallery-picks/155.jpg (Jen in Bangkok).
+// Duplicate pairs: one copy stays, the sharper or higher-detail file.
 const HIDDEN_SLIDE_SRC = new Set([
   '/assets/gallery-picks/141.jpg',
   '/assets/gallery-picks/142.jpg',
   '/assets/gallery-picks/155.jpg',
+  '/assets/gallery-picks/146.jpg',
+  '/assets/gallery-picks/151.jpg',
+  '/assets/gallery-picks/164.jpg',
+  '/assets/gallery-picks/168.jpg',
+  '/assets/gallery-picks/171.jpg',
+  '/assets/jen-beauty.jpg',
 ]);
 
 const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES, ...CHILDHOOD]
