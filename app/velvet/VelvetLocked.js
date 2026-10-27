@@ -33,8 +33,9 @@ export default function VelvetLocked({ entries }) {
           Letters, photos, and the pieces that live past the last page. This is the journal I keep for readers of the book.
         </p>
         <p className="vp-lock-note">
-          The Velvet Pages are for readers of Beyond the Velvet Ropes. Your passcode is printed inside the book.
+          The Velvet Pages are for readers of Beyond the Velvet Ropes. Your passcode is printed in the back of the book, under the QR code.
         </p>
+        <p className="vp-return">I add something special here every once in a while, so check back.</p>
         <div className="vp-actions">
           <a className="btn btn-primary" href="/book">Get the book</a>
           <VelvetGate />

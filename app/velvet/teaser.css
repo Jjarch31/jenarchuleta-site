@@ -18,12 +18,17 @@
 }
 
 .vp-lock-note {
-  margin: 28px 0 26px;
+  margin: 28px 0 12px;
   max-width: 34rem;
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.35rem, 2.6vw, 1.8rem);
   line-height: 1.35;
+}
+
+.vp-return {
+  margin: 0 0 26px;
+  max-width: 34rem;
 }
 
 .vp-actions {

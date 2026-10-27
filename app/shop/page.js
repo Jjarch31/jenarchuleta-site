@@ -150,14 +150,17 @@ export default function ShopPage() {
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
               <ul className="product-list">
-                <li>Private monthly letter</li>
-                <li>The private passcode journal</li>
+                <li>The Velvet Letter</li>
+                <li>The Velvet Pages, the private journal. The passcode is printed in the back of the book, under the QR code</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
                 <li>Live monthly Zooms begin once the circle reaches 13 members</li>
                 <li>
                   <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
                 </li>
               </ul>
+              <p className="product-desc">
+                The Velvet Letter comes with membership. The QR code in the back of the book, and the passcode printed under it, open The Velvet Pages.
+              </p>
               <p className="product-desc">
                 Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
               </p>

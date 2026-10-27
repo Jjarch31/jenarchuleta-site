@@ -43,7 +43,7 @@ export default function VelvetGate() {
       </button>
       {error ? (
         <p className="vp-error" role="alert">
-          That passcode didn’t open the door. The code is printed inside the book.
+          That passcode didn’t open the door. The code is printed in the back of the book, under the QR code.
         </p>
       ) : null}
     </form>

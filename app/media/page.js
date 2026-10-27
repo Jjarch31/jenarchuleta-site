@@ -169,7 +169,7 @@ export default function MediaPage() {
           <a href="https://CrashCatMedia.com" target="_blank" rel="noopener noreferrer">Crash Cat Media Group</a>.
         </p>
         <p>
-          <a href="http://www.steelyardpictures.com/bio" target="_blank" rel="noopener noreferrer">Steelyard Pictures</a>
+          <a href="https://www.steelyardpictures.com/bio" target="_blank" rel="noopener noreferrer">Steelyard Pictures</a>
           {' · '}
           <a href="https://CrashCatMedia.com" target="_blank" rel="noopener noreferrer">Crash Cat Media Group</a>
           {' · '}

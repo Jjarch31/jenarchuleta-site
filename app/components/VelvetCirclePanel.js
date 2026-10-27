@@ -3,8 +3,8 @@ import { SHOP, STRIPE_CUSTOMER_PORTAL_URL } from './site-data';
 
 const PERKS = [
   '$9.99 a month',
-  'A private monthly letter from Jen',
-  'A private passcode journal',
+  'The Velvet Letter',
+  'The Velvet Pages, the private journal',
   'Up to 3 questions a month answered in writing',
   'Live monthly Zooms begin once the circle reaches 13 members',
 ];
@@ -40,6 +40,9 @@ export default function VelvetCirclePanel() {
           </h2>
           <p className="vc-announce-line">
             Real conversations. Untold stories. A place to connect, ask questions, and grow together.
+          </p>
+          <p className="vc-announce-line">
+            The QR code in the back of the book, and the passcode printed under it, open The Velvet Pages. The Velvet Letter comes with membership.
           </p>
           <ul className="vc-announce-perks">
             {PERKS.map((perk) => <li key={perk}>{perk}</li>)}

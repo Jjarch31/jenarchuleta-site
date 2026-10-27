@@ -166,6 +166,7 @@ function rewriteText(text) {
   next = next.replace(/(?:--\s*|\*+)(?=https?:\/\/(?:www\.)?(?:phpure|udoerasmus|cocoonnutrition)\.)/gi, '');
   for (const url of RETIRED_URLS) next = next.split(url).join('');
   next = next.replace(FOREVER_ANGELS_URL, FOREVER_ANGELS);
+  next = next.replace(/http:\/\//gi, 'https://');
   next = next.replace(BARE_PODCAST, (full, host, offset, str) => {
     const before = str.slice(0, offset);
     if (/https?:\/\/(?:www\.)?$/i.test(before) || /[\w.]$/.test(before)) return full;
@@ -184,6 +185,9 @@ function rewriteBlocks(blocks) {
       if (isRetiredHref(def.href)) return { ...def, href: '' };
       if (/^(?:https?:\/\/)?(?:www\.)?theforeverangels\.com(?:\/|$)/i.test(def.href || '')) {
         return { ...def, href: FOREVER_ANGELS };
+      }
+      if (/^http:\/\//i.test(def.href || '')) {
+        return { ...def, href: def.href.replace(/^http:\/\//i, 'https://') };
       }
       return def;
     });
