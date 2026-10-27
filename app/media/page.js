@@ -51,13 +51,6 @@ const PRESS = [
     headline: 'Former Playboy Playmate Will Hold Book Signing Aug. 23 at Barnes & Noble',
     href: 'https://www.facebook.com/boardmannews/posts/former-playboy-playmate-will-hold-book-signing-aug-23-at-barnes-nobleaug-6-12-20/1703665671629905/',
   },
-  {
-    outlet: 'Akron Beacon Journal',
-    headline: 'Book Talk',
-    byline: 'Barbara McIntyre',
-    date: 'Aug 23, 2026',
-    href: 'https://www.beaconjournal.com/story/entertainment/books/2026/08/23/cleveland-author-vivien-chien-releases-and-then-there-were-bun-part-of-noodle-shop-series-book-talk/91354166007/',
-  },
 ];
 
 const APPEARANCES = [
@@ -97,7 +90,7 @@ const APPEARANCES = [
 ];
 
 const HEADSHOTS = [
-  { href: '/assets/presskit-headshot-floral.jpg', label: 'Candid', width: 1100, height: 1370 },
+  { href: '/assets/jen-headshot-blazer.jpg', label: 'Blazer', width: 1000, height: 1249 },
   { href: '/assets/jen-headshot-bw.jpg', label: 'Glamour', width: 1320, height: 1946 },
   { href: '/assets/jen-headshot-signature.jpg', label: 'Signature', width: 1162, height: 1597 },
 ];
@@ -108,7 +101,6 @@ const LOGO_NAMES = [
   'WKBN 27 First News',
   'The Business Journal Daily',
   'Mahoning Matters',
-  'Akron Beacon Journal',
   'Star 94.7 FM',
   'Steelyard Pictures',
   'Crash Cat Media Group',
@@ -138,11 +130,14 @@ export default function MediaPage() {
         </p>
         <div className="media-actions">
           <a className="btn btn-primary" href="/contact#speaking">Book me to speak</a>
+          <a className="btn btn-ghost" href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <h2>Follow along</h2>
+        <div className="media-actions">
           <a className="btn btn-ghost" href={SOCIALS.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
           <a className="btn btn-ghost" href={SOCIALS.x} target="_blank" rel="noopener noreferrer">X</a>
           <a className="btn btn-ghost" href={SOCIALS.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a>
           <a className="btn btn-ghost" href={SOCIALS.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a className="btn btn-ghost" href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </section>
 

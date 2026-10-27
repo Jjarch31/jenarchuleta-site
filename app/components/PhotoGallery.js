@@ -7,11 +7,11 @@ import sizes from '../velvet/slide-sizes.json';
 
 // One slideshow. The Hollywood set is first, together, so those slides
 // lead. Then portraits that are not already on the homepage or About
-// (the About portrait is presskit-headshot-glam, so it is not a slide), then
+// (the About portrait is presskit-headshot-floral, so it is not a slide), then
 // Velvet Circle photos, then gallery-new. A file stays in the repo when
 // its slide is left out. /velvet still reads captions.json.
 // Out of this slideshow:
-// presskit-headshot-floral (home hero). jen-glam, jen-fitness, jen-sultry,
+// presskit-headshot-glam (home hero). jen-glam, jen-fitness, jen-sultry,
 // and jen-fun2 (the homepage photo row; the row itself stays). jen-fun
 // (group of adults, not a dog photo). jen-bw-coat and velvet 07 (the coat
 // already in the story section as jen-bw-coat2). 08 and 44 are already
