@@ -4,7 +4,7 @@ import SiteFooter from './components/SiteFooter';
 import PhotoGallery from './components/PhotoGallery';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
 import ChapterContact from './components/ChapterContact';
-import { BOOK_BUY_URL, BOOK_STORES, SOCIALS, SHOP, PODCAST } from './components/site-data';
+import { BOOK_BUY_URL, BOOK_STORES, KIT_FREE_CHAPTER_URL, SOCIALS, SHOP, PODCAST } from './components/site-data';
 import { urlFor } from './sanity/image';
 import { getAllPosts } from './sanity/queries';
 
@@ -48,10 +48,10 @@ export default async function Home() {
       <section id="main-content" className="wrap hero">
         <div className="hero-copy">
           <div className="eyebrow">Author · Speaker · Advocate</div>
-          <div className="hero-script">Here’s what really<br />happened.</div>
+          <div className="hero-script">this isn’t the story<br />you think it is</div>
           <h1>Faith, family, and a bunch of dogs.</h1>
           <div className="eyebrow" style={{ marginTop: '16px' }}>Author of <em>Beyond the Velvet Ropes</em></div>
-          <p className="lead">These days I’m happiest in the small stuff. My kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I’m grateful for the wild, wonderful run that came before this. But the part I care about most isn’t the glamorous version. It’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
+          <p className="lead">These days I’m happiest in the small stuff — my kids, my husband, a houseful of rescue animals, my faith, and finding ways to give back. I had a wild, wonderful run in my twenties, and I’m grateful for all of it. But the part I care about most isn’t the glamorous version — it’s the ordinary, happy life I have now, and the book I wrote about finding my way here.</p>
           <div className="hero-ctas">
             <a href="/book" className="btn btn-primary">Get the book</a>
           </div>
@@ -63,24 +63,30 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="wrap tagline" style={{ paddingBlock: 'var(--space-9)' }}>
+        <div className="threshold-rule"><span className="diamond" /></div>
+        <p className="q">“Your story isn’t what happened to you. It’s what you do with it.”</p>
+        <div className="threshold-rule"><span className="diamond" /></div>
+      </section>
+
       {/* PILLARS */}
       <section className="wrap pillars">
         <div className="p">
           <div className="eyebrow">Story</div>
           <h3>The Author</h3>
-          <p>My book, and what I write about the hard years.</p>
+          <p>Her memoir, <em>Beyond the Velvet Ropes</em> — and the writing that turns hard chapters into hope.</p>
           <p><a href="/book" className="btn btn-ghost btn-sm">The book</a></p>
         </div>
         <div className="p">
           <div className="eyebrow">Voice</div>
           <h3>The Speaker</h3>
-          <p>I talk about faith, getting through hard things, and starting over.</p>
+          <p>Faith, resilience, and reinvention — on stages and wherever women are rebuilding.</p>
           <p><a href="/media#speaking" className="btn btn-ghost btn-sm">Speaking</a></p>
         </div>
         <div className="p">
           <div className="eyebrow">Heart</div>
           <h3>The Advocate</h3>
-          <p>I help the people and animals who get passed over. <a href="/about#faith">What I support</a>.</p>
+          <p>Beyond the Ropes and The Forever Angels — choosing the overlooked, one act at a time.</p>
           <p><a href="#movement" className="btn btn-ghost btn-sm">The movement</a></p>
         </div>
       </section>
@@ -90,23 +96,24 @@ export default async function Home() {
         <div className="wrap inner">
           <div><img className="book-cover" src="/assets/book-cover.jpg" alt="Beyond the Velvet Ropes book cover" width="1000" height="1500" loading="lazy" /></div>
           <div>
-            <div className="eyebrow">My memoir is out now.</div>
+            <div className="eyebrow">The Memoir — Out Now</div>
             <h2>Beyond the Velvet Ropes</h2>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
-            <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream. Covers, cameras, a life behind the velvet ropes. But the real story was never the part people saw. It’s in the moments I never talked about, and the long road back to the ordinary, happy life I have now. I wrote all of it down. The hard, the funny, and the faith that carried me through. If you’ve ever come through something and made it to the other side, I wrote this for you.</p>
+            <p style={{ color: 'var(--text)' }}>From the outside, my twenties looked like the dream — covers, cameras, a life behind the velvet ropes. But the real story was never the part people saw. It’s in the moments I never talked about, and the long road back to the ordinary, happy life I have now. I wrote all of it down — the hard, the funny, and the faith that carried me through. If you’ve ever come through something and made it to the other side, I wrote this for you.</p>
             <p className="buy-row">
               <a href={BOOK_BUY_URL} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Get the Paperback</a>
               {BOOK_STORES.map((store) => (
                 <a key={store.href} href={store.href} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">{store.label}</a>
               ))}
             </p>
+            <p style={{ marginTop: '6px' }}><a href={KIT_FREE_CHAPTER_URL} style={{ color: 'var(--accent)' }}>Or read the first chapter free →</a></p>
           </div>
         </div>
         <div className="wrap trailer-feature">
           <div className="tf-copy">
             <div className="eyebrow">Watch the Trailer</div>
-            <p className="tf-logline">Watch the trailer.</p>
-            <p className="tf-cap">The official trailer for the book, about ninety seconds.</p>
+            <p className="tf-logline">“Everyone knew the headlines. No one knew the story.”</p>
+            <p className="tf-cap">The official trailer for <em>Beyond the Velvet Ropes</em> — about ninety seconds.</p>
           </div>
           <figure className="tf-video">
             <video
@@ -125,9 +132,10 @@ export default async function Home() {
       <section id="story" className="wrap">
         <div className="story-grid">
           <div>
-            <h2>How I got here.</h2>
-            <p>I grew up in a small town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
-            <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
+            <h2>The long way to an ordinary, beautiful life.</h2>
+            <p>I grew up in a small town being told what I couldn’t do — and I spent my twenties proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
+            <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in — it’s the plain, happy life right in front of me.</p>
+            <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost">Start with the first chapter</a>
           </div>
           <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="800" height="1195" loading="lazy" /></div>
         </div>
@@ -142,7 +150,7 @@ export default async function Home() {
       <section id="podcast" className="wrap center" style={{ background: 'var(--surface)' }}>
         <div className="eyebrow">The Podcast</div>
         <h2>{PODCAST.name}</h2>
-        <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Real talks about faith, family, and starting over.</p>
+        <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Honest conversations on faith, family, resilience, and starting over — the same honest voice as the book.</p>
         <div className="hero-ctas" style={{ justifyContent: 'center', marginTop: '8px' }}>
           <a href={PODCAST.subscribe.spotify} target="_blank" rel="noopener" className="btn btn-primary">Listen on Spotify</a>
           <a href={PODCAST.subscribe.apple} target="_blank" rel="noopener" className="btn btn-ghost">Apple Podcasts</a>
@@ -162,14 +170,14 @@ export default async function Home() {
       <section className="wrap">
         <div className="center">
           <div className="hero-script" style={{ fontSize: 'var(--text-script-m)' }}>the fun part…</div>
-          <h2>Still here, still laughing, still writing.</h2>
-          <p className="lead" style={{ maxWidth: '62ch', marginInline: 'auto' }}>Let’s be honest. I’ve never minded the camera. Magazine covers, red carpets, getting dressed up, a good laugh. I’ve always had a soft spot for animals, and plenty of rescues at home to prove it. Faith, family, and fun, all at once, and I wouldn’t have it any other way.</p>
+          <h2>Beautiful, a little bit of trouble, and not done yet.</h2>
+          <p className="lead" style={{ maxWidth: '62ch', marginInline: 'auto' }}>Let’s be honest — I’ve never minded the camera. Magazine covers, red carpets, getting dressed up, a good laugh. I’ve always had a soft spot for animals, and plenty of rescues at home to prove it. Faith, family, and fun, all at once — and I wouldn’t have it any other way.</p>
         </div>
         <div className="photo-row">
-          <img src="/assets/jen-glam.jpg" alt="Jen Archuleta, glamour portrait" width="941" height="1123" loading="lazy" />
+          <img src="/assets/jen-glam.jpg" alt="Jen Archuleta — glamour portrait" width="941" height="1123" loading="lazy" />
           <img src="/assets/jen-sultry.jpg" alt="Jen Archuleta" width="599" height="1111" loading="lazy" />
           <img src="/assets/jen-fun2.jpeg" alt="Jen Archuleta with a rescue puppy" width="510" height="512" loading="lazy" />
-          <img src="/assets/jen-fitness.jpg" alt="Jen Walcott Archuleta" width="1077" height="887" loading="lazy" />
+          <img src="/assets/jen-fitness.jpg" alt="Jen Archuleta — fit at 50" width="1077" height="887" loading="lazy" />
         </div>
         <div className="center" style={{ marginTop: '26px' }}>
           <a href={SOCIALS.instagram} className="btn btn-ghost">Follow along on Instagram</a>
@@ -181,20 +189,20 @@ export default async function Home() {
       {/* MOVEMENT */}
       <section id="movement" className="wrap creed" style={{ background: 'var(--surface)' }}>
         <div className="threshold-rule" style={{ marginBottom: '20px' }}><span className="diamond" /></div>
-        <h2>Everyone belongs.</h2>
-        <p className="lead" style={{ maxWidth: '60ch', marginInline: 'auto' }}>A velvet rope decides who gets in. I’d rather let everyone in. No one’s story is over.</p>
+        <h2>Everyone belongs beyond the ropes.</h2>
+        <p className="lead" style={{ maxWidth: '60ch', marginInline: 'auto' }}>A velvet rope decides who gets in and who stays out. This is the opposite of that — a quiet practice of choosing the overlooked, and reminding each other that no one’s story is over.</p>
         <ul>
-          <li>Everyone belongs, so we choose the overlooked.</li>
-          <li>No one’s story is over.</li>
-          <li>We forgive, even without the apology.</li>
-          <li>We fall, we learn, and we get back up.</li>
-          <li>What we went through can help someone else.</li>
+          <li>Everyone belongs — so we choose the overlooked.</li>
+          <li>No one’s story is over — it’s still being written.</li>
+          <li>We forgive — even without the apology.</li>
+          <li>We fall, we learn, and we rise anyway.</li>
+          <li>We turn our pain into someone else’s lifeline.</li>
         </ul>
       </section>
 
       {/* JOURNAL */}
       <section id="journal" className="wrap">
-        <div className="center"><h2>From the journal.</h2>
+        <div className="center"><h2>Notes from the road back to myself.</h2>
           <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Short, honest writing on faith, family, healing, and starting over.</p></div>
         {featured.length > 0 ? (
           <div className="feed">
@@ -221,9 +229,9 @@ export default async function Home() {
       {/* SHOP */}
       <section id="shop" className="wrap" style={{ background: 'var(--surface)' }}>
         <div className="center"><h2>A few things worth sharing.</h2>
-          <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>A signed copy of the book, and a tee I love.</p></div>
+          <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>A signed copy of the book, a tee I love, and a rescue close to my heart. Story, a good reminder, and a way to give back.</p></div>
         <div className="cards-3">
-          <a className="mini" href="/shop"><div className="body"><div className="k">Book</div><h3>Signed copy, <em>Beyond the Velvet Ropes</em></h3><p className="foot-meta">In the shop →</p></div></a>
+          <a className="mini" href="/shop"><div className="body"><div className="k">Book</div><h3>Signed copy — <em>Beyond the Velvet Ropes</em></h3><p className="foot-meta">In the shop →</p></div></a>
           <a className="mini" href={SHOP.etsyTee} target="_blank" rel="noopener"><div className="body"><div className="k">Apparel</div><h3>Be the Bumblebee tee</h3><p className="foot-meta">Shop on Etsy →</p></div></a>
         </div>
         <div className="center" style={{ marginTop: '28px' }}><a href="/shop" className="btn btn-ghost">Visit the shop</a></div>

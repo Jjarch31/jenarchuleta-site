@@ -2,12 +2,13 @@ import './podcast.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import BuzzsproutPlayer from '../components/BuzzsproutPlayer';
+import KitForm from '../components/KitForm';
 import { BOOKING_EMAIL, PODCAST } from '../components/site-data';
 
 export const metadata = {
-  title: { absolute: 'Podcast, Unfiltered with Jen Archuleta' },
+  title: { absolute: 'Podcast — Unfiltered with Jen Archuleta' },
   description:
-    'Unfiltered with Jen Archuleta. Real talks about faith, family, and starting over. Listen to every episode and subscribe.',
+    'Unfiltered with Jen Archuleta — honest conversations on faith, family, resilience, and starting over. Listen to every episode and subscribe.',
 };
 
 export default function PodcastPage() {
@@ -30,8 +31,8 @@ export default function PodcastPage() {
         <div className="hero-script" style={{ fontSize: 'var(--text-script-m)' }}>unfiltered…</div>
         <h1>{name}</h1>
         <p className="lead" style={{ maxWidth: '60ch', marginInline: 'auto' }}>
-          Real talks about faith, family, and starting over.
-          New episodes land here automatically.
+          Honest conversations on faith, family, resilience, and starting over —
+          the same honest voice as the book. New episodes land here automatically.
         </p>
         <div className="subscribe-row">
           <a href={sub.spotify} className="btn btn-ghost btn-sm">Spotify</a>
@@ -85,7 +86,8 @@ export default function PodcastPage() {
         <div className="eyebrow">Come on the show</div>
         <h2>Have a story worth telling?</h2>
         <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
-          Have a story to tell? I’d love to hear it.
+          I’m always looking for honest voices — survivors, builders, believers.
+          If that’s you, I’d love to hear from you.
         </p>
         <div className="center" style={{ marginTop: '20px' }}>
           <a
@@ -96,6 +98,12 @@ export default function PodcastPage() {
           </a>
         </div>
       </section>
+
+      <KitForm
+        heading="Never miss an episode."
+        blurb="Get new episodes and the first chapter of the book — straight to your inbox."
+        cta="Join the newsletter"
+      />
 
       <SiteFooter />
     </>

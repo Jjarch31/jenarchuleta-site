@@ -1,6 +1,31 @@
+import { existsSync } from 'fs';
+import path from 'path';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
 import { urlFor } from '../sanity/image';
+
+// Private letter photo. Drop the file at public/assets/velvet-letter.jpg.
+// Until that file is here, this renders nothing. No placeholder.
+const LETTER_PHOTO = '/assets/velvet-letter.jpg';
+
+function VelvetLetterPhoto() {
+  const file = path.join(process.cwd(), 'public', LETTER_PHOTO.slice(1));
+  if (!existsSync(file)) return null;
+  return (
+    <figure className="letter-photo">
+      <img src={LETTER_PHOTO} alt="Jen Walcott Archuleta" />
+    </figure>
+  );
+}
+
+function letterImageUrl(image) {
+  if (!image?.asset) return '';
+  try {
+    return urlFor(image).width(1400).fit('max').auto('format').url() || '';
+  } catch {
+    return '';
+  }
+}
 
 function formatLetterDate(iso) {
   if (!iso) return '';
@@ -78,6 +103,7 @@ export default function VelvetInside({ letters = [] }) {
         </nav>
 
         <section className="wrap text-wrap letter">
+          <VelvetLetterPhoto />
           <div className="eyebrow">You made it</div>
           <h1>You’re in.</h1>
           <p>
@@ -108,14 +134,14 @@ export default function VelvetInside({ letters = [] }) {
                   <article className="vletter" key={letter._id}>
                     <div className="vletter-date">{formatLetterDate(letter.publishedAt)}</div>
                     <h3 className="vletter-title">{softenDashes(letter.title)}</h3>
-                    {letter.image && (
+                    {letterImageUrl(letter.image) ? (
                       <img
                         className="vletter-img"
-                        src={urlFor(letter.image).width(1200).url()}
-                        alt={letter.image.alt || ''}
+                        src={letterImageUrl(letter.image)}
+                        alt={letter.image?.alt || ''}
                         loading="lazy"
                       />
-                    )}
+                    ) : null}
                     {letter.body && (
                       <div className="vletter-body">
                         <PortableText value={softenBody(letter.body)} components={letterComponents} />

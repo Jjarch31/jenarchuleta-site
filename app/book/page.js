@@ -1,6 +1,5 @@
 import './book.css';
-import ChapterContact from '../components/ChapterContact';
-import { BOOK_BUY_URL, BOOK_STORES, PODCAST, SHOP } from '../components/site-data';
+import { BOOK_BUY_URL, BOOK_STORES, KIT_FREE_CHAPTER_URL, PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -39,6 +38,7 @@ export default function BookPage() {
             <a href="/">Home</a>
             <a href="/podcast">Podcast</a>
             <a href="/quotes">Quotes</a>
+            <a href="/#letter" className="btn btn-primary btn-sm">Free Chapter</a>
           </div>
         </div>
       </nav>
@@ -48,10 +48,10 @@ export default function BookPage() {
         <div className="wrap hero">
           <div><img className="hero-cover" src="/assets/book-cover.jpg" alt="Beyond the Velvet Ropes book cover" width="1000" height="1500" /></div>
           <div>
-            <div className="eyebrow">My memoir is out now.</div>
+            <div className="eyebrow">The Memoir — Out Now</div>
             <h1>Beyond the Velvet Ropes</h1>
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
-            <p style={{ color: 'var(--text)' }}>Here’s what really happened. From the outside, it looked like a dream. It wasn’t the whole story. But the real story lives in the moments no one saw. This is my real story.</p>
+            <p style={{ color: 'var(--text)' }}>This isn’t the story you think it is. From the outside it looked like everything most people dream of — fame, beauty, a life behind the velvet ropes. But the real story lives in the moments no one saw. Raw. Honest. Real.</p>
             <div className="buy-row">
               <a href={BOOK_BUY_URL} target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
               {SHOP.signedBook ? (
@@ -61,6 +61,7 @@ export default function BookPage() {
                 <a key={store.href} href={store.href} target="_blank" rel="noopener" className="btn btn-ghost">{store.label}</a>
               ))}
             </div>
+            <p><a href={KIT_FREE_CHAPTER_URL} style={{ color: 'var(--accent)' }}>Or read the first chapter free →</a></p>
           </div>
         </div>
       </section>
@@ -68,7 +69,7 @@ export default function BookPage() {
       {/* THE HOOK */}
       <section className="wrap text-wrap center">
         <div className="threshold-rule" style={{ maxWidth: '220px', margin: '0 auto 24px' }}><span className="diamond" /></div>
-        <p className="lead" style={{ fontSize: 'var(--text-body-l)' }}><em>Beyond the Velvet Ropes</em> is about getting through it, and finding my way back to myself.</p>
+        <p className="lead" style={{ fontSize: 'var(--text-body-l)' }}>Before the spotlight, there was pain. Behind the image, there was fear. And beneath it all, there was a girl trying to hold on to who she was while everything around her tried to define her. <em>Beyond the Velvet Ropes</em> is the story of survival, resilience, and the quiet strength it takes to become who you were always meant to be.</p>
       </section>
 
       {/* WHO IT'S FOR */}
@@ -79,21 +80,20 @@ export default function BookPage() {
           <ul style={{ textAlign: 'left' }}>
             <li>The woman who’s holding it all together with both hands and no one knows.</li>
             <li>Anyone who’s survived something and is learning that survival isn’t the same as healing.</li>
-            <li>Anyone rebuilding, after loss, reinvention, a crisis of faith, or starting over.</li>
+            <li>Anyone rebuilding — after loss, reinvention, a crisis of faith, or starting over.</li>
             <li>Anyone who’s ever felt judged, underestimated, or counted out.</li>
           </ul>
         </div>
       </section>
 
-      {/* FILM NOTE */}
-      <section className="who center">
+      <section className="capture">
         <div className="wrap text-wrap">
-          <h2>A film adaptation is in development.</h2>
-          <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>The story is being adapted for the screen. More to come.</p>
+          <div className="eyebrow">Start reading</div>
+          <h2>Read the first chapter — free.</h2>
+          <p className="lead">I’ll send the opening pages straight to your inbox. If it sounds like something you’ve lived too, you’re exactly who I wrote it for.</p>
+          <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary">Send me the first chapter</a>
         </div>
       </section>
-
-      <ChapterContact />
 
       <footer>
         <div className="wrap">
@@ -103,7 +103,7 @@ export default function BookPage() {
             <a href="/media">Media</a>
             <a href="/contact">Contact</a>
           </div>
-          <p className="foot-meta">© 2026 Jen Archuleta, Jennifer Walcott Archuleta. <a href="/">Home</a></p>
+          <p className="foot-meta">© 2026 Jen Archuleta — Jennifer Walcott Archuleta. <a href="/">Home</a></p>
           <p className="foot-meta">
             <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> ·{' '}
             <a href="/shipping-returns">Shipping &amp; Returns</a>

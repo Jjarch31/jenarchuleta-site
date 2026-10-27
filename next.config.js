@@ -28,8 +28,7 @@ const pageRedirects = [
   { source: '/signup', destination: '/#letter', permanent: false },
   { source: '/sign-up', destination: '/#letter', permanent: false },
   { source: '/mailing-list', destination: '/#letter', permanent: false },
-  { source: '/the-forever-angels', destination: '/#movement', permanent: true },
-  { source: '/forever-angels', destination: '/#movement', permanent: true },
+  { source: '/the-forever-angels', destination: '/forever-angels', permanent: true },
   { source: '/newsletter', destination: '/#letter', permanent: true },
   // /contact and /media are real pages. /press stays a permanent alias.
   { source: '/press', destination: '/media', permanent: true },

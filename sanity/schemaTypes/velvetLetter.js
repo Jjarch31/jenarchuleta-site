@@ -5,7 +5,7 @@ import { defineType, defineField } from 'sanity';
  * password-gated /velvet page. Kept as a separate type from the public
  * "Journal Post" so these never leak to /journal, search, or the sitemap.
  * Jen creates these in /studio like a journal post: title, date, photo,
- * message — then Publish. They appear on /velvet within ~60s (ISR).
+ * message — then Publish. The next load of /velvet shows the new letter.
  */
 export default defineType({
   name: 'velvetLetter',

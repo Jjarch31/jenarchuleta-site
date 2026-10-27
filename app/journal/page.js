@@ -72,7 +72,7 @@ export default async function JournalPage({ searchParams }) {
 
       <section className="wrap journal-head">
         <div className="eyebrow">The Journal</div>
-        <h1>From the journal.</h1>
+        <h1>Notes from the road back to myself.</h1>
         <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>
           Short, honest writing on faith, family, healing, and starting over.
         </p>

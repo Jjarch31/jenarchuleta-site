@@ -1,6 +1,8 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { BOOKING_EMAIL, PODCAST, SOCIALS } from '../components/site-data';
+import ChapterContact from '../components/ChapterContact';
+import KitInlineForm from '../components/KitInlineForm';
+import { BOOKING_EMAIL, KIT_FORM_UID, PODCAST, SOCIALS } from '../components/site-data';
 import './contact.css';
 
 export const metadata = {
@@ -62,6 +64,16 @@ export default function ContactPage() {
           ))}
         </ul>
       </section>
+
+      <section id="subscribe" className="capture">
+        <div className="wrap text-wrap">
+          <h2>Subscribe</h2>
+          <p className="lead">An email from me, now and then.</p>
+          <KitInlineForm uid={KIT_FORM_UID} submitLabel="Subscribe" />
+        </div>
+      </section>
+
+      <ChapterContact />
 
       <SiteFooter />
     </div>

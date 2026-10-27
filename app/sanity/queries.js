@@ -68,7 +68,7 @@ function withFixes(post) {
 
 const FRESH = { cache: 'no-store' };
 
-// Slug list and Velvet letters can lag a minute. They are not the post body.
+// Slug list can lag a minute. It is not the post body.
 const REVALIDATE = { next: { revalidate: 60 } };
 
 export async function getAllPosts() {
@@ -85,11 +85,14 @@ export async function getAllSlugs() {
 }
 
 // ---- Velvet Letters (reader-exclusive updates on /velvet) ----
-const ALL_VELVET_LETTERS = groq`*[_type == "velvetLetter"] | order(publishedAt desc){
+// Published only, newest first. Read on each request so a Studio publish
+// shows up on the next load. The public client is used unless
+// SANITY_API_READ_TOKEN is set (see sanity/client.js).
+const ALL_VELVET_LETTERS = groq`*[_type == "velvetLetter" && !(_id in path("drafts.**"))] | order(publishedAt desc){
   _id, title, publishedAt, image, body
 }`;
 
 export async function getVelvetLetters() {
-  const letters = await client.fetch(ALL_VELVET_LETTERS, {}, REVALIDATE);
-  return Array.isArray(letters) ? letters.map(fixTree) : letters;
+  const letters = await client.fetch(ALL_VELVET_LETTERS, {}, FRESH);
+  return Array.isArray(letters) ? letters.map(fixTree) : [];
 }

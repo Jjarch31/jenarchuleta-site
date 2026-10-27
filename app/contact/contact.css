@@ -65,3 +65,8 @@
 .contact-follow a:hover {
   color: var(--accent-ink);
 }
+
+.contact-page #subscribe .lead {
+  max-width: 36ch;
+  margin-inline: auto;
+}
