@@ -6,7 +6,7 @@ const PERKS = [
   'A private monthly letter from Jen',
   'A private passcode journal',
   'Up to 3 questions a month answered in writing',
-  'Live Zooms once the circle reaches 13 members',
+  'Live monthly Zooms begin once the circle reaches 13 members',
 ];
 
 export default function VelvetCirclePanel() {

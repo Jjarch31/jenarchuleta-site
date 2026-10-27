@@ -153,7 +153,7 @@ export default function ShopPage() {
                 <li>Private monthly letter</li>
                 <li>The private passcode journal</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
-                <li>Live monthly Zoom</li>
+                <li>Live monthly Zooms begin once the circle reaches 13 members</li>
                 <li>
                   <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
                 </li>

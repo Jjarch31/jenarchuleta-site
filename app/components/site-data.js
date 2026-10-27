@@ -14,7 +14,7 @@ export const SOCIALS = {
   x: 'https://x.com/Jenniferwalcott',
   facebook: 'https://facebook.com/therealjenniferwalcott',
   linkedin: 'https://www.linkedin.com/in/jennifer-archuleta-633805115',
-  foreverAngels: 'https://www.theforeverangels.com',
+  foreverAngels: 'https://theforeverangels.com/',
 };
 
 // Site-wide social share image (open graph and Twitter). Wide floral frame.
@@ -51,7 +51,7 @@ export const STRIPE_CUSTOMER_PORTAL_URL = 'https://billing.stripe.com/p/login/14
 // require touching page code.
 export const SHOP = {
   etsyTee: 'https://www.etsy.com/listing/4320791333/be-the-bumblebee-fly-away-t-shirt',
-  foreverAngels: 'https://theforeverangels.com',
+  foreverAngels: 'https://theforeverangels.com/',
 
   signedBook: 'https://buy.stripe.com/3cI5kC0vVf9n1UDewads405',
   signedBookPrice: '$35',

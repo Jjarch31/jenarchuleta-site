@@ -200,7 +200,7 @@ export default function VelvetInside({ letters = [] }) {
 
         <section className="wrap text-wrap center">
           <p>
-            The Velvet Circle is $9.99 a month.{' '}
+            The Velvet Circle is $9.99 a month. Live monthly Zooms begin once the Velvet Circle reaches 13 members.{' '}
             <a href="/shop#velvet-circle">See the membership</a>.
           </p>
         </section>

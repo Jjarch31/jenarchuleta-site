@@ -9,9 +9,8 @@ export const metadata = {
     'Sponsors and partners of Unfiltered with Jen Archuleta.',
 };
 
-// Jen's official list, this order. A link is included only after the
-// destination loaded a real page (a store, a company site, a practice).
-// Instagram, Etsy, and anything that 404s, parks, or will not load stays off.
+// Jen's list, this order. A link is included only when the page loads.
+// Etsy answers a script with 403; the shop URL is the one she confirmed.
 const SPONSORS = [
   {
     name: 'Sunsets & Bonfires',
@@ -20,10 +19,10 @@ const SPONSORS = [
     ],
   },
   {
-    name: 'PhotosofJenniferWalcott (An Autographs Company)',
-  },
-  {
     name: 'KJ Classic Creations',
+    links: [
+      { label: 'etsy.com/shop/kjclassiccreations', href: 'https://www.etsy.com/shop/kjclassiccreations' },
+    ],
   },
   {
     name: 'Ring My Belle',

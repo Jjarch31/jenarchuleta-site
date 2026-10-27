@@ -2,7 +2,6 @@ import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
 import PhotoGallery from './components/PhotoGallery';
-import PhotoNeeded from './components/PhotoNeeded';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
 import { KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
@@ -68,7 +67,7 @@ export default function Home() {
         <div className="p">
           <div className="eyebrow">Heart</div>
           <h3>The Advocate</h3>
-          <p>Beyond the Ropes and The Forever Angels. I help the people and animals who get passed over.</p>
+          <p>Beyond the Ropes and <a href={SOCIALS.foreverAngels}>The Forever Angels</a>. I help the people and animals who get passed over.</p>
           <p><a href="#movement" className="btn btn-ghost btn-sm">The movement</a></p>
         </div>
       </section>
@@ -198,7 +197,6 @@ export default function Home() {
           <p className="lead">Read how it started. I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
           <KitInlineForm uid={KIT_FORM_UID} />
           <div className="signup-banner">
-            <PhotoNeeded>Childhood photo with a starry background.</PhotoNeeded>
             <img src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta, black and white portrait" width="1320" height="1946" />
           </div>
         </div>

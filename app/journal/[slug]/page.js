@@ -7,6 +7,7 @@ import { OG_IMAGE } from '../../components/site-data';
 import { urlFor } from '../../sanity/image';
 import { getPostBySlug, getAllSlugs } from '../../sanity/queries';
 import { POSTS as FALLBACK_POSTS, getPost as getFallbackPost } from '../_posts';
+import { isRetiredHref, prepareJournalBody } from '../repair-body.mjs';
 
 // Render each post from the published Sanity document on the request.
 // These routes were static ISR. The first view after a publish still received
@@ -73,68 +74,6 @@ function heroUrl(img) {
 // click them. This turns bare http(s) URLs into real links at render time.
 // Nothing in Sanity changes; text that's already a link is left alone.
 // ---------------------------------------------------------------------------
-const BARE_URL = /https?:\/\/[A-Za-z0-9\-._~:/?#[\]@!$&'*+,;=%]+/g;
-
-// These product sheets now 404. Leave the words of the recipe, drop the dead address.
-const RETIRED_URLS = new Set([
-  'http://www.phpure.com/nutrition_products/pdfs/Nutritional_Flakes.pdf',
-  'https://www.phpure.com/nutrition_products/pdfs/Nutritional_Flakes.pdf',
-  'http://www.udoerasmus.com/products/pdf_files/Probiotics.pdf',
-  'https://www.udoerasmus.com/products/pdf_files/Probiotics.pdf',
-]);
-
-function cleanUrl(raw) {
-  let url = raw.replace(/[.,;:!?'*\]]+$/, ''); // trailing punctuation
-  // Migration glitch: a word glued onto a bare domain ("...buzzsprout.comFollow").
-  url = url.replace(/^(https?:\/\/[^/?#]*\.[a-z]{2,})[A-Z][A-Za-z]*$/, '$1');
-  // ...or onto the end of a link ("youtu.be/<11-char id>LISTEN", "?i=123LISTEN").
-  url = url.replace(/^(https?:\/\/youtu\.be\/[A-Za-z0-9_-]{11})[A-Z][A-Za-z]+$/, '$1');
-  url = url.replace(/(=\d+)[A-Z][A-Za-z]+$/, '$1');
-  return url;
-}
-
-function linkifyBody(blocks) {
-  if (!Array.isArray(blocks)) return blocks;
-  return blocks.map((block) => {
-    if (!block || block._type !== 'block' || !Array.isArray(block.children)) return block;
-    const markDefs = Array.isArray(block.markDefs) ? [...block.markDefs] : [];
-    const linkKeys = new Set(markDefs.filter((d) => d && d._type === 'link').map((d) => d._key));
-    let changed = false;
-    const children = [];
-    block.children.forEach((span, si) => {
-      const marks = Array.isArray(span?.marks) ? span.marks : [];
-      if (!span || span._type !== 'span' || typeof span.text !== 'string' || marks.some((m) => linkKeys.has(m))) {
-        children.push(span);
-        return;
-      }
-      const text = span.text;
-      const base = span._key || `s${si}`;
-      let last = 0;
-      let n = 0;
-      for (const m of text.matchAll(BARE_URL)) {
-        const url = cleanUrl(m[0]);
-        if (!/^https?:\/\/[^/?#]+\.[^/?#]+/.test(url)) continue; // not a real address
-        const start = m.index;
-        if (start > last) children.push({ ...span, _key: `${base}-t${n}`, text: text.slice(last, start) });
-        if (!RETIRED_URLS.has(url)) {
-          const key = `autolink-${si}-${n}`;
-          markDefs.push({ _type: 'link', _key: key, href: url });
-          children.push({ ...span, _key: `${base}-u${n}`, text: url, marks: [...marks, key] });
-        }
-        last = start + url.length;
-        n += 1;
-      }
-      if (n === 0) {
-        children.push(span);
-        return;
-      }
-      if (last < text.length) children.push({ ...span, _key: `${base}-t${n}`, text: text.slice(last) });
-      changed = true;
-    });
-    return changed ? { ...block, markDefs, children } : block;
-  });
-}
-
 const isExternal = (href) =>
   /^https?:\/\//i.test(href) && !/^https?:\/\/(www\.)?jenarchuleta\.com(\/|$)/i.test(href);
 
@@ -147,7 +86,7 @@ const ptComponents = {
   },
   marks: {
     link: ({ value, children }) =>
-      RETIRED_URLS.has(value?.href || '') ? null : isExternal(value?.href || '') ? (
+      !value?.href || isRetiredHref(value.href) ? null : isExternal(value?.href || '') ? (
         <a href={value.href} target="_blank" rel="noopener noreferrer">{children}</a>
       ) : (
         <a href={value?.href}>{children}</a>
@@ -180,7 +119,7 @@ export default async function JournalPost({ params }) {
         <div className="article-body">
           {bodyIsStrings
             ? post.body.map((para, i) => <p key={i}>{para}</p>)
-            : post.body && <PortableText value={linkifyBody(post.body)} components={ptComponents} />}
+            : post.body && <PortableText value={prepareJournalBody(post.body, post.slug)} components={ptComponents} />}
         </div>
 
         {/* Sponsor block — renders only when a sponsor is set */}

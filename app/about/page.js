@@ -104,8 +104,7 @@ export default function AboutPage() {
               The people who are mine.
             </h2>
             <p className="tim-lead" style={{ margin: 0 }}>
-              My husband, my kids, my family, a few friends, the handful of people I’d do anything for, and a houseful of animals
-              I love like family. I love hard and I show up. That hasn’t changed.
+              My husband, my kids, family, and friends. I love hard and I show up. That part of me has never changed.
             </p>
           </div>
         </div>
