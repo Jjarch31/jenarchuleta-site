@@ -84,20 +84,6 @@ export default function BookPage() {
         </div>
       </section>
 
-      <section className="who center">
-        <div className="wrap text-wrap">
-          <div className="eyebrow">The story is not over yet</div>
-          <h2>The Velvet Letter</h2>
-          <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
-            In the back of the book there is a QR code, and the passcode printed under it. That passcode opens The Velvet Letter. I add something special here every once in a while, so check back.
-          </p>
-          <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>
-            Velvet Circle membership includes the passcode to The Velvet Letter.
-          </p>
-          <p><a href="/velvet" className="btn btn-ghost">The Velvet Letter</a></p>
-        </div>
-      </section>
-
       <footer>
         <div className="wrap">
           <div className="foot-links">

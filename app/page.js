@@ -2,6 +2,7 @@ import './journal/journal.css';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
+import PhotoNeeded from './components/PhotoNeeded';
 import PhotoGallery from './components/PhotoGallery';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
 import { BOOK_BUY_URL, BOOK_STORES, KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
@@ -256,17 +257,10 @@ export default async function Home() {
           <h2>Get the First Chapter Free</h2>
           <p className="lead">Read how it started. I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
           <KitInlineForm uid={KIT_FORM_UID} />
-        </div>
-        <div className="signup-banner">
-          <picture>
-            <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg?v=5" />
-            <img
-              src="/assets/first-chapter-banner.jpg?v=5"
-              alt="Jen as a girl, and her black-and-white glamour portrait, with gold stars"
-              width="2048"
-              height="633"
-            />
-          </picture>
+          <div className="signup-banner">
+            <PhotoNeeded>Childhood photo with a starry background.</PhotoNeeded>
+            <img src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta, black and white portrait" width="1320" height="1946" />
+          </div>
         </div>
       </section>
 

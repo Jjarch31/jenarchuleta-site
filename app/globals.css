@@ -169,16 +169,54 @@ section { padding-block: var(--section-y); }
 /* capture */
 .capture { background: var(--surface-alt); text-align:center; border-block: var(--hairline); }
 .capture h2 { font-size: var(--text-display-l); }
+.photo-needed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 220px;
+  padding: 28px 22px;
+  text-align: center;
+  background: #F4EEE3;
+  color: #221C18;
+  border: 1.5px dashed #BE9543;
+}
+.photo-needed-k {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #946F2B;
+}
+.photo-needed p { margin: 0; max-width: 36ch; }
 .signup-banner {
-  max-width: 1100px;
-  margin: 40px auto 0;
-  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 36px;
+  align-items: stretch;
+  text-align: left;
 }
 .signup-banner img {
   width: 100%;
-  height: auto;
-  aspect-ratio: auto;
+  height: 100%;
+  max-height: 460px;
+  object-fit: contain;
+  object-position: center top;
+  background: #1a1614;
   display: block;
+}
+.shop-page .product-media .photo-needed {
+  position: absolute;
+  inset: 12px;
+  min-height: 0;
+}
+.vc-announce-frame .photo-needed { min-height: 280px; }
+@media (max-width: 700px) {
+  .signup-banner { grid-template-columns: 1fr; }
+  .signup-banner img { max-height: none; height: auto; }
 }
 
 /* footer */
