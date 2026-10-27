@@ -145,7 +145,7 @@ export default async function Home() {
             <p>I grew up in a small Ohio town being told what I couldn’t do, and I spent the years after that proving otherwise, in rooms most people never get to see. I’m grateful for every bit of it.</p>
             <p>I also walked through some genuinely hard things to get here. I stopped hiding them, and I learned that the hard chapters can become something you give back. What I’m proudest of now isn’t any of the rooms I used to stand in. It’s the plain, happy life right in front of me.</p>
           </div>
-          <div className="ph"><img src="/assets/jen-headshot-signature.jpg" alt="Jen Walcott Archuleta" width="1162" height="1597" loading="lazy" /></div>
+          <div className="ph"><img src="/assets/jen-bw-coat2.jpg" alt="Jen Archuleta portrait" width="800" height="1195" loading="lazy" /></div>
         </div>
       </section>
 
@@ -250,10 +250,10 @@ export default async function Home() {
         </div>
         <div className="signup-banner">
           <picture>
-            <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg" />
+            <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg?v=3" />
             <img
-              src="/assets/first-chapter-banner.jpg"
-              alt="Jen as a girl, beside her black-and-white glamour portrait, with gold stars"
+              src="/assets/first-chapter-banner.jpg?v=3"
+              alt="Jen as a girl, and her black-and-white glamour portrait, with gold stars"
               width="2048"
               height="633"
             />
