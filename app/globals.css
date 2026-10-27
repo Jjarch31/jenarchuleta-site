@@ -255,6 +255,7 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
   border: 1px solid var(--gold);
   background: var(--linen);
   touch-action: pan-y;
+  overflow: visible;
 }
 /* One photo in flow sets the frame. The rest fade over it.
    Natural ratio, nothing cropped. A shared 3/4 cover frame was cutting
@@ -298,6 +299,20 @@ footer { background: var(--bg); border-top: var(--hairline); padding-block: 56px
   max-width: 100%;
   max-height: none;
   object-fit: contain;
+}
+/* Tall portraits stay fully in the frame. Align to the top so a head
+   is not the part that would be cut if the frame is short. */
+.gallery-frame:has(.gallery-slide.is-portrait.is-active),
+.gallery-viewport:has(.gallery-slide.is-portrait.is-active),
+.gallery-slide.is-portrait {
+  overflow: visible;
+}
+.gallery-slide.is-portrait {
+  align-items: flex-start;
+}
+.gallery-slide.is-portrait img {
+  object-fit: contain;
+  object-position: center top;
 }
 .gallery-caption {
   margin: 12px 0 0;

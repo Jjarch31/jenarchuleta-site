@@ -155,37 +155,31 @@ const GALLERY_NEW = [
 // Added after the existing slides, in numeric order. 113 and 116 are
 // the same pictures as hw_01 and hw_06, so they are not repeated here.
 // 118 is the same photo as gallery-new/new_10.jpg, a pup photo on /pups.
+// Jen removed nine of these (old slides 65, 68, 72, 77, 79, 82, 88, 92, 94).
+// 65 and 68 are different photos, so both are gone. The files left the
+// repo because nothing else referenced them.
 const PICKS = [
-  { src: '/assets/gallery-picks/112.jpg', alt: 'Jen Walcott Archuleta in a white dress', width: 840, height: 1600 },
   { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
   { src: '/assets/gallery-picks/124.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 1293 },
-  { src: '/assets/gallery-picks/127.jpg', alt: 'Jen Walcott Archuleta', width: 1320, height: 1283 },
   { src: '/assets/gallery-picks/129.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/131.jpg', alt: 'Jen Walcott Archuleta', width: 234, height: 292 },
   { src: '/assets/gallery-picks/132.jpg', alt: 'Jen Walcott Archuleta with friends on stage', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/136.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/137.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/141.jpg', alt: 'Jen Walcott Archuleta', width: 1066, height: 1332 },
   { src: '/assets/gallery-picks/142.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/146.jpg', alt: 'Jen Walcott Archuleta', width: 664, height: 830 },
-  { src: '/assets/gallery-picks/148.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/151.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/153.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/154.jpg', alt: 'Jen Walcott Archuleta', width: 640, height: 800 },
   { src: '/assets/gallery-picks/155.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/156.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/157.jpg', alt: 'Jen Walcott Archuleta', width: 808, height: 1010 },
   { src: '/assets/gallery-picks/158.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/159.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/160.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/164.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/166.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 1200 },
   { src: '/assets/gallery-picks/168.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/169.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/171.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
-  { src: '/assets/gallery-picks/172.jpg', alt: 'Jen Walcott Archuleta', width: 1179, height: 1037 },
   { src: '/assets/gallery-picks/175.jpg', alt: 'Jen Walcott Archuleta', width: 960, height: 884 },
-  { src: '/assets/gallery-picks/178.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 926 },
 ];
 
 // October 26 batch, after the picks, in Jen's order. Two files from
@@ -358,10 +352,11 @@ export default function PhotoGallery() {
             <div className="gallery-viewport">
               {nearby.map(({ offset, slide: item }) => {
                 const full = UNCROPPED.has(item.src);
+                const portrait = item.height > item.width;
                 return (
                   <div
                     key={item.src}
-                    className={`gallery-slide${offset === 0 ? ' is-active' : ''}${full ? ' is-full' : ''}`}
+                    className={`gallery-slide${offset === 0 ? ' is-active' : ''}${full ? ' is-full' : ''}${portrait ? ' is-portrait' : ''}`}
                     aria-hidden={offset === 0 ? undefined : true}
                   >
                     {full ? (
