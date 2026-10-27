@@ -24,6 +24,7 @@ export default function VelvetLocked() {
           <a className="btn btn-primary" href={BOOK_BUY_URL} target="_blank" rel="noopener noreferrer">Buy the book</a>
           <VelvetGate />
         </div>
+        <p className="vp-close">The story doesn’t stop here.</p>
       </section>
       <VelvetCirclePanel />
       <SiteFooter />
