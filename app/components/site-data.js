@@ -14,7 +14,8 @@ export const SOCIALS = {
   x: 'https://x.com/Jenniferwalcott',
   facebook: 'https://facebook.com/therealjenniferwalcott',
   linkedin: 'https://www.linkedin.com/in/jennifer-archuleta-633805115',
-  foreverAngels: 'https://www.theforeverangels.com',
+  tiktok: 'https://www.tiktok.com/@jenarchuleta578',
+  foreverAngels: 'https://theforeverangels.com/',
 };
 
 // Site-wide social share image (open graph and Twitter). Wide floral frame.
@@ -49,9 +50,26 @@ export const STRIPE_CUSTOMER_PORTAL_URL = 'https://billing.stripe.com/p/login/14
 //
 // Prices and the fulfillment promise live here too, so copy changes never
 // require touching page code.
+// Paperback purchase page. books.by sends readers to the live BookSpace listing.
+export const BOOK_BUY_URL = 'https://books.by/beyond-the-velvet-ropes';
+
+// Product pages only. Search pages and stores without a confirmed listing stay off.
+// Confirmed product pages only. Google Play, Audible, Bookshop, and an Apple
+// Books ebook do not have a confirmed page, so they stay off this list.
+export const BOOK_STORES = [
+  { label: 'Also on Amazon', href: 'https://www.amazon.com/dp/B0H6YZWDT3' },
+  { label: 'Kindle (Amazon)', href: 'https://www.amazon.com/dp/B0H6YK1KTL' },
+  { label: 'Barnes & Noble', href: 'https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885' },
+  { label: 'Audiobook (Spotify)', href: 'https://open.spotify.com/show/153EBrZVIkJY1xaY703km4' },
+  { label: 'Audiobook (Apple)', href: 'https://books.apple.com/us/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance/id6789345549?uo=4' },
+  { label: 'Audiobook (Kobo)', href: 'https://www.kobo.com/us/en/audiobook/beyond-the-velvet-ropes' },
+  { label: 'Audiobook (Audiobooks.com)', href: 'https://www.audiobooks.com/audiobook/beyond-the-velvet-ropes-my-story-of-perseverance-hope-and-love/1088666' },
+  { label: 'Audiobook (Chirp)', href: 'https://www.chirpbooks.com/audiobooks/beyond-the-velvet-ropes-by-jennifer-walcott-archuleta' },
+];
+
 export const SHOP = {
   etsyTee: 'https://www.etsy.com/listing/4320791333/be-the-bumblebee-fly-away-t-shirt',
-  foreverAngels: 'https://theforeverangels.com',
+  foreverAngels: 'https://theforeverangels.com/',
 
   signedBook: 'https://buy.stripe.com/3cI5kC0vVf9n1UDewads405',
   signedBookPrice: '$35',
@@ -74,6 +92,13 @@ export const SHOP = {
   // Do not take the membership live through any checkout that lacks that portal.
   velvetCircleMembership: 'https://buy.stripe.com/6oU3cuemL2mB1UD73Ids406',
   velvetCircleMembershipPrice: '$9.99/month',
+
+  // THE BACKSTAGE BOX. No $69 Stripe Payment Link exists in this repo or its
+  // history. The old checkout was a Kit product URL, which cannot collect a
+  // shipping address, so it stays empty. Empty renders a Coming soon button
+  // that does not go to checkout.
+  foundingBox: '',
+  foundingBoxPrice: '$69',
 };
 
 // Podcast (Buzzsprout). The numeric podcast ID powers the official

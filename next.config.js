@@ -8,11 +8,14 @@ const pageRedirects = [
   // The QR code printed in the back of the book encodes /velvetropes —
   // it must land on the password-gated reader page, NOT /book.
   { source: '/velvetropes', destination: '/velvet', permanent: true },
+  { source: '/velvet-letter', destination: '/velvet', permanent: true },
+  { source: '/velvet-letter/:path*', destination: '/velvet', permanent: true },
   // NOTE: /about is a real page (app/about) — do not redirect it.
   { source: '/about-me', destination: '/about', permanent: true },
   { source: '/about-1', destination: '/about', permanent: true },
   { source: '/bio', destination: '/about', permanent: true },
   { source: '/story', destination: '/#story', permanent: true },
+  { source: '/gallery', destination: '/#gallery', permanent: true },
   { source: '/my-story', destination: '/#story', permanent: true },
   { source: '/speaking', destination: '/media#speaking', permanent: true },
   // Old Squarespace store, product, and cart URLs → the shop.
@@ -26,8 +29,7 @@ const pageRedirects = [
   { source: '/signup', destination: '/#letter', permanent: false },
   { source: '/sign-up', destination: '/#letter', permanent: false },
   { source: '/mailing-list', destination: '/#letter', permanent: false },
-  { source: '/the-forever-angels', destination: '/#movement', permanent: true },
-  { source: '/forever-angels', destination: '/#movement', permanent: true },
+  { source: '/the-forever-angels', destination: '/forever-angels', permanent: true },
   { source: '/newsletter', destination: '/#letter', permanent: true },
   // /contact and /media are real pages. /press stays a permanent alias.
   { source: '/press', destination: '/media', permanent: true },

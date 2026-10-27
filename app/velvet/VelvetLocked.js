@@ -1,0 +1,35 @@
+import SiteNav from '../components/SiteNav';
+import SiteFooter from '../components/SiteFooter';
+import VelvetGate from './Gate';
+import './teaser.css';
+
+function KeyIcon() {
+  return (
+    <svg className="vp-key" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="8.2" cy="8.2" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M11.6 11.2 L20 19.2 M15.6 16.4 L18.4 19.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export default function VelvetLocked() {
+  return (
+    <div className="vp-teaser">
+      <SiteNav />
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <section id="main-content" className="wrap vp-intro">
+        <p className="eyebrow">A private journal</p>
+        <h1 className="vp-title"><KeyIcon /> The Velvet Letter</h1>
+        <p className="vp-close">The story doesn’t stop here.</p>
+        <p className="vp-lock-note">
+          Want access? Get the book. Your passcode is printed in the back pages, right under the QR code.
+        </p>
+        <div className="vp-actions">
+          <a className="btn btn-primary" href="/book">Get the book</a>
+          <VelvetGate />
+        </div>
+      </section>
+      <SiteFooter />
+    </div>
+  );
+}

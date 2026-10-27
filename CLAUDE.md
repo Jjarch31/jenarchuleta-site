@@ -202,7 +202,7 @@ that file is updated more frequently than this one):
 - **Velvet Circle Membership** — $9.99/month — Stripe Payment Link. Cancel link is
   `STRIPE_CUSTOMER_PORTAL_URL` (capital I in the Stripe login id). It is on the shop
   membership card, the Velvet gate, and Shipping & Returns.
-- **The Backstage Box** is not sold. It is not on the shop, the gate, or the legal pages.
+- **The Backstage Bundle** is on the shop as Coming soon at $69. There is no Stripe Payment Link for it. The pictured box is for display only and is not part of the bundle. It is not on the gate or the legal pages.
 - **Signature Velvet Bookmark** — $24.99, Stripe Payment Link.
 
 The Stripe→Kit→Google Sheets automation (tagging buyers in Kit, logging orders to a Google
@@ -312,9 +312,6 @@ the contact address on the site's legal pages (`/privacy`, `/terms`, `/shipping-
   working, don't trust a screenshot of the visual builder; check the scenario's actual saved
   state and active/inactive flag.
 
-- **No kids' faces anywhere on the site** (Jen's hard rule). `kids.jpg` on /about showed all
-  three kids' faces — swapped 2026-10-24 for `dogs-on-the-bed.jpg` (a dogs-only crop of the
-  same photo); the original is in `../_ARCHIVE/site-media-originals-2026-10-24/`.
 - **Compress media before adding it.** Phones were slow because of a 21.9 MB trailer and
   700 KB+ photos. Now: `trailer.mp4` = 720×1280 H.264 CRF 28 (~7 MB; the 196 MB master is
   `../03_Trailer_Reel/BTVR_Reel_FINAL_VO.mp4`), photos ≤1000–1400 px wide at JPEG q80.

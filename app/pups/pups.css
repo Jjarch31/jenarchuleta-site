@@ -74,7 +74,8 @@
   font-size: var(--text-body-s);
 }
 .pup-rescue,
-.pup-guest {
+.pup-guest,
+.pup-note {
   margin: 0;
   color: var(--text-secondary);
   font-size: var(--text-body-s);

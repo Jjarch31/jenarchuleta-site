@@ -20,6 +20,10 @@
   font-weight: 500;
   margin: 0 0 6px;
 }
+.sponsors-page .sponsor-person {
+  margin: 0 0 8px;
+  color: var(--text);
+}
 .sponsors-page .sponsor-note {
   margin: 0 0 8px;
   color: var(--text-secondary);

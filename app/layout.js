@@ -35,18 +35,18 @@ const hankenGrotesk = Hanken_Grotesk({
 export const metadata = {
   metadataBase: new URL('https://jenarchuleta.com'),
   title: {
-    default: 'Jen Archuleta, Author of Beyond the Velvet Ropes',
-    template: '%s, Jen Archuleta',
+    default: 'Jen Archuleta — Author of Beyond the Velvet Ropes',
+    template: '%s — Jen Archuleta',
   },
   description:
-    'Jen Archuleta (Jennifer Walcott Archuleta), author, speaker, and advocate. Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love. Read the first chapter free.',
+    'Jen Archuleta (Jennifer Walcott Archuleta) — author, speaker, and advocate. Beyond the Velvet Ropes: My Story of Perseverance, Hope, and Love. Read the first chapter free.',
   icons: {
     icon: '/assets/favicon.svg',
     apple: '/assets/app-icon-512.png',
   },
   openGraph: {
-    title: 'Jen Archuleta, Beyond the Velvet Ropes',
-    description: "Here’s what really happened. Read the first chapter free.",
+    title: 'Jen Archuleta — Beyond the Velvet Ropes',
+    description: "This isn't the story you think it is. Read the first chapter free.",
     type: 'website',
     images: [OG_IMAGE],
   },
@@ -67,7 +67,7 @@ const personJsonLd = {
   url: 'https://jenarchuleta.com',
   image: 'https://jenarchuleta.com/assets/presskit-headshot-floral.jpg',
   jobTitle: 'Author',
-  sameAs: [SOCIALS.instagram, SOCIALS.x, PODCAST.subscribe.spotify, PODCAST.subscribe.apple, PODCAST.subscribe.youtube],
+  sameAs: [SOCIALS.instagram, SOCIALS.x, SOCIALS.tiktok, PODCAST.subscribe.spotify, PODCAST.subscribe.apple, PODCAST.subscribe.youtube],
 };
 
 export default function RootLayout({ children }) {

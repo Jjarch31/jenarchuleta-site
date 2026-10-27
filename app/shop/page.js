@@ -6,7 +6,7 @@ import './shop.css';
 export const metadata = {
   title: 'Shop',
   description:
-    'Signed copies of Beyond the Velvet Ropes, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+    'Signed copies of Beyond the Velvet Ropes, The Backstage Bundle, the handmade Signature Velvet Bookmark, and the Be the Bumblebee tee.',
   openGraph: { images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
@@ -44,8 +44,8 @@ export default function ShopPage() {
           <div className="eyebrow">The Shop</div>
           <h2>A few things worth sharing.</h2>
           <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>
-            A signed copy of the book, a keepsake I make by hand, a tee with a message
-            I love, and a rescue close to my heart. Story, a good reminder, and giving back.
+            A signed copy of the book, The Backstage Bundle, a keepsake I make by hand,
+            and a tee with a message I love.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function ShopPage() {
           {/* SIGNED BOOK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
-              {SHOP.signedBookSoldOut && <span className="badge">Sold out, restocking soon</span>}
+              {SHOP.signedBookSoldOut && <span className="badge">Sold out — restocking soon</span>}
               <img
                 src="/assets/book-cover.jpg"
                 alt="Beyond the Velvet Ropes book cover"
@@ -61,10 +61,10 @@ export default function ShopPage() {
             </div>
             <div className="product-body">
               <div className="eyebrow">The Book · Signed &amp; Personalized</div>
-              <h3>Signed copy, <em>Beyond the Velvet Ropes</em></h3>
+              <h3>Signed copy — <em>Beyond the Velvet Ropes</em></h3>
               <p className="price">{SHOP.signedBookPrice}</p>
               <p className="product-desc">
-                Signed by me, with a note to whoever you’d like, you, or someone
+                Signed by me, with a note to whoever you’d like — you, or someone
                 who needs to hear that their story isn’t over.
               </p>
               <p className="fulfill">
@@ -72,12 +72,7 @@ export default function ShopPage() {
               </p>
               <div className="product-cta">
                 {SHOP.signedBookSoldOut ? (
-                  <>
-                    <span className="btn btn-disabled">Sold out, restocking soon</span>
-                    <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
-                      Read the first chapter free
-                    </a>
-                  </>
+                  <span className="btn btn-disabled">Sold out — restocking soon</span>
                 ) : SHOP.signedBook ? (
                   <>
                     <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">
@@ -86,12 +81,7 @@ export default function ShopPage() {
                     <TrustLine />
                   </>
                 ) : (
-                  <>
-                    <span className="btn btn-disabled">Coming soon</span>
-                    <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost btn-sm">
-                      Read the first chapter free
-                    </a>
-                  </>
+                  <span className="btn btn-disabled">Coming soon</span>
                 )}
               </div>
             </div>
@@ -132,7 +122,7 @@ export default function ShopPage() {
                     <a href={SHOP.bookmarkWaitlist} target="_blank" rel="noopener" className="btn btn-primary">
                       Join the first-drop list
                     </a>
-                    <p className="fulfill">Small handmade batches. The list hears first.</p>
+                    <p className="fulfill">Small handmade batches — the list hears first.</p>
                   </>
                 ) : (
                   <>
@@ -147,12 +137,12 @@ export default function ShopPage() {
           {/* VELVET CIRCLE MEMBERSHIP */}
           {/* TODO: Velvet Circle members area idea is pending Jen's decision. Do not build yet. */}
           <article className="product-card" id="velvet-circle">
-            <div className="product-media product-media--portrait">
+            <div className="product-media product-media--circle">
               <img
-                src="/assets/presskit-headshot-floral.jpg"
-                alt="Jen Walcott Archuleta"
-                width="1100"
-                height="1370"
+                src="/assets/velvet-circle-membership.jpg"
+                alt="The Velvet Circle, for readers of Beyond the Velvet Ropes"
+                width="1000"
+                height="667"
               />
             </div>
             <div className="product-body">
@@ -160,17 +150,20 @@ export default function ShopPage() {
               <h3>Velvet Circle Membership</h3>
               <p className="price">{SHOP.velvetCircleMembershipPrice}</p>
               <ul className="product-list">
-                <li>Private monthly letter</li>
-                <li>The private passcode journal</li>
+                <li>The Velvet Letter, and the passcode to open it</li>
                 <li>Up to 3 questions a month that Jen answers in writing</li>
-                <li>Live monthly Zoom</li>
+                <li>Live monthly Zooms begin once the circle reaches 13 members</li>
                 <li>
                   <a className="cancel-link" href={STRIPE_CUSTOMER_PORTAL_URL} target="_blank" rel="noopener">Cancel anytime</a>
                 </li>
               </ul>
               <p className="product-desc">
+                Velvet Circle membership includes the passcode to The Velvet Letter. The passcode is also printed in the back of the book, right under the QR code.
+              </p>
+              <p className="product-desc">
                 Live monthly Zooms begin once the Velvet Circle reaches 13 members. Until then, members can send me up to 3 questions each month, and I&rsquo;ll answer every one in writing.
               </p>
+              <p className="product-desc">I&rsquo;d love for you to join us.</p>
               <div className="product-cta">
                 {SHOP.velvetCircleMembership ? (
                   <>
@@ -181,6 +174,51 @@ export default function ShopPage() {
                   </>
                 ) : (
                   <span className="btn btn-disabled">Coming soon</span>
+                )}
+              </div>
+            </div>
+          </article>
+
+          {/* THE BACKSTAGE BUNDLE. No Stripe Payment Link exists, so checkout stays off.
+              #backstage-box stays so older links still land on this card. */}
+          <article className="product-card" id="backstage-bundle">
+            <span id="backstage-box" />
+            <div className="product-media product-media--portrait">
+              <img
+                src="/assets/backstage-bundle.jpg"
+                alt="The signed book, a handmade velvet bookmark, and black velvet bunny ears"
+                width="1268"
+                height="1600"
+              />
+            </div>
+            <div className="product-body">
+              <div className="eyebrow">A little bundle</div>
+              <h3>The Backstage Bundle</h3>
+              <p className="price">{SHOP.foundingBoxPrice}</p>
+              <p className="product-desc">
+                My signed copy of <em>Beyond the Velvet Ropes</em>, the velvet bookmark
+                I make by hand, and a pair of black velvet bunny ears.
+              </p>
+              <ul className="product-list">
+                <li>Jen’s signed copy of <em>Beyond the Velvet Ropes</em></li>
+                <li>Her velvet bookmark</li>
+                <li>Black velvet bunny ears</li>
+                <li>Your first month of the Velvet Circle free, then $9.99 a month.</li>
+              </ul>
+              <p className="fulfill">Ships when this drop is ready.</p>
+              <div className="product-cta">
+                {SHOP.foundingBox ? (
+                  <>
+                    <a href={SHOP.foundingBox} target="_blank" rel="noopener" className="btn btn-primary">
+                      Get the Backstage Bundle
+                    </a>
+                    <TrustLine />
+                  </>
+                ) : (
+                  <>
+                    <span className="btn btn-disabled">Coming soon</span>
+                    <a href="/#letter" className="btn btn-ghost">Notify me</a>
+                  </>
                 )}
               </div>
             </div>
@@ -204,7 +242,7 @@ export default function ShopPage() {
             <div className="body">
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
-              <p className="foot-meta">A little reminder to fly your own way. Shop on Etsy →</p>
+              <p className="foot-meta">A little reminder to fly your own way — shop on Etsy →</p>
             </div>
           </a>
           <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener">
@@ -216,7 +254,7 @@ export default function ShopPage() {
           </a>
         </div>
 
-        <div className="center" style={{ marginTop: '40px' }}>
+        <div className="center" style={{ marginTop: '28px' }}>
           <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost">New here? Read the first chapter free</a>
         </div>
       </section>

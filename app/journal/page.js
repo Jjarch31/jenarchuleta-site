@@ -2,12 +2,13 @@ import { Fragment } from 'react';
 import './journal.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import KitForm from '../components/KitForm';
 import { urlFor } from '../sanity/image';
 import { getAllPosts } from '../sanity/queries';
 import { POSTS as FALLBACK_POSTS } from './_posts';
 
-// Chip order. A category is shown only when it has at least one post.
+// Chip order: Podcast, Pup of the Podcast, then the Sponsors page link, then
+// the rest of this list. Cooking stays in the list so its chip comes back as
+// soon as a post uses that category. Empty categories stay off the row.
 const CATEGORY_ORDER = ['Podcast', 'Pup of the Podcast', 'Faith', 'Family', 'Cooking', 'Advocacy', 'Health & Wellness', 'Behind the Book', 'Journal'];
 
 export const metadata = {
@@ -15,6 +16,20 @@ export const metadata = {
   description:
     'Short, honest writing on faith, family, healing, and starting over, from Jen Archuleta.',
 };
+
+// Podcast cards often open with the show name as a stamp. Drop that
+// leading label on the card. A sentence that actually says the name stays.
+function cardExcerpt(excerpt) {
+  if (typeof excerpt !== 'string') return excerpt;
+  const text = excerpt.trim();
+  const match = text.match(/^[\s\S]{0,90}?Unfiltered with Jen Archuleta\b[\s:.\-–—,…]*/i);
+  if (!match) return text;
+  const prefix = match[0];
+  const promo = /^(?:[\s🎙🎙️🖤🥳❗️🚨🐾🔜📢]*)(?:coming|new episode|this month|welcome|season finale|live now|beyond the bombshell|in this powerful episode)/i;
+  if (!promo.test(prefix)) return text;
+  const rest = text.slice(prefix.length).trim();
+  return rest || text;
+}
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('en-US', {
@@ -42,10 +57,10 @@ export default async function JournalPage({ searchParams }) {
     if (p.category) m[p.category] = (m[p.category] || 0) + 1;
     return m;
   }, {});
-  // Empty categories stay off the row, except Pup of the Podcast, which
-  // stays up while posts are moved into it. Sponsors is a page link, not
-  // a category, and sits right after that chip. A direct empty-category
-  // URL still shows the empty line below.
+  // Pup of the Podcast stays up while posts are moved into it. Every other
+  // category, including Cooking, appears once counts[c] is at least one.
+  // Sponsors is a page link, not a category, and sits right after Pup.
+  // A direct empty-category URL still shows the empty line below.
   const presentCategories = [
     ...CATEGORY_ORDER.filter((c) => c === 'Pup of the Podcast' || counts[c]),
     ...Object.keys(counts).filter((c) => !CATEGORY_ORDER.includes(c)).sort(),
@@ -57,7 +72,7 @@ export default async function JournalPage({ searchParams }) {
 
       <section className="wrap journal-head">
         <div className="eyebrow">The Journal</div>
-        <h1>From the journal.</h1>
+        <h1>Notes from the road back to myself.</h1>
         <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>
           Short, honest writing on faith, family, healing, and starting over.
         </p>
@@ -98,7 +113,7 @@ export default async function JournalPage({ searchParams }) {
                   <div className="body">
                     <div className="k">{p.category} · {formatDate(p.publishedAt)}</div>
                     <h3>{p.title}</h3>
-                    <p>{p.excerpt}</p>
+                    <p>{cardExcerpt(p.excerpt)}</p>
                   </div>
                 </a>
               );
@@ -106,12 +121,6 @@ export default async function JournalPage({ searchParams }) {
           </div>
         )}
       </section>
-
-      <KitForm
-        heading="Get the journal in your inbox."
-        blurb="New essays, plus the first chapter of the book. No spam, ever."
-        cta="Subscribe"
-      />
 
       <SiteFooter />
     </>

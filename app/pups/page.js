@@ -11,18 +11,6 @@ export const metadata = {
     'Every episode of Unfiltered with Jen Archuleta features a rescue pup looking for a home. The Archuleta family donates toward adoption fees.',
 };
 
-function Paw() {
-  return (
-    <svg className="pup-paw" viewBox="0 0 64 64" aria-hidden="true">
-      <ellipse cx="18" cy="26" rx="6" ry="8" fill="currentColor" />
-      <ellipse cx="30" cy="18" rx="6" ry="8" fill="currentColor" />
-      <ellipse cx="42" cy="18" rx="6" ry="8" fill="currentColor" />
-      <ellipse cx="52" cy="28" rx="5.5" ry="7.5" fill="currentColor" />
-      <ellipse cx="34" cy="42" rx="14" ry="12" fill="currentColor" />
-    </svg>
-  );
-}
-
 async function heroUrls(slugs) {
   if (!slugs.length) return {};
   try {
@@ -40,6 +28,37 @@ async function heroUrls(slugs) {
   } catch {
     return {};
   }
+}
+
+function PupCard({ pup, photo }) {
+  return (
+    <article className="pup-card">
+      <div className="pup-media">
+        <img src={photo} alt={pup.alt || pup.name} />
+        {pup.adopted ? <span className="pup-badge">Adopted</span> : null}
+      </div>
+      <div className="pup-body">
+        <h2>{pup.name}</h2>
+        {pup.breedAge ? <p className="pup-breed">{pup.breedAge}</p> : null}
+        {pup.rescue ? (
+          <p className="pup-rescue">
+            <span className="pup-k">Rescue </span>
+            {pup.rescueHref ? (
+              <a href={pup.rescueHref} target="_blank" rel="noopener noreferrer">{pup.rescue}</a>
+            ) : pup.rescue}
+          </p>
+        ) : null}
+        {pup.guest ? (
+          <p className="pup-guest"><span className="pup-k">With </span>{pup.guest}</p>
+        ) : null}
+        {pup.note ? <p className="pup-note">{pup.note}</p> : null}
+        {pup.watch ? (
+          <a className="pup-more" href={pup.watch} target="_blank" rel="noopener noreferrer">Watch the episode</a>
+        ) : null}
+        {pup.post ? <a className="pup-more" href={`/journal/${pup.post}`}>Read more</a> : null}
+      </div>
+    </article>
+  );
 }
 
 export default async function PupsPage() {
@@ -62,32 +81,18 @@ export default async function PupsPage() {
       <section className="wrap" style={{ paddingTop: 0 }}>
         <div className="pups-grid">
           {pups.map((pup) => {
-            const photo = pup.imageSlug ? photos[pup.imageSlug] : null;
-            return (
-              <article className="pup-card" key={pup.date}>
-                <div className="pup-media">
-                  {photo ? (
-                    <img src={photo} alt={pup.name} />
-                  ) : (
-                    <Paw />
-                  )}
-                  {pup.adopted ? <span className="pup-badge">Adopted</span> : null}
-                </div>
-                <div className="pup-body">
-                  <h2>{pup.name}</h2>
-                  {pup.breedAge ? <p className="pup-breed">{pup.breedAge}</p> : null}
-                  {pup.rescue ? (
-                    <p className="pup-rescue"><span className="pup-k">Rescue </span>{pup.rescue}</p>
-                  ) : null}
-                  {pup.guest ? (
-                    <p className="pup-guest"><span className="pup-k">With </span>{pup.guest}</p>
-                  ) : null}
-                  <a className="pup-more" href={`/journal/${pup.post}`}>Read more</a>
-                </div>
-              </article>
-            );
+            const photo = pup.src || (pup.imageSlug ? photos[pup.imageSlug] : null);
+            if (!photo) return null;
+            return <PupCard key={pup.name} pup={pup} photo={photo} />;
           })}
         </div>
+        <p className="foot-meta center" style={{ marginTop: '28px' }}>
+          <a href="/podcast">The podcast</a>
+          {' · '}
+          <a href="/sponsors">Sponsors</a>
+          {' · '}
+          <a href="/about#faith">The dogs at home</a>
+        </p>
       </section>
 
       <SiteFooter />

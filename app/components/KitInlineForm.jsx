@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
  * Kit (ConvertKit) inline form. Kit's index.js injects the form relative to
  * its own <script> tag, so we mount a container and append the script into it.
  */
-export default function KitInlineForm({ uid }) {
+export default function KitInlineForm({ uid, submitLabel }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -17,7 +17,17 @@ export default function KitInlineForm({ uid }) {
     s.dataset.uid = uid;
     el.appendChild(s);
     el.dataset.loaded = '1';
-  }, [uid]);
+
+    if (!submitLabel) return undefined;
+    const apply = () => {
+      el.querySelectorAll('button.formkit-submit span').forEach((span) => {
+        if (span.textContent !== submitLabel) span.textContent = submitLabel;
+      });
+    };
+    const obs = new MutationObserver(apply);
+    obs.observe(el, { childList: true, subtree: true, characterData: true });
+    return () => obs.disconnect();
+  }, [uid, submitLabel]);
 
   return (
     <>
