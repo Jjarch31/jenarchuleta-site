@@ -204,7 +204,13 @@ const OCT26 = [
   { src: '/assets/gallery-oct26/tortoise.jpg', alt: 'A tortoise with greens', width: 665, height: 940 },
 ];
 
-const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26];
+// After every earlier slide. Place captions, same style as Costa Rica.
+const PLACES = [
+  { src: '/assets/gallery-places/ozarks-canoe.jpg', alt: 'Ozarks', caption: 'Ozarks', width: 940, height: 1140 },
+  { src: '/assets/gallery-places/muskoka-boat.jpg', alt: 'Muskoka, Canada', caption: 'Muskoka, Canada', width: 842, height: 1075 },
+];
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES];
 
 // Slides 19 and 27 of the 59-photo order (before the Hollywood set was
 // added). Those two stay fully visible: native img, no max-height crop.
