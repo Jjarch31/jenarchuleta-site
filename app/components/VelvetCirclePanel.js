@@ -45,9 +45,10 @@ export default function VelvetCirclePanel() {
             {PERKS.map((perk) => <li key={perk}>{perk}</li>)}
           </ul>
           <p className="vc-announce-box">
-            <a href="/shop#backstage-bundle">
-              Want the full experience? The Backstage Bundle has my signed book, my velvet bookmark, and black velvet bunny ears.
-            </a>
+            Want the full experience? The Backstage Bundle is coming soon. It has my signed book, my velvet bookmark, and black velvet bunny ears.{' '}
+            <a href="/shop#backstage-bundle">See the bundle</a>
+            {' · '}
+            <a href="/#letter">Notify me</a>
           </p>
           {join ? (
             <a className="btn btn-primary" href={join} target="_blank" rel="noopener noreferrer">

@@ -215,7 +215,10 @@ export default function ShopPage() {
                     <TrustLine />
                   </>
                 ) : (
-                  <span className="btn btn-disabled">Coming soon</span>
+                  <>
+                    <span className="btn btn-disabled">Coming soon</span>
+                    <a href="/#letter" className="btn btn-ghost">Notify me</a>
+                  </>
                 )}
               </div>
             </div>

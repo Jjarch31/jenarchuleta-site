@@ -1,3 +1,4 @@
+import './journal/journal.css';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
 import KitInlineForm from './components/KitInlineForm';
@@ -5,6 +6,8 @@ import PhotoGallery from './components/PhotoGallery';
 import VelvetCirclePanel from './components/VelvetCirclePanel';
 import { KIT_FORM_UID, SOCIALS, SHOP, PODCAST } from './components/site-data';
 import { QUOTE_FORGIVE, QUOTE_RESCUE, QUOTE_STORY } from './quotes/quotes-data';
+import { urlFor } from './sanity/image';
+import { getAllPosts } from './sanity/queries';
 
 function HomeQuote({ quote, more = false, id }) {
   return (
@@ -24,7 +27,36 @@ function HomeQuote({ quote, more = false, id }) {
   );
 }
 
-export default function Home() {
+function formatDate(iso) {
+  if (!iso) return '';
+  return new Date(iso).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+function cardExcerpt(excerpt) {
+  if (typeof excerpt !== 'string') return '';
+  const text = excerpt.replace(/\s+/g, ' ').trim();
+  if (text.length <= 140) return text;
+  return `${text.slice(0, 140).replace(/\s+\S*$/, '')}…`;
+}
+
+function heroUrl(img) {
+  if (!img) return null;
+  if (typeof img === 'string') return img;
+  try {
+    return urlFor(img).width(800).height(533).fit('crop').url();
+  } catch {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const live = await getAllPosts().catch(() => []);
+  const featured = (Array.isArray(live) ? live : []).filter((post) => post?.slug).slice(0, 3);
+
   return (
     <>
       <SiteNav />
@@ -173,6 +205,25 @@ export default function Home() {
       <section id="journal" className="wrap">
         <div className="center"><h2>From the journal.</h2>
           <p className="lead" style={{ maxWidth: '56ch', marginInline: 'auto' }}>Short, honest writing on faith, family, healing, and starting over.</p></div>
+        {featured.length > 0 ? (
+          <div className="feed">
+            {featured.map((post) => {
+              const img = heroUrl(post.heroImage);
+              const excerpt = cardExcerpt(post.excerpt);
+              const meta = [post.category, formatDate(post.publishedAt)].filter(Boolean).join(' · ');
+              return (
+                <a key={post.slug} className="post-card" href={`/journal/${post.slug}`}>
+                  {img ? <img src={img} alt="" /> : null}
+                  <div className="body">
+                    {meta ? <div className="k">{meta}</div> : null}
+                    <h3>{post.title}</h3>
+                    {excerpt ? <p>{excerpt}</p> : null}
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        ) : null}
         <div className="center" style={{ marginTop: '28px' }}><a href="/journal" className="btn btn-ghost">Read the journal</a></div>
       </section>
 

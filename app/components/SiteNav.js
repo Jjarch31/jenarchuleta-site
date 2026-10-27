@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 
-// Light-register site nav used on the homepage, /podcast and /journal.
-// (The book page keeps its own minimal dark nav.)
-// Desktop: inline links. Mobile (<=760px): hamburger toggles a dropdown.
+// Site nav, including the book page.
+// Desktop: inline links. Narrow screens: hamburger toggles a dropdown.
 export default function SiteNav() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);

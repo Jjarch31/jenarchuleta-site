@@ -1,5 +1,6 @@
 import './book.css';
-import { PODCAST } from '../components/site-data';
+import SiteNav from '../components/SiteNav';
+import { PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -31,16 +32,7 @@ export default function BookPage() {
   return (
     <div className="dark book-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }} />
-      <nav className="nav">
-        <div className="nav-inner">
-          <a href="/" className="brand">Jen Archuleta</a>
-          <div className="nav-links">
-            <a href="/">Home</a>
-            <a href="/podcast">Podcast</a>
-            <a href="/quotes">Quotes</a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* HERO (dark register, echoes the cover) */}
       <section className="hero-section dark" style={{ background: 'var(--bg)' }}>
@@ -52,6 +44,9 @@ export default function BookPage() {
             <p className="sub">My Story of Perseverance, Hope, and Love</p>
             <p style={{ color: 'var(--text)' }}>Here’s what really happened. From the outside, it looked like a dream. It wasn’t the whole story. But the real story lives in the moments no one saw. This is my real story.</p>
             <div className="buy-row">
+              {SHOP.signedBook ? (
+                <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">Buy a signed copy</a>
+              ) : null}
               <a href="https://books.by/beyond-the-velvet-ropes" target="_blank" rel="noopener" className="btn btn-primary">Get the Paperback</a>
               <a href="https://www.amazon.com/dp/B0H6YZWDT3" target="_blank" rel="noopener" className="btn btn-ghost">Also on Amazon</a>
               <a href="https://www.barnesandnoble.com/w/beyond-the-velvet-ropes-jennifer-walcott-archuleta/1150495088?ean=9798182506885" target="_blank" rel="noopener" className="btn btn-ghost">Barnes &amp; Noble</a>

@@ -171,6 +171,8 @@ function rewriteText(text) {
     if (/https?:\/\/(?:www\.)?$/i.test(before) || /[\w.]$/.test(before)) return full;
     return `https://${host}`;
   });
+  next = next.replace(/\bFelling the Love\b/g, 'Feeling the Love');
+  next = next.replace(/\bShawn Patrick Flanery\b/g, 'Sean Patrick Flanery');
   return next;
 }
 
