@@ -23,8 +23,8 @@ export default function VelvetCirclePanel() {
         />
         <div className="vc-announce-frame">
           <img
-            src="/assets/velvet-circle-bookclub.jpg"
-            alt="Friends together, some wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
+            src="/assets/velvet-circle-group.jpg"
+            alt="A younger group together, three of them wearing black bunny ears, holding copies of Beyond the Velvet Ropes"
             width="1152"
             height="864"
           />
