@@ -11,12 +11,15 @@ export const metadata = {
     'Press, interviews, speaking, and events. Email Jen Walcott Archuleta.',
 };
 
-const FOLLOW = [
-  { label: 'Instagram', href: 'https://instagram.com/jenniferwalcott' },
-  { label: 'X', href: 'https://x.com/Jenniferwalcott' },
-  { label: 'Facebook', href: 'https://facebook.com/therealjenniferwalcott' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jennifer-archuleta-633805115' },
+const SOCIAL_BUTTONS = [
+  { label: 'Instagram', href: SOCIALS.instagram },
+  { label: 'X', href: SOCIALS.x },
   { label: 'TikTok', href: SOCIALS.tiktok },
+  { label: 'Facebook', href: SOCIALS.facebook },
+];
+
+const FOLLOW = [
+  { label: 'LinkedIn', href: SOCIALS.linkedin },
   { label: 'Podcast on Buzzsprout', href: PODCAST.buzzsprout },
   { label: 'Podcast on YouTube', href: PODCAST.youtube },
 ];
@@ -56,6 +59,11 @@ export default function ContactPage() {
         </p>
 
         <h2>Follow along</h2>
+        <div className="contact-socials">
+          {SOCIAL_BUTTONS.map((item) => (
+            <a key={item.href} className="btn btn-ghost" href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+          ))}
+        </div>
         <ul className="contact-follow">
           {FOLLOW.map((item) => (
             <li key={item.href}>

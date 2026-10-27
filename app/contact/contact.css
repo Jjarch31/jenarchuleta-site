@@ -45,6 +45,13 @@
   text-underline-offset: 3px;
 }
 
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
 .contact-follow {
   list-style: none;
   padding: 0;
