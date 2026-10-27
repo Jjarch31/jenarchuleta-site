@@ -25,15 +25,31 @@ async function resolvePost(slug) {
   return live || getFallbackPost(slug);
 }
 
+function descriptionFromBody(body) {
+  if (!Array.isArray(body)) return '';
+  const text = body
+    .filter((block) => block && block._type === 'block' && Array.isArray(block.children))
+    .map((block) => block.children.map((child) => child?.text || '').join(''))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!text) return '';
+  const cut = text.slice(0, 180);
+  const end = cut.lastIndexOf('. ');
+  const sentence = end > 40 ? cut.slice(0, end + 1) : cut;
+  return sentence.length > 160 ? `${sentence.slice(0, 157).trim()}…` : sentence;
+}
+
 export async function generateMetadata({ params }) {
   const post = await resolvePost(params.slug);
   if (!post) return {};
+  const description = post.seoDescription || post.excerpt || descriptionFromBody(post.body);
   return {
     title: post.seoTitle || post.title,
-    description: post.seoDescription || post.excerpt,
+    description,
     openGraph: {
       title: post.seoTitle || post.title,
-      description: post.seoDescription || post.excerpt,
+      description,
       type: 'article',
       images: [OG_IMAGE],
     },
@@ -58,6 +74,14 @@ function heroUrl(img) {
 // Nothing in Sanity changes; text that's already a link is left alone.
 // ---------------------------------------------------------------------------
 const BARE_URL = /https?:\/\/[A-Za-z0-9\-._~:/?#[\]@!$&'*+,;=%]+/g;
+
+// These product sheets now 404. Leave the words of the recipe, drop the dead address.
+const RETIRED_URLS = new Set([
+  'http://www.phpure.com/nutrition_products/pdfs/Nutritional_Flakes.pdf',
+  'https://www.phpure.com/nutrition_products/pdfs/Nutritional_Flakes.pdf',
+  'http://www.udoerasmus.com/products/pdf_files/Probiotics.pdf',
+  'https://www.udoerasmus.com/products/pdf_files/Probiotics.pdf',
+]);
 
 function cleanUrl(raw) {
   let url = raw.replace(/[.,;:!?'*\]]+$/, ''); // trailing punctuation
@@ -92,9 +116,11 @@ function linkifyBody(blocks) {
         if (!/^https?:\/\/[^/?#]+\.[^/?#]+/.test(url)) continue; // not a real address
         const start = m.index;
         if (start > last) children.push({ ...span, _key: `${base}-t${n}`, text: text.slice(last, start) });
-        const key = `autolink-${si}-${n}`;
-        markDefs.push({ _type: 'link', _key: key, href: url });
-        children.push({ ...span, _key: `${base}-u${n}`, text: url, marks: [...marks, key] });
+        if (!RETIRED_URLS.has(url)) {
+          const key = `autolink-${si}-${n}`;
+          markDefs.push({ _type: 'link', _key: key, href: url });
+          children.push({ ...span, _key: `${base}-u${n}`, text: url, marks: [...marks, key] });
+        }
         last = start + url.length;
         n += 1;
       }
@@ -121,7 +147,7 @@ const ptComponents = {
   },
   marks: {
     link: ({ value, children }) =>
-      isExternal(value?.href || '') ? (
+      RETIRED_URLS.has(value?.href || '') ? null : isExternal(value?.href || '') ? (
         <a href={value.href} target="_blank" rel="noopener noreferrer">{children}</a>
       ) : (
         <a href={value?.href}>{children}</a>

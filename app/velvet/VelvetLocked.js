@@ -1,6 +1,5 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import VelvetCirclePanel from '../components/VelvetCirclePanel';
 import VelvetGate from './Gate';
 import './teaser.css';
 
@@ -54,7 +53,12 @@ export default function VelvetLocked({ entries }) {
           ))}
         </ul>
       </section>
-      <VelvetCirclePanel />
+      <section className="wrap" style={{ paddingTop: 8 }}>
+        <p className="lead">
+          The Velvet Circle is $9.99 a month for readers of the book.{' '}
+          <a href="/shop#velvet-circle">See the membership</a>.
+        </p>
+      </section>
       <SiteFooter />
     </div>
   );

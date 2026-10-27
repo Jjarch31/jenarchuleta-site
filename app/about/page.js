@@ -37,12 +37,12 @@ export default function AboutPage() {
             <span className="tim-chip">Just me</span>
           </div>
           <div className="tim-ctas">
-            <a href="#hi" className="btn btn-primary">Come say hi</a>
+            <a href="#hi" className="btn btn-primary">Stay in touch</a>
             <a href="#then" className="btn btn-ghost">My story →</a>
           </div>
         </div>
         <div>
-          <img className="tim-portrait" src="/assets/presskit-headshot-floral.jpg" alt="Jen Walcott Archuleta" width="1100" height="1370" />
+          <img className="tim-portrait" src="/assets/presskit-headshot-glam.jpg" alt="Jen Walcott Archuleta" width="1320" height="1259" />
           <p className="tim-cap">Caught mid-laugh, which is most of the time</p>
         </div>
       </section>
@@ -150,15 +150,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SAY HI */}
+      {/* NEWSLETTER. The form itself lives once, on the homepage. */}
       <section id="hi" className="tim-wrap tim-hi">
         <div className="tim-card is-solo">
           <div>
-            <p className="eyebrow">Say hi</p>
-            <h2 className="tim-h2" style={{ fontSize: '44px' }}>Come hang out. No agenda.</h2>
+            <p className="eyebrow">Stay in touch</p>
+            <h2 className="tim-h2" style={{ fontSize: '44px' }}>Stay in touch</h2>
             <p className="tim-lead" style={{ marginTop: '24px' }}>
-              A little note from me every now and then, whatever I’m actually thinking about that
-              week, the good and the hard. No pitch, I promise.
+              A note from me now and then, and the first chapter of the book. No pitch, I promise.
+            </p>
+            <p style={{ marginTop: '22px' }}>
+              <a href="/#letter" className="btn btn-primary">Get the first chapter</a>
             </p>
           </div>
         </div>

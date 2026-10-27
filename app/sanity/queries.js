@@ -28,17 +28,32 @@ const ALL_SLUGS = groq`*[_type == "post" && defined(slug.current)].slug.current`
 // the old 60s window). A publish showed up on the uncached /journal index, and
 // stayed invisible on the post page until a later refresh. Read the published
 // document on each request instead.
+// Recipes Jen wrote under another category. The wording stays hers.
+const CATEGORY_BY_SLUG = {
+  'homemade-formula': 'Cooking',
+};
+
+function withFixes(post) {
+  if (!post || typeof post !== 'object') return post;
+  const category = CATEGORY_BY_SLUG[post.slug] || post.category;
+  const title = typeof post.title === 'string'
+    ? post.title.replace(/\bFelling the Love\b/g, 'Feeling the Love')
+    : post.title;
+  return { ...post, category, title };
+}
+
 const FRESH = { cache: 'no-store' };
 
 // Slug list and Velvet letters can lag a minute. They are not the post body.
 const REVALIDATE = { next: { revalidate: 60 } };
 
 export async function getAllPosts() {
-  return client.fetch(ALL_POSTS, {}, FRESH);
+  const posts = await client.fetch(ALL_POSTS, {}, FRESH);
+  return Array.isArray(posts) ? posts.map(withFixes) : posts;
 }
 
 export async function getPostBySlug(slug) {
-  return client.fetch(ONE_POST, { slug }, FRESH);
+  return withFixes(await client.fetch(ONE_POST, { slug }, FRESH));
 }
 
 export async function getAllSlugs() {

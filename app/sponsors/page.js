@@ -4,49 +4,70 @@ import { BOOKING_EMAIL } from '../components/site-data';
 import './sponsors.css';
 
 export const metadata = {
-  title: 'Sponsors',
+  title: 'Sponsors and partners',
   description:
-    'Past sponsors of Unfiltered with Jen Archuleta.',
+    'Sponsors and partners of Unfiltered with Jen Archuleta.',
 };
 
+// Jen's official list, this order. A link is included only after the
+// destination loaded a real page (a store, a company site, a practice).
+// Instagram, Etsy, and anything that 404s, parks, or will not load stays off.
 const SPONSORS = [
   {
     name: 'Sunsets & Bonfires',
     links: [
-      { label: 'sunsetsandbonfires.com', href: 'https://sunsetsandbonfires.com' },
-      { label: 'Instagram @sunsetsbonfires', href: 'https://instagram.com/sunsetsbonfires' },
+      { label: 'sunsetsandbonfires.com', href: 'https://www.sunsetsandbonfires.com/' },
+    ],
+  },
+  {
+    name: 'PhotosofJenniferWalcott (An Autographs Company)',
+  },
+  {
+    name: 'KJ Classic Creations',
+  },
+  {
+    name: 'Ring My Belle',
+    links: [
+      { label: 'ringmybelle.com', href: 'https://ringmybelle.com' },
+    ],
+  },
+  {
+    name: 'Coursen Security Group',
+    links: [
+      { label: 'coursensecuritygroup.com', href: 'https://www.coursensecuritygroup.com/' },
     ],
   },
   {
     name: 'Thrive Media',
-    note: 'Also produced the podcast.',
   },
   {
-    name: 'KJ Classic Creations',
+    name: 'Ask Eloise / Dr. Eloise Nelson',
     links: [
-      { label: 'kjclassiccreations.etsy.com', href: 'https://kjclassiccreations.etsy.com' },
-      { label: 'Instagram @kjclassiccreations', href: 'https://instagram.com/kjclassiccreations' },
+      { label: 'askeloise.com', href: 'https://www.askeloise.com/' },
     ],
   },
   {
-    name: 'Ring My Belle: Beauty, Delivered',
+    name: 'Optimize Scottsdale',
     links: [
-      { label: 'ringmybelle.com', href: 'https://ringmybelle.com' },
-      { label: 'Instagram @ringmybelleco', href: 'https://instagram.com/ringmybelleco' },
+      { label: 'optimizescottsdale.com', href: 'https://optimizescottsdale.com/' },
     ],
-  },
-  {
-    name: 'Ask Eloise',
-    person: 'Dr. Eloise Nelson',
-    note: 'Holistic nutrition.',
   },
   {
     name: 'MTJ Electric',
+    links: [
+      { label: 'mtjelectric.com', href: 'https://mtjelectric.com/' },
+    ],
   },
   {
-    name: 'Shred Mill Speed',
+    name: "Lil' DUDE Wipes",
     links: [
-      { label: 'Instagram @shredmillspeed', href: 'https://instagram.com/shredmillspeed' },
+      { label: 'dudewipes.com', href: 'https://dudewipes.com/' },
+    ],
+  },
+  {
+    name: 'SHREDmill',
+    links: [
+      { label: 'shredmill.com', href: 'https://www.shredmill.com/' },
     ],
   },
 ];
@@ -59,9 +80,9 @@ export default function SponsorsPage() {
 
       <section id="main-content" className="wrap sponsors-head">
         <div className="eyebrow">The Podcast</div>
-        <h1>Sponsors</h1>
+        <h1>Sponsors and partners</h1>
         <p className="lead">
-          Thank you to the sponsors who have supported Unfiltered with Jen Archuleta.
+          Thank you to the sponsors and partners who have supported Unfiltered with Jen Archuleta.
         </p>
         <ul className="sponsor-list">
           {SPONSORS.map((sponsor) => (

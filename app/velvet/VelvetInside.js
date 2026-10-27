@@ -1,6 +1,5 @@
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
-import VelvetCirclePanel from '../components/VelvetCirclePanel';
 import { urlFor } from '../sanity/image';
 
 function formatLetterDate(iso) {
@@ -66,7 +65,6 @@ const PHOTOS = [
 export default function VelvetInside({ letters = [] }) {
   return (
     <>
-      <VelvetCirclePanel />
       <div className="dark velvet-page">
         <nav className="nav">
           <div className="nav-inner">
@@ -198,6 +196,13 @@ export default function VelvetInside({ letters = [] }) {
               </a>
             </div>
           </div>
+        </section>
+
+        <section className="wrap text-wrap center">
+          <p>
+            The Velvet Circle is $9.99 a month.{' '}
+            <a href="/shop#velvet-circle">See the membership</a>.
+          </p>
         </section>
 
         <footer>

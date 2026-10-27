@@ -160,7 +160,6 @@ const GALLERY_NEW = [
 // repo because nothing else referenced them.
 const PICKS = [
   { src: '/assets/gallery-picks/123.jpg', alt: 'Jen Walcott Archuleta in a black blazer', width: 1320, height: 1320 },
-  { src: '/assets/gallery-picks/124.jpg', alt: 'Jen Walcott Archuleta with friends', width: 1320, height: 1293 },
   { src: '/assets/gallery-picks/129.jpg', alt: 'Jen Walcott Archuleta', width: 1200, height: 1500 },
   { src: '/assets/gallery-picks/131.jpg', alt: 'Jen Walcott Archuleta', width: 234, height: 292 },
   { src: '/assets/gallery-picks/132.jpg', alt: 'Jen Walcott Archuleta with friends on stage', width: 1200, height: 1500 },

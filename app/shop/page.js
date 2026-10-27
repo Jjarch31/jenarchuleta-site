@@ -6,7 +6,7 @@ import './shop.css';
 export const metadata = {
   title: 'Shop',
   description:
-    'Signed copies of Beyond the Velvet Ropes, The Backstage Bundle, the handmade Signature Velvet Bookmark, the Be the Bumblebee tee, and a way to give back through The Forever Angels.',
+    'Signed copies of Beyond the Velvet Ropes, The Backstage Bundle, the handmade Signature Velvet Bookmark, and the Be the Bumblebee tee.',
   openGraph: { images: [OG_IMAGE] },
   twitter: { card: 'summary_large_image', images: [OG_IMAGE.url] },
 };
@@ -45,7 +45,7 @@ export default function ShopPage() {
           <h2>A few things worth sharing.</h2>
           <p className="lead" style={{ maxWidth: '58ch', marginInline: 'auto' }}>
             A signed copy of the book, The Backstage Bundle, a keepsake I make by hand,
-            a tee with a message I love, and a rescue close to my heart.
+            and a tee with a message I love.
           </p>
         </div>
 
@@ -240,13 +240,6 @@ export default function ShopPage() {
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
               <p className="foot-meta">A little reminder to fly your own way. Shop on Etsy →</p>
-            </div>
-          </a>
-          <a className="mini" href={SHOP.foreverAngels} target="_blank" rel="noopener">
-            <div className="body">
-              <div className="k">Give back</div>
-              <h4>The Forever Angels</h4>
-              <p className="foot-meta">The rescue closest to my heart. Every bit helps →</p>
             </div>
           </a>
         </div>
