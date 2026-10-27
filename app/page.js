@@ -247,9 +247,17 @@ export default async function Home() {
           <h2>Get the First Chapter Free</h2>
           <p className="lead">Read how it started. I’ll email you the first chapter. If it sounds like your story too, I wrote it for you.</p>
           <KitInlineForm uid={KIT_FORM_UID} />
-          <div className="signup-banner">
-            <img src="/assets/jen-headshot-bw.jpg" alt="Jen Walcott Archuleta, black and white portrait" width="1320" height="1946" />
-          </div>
+        </div>
+        <div className="signup-banner">
+          <picture>
+            <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg" />
+            <img
+              src="/assets/first-chapter-banner.jpg"
+              alt="Jen as a girl, beside her black-and-white glamour portrait, with gold stars"
+              width="2048"
+              height="633"
+            />
+          </picture>
         </div>
       </section>
 

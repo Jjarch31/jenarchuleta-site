@@ -170,16 +170,13 @@ section { padding-block: var(--section-y); }
 .capture { background: var(--surface-alt); text-align:center; border-block: var(--hairline); }
 .capture h2 { font-size: var(--text-display-l); }
 .signup-banner {
-  max-width: 420px;
-  margin: 36px auto 0;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding-inline: var(--gutter);
 }
 .signup-banner img {
   width: 100%;
   height: auto;
-  max-height: 460px;
-  object-fit: contain;
-  object-position: center top;
-  background: #1a1614;
   display: block;
 }
 
