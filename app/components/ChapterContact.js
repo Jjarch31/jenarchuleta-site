@@ -25,7 +25,7 @@ export default function ChapterContact() {
       </div>
       <div className="signup-banner">
         <picture>
-          <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg?v=7" />
+          <source media="(max-width: 700px)" srcSet="/assets/first-chapter-banner-mobile.jpg?v=8" />
           <img
             src="/assets/first-chapter-banner.jpg?v=7"
             alt="Jen as a girl, beside her black-and-white glamour portrait"
