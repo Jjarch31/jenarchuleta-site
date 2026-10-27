@@ -1,6 +1,6 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { OG_IMAGE, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
+import { KIT_FREE_CHAPTER_URL, OG_IMAGE, SHOP, STRIPE_CUSTOMER_PORTAL_URL } from '../components/site-data';
 import './shop.css';
 
 export const metadata = {
@@ -53,7 +53,7 @@ export default function ShopPage() {
           {/* SIGNED BOOK */}
           <article className="product-card">
             <div className="product-media product-media--contain">
-              {SHOP.signedBookSoldOut && <span className="badge">Sold out, restocking soon</span>}
+              {SHOP.signedBookSoldOut && <span className="badge">Sold out — restocking soon</span>}
               <img
                 src="/assets/book-cover.jpg"
                 alt="Beyond the Velvet Ropes book cover"
@@ -61,10 +61,10 @@ export default function ShopPage() {
             </div>
             <div className="product-body">
               <div className="eyebrow">The Book · Signed &amp; Personalized</div>
-              <h3>Signed copy, <em>Beyond the Velvet Ropes</em></h3>
+              <h3>Signed copy — <em>Beyond the Velvet Ropes</em></h3>
               <p className="price">{SHOP.signedBookPrice}</p>
               <p className="product-desc">
-                Signed by me, with a note to whoever you’d like, you, or someone
+                Signed by me, with a note to whoever you’d like — you, or someone
                 who needs to hear that their story isn’t over.
               </p>
               <p className="fulfill">
@@ -72,7 +72,7 @@ export default function ShopPage() {
               </p>
               <div className="product-cta">
                 {SHOP.signedBookSoldOut ? (
-                  <span className="btn btn-disabled">Sold out, restocking soon</span>
+                  <span className="btn btn-disabled">Sold out — restocking soon</span>
                 ) : SHOP.signedBook ? (
                   <>
                     <a href={SHOP.signedBook} target="_blank" rel="noopener" className="btn btn-primary">
@@ -122,7 +122,7 @@ export default function ShopPage() {
                     <a href={SHOP.bookmarkWaitlist} target="_blank" rel="noopener" className="btn btn-primary">
                       Join the first-drop list
                     </a>
-                    <p className="fulfill">Small handmade batches. The list hears first.</p>
+                    <p className="fulfill">Small handmade batches — the list hears first.</p>
                   </>
                 ) : (
                   <>
@@ -241,11 +241,14 @@ export default function ShopPage() {
             <div className="body">
               <div className="k">Apparel · On Etsy</div>
               <h4>Be the Bumblebee tee</h4>
-              <p className="foot-meta">A little reminder to fly your own way. Shop on Etsy →</p>
+              <p className="foot-meta">A little reminder to fly your own way — shop on Etsy →</p>
             </div>
           </a>
         </div>
 
+        <div className="center" style={{ marginTop: '28px' }}>
+          <a href={KIT_FREE_CHAPTER_URL} className="btn btn-ghost">New here? Read the first chapter free</a>
+        </div>
       </section>
 
       <SiteFooter />
