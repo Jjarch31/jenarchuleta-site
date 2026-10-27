@@ -27,7 +27,7 @@ export default function VelvetCirclePanel() {
       <div className="vc-announce-copy">
         <img
           className="vc-watermark"
-          src="/assets/velvet-circle-mark.png"
+          src="/assets/velvet-circle-watermark.png"
           alt=""
           width="436"
           height="436"
