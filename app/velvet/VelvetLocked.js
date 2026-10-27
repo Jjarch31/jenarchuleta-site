@@ -1,6 +1,5 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import VelvetCirclePanel from '../components/VelvetCirclePanel';
 import VelvetGate from './Gate';
 import './teaser.css';
 
@@ -30,7 +29,6 @@ export default function VelvetLocked() {
           <VelvetGate />
         </div>
       </section>
-      <VelvetCirclePanel />
       <SiteFooter />
     </div>
   );

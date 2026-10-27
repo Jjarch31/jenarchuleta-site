@@ -1,6 +1,22 @@
+import { existsSync } from 'fs';
+import path from 'path';
 import { PortableText } from '@portabletext/react';
 import './velvet.css';
 import { urlFor } from '../sanity/image';
+
+// Private letter photo. Drop the file at public/assets/velvet-letter.jpg.
+// Until that file is here, this renders nothing. No placeholder.
+const LETTER_PHOTO = '/assets/velvet-letter.jpg';
+
+function VelvetLetterPhoto() {
+  const file = path.join(process.cwd(), 'public', LETTER_PHOTO.slice(1));
+  if (!existsSync(file)) return null;
+  return (
+    <figure className="letter-photo">
+      <img src={LETTER_PHOTO} alt="Jen Walcott Archuleta" />
+    </figure>
+  );
+}
 
 function formatLetterDate(iso) {
   if (!iso) return '';
@@ -78,6 +94,7 @@ export default function VelvetInside({ letters = [] }) {
         </nav>
 
         <section className="wrap text-wrap letter">
+          <VelvetLetterPhoto />
           <div className="eyebrow">You made it</div>
           <h1>You’re in.</h1>
           <p>
