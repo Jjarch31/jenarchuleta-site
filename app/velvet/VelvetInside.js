@@ -18,6 +18,15 @@ function VelvetLetterPhoto() {
   );
 }
 
+function letterImageUrl(image) {
+  if (!image?.asset) return '';
+  try {
+    return urlFor(image).width(1400).fit('max').auto('format').url() || '';
+  } catch {
+    return '';
+  }
+}
+
 function formatLetterDate(iso) {
   if (!iso) return '';
   return new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -125,14 +134,14 @@ export default function VelvetInside({ letters = [] }) {
                   <article className="vletter" key={letter._id}>
                     <div className="vletter-date">{formatLetterDate(letter.publishedAt)}</div>
                     <h3 className="vletter-title">{softenDashes(letter.title)}</h3>
-                    {letter.image && (
+                    {letterImageUrl(letter.image) ? (
                       <img
                         className="vletter-img"
-                        src={urlFor(letter.image).width(1200).url()}
-                        alt={letter.image.alt || ''}
+                        src={letterImageUrl(letter.image)}
+                        alt={letter.image?.alt || ''}
                         loading="lazy"
                       />
-                    )}
+                    ) : null}
                     {letter.body && (
                       <div className="vletter-body">
                         <PortableText value={softenBody(letter.body)} components={letterComponents} />
