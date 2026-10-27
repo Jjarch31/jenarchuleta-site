@@ -1,7 +1,6 @@
 import './about.css';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
-import { SOCIALS } from '../components/site-data';
 
 export const metadata = {
   title: 'About',
@@ -105,7 +104,7 @@ export default function AboutPage() {
               The people who are mine.
             </h2>
             <p className="tim-lead" style={{ margin: 0 }}>
-              My husband, my kids, my family, a few friends, the handful of people I’d do anything for, and a houseful of animals
+              My husband, my kids, my family, friends, the handful of people I’d do anything for, and a houseful of animals
               I love like family. I love hard and I show up. That hasn’t changed.
             </p>
           </div>
@@ -149,7 +148,7 @@ export default function AboutPage() {
             I co-founded The Forever Angels, for the families, veterans, hospice patients, and animals who get passed over.
           </p>
           <div style={{ marginTop: '14px' }}>
-            <a href={SOCIALS.foreverAngels} className="btn btn-primary">The Forever Angels</a>
+            <a href="/forever-angels" className="btn btn-primary">What I support</a>
           </div>
         </div>
       </section>

@@ -216,7 +216,16 @@ const CHILDHOOD = [
   { src: '/assets/gallery-childhood/jen-childhood.jpg', alt: 'Jen as a girl', width: 600, height: 600 },
 ];
 
-const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES, ...CHILDHOOD];
+// Oct 27: current slides 68, 69, and 73 leave the slideshow. Files stay in the repo.
+// 68 gallery-picks/141.jpg, 69 gallery-picks/142.jpg, 73 gallery-picks/155.jpg (Jen in Bangkok).
+const HIDDEN_SLIDE_SRC = new Set([
+  '/assets/gallery-picks/141.jpg',
+  '/assets/gallery-picks/142.jpg',
+  '/assets/gallery-picks/155.jpg',
+]);
+
+const SLIDES = [...HOLLYWOOD, ...PORTRAITS, ...FAMILY, ...GALLERY_NEW, ...PICKS, ...OCT26, ...PLACES, ...CHILDHOOD]
+  .filter((slide) => !HIDDEN_SLIDE_SRC.has(slide.src));
 
 // Slides 19 and 27 of the 59-photo order (before the Hollywood set was
 // added). Those two stay fully visible: native img, no max-height crop.

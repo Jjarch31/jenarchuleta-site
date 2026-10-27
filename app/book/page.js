@@ -1,6 +1,5 @@
 import './book.css';
-import ChapterContact from '../components/ChapterContact';
-import { BOOK_BUY_URL, BOOK_STORES, PODCAST, SHOP } from '../components/site-data';
+import { BOOK_BUY_URL, BOOK_STORES, KIT_FREE_CHAPTER_URL, PODCAST, SHOP } from '../components/site-data';
 
 export const metadata = {
   // Matches the retail listings exactly (Amazon / B&N / Spotify use the full name).
@@ -61,6 +60,7 @@ export default function BookPage() {
                 <a key={store.href} href={store.href} target="_blank" rel="noopener" className="btn btn-ghost">{store.label}</a>
               ))}
             </div>
+            <p><a href={KIT_FREE_CHAPTER_URL} style={{ color: 'var(--accent)' }}>Or read the first chapter free →</a></p>
           </div>
         </div>
       </section>
@@ -85,15 +85,14 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* FILM NOTE */}
-      <section className="who center">
+      <section className="capture">
         <div className="wrap text-wrap">
-          <h2>A film adaptation is in development.</h2>
-          <p className="lead" style={{ maxWidth: '54ch', marginInline: 'auto' }}>The story is being adapted for the screen. More to come.</p>
+          <div className="eyebrow">Start reading</div>
+          <h2>Read the first chapter — free.</h2>
+          <p className="lead">I’ll send the opening pages straight to your inbox. If it sounds like something you’ve lived too, you’re exactly who I wrote it for.</p>
+          <a href={KIT_FREE_CHAPTER_URL} className="btn btn-primary">Send me the first chapter</a>
         </div>
       </section>
-
-      <ChapterContact />
 
       <footer>
         <div className="wrap">

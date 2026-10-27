@@ -1,5 +1,6 @@
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import ChapterContact from '../components/ChapterContact';
 import { BOOKING_EMAIL, PODCAST, SOCIALS } from '../components/site-data';
 import './contact.css';
 
@@ -62,6 +63,8 @@ export default function ContactPage() {
           ))}
         </ul>
       </section>
+
+      <ChapterContact />
 
       <SiteFooter />
     </div>

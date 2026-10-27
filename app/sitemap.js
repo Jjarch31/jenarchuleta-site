@@ -24,6 +24,7 @@ export default async function sitemap() {
     { url: `${BASE}/shop`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/media`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/contact`, changeFrequency: 'yearly', priority: 0.5 },
+    { url: `${BASE}/forever-angels`, changeFrequency: 'monthly', priority: 0.6 },
   ];
   return [...pages, ...posts];
 }

@@ -44,6 +44,7 @@ export default function SiteNav() {
           <a href="/media#speaking" onClick={close}>Speaking</a>
           <a href="/shop" onClick={close}>Shop</a>
           <a href="/contact" onClick={close}>Contact</a>
+          <a href="/#letter" className="btn btn-primary btn-sm" onClick={close}>Free Chapter</a>
         </div>
       </div>
     </nav>
